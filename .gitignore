@@ -1,0 +1,65 @@
+# openLCA / ACV
+# Les bases openLCA peuvent être volumineuses, propriétaires ou soumises à
+# licence : elles restent locales et ne doivent jamais entrer dans ce dépôt public.
+*.zolca
+*.olca
+*.zolca*
+data/**/*.zip
+data/**/*.7z
+data/**/*.tar
+data/**/*.gz
+
+# Données non versionnées (seuls les marqueurs d'arborescence sont conservés)
+data/test/*
+!data/test/.gitkeep
+
+data/methods/*
+!data/methods/.gitkeep
+
+data/production/*
+!data/production/.gitkeep
+
+# ecoinvent
+# ecoinvent est soumis à licence : aucune base ni archive associée ne doit être commitée.
+**/ecoinvent/
+**/ecoinvent/**
+**/*ecoinvent*.zolca
+**/*ecoinvent*.zip
+
+# Secrets / configuration locale
+.env
+.env.*
+!.env.example
+*.local.json
+*.local.yaml
+*.local.yml
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Journaux et fichiers temporaires
+*.log
+tmp/
+temp/
+.cache/

@@ -44,9 +44,26 @@ La démarche est volontairement itérative : **inventaire métier → mapping ec
 |---|---|---|---|---|---|
 | P1 | Panneau de particules brut | `particleboard production, uncoated, average glue mix` | RER / RoW | Dataset candidat identifié | Comparer avec la production québécoise |
 | P1 | MDF | `medium density fibreboard production, uncoated` | RER / RoW | Dataset candidat identifié | |
-| P2 | HDF | — | — | À rechercher | |
-| P1 | Contreplaqué | — | — | À rechercher | |
+| P2 | HDF | — | — | À rechercher - premiere passe pas trouvé | |
+| P1 | Contreplaqué | `plywood production, plywood` | CA-QC | À rechercher | Dataset QC identifié — à valider |
 | P2 | OSB | — | — | À rechercher | |
+
+
+
+### 1.1 Exemple du contreplaqué :
+
+Pour notre tableau, je noterais donc pour le contreplaqué :
+
+Élément	ecoinvent 3.11	Évaluation
+Production du contreplaqué	CA-QC	✓ Québec
+Électricité	CA-QC	✓ Québec
+Bois feuillu	RoW	⚠ À régionaliser/vérifier
+Quantité de bois	2,206 m³/m³ plywood	⚠ Valeur à valider pour le Québec
+Source de cette quantité	échantillon/littérature Allemagne	⚠ Faible représentativité géographique
+Résine UF	à vérifier	?
+Chaleur	à vérifier	?
+Statut	Très bon candidat — validation en cours
+
 
 ## 2. Panneaux revêtus et surfaces
 

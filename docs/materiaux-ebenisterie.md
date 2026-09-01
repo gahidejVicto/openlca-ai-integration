@@ -3,19 +3,20 @@
 > **Statut : V0 — inventaire métier initial**  
 > Ce document est volontairement évolutif. Il sert d'abord à définir les matériaux à couvrir, avant de sélectionner, analyser puis éventuellement régionaliser les datasets ACV.
 
-## Objectif
+## Rôle de cet index
 
-Ce document constitue l'inventaire progressif des matériaux utilisés en ébénisterie et dans la fabrication de meubles au Québec.
+Ce document répond à la question : **« Quels matériaux d'ébénisterie devons-nous couvrir ? »** Il constitue l'inventaire métier progressif des matériaux utilisés en ébénisterie et dans la fabrication de meubles au Québec.
+
+Il conserve les familles, priorités, statuts et datasets candidats déjà identifiés, sans détailler tous leurs Inputs/Outputs. Les analyses dataset par dataset sont regroupées dans les [fiches d'inventaire détaillé](inventaire/README.md). Elles distinguent le lieu du procédé, la géographie des intrants, les paramètres quantitatifs, l'origine des valeurs et les données québécoises restant à valider.
 
 Il sert de point de départ pour :
 
 - identifier les matériaux prioritaires ;
 - associer chaque matériau à un ou plusieurs datasets ecoinvent 3.11 candidats ;
-- évaluer la représentativité des datasets existants ;
-- identifier les données devant être régionalisées pour le Québec ;
-- documenter progressivement les futurs datasets québécois.
+- orienter les analyses détaillées et la recherche de données québécoises ;
+- suivre les décisions sans anticiper l'implémentation dans openLCA.
 
-La démarche est volontairement itérative : **inventaire métier → mapping ecoinvent → analyse des écarts Québec → régionalisation**.
+La démarche est volontairement itérative : **inventaire métier → identification des datasets ecoinvent candidats → inventaire détaillé du dataset → identification des maillons faibles → recherche et validation de données québécoises → décision de conserver, adapter ou reconstruire → future implémentation dans openLCA**.
 
 ## Légende
 
@@ -45,24 +46,9 @@ La démarche est volontairement itérative : **inventaire métier → mapping ec
 | P1 | Panneau de particules brut | `particleboard production, uncoated, average glue mix` | RER / RoW | Dataset candidat identifié | Comparer avec la production québécoise |
 | P1 | MDF | `medium density fibreboard production, uncoated` | RER / RoW | Dataset candidat identifié | |
 | P2 | HDF | — | — | À rechercher - premiere passe pas trouvé | |
-| P1 | Contreplaqué | `plywood production, plywood` | CA-QC | À rechercher | Dataset QC identifié — à valider |
+| P1 | Contreplaqué | `plywood production, plywood` | CA-QC | À analyser | [Fiche pilote CA-QC](inventaire/panneaux/plywood-ca-qc.md) ; la géographie du procédé ne valide pas tous les intrants et paramètres |
 | P2 | OSB | — | — | À rechercher | |
 
-
-
-### 1.1 Exemple du contreplaqué :
-
-Pour notre tableau, je noterais donc pour le contreplaqué :
-
-Élément	ecoinvent 3.11	Évaluation
-Production du contreplaqué	CA-QC	✓ Québec
-Électricité	CA-QC	✓ Québec
-Bois feuillu	RoW	⚠ À régionaliser/vérifier
-Quantité de bois	2,206 m³/m³ plywood	⚠ Valeur à valider pour le Québec
-Source de cette quantité	échantillon/littérature Allemagne	⚠ Faible représentativité géographique
-Résine UF	à vérifier	?
-Chaleur	à vérifier	?
-Statut	Très bon candidat — validation en cours
 
 
 ## 2. Panneaux revêtus et surfaces
@@ -153,18 +139,17 @@ Ces éléments sont volontairement séparés de la liste des matériaux. Ils rep
 
 # Méthode de travail
 
-Pour chaque matériau, suivre progressivement les étapes suivantes :
+Pour chaque matériau :
 
-1. **Définir le produit métier** réellement utilisé par l'industrie québécoise.
-2. **Identifier les datasets ecoinvent 3.11 candidats**, sans les modifier à ce stade.
-3. **Examiner les Inputs/Outputs** du procédé candidat.
-4. **Évaluer la représentativité technologique** : matière première, densité, colle, taux de matière recyclée, procédé, rendement, etc.
-5. **Évaluer la représentativité géographique** du dataset.
-6. **Identifier les paramètres sensibles** pour les résultats ACV.
-7. **Identifier les données québécoises disponibles** : énergie, transport, approvisionnement, déchets, technologies de production, etc.
-8. **Décider de la stratégie** : conserver le dataset, l'adapter ou le reconstruire.
-9. **Documenter les sources et hypothèses** utilisées.
-10. **Valider le dataset québécois** avant de le considérer comme référence.
+1. définir le produit métier utilisé par l'industrie québécoise ;
+2. identifier les datasets ecoinvent candidats, sans les modifier ;
+3. créer une fiche d'inventaire détaillé des Inputs/Outputs, paramètres, providers et hypothèses importants ;
+4. identifier précisément les maillons faibles, sans reconstruire automatiquement un dataset imparfait ;
+5. rechercher et valider les données québécoises nécessaires ;
+6. décider de conserver, adapter ou reconstruire ;
+7. implémenter ultérieurement dans openLCA, seulement lorsque l'analyse est suffisamment documentée.
+
+La [roadmap](roadmap.md) décrit les jalons V0 à V5 et le [template d'analyse](../research/templates/dataset-analysis.md) structure les futures fiches.
 
 ## Itérations prévues
 
@@ -172,11 +157,13 @@ Pour chaque matériau, suivre progressivement les étapes suivantes :
 |---|---|---|
 | **V0** | Inventaire métier | Liste initiale des matériaux réellement utilisés en ébénisterie |
 | **V1** | Mapping ecoinvent | Un ou plusieurs datasets candidats pour chaque matériau |
-| **V2** | Analyse des écarts Québec | Écarts technologiques, géographiques et énergétiques documentés |
-| **V3** | Régionalisation | Datasets québécois adaptés ou reconstruits lorsque nécessaire |
+| **V2** | Inventaire détaillé | Inputs/Outputs, paramètres, providers et hypothèses documentés |
+| **V3** | Analyse Québec | Éléments représentatifs et besoins de données ou de régionalisation identifiés |
+| **V4** | Implémentation | Datasets adaptés dans openLCA lorsque l'analyse le justifie |
+| **V5** | Validation | Dataset québécois comparé, vérifié et documenté |
 
 ---
 
 ## Principe de prudence
 
-La présence d'un nom de dataset dans ce document **ne signifie pas qu'il est validé**. À ce stade, les datasets indiqués sont des candidats de travail. Leur adéquation doit être vérifiée dans openLCA avant toute utilisation comme référence québécoise.
+La présence d'un nom ou d'une géographie `CA-QC` dans ce document **ne signifie pas que le dataset est validé**. Un procédé québécois peut encore dépendre d'intrants RoW, de valeurs européennes ou d'hypothèses technologiques non représentatives. Les datasets indiqués restent des candidats jusqu'à l'analyse et à la validation documentées.

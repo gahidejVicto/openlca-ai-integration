@@ -43,7 +43,13 @@ Ne sont pas encore implémentés :
 ## Documentation
 
 - [Roadmap](docs/roadmap.md)
+- [Référentiel métier des matériaux d'ébénisterie](docs/materiaux-ebenisterie.md)
+- [Fiches d'inventaire détaillé des datasets candidats](docs/inventaire/README.md)
+- [Méthode et template de régionalisation](research/README.md)
+- [Traçabilité des sources](docs/sources/README.md)
 - [Sécurité](docs/security.md)
 - [Architecture cible](docs/architecture.md)
 - [Gestion des données](docs/data-management.md)
 - [Checklist d'apprentissage openLCA](docs/openlca-learning.md)
+
+Git contient les références, analyses et décisions consolidées. Les bases locales openLCA, données ecoinvent sous licence, exports massifs et données propriétaires restent hors du dépôt ; aucune régionalisation n'est implémentée avant une analyse documentée.

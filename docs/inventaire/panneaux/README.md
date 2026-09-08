@@ -37,6 +37,31 @@ Comparaison Québec ↔ Ecoinvent
 > [!IMPORTANT]
 > L'objectif n'est pas de remplir immédiatement toutes les cases. Une valeur explicitement marquée `non trouvée`, `à demander` ou `non accessible` est une information utile au diagnostic.
 
+## Règle de correspondance avec Ecoinvent
+
+Une fiche fabricant documente uniquement les informations publiques
+disponibles sur un fabricant, une usine et un produit. Elle doit distinguer
+clairement les données propres au **produit**, à l'**usine**, à
+l'**entreprise** et au **groupe**.
+
+> [!IMPORTANT]
+> **Une fiche fabricant n'est pas une preuve de correspondance avec
+> Ecoinvent.** Elle ne doit entraîner ni la sélection automatique d'un proxy,
+> ni celle d'un dataset Ecoinvent.
+
+La fiche sert à préparer la comparaison et à identifier les données
+manquantes. La correspondance finale ne peut être établie qu'après :
+
+1. la caractérisation du dataset Ecoinvent ;
+2. la définition du produit physique qu'il représente ;
+3. la sélection d'un produit fabricant comparable ;
+4. la comparaison des paramètres significatifs ;
+5. la validation humaine.
+
+En cas d'incertitude, inscrire explicitement :
+
+> **Correspondance Ecoinvent non établie à ce stade.**
+
 ## 👀 Lire confortablement les fichiers Markdown dans Visual Studio Code
 
 Visual Studio Code possède un lecteur Markdown intégré. Il n'est pas nécessaire d'installer un logiciel supplémentaire.

@@ -134,6 +134,9 @@ de cheminée ou de procédé par m³.
 
 ## 11. Comparaison provisoire avec Ecoinvent
 
+**Correspondance Ecoinvent non établie à ce stade.** Cette section prépare
+uniquement une comparaison qui devra faire l'objet d'une validation humaine.
+
 | Paramètre | Ecoinvent CA-QC | Columbia — connaissance actuelle | Diagnostic |
 |---|---|---|---|
 | Produit | Contreplaqué générique | Usine de contreplaqué de bois dur; produit précis absent | ⚠️ Produit pilote requis |

@@ -40,7 +40,7 @@
 
 | Information | Donnée publique | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Matière générale | Uniboard indique utiliser des fibres/résidus de bois récupérés dans ses panneaux | Groupe/produit | ✅ Déclaration générale | S6 |
+| Matière générale | Uniboard indique utiliser des fibres/résidus de bois récupérés dans ses panneaux | Groupe/produit | ✅ Déclaration générale | S5 |
 | Composition du produit de Val-d'Or | Non trouvée | Produit/usine | ❓ À demander | — |
 | Origine géographique du bois | Non trouvée pour le produit pilote | Produit/usine | ❓ À demander | — |
 | Proportions par catégorie de fibre | Non trouvées | Produit | ❓ À demander | — |
@@ -50,7 +50,7 @@
 
 | Information | Donnée publique | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Options à faibles émissions | Uniboard publie des certifications et grades conformes aux exigences d'émissions | Produit/gamme | ✅ Général | S7 |
+| Options à faibles émissions | Uniboard publie des certifications et grades conformes aux exigences d'émissions | Produit/gamme | ✅ Général | S6 |
 | Résine du produit pilote | Non trouvée | Produit | ❓ À demander | — |
 | Quantité de résine, cire et additifs | Non trouvée | Produit/usine | ❓ À demander | — |
 | Fournisseurs/origines | Non trouvés | Produit | ❓ À demander si pertinent | — |
@@ -59,7 +59,7 @@
 
 | Information | Valeur Val-d'Or | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Modernisation de la ligne | Uniboard a annoncé un investissement dans une nouvelle ligne de panneaux de particules à Val-d'Or | Usine | ✅ Projet annoncé | S4, S8 |
+| Modernisation de la ligne | Uniboard a annoncé un investissement dans une nouvelle ligne de panneaux de particules à Val-d'Or | Usine | ✅ Projet annoncé | S4, S7 |
 | État opérationnel et technologie exacte en 2026 | Non confirmé par une source retenue suffisamment précise | Usine | ❓ À confirmer | — |
 | Électricité et production correspondante | Non trouvées | Usine | ❓ À demander | — |
 | Chaleur, biomasse et combustibles | Non trouvés quantitativement | Usine | ❓ À demander | — |
@@ -80,7 +80,7 @@
 
 | Information | Valeur | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Émissions du panneau | Certifications de conformité disponibles selon produit | Produit | ✅ Général | S7 |
+| Émissions du panneau | Certifications de conformité disponibles selon produit | Produit | ✅ Général | S6 |
 | Valeur du produit pilote | Non sélectionnée | Produit | ❓ À demander | — |
 | Formaldéhyde, NOx, PM2,5, COVNM, SO₂ directs | Non trouvés par m³ de produit | Usine | ❓ À demander | — |
 
@@ -108,11 +108,14 @@ Une certification d'émission du **produit** ne remplace pas l'inventaire des
 | Document | Résultat | Niveau | Statut | Source |
 |---|---|---|---|---|
 | Fiches techniques panneaux de particules | Centre de ressources Uniboard disponible | Produit/groupe | ✅ | S2 |
-| CARB/TSCA et certifications | Documentation publique disponible | Produit/groupe | ✅; produit/site à confirmer | S7 |
-| DEP/EPD | Des DEP nord-américaines sectorielles peuvent inclure des fabricants; aucune DEP spécifique Val-d'Or retenue | Secteur/usine | ⚠️ Ne pas attribuer à l'usine | S9 |
+| CARB/TSCA et certifications | Documentation publique disponible | Produit/groupe | ✅; produit/site à confirmer | S6 |
+| DEP/EPD | Des DEP nord-américaines sectorielles peuvent inclure des fabricants; aucune DEP spécifique Val-d'Or retenue | Secteur/usine | ⚠️ Ne pas attribuer à l'usine | S8 |
 | ACV/inventaire propre à Val-d'Or | Non trouvé | Usine | ❓ À demander | — |
 
 ## 11. Comparaison provisoire avec Ecoinvent
+
+**Correspondance Ecoinvent non établie à ce stade.** Cette section prépare
+uniquement une comparaison qui devra faire l'objet d'une validation humaine.
 
 | Paramètre | Référence Ecoinvent | Uniboard — connaissance actuelle | Diagnostic |
 |---|---|---|---|
@@ -162,25 +165,25 @@ Une certification d'émission du **produit** ne remplace pas l'inventaire des
 - URL : https://www.uniboard.com/fr/entreprise/nos-installations/val-dor
 - Consultation : 2026-09-08.
 
-### S6 — Uniboard — Développement durable
+### S5 — Uniboard — Développement durable
 - Organisme : Uniboard Canada.
 - Contenu utilisé : déclarations générales relatives aux fibres récupérées.
 - URL : https://www.uniboard.com/fr/developpement-durable
 - Consultation : 2026-09-08.
 
-### S7 — Uniboard — Certifications
+### S6 — Uniboard — Certifications
 - Organisme : Uniboard Canada.
 - Contenu utilisé : certifications de produits et conformité des émissions.
 - URL : https://www.uniboard.com/fr/ressources/certifications
 - Consultation : 2026-09-08.
 
-### S8 — Gouvernement du Québec — Investissement à l'usine de Val-d'Or
+### S7 — Gouvernement du Québec — Investissement à l'usine de Val-d'Or
 - Organisme : Gouvernement du Québec.
 - Contenu utilisé : annonce indépendante du projet de ligne de panneaux de particules.
 - URL : https://www.quebec.ca/nouvelles/actualites/details/uniboard-investit-dans-son-usine-de-val-dor-43404
 - Consultation : 2026-09-08.
 
-### S9 — UL Environment — Industry-wide EPD: Particleboard
+### S8 — UL Environment — Industry-wide EPD: Particleboard
 - Organisme : UL Environment / Composite Panel Association.
 - Contenu utilisé : existence d'une DEP sectorielle nord-américaine; aucune attribution faite à Val-d'Or.
 - URL : https://www.compositepanel.org/resources/environmental-product-declarations/

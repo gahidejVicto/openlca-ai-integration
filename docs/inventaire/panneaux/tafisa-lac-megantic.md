@@ -120,6 +120,9 @@ l'usine provient de biomasse.
 
 ## 11. Comparaison provisoire avec Ecoinvent
 
+**Correspondance Ecoinvent non établie à ce stade.** Cette section prépare
+uniquement une comparaison qui devra faire l'objet d'une validation humaine.
+
 | Paramètre | Référence Ecoinvent | Tafisa — connaissance actuelle | Diagnostic |
 |---|---|---|---|
 | Dataset panneau de particules | **Non documenté dans le dépôt** | Panneaux bruts Tafipan fabriqués à Lac-Mégantic | ⚠️ Ne pas inventer de correspondance |

@@ -1,88 +1,91 @@
 # Bois massif feuillu — Commonwealth Plywood — division sciage
 
 > [!IMPORTANT]
-> **Statut de la fiche : lot 2 — recherche documentaire publique.**
-> « Non trouvé dans les sources publiques consultées » décrit une lacune documentaire, et non une absence d’impact. Recherche arrêtée aux familles prévues au lot 2.
+> **Statut de la fiche : lot 2 — recherche documentaire publique enrichie après QC humain.**
+> « Non trouvé dans les sources publiques consultées » décrit une lacune documentaire, et non une absence d’impact.
 
 ## 1. Identification
 
 | Champ | Information | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Matériau | Bois d’œuvre, notamment feuillu | Produit | ✅ Catégorie confirmée | S1 |
-| Usine | Plusieurs installations de sciage sont présentées; site pilote québécois non sélectionné | Usine | ⚠️ À sélectionner | S1 |
-| Entreprise | Commonwealth Plywood Company Ltd. — division Lumber | Entreprise | ✅ Confirmé | S1 |
+| Matériau | Bois d’œuvre feuillu et pin | Produit | ✅ Confirmé | S1, S3 |
+| Division | Husky Lumber / division sciage de Commonwealth Plywood | Entreprise | ✅ Confirmé | S1, S3 |
+| Usine québécoise explicitement identifiée | Low, Québec | Usine | ✅ Un directeur général d’usine est identifié publiquement | S3 |
+| Entreprise | Commonwealth Plywood Company Ltd. | Entreprise | ✅ Confirmé | S1 |
 | Groupe | Commonwealth Plywood | Groupe | ✅ Confirmé | S1, S2 |
-| Rôle | Exploitant de scieries et producteur de bois d’œuvre; activités forestières intégrées décrites au niveau du groupe | Entreprise/groupe | ✅ Confirmé | S1, S2 |
-
+| Rôle | Fabricant de bois d’œuvre; opérations forestières intégrées décrites au niveau du groupe | Entreprise/groupe | ✅ Confirmé | S1, S2, S3 |
 
 ## 2. Qualification du produit
 
 | Paramètre | Information | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Produit pilote | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À sélectionner | — |
-| Sciage | Activité confirmée au niveau de la division | Entreprise | ✅ | S1 |
-| Séchage, rabotage et classement | Non trouvé dans les sources publiques consultées pour un couple produit–usine précis | Usine/produit | ❓ À demander | — |
-| Distribution | Commonwealth commercialise des produits; ce rôle ne remplace pas la preuve de sciage fournie par S1 | Entreprise | ✅ Distinction conservée | S1 |
+| Produit pilote | Non sélectionné | Produit/usine | ❓ À sélectionner | — |
+| Sciage | Activité de fabrication de bois d’œuvre confirmée | Entreprise/division | ✅ | S1, S3 |
+| Séchage | Séchage en séchoir avec traitement thermique documenté | Entreprise/division | ✅ | S3 |
+| Rabotage / classement détaillé par site | Non trouvé dans les sources publiques consultées au niveau requis | Usine/produit | ❓ À demander | — |
+| Production annuelle totale annoncée | 38 000 000 pieds-planche | Entreprise/division | ✅ Confirmé | S3 |
 
 ## 3. Matières premières principales
 
 | Information | Donnée publique | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Essences | Offre de bois feuillus et résineux décrite au niveau de la division; essence pilote à choisir | Produit/entreprise | ✅ Général seulement | S1 |
-| Provenance, certification et chaîne de contrôle | Activités forestières et engagements environnementaux décrits au niveau groupe; attribution au produit à confirmer | Groupe | ⚠️ | S2 |
-| Grumes entrantes et rendement | Non trouvé dans les sources publiques consultées | Usine/produit | ❓ À demander | — |
+| Approvisionnement général | Volumes de matière première provenant du Québec et de l’Ontario | Groupe/division | ✅ Général | S3 |
+| Essences | Pin blanc/rouge, bouleau jaune/blanc, érable dur, chêne rouge; autres essences offertes | Produit/entreprise | ✅ Confirmé | S3 |
+| Production annuelle par essence | Pin 10 M fbm; bouleau 10 M; érable dur 15 M; chêne rouge 3 M | Entreprise/division | ✅ Confirmé | S3 |
+| Provenance précise du produit pilote | Non trouvée | Produit/usine | ❓ À demander | — |
+| Grumes entrantes et rendement matière | Non trouvés | Usine/produit | ❓ À demander | — |
+
+> [!WARNING]
+> La provenance Québec/Ontario est une déclaration générale de la division. Elle ne doit pas être attribuée automatiquement à une essence, un lot ou une usine sans validation.
 
 ## 4. Résines / adhésifs
 
 | Information | Donnée publique | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Adhésif dans le bois massif brut | Non applicable au produit brut si aucun collage n’est inclus; périmètre à confirmer | Produit | ⚠️ Conditionnel | — |
+| Adhésif dans le bois massif brut | Aucun adhésif n’est supposé si le produit pilote est du bois d’œuvre non collé | Produit | ⚠️ Périmètre à confirmer | — |
 | Produits de traitement ou de marquage | Non trouvé dans les sources publiques consultées | Usine/produit | ❓ À demander | — |
 
 ## 5. Énergie
 
-| Information | Valeur | Niveau | Statut |
-|---|---|---|---|
-| Électricité, chaleur et combustibles | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Production annuelle correspondante | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Intensités normalisées | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À calculer après collecte |
+| Information | Valeur | Niveau | Statut | Source |
+|---|---|---|---|---|
+| Séchage / traitement thermique | Activité documentée, sans consommation énergétique publiée | Entreprise/division | ✅ Procédé; ❓ énergie | S3 |
+| Électricité, chaleur et combustibles | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander | — |
+| Intensités normalisées | Non trouvé dans les sources publiques consultées | Produit/usine | 🧮 À calculer après collecte | — |
 
 ## 6. Eau
 
 | Information | Valeur | Niveau | Statut |
 |---|---|---|---|
-| Prélèvement, procédé et refroidissement | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Recyclage, rejet et intensité par unité de produit | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
+| Eau de procédé / consommation | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
 
 ## 7. Émissions atmosphériques
 
 | Information | Valeur | Niveau | Statut |
 |---|---|---|---|
-| Émissions directes de procédé et de combustion | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Méthodes de mesure et intensités rapportées à la production | Non trouvé dans les sources publiques consultées | Usine/produit | ❓ À demander |
+| Émissions directes de sciage, séchage et combustion | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
 
 ## 8. Déchets, résidus et eaux usées
 
 | Information | Valeur | Niveau | Statut |
 |---|---|---|---|
-| Quantités et destinations des résidus | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Déchets dangereux et non dangereux | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
-| Eaux usées et traitement | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
+| Sciures, copeaux, écorces et destinations | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
+| Eaux usées | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
 
 ## 9. Approvisionnement et transport
 
-| Information | Valeur | Niveau | Statut |
-|---|---|---|---|
-| Origine géographique des matières du produit pilote | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À demander |
-| Distances, modes et charges de transport | Non trouvé dans les sources publiques consultées | Usine | ❓ À demander |
+| Information | Valeur | Niveau | Statut | Source |
+|---|---|---|---|---|
+| Région d’approvisionnement générale | Québec et Ontario | Groupe/division | ✅ Général | S3 |
+| Distances et modes du produit pilote | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À demander | — |
 
 ## 10. Certifications et documents environnementaux
 
 | Document | Résultat | Niveau | Statut | Source |
 |---|---|---|---|---|
-| Documentation forestière et environnementale | Page groupe trouvée | Groupe | ✅, applicabilité au produit à confirmer | S2 |
-| DEP/EPD, ACV ou fiche environnementale produit–usine | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À demander | — |
-| Données environnementales propres à l’usine et au produit pilote | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À demander | — |
+| Documentation forestière et environnementale | Page groupe trouvée | Groupe | ✅; applicabilité produit à confirmer | S2 |
+| Documentation division sciage | Production, essences, approvisionnement et séchage documentés | Entreprise/division | ✅ | S3 |
+| DEP/EPD ou ACV propre à un bois et une usine québécoise | Non trouvé dans les sources publiques consultées | Produit/usine | ❓ À demander | — |
 
 ## 11. Comparaison provisoire avec Ecoinvent
 
@@ -90,40 +93,46 @@
 
 | Élément | Constat provisoire |
 |---|---|
-| Produit et périmètre industriel | La division est bien présentée comme producteur de bois d’œuvre; les opérations et sites applicables à un produit pilote québécois restent à délimiter. |
-| Données quantitatives comparables | Non trouvé dans les sources publiques consultées |
-| Conclusion | Comparaison impossible sans dataset caractérisé et données fabricant cohérentes |
+| Produit et périmètre industriel | Commonwealth constitue un cas de fabricant de bois d’œuvre avec sciage et séchage documentés; Low est un site québécois explicitement identifié. |
+| Données de production | Volumes annuels par grandes essences disponibles au niveau de la division. |
+| Manques | Rendement, énergie, humidité, coproduits, transport et allocation par produit/usine restent à obtenir. |
+| Conclusion | Bon candidat pour confronter un dataset de bois feuillu séché, après sélection d’une essence et d’un site précis. |
 
 ## 12. Données prioritaires à demander au fabricant
 
-1. Sélectionner une scierie québécoise et un bois feuillu représentatif, puis confirmer les opérations incluses : sciage, séchage, rabotage et classement.
-2. Fournir essence, provenance, certification, qualité, humidité, dimensions et rendements matière.
-3. Fournir production et bilans d’énergie, eau, émissions, résidus, traitements et transports sur le même périmètre.
-4. Transmettre toute DEP/ACV et préciser l’allocation aux coproduits.
+1. Sélectionner une essence feuillue représentative réellement produite dans une scierie québécoise précise, possiblement Low si pertinent.
+2. Confirmer les opérations du site : sciage, séchage, classement, rabotage et traitement thermique.
+3. Fournir grumes entrantes, humidité, rendement, coproduits, production et allocation par produit.
+4. Fournir énergie, eau, émissions, résidus et transports sur le même périmètre.
 
 ## 13. Sources documentaires
 
 ### S1 — Lumber division
-- Organisme : Commonwealth Plywood Company Ltd..
+- Organisme : Commonwealth Plywood Company Ltd.
 - URL : https://www.commonwealthplywood.info/en/divisions-2/lumber
 - Consultation : 2026-09-08.
-- Information effectivement extraite : existence de la division, activité de scierie, catégories générales de bois d’œuvre et installations.
+- Information effectivement extraite : activité de fabrication de bois d’œuvre et catégories générales.
 
 ### S2 — Forestry and Environment
-- Organisme : Commonwealth Plywood Company Ltd..
+- Organisme : Commonwealth Plywood Company Ltd.
 - URL : https://www.commonwealthplywood.info/en/forestry-environment
 - Consultation : 2026-09-08.
-- Information effectivement extraite : contexte des activités forestières et engagements environnementaux du groupe.
+- Information effectivement extraite : contexte forestier et engagements environnementaux du groupe.
 
+### S3 — Sciage / Husky Lumber Division
+- Organisme : Commonwealth Plywood Company Ltd.
+- URL : https://www.commonwealthplywood.info/divisions/sciage
+- Consultation : 2026-09-08.
+- Information effectivement extraite : approvisionnement Québec/Ontario, essences, volumes annuels totalisant 38 M pieds-planche, séchage avec traitement thermique et identification de l’usine de Low, Québec.
 
 ## 14. Journal de travail
 
 | Date | Action | Résultat |
 |---|---|---|
-| 2026-09-08 | Recherche documentaire ciblée | Niveaux produit, usine, entreprise et groupe séparés; lacunes consignées |
+| 2026-09-08 | Recherche documentaire Codex | Structure initiale et premières sources |
+| 2026-09-08 | QC humain et recherche Web ciblée | Ajout des volumes, essences, approvisionnement général, séchage et site de Low |
 | 2026-09-08 | Vérification de la règle Ecoinvent | Aucun dataset ni proxy sélectionné |
-| 2026-09-08 | Tentative de vérification Web dans l’environnement | Accès Web indisponible (outil : erreur 401; accès direct : proxy 403); URLs conservées pour contrôle humain |
 
 ---
 
-**Recherche publique initiale du lot 2 terminée; validation humaine requise.**
+**Recherche publique du lot 2 enrichie; validation humaine requise avant toute correspondance Ecoinvent.**

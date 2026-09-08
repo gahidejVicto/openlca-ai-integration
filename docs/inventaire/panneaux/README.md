@@ -13,6 +13,10 @@ Il sert à comparer une référence Ecoinvent avec les données de fabricants qu
 | [`columbia-forest-products-saint-casimir.md`](columbia-forest-products-saint-casimir.md) | Lot 1 — fiche Columbia Forest Products, contreplaqué, usine de Saint-Casimir. |
 | [`tafisa-lac-megantic.md`](tafisa-lac-megantic.md) | Lot 1 — fiche Tafisa, panneau de particules, usine de Lac-Mégantic. |
 | [`uniboard-val-dor.md`](uniboard-val-dor.md) | Lot 1 — fiche Uniboard, panneau de particules, usine de Val-d'Or. |
+| [`uniboard-mont-laurier.md`](uniboard-mont-laurier.md) | Lot 2 — MDF/HDF, Uniboard, usine de Mont-Laurier. |
+| [`arbec-osb-quebec.md`](arbec-osb-quebec.md) | Lot 2 — OSB, Arbec, usines de Shawinigan et Amos. |
+| [`west-fraser-osb-chambord.md`](west-fraser-osb-chambord.md) | Lot 2 — OSB, West Fraser, usine de Chambord. |
+| [`formica-saint-jean-sur-richelieu.md`](formica-saint-jean-sur-richelieu.md) | Lot 2 — HPL, Formica, installation de Saint-Jean-sur-Richelieu. |
 
 ## 🔄 Logique de travail
 

@@ -10,6 +10,9 @@ Il sert à comparer une référence Ecoinvent avec les données de fabricants qu
 |---|---|
 | [`ecoinvent.md`](ecoinvent.md) | Documente le dataset Ecoinvent utilisé comme référence et ses limites de représentativité. |
 | [`husky-plywood.md`](husky-plywood.md) | Fiche de collecte et de comparaison pour le fabricant québécois Husky Plywood. |
+| [`columbia-forest-products-saint-casimir.md`](columbia-forest-products-saint-casimir.md) | Lot 1 — fiche Columbia Forest Products, contreplaqué, usine de Saint-Casimir. |
+| [`tafisa-lac-megantic.md`](tafisa-lac-megantic.md) | Lot 1 — fiche Tafisa, panneau de particules, usine de Lac-Mégantic. |
+| [`uniboard-val-dor.md`](uniboard-val-dor.md) | Lot 1 — fiche Uniboard, panneau de particules, usine de Val-d'Or. |
 
 ## 🔄 Logique de travail
 

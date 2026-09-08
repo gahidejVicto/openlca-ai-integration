@@ -11,6 +11,11 @@ Une fiche correspond normalement à :
 
 Le [template réutilisable](../../research/templates/dataset-analysis.md) sert de point de départ. La première fiche pilote porte sur le [contreplaqué CA-QC](panneaux/plywood-ca-qc.md).
 
+## Répertoires de fiches fabricant
+
+- [Panneaux à base de bois et stratifiés](panneaux/README.md)
+- [Bois massif](bois/README.md)
+
 ## Catégories d'évaluation
 
 | Symbole | Catégorie | Usage |

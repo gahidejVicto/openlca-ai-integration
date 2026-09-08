@@ -10,6 +10,9 @@ Il sert à comparer une référence Ecoinvent avec les données de fabricants qu
 |---|---|
 | [`ecoinvent.md`](ecoinvent.md) | Documente le dataset Ecoinvent utilisé comme référence et ses limites de représentativité. |
 | [`husky-plywood.md`](husky-plywood.md) | Fiche de collecte et de comparaison pour le fabricant québécois Husky Plywood. |
+| [`columbia-forest-products-saint-casimir.md`](columbia-forest-products-saint-casimir.md) | Lot 1 — fiche Columbia Forest Products, contreplaqué, usine de Saint-Casimir. |
+| [`tafisa-lac-megantic.md`](tafisa-lac-megantic.md) | Lot 1 — fiche Tafisa, panneau de particules, usine de Lac-Mégantic. |
+| [`uniboard-val-dor.md`](uniboard-val-dor.md) | Lot 1 — fiche Uniboard, panneau de particules, usine de Val-d'Or. |
 
 ## 🔄 Logique de travail
 
@@ -33,6 +36,31 @@ Comparaison Québec ↔ Ecoinvent
 
 > [!IMPORTANT]
 > L'objectif n'est pas de remplir immédiatement toutes les cases. Une valeur explicitement marquée `non trouvée`, `à demander` ou `non accessible` est une information utile au diagnostic.
+
+## Règle de correspondance avec Ecoinvent
+
+Une fiche fabricant documente uniquement les informations publiques
+disponibles sur un fabricant, une usine et un produit. Elle doit distinguer
+clairement les données propres au **produit**, à l'**usine**, à
+l'**entreprise** et au **groupe**.
+
+> [!IMPORTANT]
+> **Une fiche fabricant n'est pas une preuve de correspondance avec
+> Ecoinvent.** Elle ne doit entraîner ni la sélection automatique d'un proxy,
+> ni celle d'un dataset Ecoinvent.
+
+La fiche sert à préparer la comparaison et à identifier les données
+manquantes. La correspondance finale ne peut être établie qu'après :
+
+1. la caractérisation du dataset Ecoinvent ;
+2. la définition du produit physique qu'il représente ;
+3. la sélection d'un produit fabricant comparable ;
+4. la comparaison des paramètres significatifs ;
+5. la validation humaine.
+
+En cas d'incertitude, inscrire explicitement :
+
+> **Correspondance Ecoinvent non établie à ce stade.**
 
 ## 👀 Lire confortablement les fichiers Markdown dans Visual Studio Code
 

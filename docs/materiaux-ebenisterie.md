@@ -56,7 +56,7 @@ Les candidats ecoinvent déjà identifiés sont conservés lorsqu'ils restent co
 | Priorité | Matériau / composant | Dataset ecoinvent candidat | Statut | Notes |
 |---|---|---|---|---|
 | P1 | Stratifié HPL | — | À rechercher | Revêtement utilisé notamment avec une colle contact |
-| P1 | Placage de bois naturel | — | À rechercher | Matériau utilisé pour le cas secondaire du placage en atelier et pour les chants en bois, selon le produit acheté |
+| P1 | Placage de bois naturel | — | À rechercher | Matériau utilisé pour le cas secondaire du placage en atelier |
 
 Le papier décoratif imprégné de mélamine n'est pas un matériau direct d'atelier. Les panneaux mélaminés/TFL sont achetés finis. Le stratifié compact pourra être ajouté en P2 si son usage réel et sa pertinence sont documentés.
 
@@ -101,16 +101,12 @@ Les adhésifs UF et MUF ne sont pas utilisés directement en atelier et ne figur
 
 | Priorité | Matériau / composant | Dataset ecoinvent candidat | Statut | Notes |
 |---|---|---|---|---|
-| P1 | Vernis / laque à base d'eau | — | À rechercher | |
-| P1 | Vernis / laque à base de solvant | — | À rechercher | |
-| P1 | Scellant à base d'eau | — | À rechercher | |
-| P1 | Scellant à base de solvant | — | À rechercher | |
-| P2 | Teinture à base d'eau | — | À rechercher | |
-| P2 | Teinture à base de solvant | — | À rechercher | |
-| P2 | Acétone auxiliaire | — | À rechercher | Nettoyage et décrassage |
-| P2 | Thinner auxiliaire | — | À rechercher | Dilution de produits à solvants ; composition à déterminer ultérieurement à partir du produit et de sa FDS |
+| P1 | Vernis / laque | — | À rechercher | Variantes : à base d'eau ou à base de solvant |
+| P1 | Scellant | — | À rechercher | Variantes : à base d'eau ou à base de solvant |
+| P2 | Teinture | — | À rechercher | Variantes : à base d'eau ou à base de solvant |
+| P2 | Solvants / diluants auxiliaires | — | À rechercher | Acétone pour nettoyage/décrassage ; thinner pour dilution des produits à solvants. Le thinner n'est pas une substance unique : composition à déterminer ultérieurement à partir du produit/FDS. |
 
-L'eau n'est pas un produit de finition séparé. Le thinner n'est pas une substance unique et ne devra pas être mappé avant confirmation de sa composition.
+L'eau n'est pas un produit de finition séparé.
 
 ## 7. Quincaillerie / composants fonctionnels
 
@@ -145,7 +141,7 @@ Ces flux et processus sont volontairement séparés des matériaux et composants
 
 | Priorité | Flux / processus | Dataset ecoinvent candidat | Statut | Notes |
 |---|---|---|---|---|
-| P1 | Électricité d'atelier | — | À rechercher | Représenter le contexte d'approvisionnement réel de l'atelier |
+| P1 | Électricité d'atelier | — | À rechercher | Vérifier et représenter le mix électrique québécois réellement applicable à l'atelier. |
 | P1 | Transport entrant des matériaux et composants | — | À rechercher | Définir les distances, charges et véhicules représentatifs |
 | P1 | Transport sortant du meuble fini | — | À rechercher | Définir les distances, charges et véhicules représentatifs |
 | P1 | Chutes de bois massif | — | À rechercher | Associer ultérieurement la quantité produite à la pratique réelle du fabricant |

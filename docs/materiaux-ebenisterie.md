@@ -25,7 +25,7 @@ en ébénisterie québécoise et les données disponibles dans Ecoinvent.
 | Statut | Signification |
 |---|---|
 | 🟢 **Utilisable** | Correspondance suffisante telle quelle ou avec une validation mineure. |
-| 🟡 **À valider** | Bon candidat Ecoinvent, mais une information importante reste à confirmer. |
+| 🟡 **À valider** | Candidat à valider ou représentativité encore à diagnostiquer. |
 | 🟠 **À adapter** | Dataset pertinent, mais sa géographie, sa composition ou sa technologie doit être adaptée au contexte québécois. |
 | 🟣 **À reconstruire** | Le produit métier n'existe pas directement dans Ecoinvent, mais une reconstruction à partir de plusieurs datasets ou procédés est plausible. |
 | 🔴 **Lacune majeure** | Les données disponibles sont insuffisantes pour construire actuellement un modèle défendable : produit, composition ou procédé essentiel manquant. |
@@ -156,13 +156,13 @@ Contreplaqué de bouleau russe, produit distinct dans la taxonomie métier, non 
 
 - **Produit / fonction :** Partielle — c'est un contreplaqué générique, pas du bouleau russe.
 - **Composition / matière :** Faible — sawlog/veneer log hardwood générique, aucune trace de l'essence bouleau russe.
-- **Technologie / procédé :** Faible — recette et émissions identiques à 100 % à la version européenne (comparaison exchange par exchange).
+- **Technologie / procédé :** Faible — les quantités technologiques centrales inspectées (bois, résine, énergie, eau) sont identiques ou se recomposent à la même somme entre CA-QC et RER, et les émissions directes de procédé inspectées sont elles aussi identiques.
 - **Géographie :** Trompeuse — la mention `Canada, Quebec` ne reflète pas une donnée primaire québécoise ; le dataset est décrit comme une copie du modèle européen basée sur un échantillon allemand.
 - **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 
-C'est un cas de **dataset CA-QC utilisant en réalité des données étrangères** combiné à une **essence générique** : la localisation `Canada, Quebec` sert uniquement au linking vers des marchés régionaux, tandis que la recette technologique (bois, résine, énergie, eau, émissions) est identique à la version allemande/européenne. Le produit ne correspond ni à l'essence ni à la technologie de fabrication du contreplaqué de bouleau russe recherché.
+C'est un cas de **dataset CA-QC utilisant en réalité des données étrangères** combiné à une **essence générique** : la localisation `Canada, Quebec` sert uniquement au linking vers des marchés régionaux, tandis que les quantités technologiques centrales inspectées (bois, résine, énergie, eau) sont identiques ou se recomposent à la même somme, et les émissions directes de procédé inspectées sont elles aussi identiques à celles de la version allemande/européenne. Le produit ne correspond ni à l'essence ni à la technologie de fabrication du contreplaqué de bouleau russe recherché.
 
 #### Données nécessaires
 
@@ -186,7 +186,7 @@ Panneau de particules mélaminé/TFL acheté fini par l'atelier ; la mélamine n
 
 #### Équivalent Ecoinvent identifié
 
-- **Produit fini :** absent — les recherches de process (`melamine faced particleboard`, `thermally fused laminate`, `decorative particleboard`, `laminated particleboard`, `coated particleboard`) et de flow n'ont retourné aucun panneau de particules revêtu fini.
+- **Produit fini :** aucun produit fini pertinent n'a été identifié par les recherches process (`melamine faced particleboard`, `thermally fused laminate`, `decorative particleboard`, `laminated particleboard`, `coated particleboard`) et flow disponibles ; l'absence est fortement indiquée par ces méthodes, sous réserve des limites de l'outil d'interrogation.
 - **Briques disponibles :** panneau de particules brut (voir fiche ci-dessus) + `coating service, melamine impregnated paper, double-sided`
 - **UUID (service de revêtement) :** `4bce9bba-0bf8-3f27-aaaf-ed89e3fd2a78`
 - **Location :** Europe (plusieurs usines)
@@ -202,7 +202,7 @@ Panneau de particules mélaminé/TFL acheté fini par l'atelier ; la mélamine n
 
 #### Lacune Ecoinvent
 
-Le produit fini n'existe pas dans Ecoinvent : c'est une absence de produit confirmée par recherche convergente de process et de flow. Le modèle proposé (substrat + service de revêtement) est une reconstruction plausible mais non validée : les émissions atmosphériques de la presse ne sont pas quantifiées, l'infrastructure de laminage n'est pas vérifiée, les pertes ne sont pas documentées, et une hypothèse d'épaisseur est nécessaire pour convertir le m³ du substrat en m² du revêtement. Le liant mélamine-formaldéhyde interne au panneau brut est un liant distinct de la mélamine du papier décor ; il ne faut pas les confondre.
+Aucun produit fini pertinent n'a été identifié par les recherches process et flow disponibles : l'absence est fortement indiquée par la convergence de ces deux méthodes, sous réserve des limites de l'outil d'interrogation. Le modèle proposé (substrat + service de revêtement) est une reconstruction plausible mais non validée : les émissions atmosphériques de la presse ne sont pas quantifiées, l'infrastructure de laminage n'est pas vérifiée, les pertes ne sont pas documentées, et une hypothèse d'épaisseur est nécessaire pour convertir le m³ du substrat en m² du revêtement. Le liant mélamine-formaldéhyde interne au panneau brut est un liant distinct de la mélamine du papier décor ; il ne faut pas les confondre.
 
 #### Données nécessaires
 
@@ -226,7 +226,7 @@ MDF mélaminé/TFL acheté fini par l'atelier ; la mélamine n'est pas appliqué
 
 #### Équivalent Ecoinvent identifié
 
-- **Produit fini :** absent — les recherches (`thermally fused laminate MDF`, `TFL MDF`, `melamine faced MDF`, `melamine coated MDF`, `decorative MDF`, `coated MDF`, `laminated MDF`) et la recherche par flow ne retournent qu'un MDF générique non revêtu.
+- **Produit fini :** aucun produit fini pertinent n'a été identifié par les recherches process (`thermally fused laminate MDF`, `TFL MDF`, `melamine faced MDF`, `melamine coated MDF`, `decorative MDF`, `coated MDF`, `laminated MDF`) et flow disponibles, qui ne retournent qu'un MDF générique non revêtu ; l'absence est fortement indiquée par ces méthodes, sous réserve des limites de l'outil d'interrogation.
 - **Briques disponibles :** MDF brut (voir fiche ci-dessus) + `coating service, melamine impregnated paper, double-sided`
 - **UUID (service de revêtement) :** `4bce9bba-0bf8-3f27-aaaf-ed89e3fd2a78`
 - **Location :** Europe
@@ -242,7 +242,7 @@ MDF mélaminé/TFL acheté fini par l'atelier ; la mélamine n'est pas appliqué
 
 #### Lacune Ecoinvent
 
-Comme pour le particleboard, le produit fini est absent. La généricité déclarée du service de revêtement (applicable « à différents panneaux à base de bois ») est une déclaration de modèle Ecoinvent, pas une validation physique indépendante du comportement MDF + papier mélaminé. Ce point doit être vérifié séparément s'il s'avère sensible.
+Comme pour le particleboard, aucun produit fini pertinent n'a été identifié par les méthodes d'interrogation disponibles. La généricité déclarée du service de revêtement (applicable « à différents panneaux à base de bois ») est une déclaration de modèle Ecoinvent, pas une validation physique indépendante du comportement MDF + papier mélaminé. Ce point doit être vérifié séparément s'il s'avère sensible.
 
 #### Données nécessaires
 
@@ -402,7 +402,7 @@ Contreplaqué générique, catégorie d'usage réel distincte du contreplaqué d
 #### Correspondance
 
 - **Produit / fonction :** Bonne — le produit générique correspond à cette catégorie d'usage « autre contreplaqué ».
-- **Composition / matière :** Faible — recette identique à la version RER (sawlog/veneer log hardwood, résine urée-formaldéhyde, énergie).
+- **Composition / matière :** Faible — les quantités technologiques centrales inspectées (sawlog/veneer log hardwood, résine urée-formaldéhyde, énergie) sont identiques ou se recomposent à la même somme qu'à la version RER.
 - **Technologie / procédé :** Faible — copie technologique allemande.
 - **Géographie :** Trompeuse — la mention `Canada, Quebec` ne démontre pas de données primaires québécoises.
 - **Données primaires québécoises :** Aucune identifiée.
@@ -567,7 +567,7 @@ Aucun produit fonctionnel identifié. Les recherches `edge band`, `edgebanding`,
 - **Composition / matière :** Non établie.
 - **Technologie / procédé :** Non établie.
 - **Géographie :** Sans objet.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 
@@ -603,7 +603,7 @@ Aucun produit fonctionnel identifié, pour la même raison que la variante prée
 - **Composition / matière :** Non établie.
 - **Technologie / procédé :** Non établie.
 - **Géographie :** Sans objet.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 
@@ -642,7 +642,7 @@ Bande de chant en ABS, décrite selon son usage plutôt que comme famille de mat
 - **Composition / matière :** Bonne physiquement pour la matière ABS elle-même.
 - **Technologie / procédé :** Faible — aucun indice observé ne démontre une spécificité ABS du procédé d'extrusion disponible.
 - **Géographie :** Trompeuse pour la variante CA-QC du service d'extrusion, déclarée copie des exchanges globaux.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune démontrée.
 
 #### Lacune Ecoinvent
 
@@ -681,7 +681,7 @@ Bande de chant en PVC, décrite selon son usage plutôt que comme famille de mat
 - **Composition / matière :** Bonne physiquement pour la matière PVC.
 - **Technologie / procédé :** Moyenne — un exchange `waste polyvinylchloride` (0,00339 kg/kg) constitue un indice quantitatif fort que le procédé de calandrage est modélisé spécifiquement pour une transformation du PVC, même si le nom du dataset reste générique. Cet indice ne démontre ni l'origine empirique précise du dataset ni son applicabilité aux chants de meuble.
 - **Géographie :** Europe ; documentation indiquant un dataset ancien hérité d'Ecoinvent v2.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 
@@ -741,7 +741,7 @@ Une chaîne complète foresterie → sciage → séchage existe dans Ecoinvent a
 - **Composition / matière :** Faible — aucune trace de l'essence érable (recherches `maple` et `Acer` sans résultat pertinent) ; densité spécifique non représentée.
 - **Technologie / procédé :** Moyenne — principe générique du sciage et du séchage, potentiellement transférable en structure.
 - **Géographie :** Faible — le sciage québécois est une copie déclarée du modèle mondial ; le séchage n'a aucune variante CA-QC.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune démontrée.
 
 #### Lacune Ecoinvent
 
@@ -780,7 +780,7 @@ Frêne massif, brut, séché, acheté principalement en épaisseur 4/4.
 - **Composition / matière :** Faible — recherche `Fraxinus` sans résultat ; le terme `ash` produit des faux positifs liés aux cendres et n'aide pas la recherche.
 - **Technologie / procédé :** Moyenne — structure générique transférable.
 - **Géographie :** Faible.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune démontrée.
 
 #### Lacune Ecoinvent
 
@@ -820,7 +820,7 @@ Merisier / bouleau jaune massif, brut, séché, acheté principalement en épais
 - **Composition / matière :** Non établie précisément — Ecoinvent ne précise pas l'espèce botanique au-delà du nom vernaculaire `birch`, sans mention de l'espèce nord-américaine visée.
 - **Technologie / procédé :** Moyenne pour la transformation générique ; le système forestier suédois lui-même n'est pas validé pour le Québec.
 - **Géographie :** Faible — foresterie modélisée pour la Suède.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 
@@ -860,7 +860,7 @@ Chêne rouge massif, brut, séché, acheté principalement en épaisseur 4/4.
 - **Composition / matière :** Non établie précisément — nom vernaculaire `oak` sans précision de *Quercus rubra*.
 - **Technologie / procédé :** Moyenne pour la transformation générique ; système forestier allemand (12,27 semis/m³, 37,1 m²·an de voirie, 15,20 MJ/m³ de diesel, 0,375 h/m³ de tronçonnage) non validé pour le Québec.
 - **Géographie :** Faible — foresterie modélisée pour l'Allemagne.
-- **Données primaires québécoises :** Aucune (0 %).
+- **Données primaires québécoises :** Aucune identifiée.
 
 #### Lacune Ecoinvent
 

@@ -48,12 +48,12 @@ en ébénisterie québécoise et les données disponibles dans Ecoinvent.
 | P1 | Contreplaqué de bouleau russe | Dataset identifié (générique) | Faible | essence | 🔴 Lacune majeure |
 | P1 | Panneau de particules mélaminé / TFL | Matière + procédé | Partielle | produit fini absent | 🟣 À reconstruire |
 | P1 | MDF mélaminé / TFL | Matière + procédé | Partielle | produit fini absent | 🟣 À reconstruire |
-| P1 | MDF plaqué bois acheté fini | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Panneau de particules plaqué bois acheté fini | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | HDF brut | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | OSB | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | MDF plaqué bois acheté fini | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Panneau de particules plaqué bois acheté fini | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | HDF brut | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | OSB | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 | P2 | Autre contreplaqué | Dataset identifié | Partielle | technologie étrangère | 🟠 À adapter |
-| P2 | Panneau plaqué en atelier | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P2 | Panneau plaqué en atelier | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -463,8 +463,8 @@ Aucune recherche Ecoinvent n'a encore été menée. Ce cas dépend des fiches «
 
 | Priorité | Produit métier | Ecoinvent | Correspondance | Lacune principale | Statut |
 |---|---|---|---|---|---|
-| P1 | Stratifié HPL | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Placage de bois naturel | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | Stratifié HPL | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Placage de bois naturel | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -711,14 +711,14 @@ Le bois massif est acheté brut et séché, principalement en épaisseur 4/4 ; l
 |---|---|---|---|---|---|
 | P1 | Érable massif, brut séché | Dataset identifié (générique) | Faible | essence | 🔴 Lacune majeure |
 | P1 | Frêne massif, brut séché | Dataset identifié (générique) | Faible | essence | 🔴 Lacune majeure |
-| P1 | Cerisier massif, brut séché | Dataset identifié (générique) | Partielle | essence | 🟠 À adapter |
+| P1 | Merisier / bouleau jaune massif, brut séché | Dataset identifié (générique) | Partielle | essence | 🟠 À adapter |
 | P1 | Chêne rouge massif, brut séché | Dataset identifié (générique) | Partielle | essence | 🟠 À adapter |
-| P1/P2 | Tilleul massif, brut séché | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1/P2 | Bois feuillu exotique, brut séché | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1/P2 | Tilleul massif, brut séché | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1/P2 | Bois feuillu exotique, brut séché | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
-Une chaîne complète foresterie → sciage → séchage existe dans Ecoinvent au niveau générique `hardwood`, avec un rendement de sciage générique de 65–67 % et un séchage standardisé à u=10 %. Cette chaîne représente correctement la fonction (bois scié, séché, brut/non raboté) mais perd systématiquement la spécificité d'essence : pour l'érable et le frêne, aucune trace de l'essence n'a été trouvée à aucun étage, y compris à la foresterie. Pour le cerisier (désigné « merisier/bouleau jaune » dans le diagnostic) et le chêne rouge, un procédé forestier portant un nom vernaculaire proche (`birch`, `oak`) existe, mais en Suède et en Allemagne respectivement, sans confirmation botanique ni géographique. Le dataset de sciage porte une variante `Canada, Quebec`, mais celle-ci est déclarée identique au modèle mondial pour permettre le linking régional, sans démontrer de technologie de sciage québécoise. Le tilleul et le bois exotique n'ont pas encore été examinés spécifiquement.
+Une chaîne complète foresterie → sciage → séchage existe dans Ecoinvent au niveau générique `hardwood`, avec un rendement de sciage générique de 65–67 % et un séchage standardisé à u=10 %. Cette chaîne représente correctement la fonction (bois scié, séché, brut/non raboté) mais perd systématiquement la spécificité d'essence : pour l'érable et le frêne, aucune trace de l'essence n'a été trouvée à aucun étage, y compris à la foresterie. Pour le merisier/bouleau jaune et le chêne rouge, un procédé forestier portant un nom vernaculaire proche (`birch`, `oak`) existe, mais en Suède et en Allemagne respectivement, sans confirmation botanique ni géographique. Le dataset de sciage porte une variante `Canada, Quebec`, mais celle-ci est déclarée identique au modèle mondial pour permettre le linking régional, sans démontrer de technologie de sciage québécoise. Le tilleul et le bois exotique n'ont pas encore été examinés spécifiquement.
 
 > **Rappel méthodologique :** l'existence d'un dataset générique `hardwood` ne représente pas automatiquement l'essence québécoise ciblée. Dès que la transformation entre dans la catégorie générique, la traçabilité de l'essence est perdue dans le flow Ecoinvent.
 
@@ -800,11 +800,11 @@ Confirmation botanique, densité, rendement de sciage, humidité cible, provenan
 
 ---
 
-### Cerisier massif, brut séché — P1
+### Merisier / bouleau jaune massif, brut séché — P1
 
 #### Produit métier
 
-Cerisier massif, brut, séché, acheté principalement en épaisseur 4/4. Dans le diagnostic Lot 2C, le produit correspondant est désigné par le terme commercial « merisier / bouleau jaune (yellow birch) » ; cette désignation est celle du diagnostic et n'est pas reformulée ici en une affirmation botanique indépendante.
+Merisier / bouleau jaune massif, brut, séché, acheté principalement en épaisseur 4/4. Le diagnostic Lot 2C désigne ce produit métier par le terme commercial « merisier / bouleau jaune (yellow birch) » ; cette désignation est celle du diagnostic et n'est pas reformulée ici en une affirmation botanique plus précise.
 
 #### Équivalent Ecoinvent identifié
 
@@ -864,7 +864,7 @@ Chêne rouge massif, brut, séché, acheté principalement en épaisseur 4/4.
 
 #### Lacune Ecoinvent
 
-Même structure de lacune que le cerisier/merisier : **essence non confirmée** (nom vernaculaire `oak` sans confirmation de l'espèce nord-américaine) **combinée à une géographie inadéquate** (système forestier allemand). La transformation ultérieure est générique et ne conserve pas la trace de l'essence.
+Même structure de lacune que le merisier/bouleau jaune : **essence non confirmée** (nom vernaculaire `oak` sans confirmation de l'espèce nord-américaine) **combinée à une géographie inadéquate** (système forestier allemand). La transformation ultérieure est générique et ne conserve pas la trace de l'essence.
 
 #### Données nécessaires
 
@@ -900,7 +900,7 @@ Aucune recherche Ecoinvent spécifique au tilleul n'a été menée. Par analogie
 
 #### Données nécessaires
 
-Essence botanique, densité, rendement de sciage, humidité cible, provenance.
+À déterminer lors du diagnostic approfondi. Par analogie méthodologique avec l'érable et le frêne (Lot 2C), les paramètres à confirmer en priorité seraient l'essence botanique, la densité, le rendement de sciage, l'humidité cible et la provenance — cette liste reste une hypothèse de travail, pas une conclusion établie pour le tilleul.
 
 #### Recommandation
 
@@ -932,7 +932,7 @@ Aucune recherche Ecoinvent spécifique n'a été menée pour cette catégorie.
 
 #### Données nécessaires
 
-Essence(s) botanique(s) réellement utilisées, densité, rendement de sciage, humidité cible, provenance.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer l'essence ou les essences botaniques réellement utilisées, la densité, le rendement de sciage, l'humidité cible et la provenance.
 
 #### Recommandation
 
@@ -950,10 +950,10 @@ Essence(s) botanique(s) réellement utilisées, densité, rendement de sciage, h
 
 | Priorité | Produit métier | Ecoinvent | Correspondance | Lacune principale | Statut |
 |---|---|---|---|---|---|
-| P1 | Colle PVAc / PVA blanche | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Adhésif thermofusible EVA / EVA hot-melt | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Colle contact | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Colle polyuréthane / PUR | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | Colle PVAc / PVA blanche | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Adhésif thermofusible EVA / EVA hot-melt | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Colle contact | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Colle polyuréthane / PUR | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -1013,7 +1013,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Le Lot 2D a examiné la comp
 
 #### Données nécessaires
 
-Formulation, grammage d'application.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la formulation et le grammage d'application.
 
 #### Recommandation
 
@@ -1077,7 +1077,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce produit.
 
 #### Données nécessaires
 
-Formulation exacte, usage réel confirmé.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la formulation exacte et l'usage réel.
 
 #### Recommandation
 
@@ -1095,10 +1095,10 @@ Formulation exacte, usage réel confirmé.
 
 | Priorité | Produit métier | Ecoinvent | Correspondance | Lacune principale | Statut |
 |---|---|---|---|---|---|
-| P1 | Vernis / laque | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Scellant | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Teinture | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Solvants / diluants auxiliaires | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | Vernis / laque | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Scellant | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Teinture | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Solvants / diluants auxiliaires | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -1124,7 +1124,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce produit.
 
 #### Données nécessaires
 
-Formulation exacte (eau ou solvant), taux de matière sèche, méthode d'application.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la formulation (eau ou solvant), le taux de matière sèche et la méthode d'application.
 
 #### Recommandation
 
@@ -1156,7 +1156,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce produit.
 
 #### Données nécessaires
 
-Formulation exacte, taux de matière sèche, méthode d'application.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la formulation, le taux de matière sèche et la méthode d'application.
 
 #### Recommandation
 
@@ -1188,7 +1188,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce produit.
 
 #### Données nécessaires
 
-Formulation exacte.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la formulation exacte.
 
 #### Recommandation
 
@@ -1244,7 +1244,7 @@ Composition exacte du thinner à partir de la FDS ; l'acétone est une substance
 | P1 | Coulisse de tiroir | Matière seulement | Faible | composition inconnue | 🔴 Lacune majeure |
 | P1 | Poignée de meuble métallique | Matière + procédé | Conditionnelle | composition inconnue | 🟣 À reconstruire |
 | P1 | Pied niveleur / niveleur | Matière + procédé | Conditionnelle | composition inconnue | 🟣 À reconstruire |
-| P1/P2 | Ferrure métallique de suspension (clé française) | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1/P2 | Ferrure métallique de suspension (clé française) | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -1491,7 +1491,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce composant. Par analog
 
 #### Données nécessaires
 
-Matériau, masse, dimensions, procédé de fabrication.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer le matériau, la masse, les dimensions et le procédé de fabrication.
 
 #### Recommandation
 
@@ -1512,7 +1512,7 @@ Les emballages sont suivis séparément des matériaux constitutifs du meuble.
 | Priorité | Produit métier | Ecoinvent | Correspondance | Lacune principale | Statut |
 |---|---|---|---|---|---|
 | P1 | Carton d'emballage / carton ondulé | Dataset identifié | Bonne | données primaires QC absentes | 🟡 À valider |
-| P1 | Film à bulles / papier bulle | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | Film à bulles / papier bulle | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -1578,7 +1578,7 @@ Aucune recherche Ecoinvent n'a encore été menée pour ce produit. Sa compositi
 
 #### Données nécessaires
 
-Composition exacte du film.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la composition exacte du film.
 
 #### Recommandation
 
@@ -1598,16 +1598,16 @@ Ces flux et processus sont volontairement séparés des matériaux et composants
 
 | Priorité | Produit métier | Ecoinvent | Correspondance | Lacune principale | Statut |
 |---|---|---|---|---|---|
-| P1 | Électricité d'atelier | Dataset non isolé | Non établie | accès/outil insuffisant | 🔴 Lacune majeure |
-| P1 | Transport entrant des matériaux et composants | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Transport sortant du meuble fini | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Chutes de bois massif | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Chutes de panneaux | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P1 | Sciures / poussières d'usinage | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Gaz naturel / chaleur | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Eau de procédé / nettoyage | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Eaux usées | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
-| P2 | Résidus contaminés (colles, finitions, solvants, chiffons) | Analyse approfondie non réalisée | Non établie | analyse non réalisée | 🔴 Lacune majeure |
+| P1 | Électricité d'atelier | Dataset non isolé | Non établie | accès/outil insuffisant | 🟡 À valider |
+| P1 | Transport entrant des matériaux et composants | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Transport sortant du meuble fini | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Chutes de bois massif | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Chutes de panneaux | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P1 | Sciures / poussières d'usinage | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Gaz naturel / chaleur | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Eau de procédé / nettoyage | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Eaux usées | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
+| P2 | Résidus contaminés (colles, finitions, solvants, chiffons) | Analyse approfondie non réalisée | Non établie | diagnostic à réaliser | 🟡 À valider |
 
 ### Lecture rapide
 
@@ -1669,7 +1669,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Les distances, charges et v�
 
 #### Données nécessaires
 
-Distances, charges, types de véhicules représentatifs.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer les distances, les charges et les types de véhicules représentatifs.
 
 #### Recommandation
 
@@ -1701,7 +1701,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Les distances, charges et v�
 
 #### Données nécessaires
 
-Distances, charges, types de véhicules représentatifs.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer les distances, les charges et les types de véhicules représentatifs.
 
 #### Recommandation
 
@@ -1733,7 +1733,7 @@ Aucune recherche Ecoinvent n'a encore été menée. La quantité produite doit �
 
 #### Données nécessaires
 
-Quantité produite, pratique réelle du fabricant (déchèterie, incinération, recyclage/valorisation).
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la quantité produite et la pratique réelle du fabricant (déchèterie, incinération, recyclage/valorisation).
 
 #### Recommandation
 
@@ -1765,7 +1765,7 @@ Aucune recherche Ecoinvent n'a encore été menée.
 
 #### Données nécessaires
 
-Quantité produite, pratique réelle du fabricant.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la quantité produite et la pratique réelle du fabricant.
 
 #### Recommandation
 
@@ -1797,7 +1797,7 @@ Aucune recherche Ecoinvent n'a encore été menée. La collecte et la pratique r
 
 #### Données nécessaires
 
-Mode de collecte, pratique réelle du fabricant.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer le mode de collecte et la pratique réelle du fabricant.
 
 #### Recommandation
 
@@ -1829,7 +1829,7 @@ Aucune recherche Ecoinvent n'a encore été menée. L'usage réel dans le périm
 
 #### Données nécessaires
 
-Confirmation de l'usage réel, quantités.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer l'usage réel dans le périmètre et les quantités.
 
 #### Recommandation
 
@@ -1861,7 +1861,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Les usages et quantités ré
 
 #### Données nécessaires
 
-Usages réels, quantités.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer les usages réels et les quantités.
 
 #### Recommandation
 
@@ -1893,7 +1893,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Le traitement réellement ap
 
 #### Données nécessaires
 
-Traitement réellement appliqué.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer le traitement réellement appliqué.
 
 #### Recommandation
 
@@ -1925,7 +1925,7 @@ Aucune recherche Ecoinvent n'a encore été menée. Les flux et pratiques réels
 
 #### Données nécessaires
 
-Nature exacte des résidus, pratique réelle du fabricant.
+À déterminer lors du diagnostic approfondi ; au minimum confirmer la nature exacte des résidus et la pratique réelle du fabricant.
 
 #### Recommandation
 

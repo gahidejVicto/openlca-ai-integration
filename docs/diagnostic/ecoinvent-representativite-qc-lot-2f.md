@@ -40,7 +40,7 @@ Composition non suffisamment documentée pour établir la correspondance avec le
 | Dimension | Niveau |
 |---|---|
 | Fonction | Aucune (monomère, pas un adhésif) |
-| Technologie | Faible (précurseur chimique de la bonne famille polymère) |
+| Technologie | Faible (brique chimique amont potentielle uniquement) |
 | Formulation | Aucune |
 | Forme | Aucune (le métier utilise un liquide prêt à l'emploi ; le dataset est un monomère solide/liquide industriel) |
 | Application | Aucune |
@@ -98,7 +98,7 @@ Composition non suffisamment documentée pour établir la correspondance avec le
 | Fonction | Aucune (résine, pas un adhésif prêt à l'emploi) |
 | Technologie | Moyenne (bonne famille polymère de base) |
 | Formulation | Aucune |
-| Forme | Aucune (métier = bâtonnet/granulé formulé ; dataset = résine industrielle) |
+| Forme | Inconnue — forme du produit métier non précisée (dataset = résine industrielle) |
 | Application | Aucune (aucun procédé d'encollage de chants trouvé) |
 | Unité | kg — cohérent avec une éventuelle conversion future si masse par mètre de chant connue |
 | Géographie | Global |
@@ -173,7 +173,7 @@ Classification A/B/C/D/E : **E — aucune brique pertinente identifiée** (avec 
 Aucun adhésif contact formulé, ni aucune brique chimique confirmée (résine ou polymère) n'a pu être identifiée avec les outils disponibles — situation plus défavorable que les Fiches 1 et 2, qui disposaient au moins d'un précurseur ou d'une résine.
 
 ### 10. Données fournisseur nécessaires
-Chimie réelle de l'adhésif (aucune hypothèse retenue) ; teneur en solides ; solvant(s) utilisé(s) ; densité ; consommation réelle par m² de stratifié.
+Composition/formulation réelle du produit ; teneur en solides si pertinente ; présence et nature des solvants si applicable ; densité si nécessaire à une conversion ; consommation réelle.
 
 ### 11. Action recommandée
 **Rechercher autre source** — les méthodes de recherche MCP disponibles ce tour n'ont permis d'identifier aucune brique. Une vérification complémentaire (recherche par UUID direct si un identifiant fiable est retrouvé ailleurs, ou accès à une version différente de l'outil) est recommandée avant de conclure définitivement à l'absence totale dans la base.
@@ -193,7 +193,7 @@ Produit : adhésif polyuréthane. Fonction : collage occasionnel bois-métal ou 
 | structural adhesive / assembly adhesive / wood adhesive polyurethane | search_processes | 0 (toutes) | — |
 | polyurethane (générique) | search_flows | **5 résultats : `polyurethane, rigid foam`, `polyurethane, flexible foam`, `waste polyurethane foam`, `waste polyurethane seal`, `waste polyurethane`** | **Tous des mousses/joints/déchets — faux positifs confirmés, aucun adhésif** |
 | polyurethane resin | (couvert par la recherche générique ci-dessus, aucun résultat "resin" distinct) | 0 | — |
-| polyol | search_flows | 1 résultat : `polyol` (précurseur PU, chimie générique) | Précurseur chimique, pas un adhésif |
+| polyol | search_flows | 1 résultat : `polyol` — brique chimique amont potentielle | Brique chimique amont, pas un adhésif |
 | methylene diphenyldiisocyanate (MDI) | search_flows | 1 résultat pertinent (+ 9 flux d'émission) : `methylene diphenyldiisocyanate`, produit chimique | Précurseur chimique, pas un adhésif — déjà rencontré comme liant interne de panneau au Lot 2B |
 
 **Confirmation : aucun adhésif PU formulé. Les seuls produits "polyurethane" existants sont des mousses (isolation/rembourrage) et des joints — fonction radicalement différente d'un adhésif, confirmés comme faux positifs après inspection du nom (aucune inspection de description nécessaire, la fonction "foam"/"seal" est sans ambiguïté dans le nom lui-même).**
@@ -202,7 +202,7 @@ Produit : adhésif polyuréthane. Fonction : collage occasionnel bois-métal ou 
 Aucun adhésif formulé, aucun polymère PU formé. Seules briques : **briques chimiques amont potentielles identifiées** — `polyol` et `methylene diphenyldiisocyanate` (MDI), non combinés, non formulés, non catalysés, sans chaîne établie vers l'adhésif métier.
 
 ### 4. Ce que représente réellement le dataset
-Deux produits chimiques industriels séparés (polyol ; MDI), chacun utilisé dans de nombreuses applications (mousses, élastomères, adhésifs, revêtements) sans lien établi par Ecoinvent vers une application adhésive spécifique. Le MDI a déjà été rencontré au Lot 2B comme liant interne de panneaux de particules/MDF (usage différent : liant de panneau, pas adhésif d'assemblage bois-métal).
+Des briques chimiques amont potentielles (polyol et MDI) ont été identifiées séparément. Aucun lien quantitatif ni formulation reliant ces briques à l'adhésif métier n'a été établi dans le Lot 2F. Le MDI a déjà été rencontré au Lot 2B comme liant interne de panneaux de particules/MDF (usage différent : liant de panneau, pas adhésif d'assemblage bois-métal).
 
 ### 5. Composition observée
 Composition non suffisamment documentée pour établir la correspondance avec le produit métier — seuls les deux précurseurs séparés existent, sans réaction, catalyseur, ni charge documentés.
@@ -302,7 +302,7 @@ Type et technologie réelle du produit ; composition/formulation fabricant ; fra
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Colle PVA/PVAc blanche | Non | market for vinyl acetate | 9381f4dc-deda-3e02-9cf8-4ef4321b137e | D | Faible | Non | kg | Global | Aucune identifiée | Aucune identifiée | Proxy matière seulement | Aucun adhésif PVAc formulé correspondant identifié ; chaîne vers le produit métier non établie | Formulation/composition réelle, teneur en solides si pertinente, densité si nécessaire, consommation réelle, masse achetée ou unité d'achat | Données fournisseur nécessaires |
 | EVA hot-melt (encolleuse chants) | Non | market for ethylene vinyl acetate copolymer | fe0fb6f7-fd33-3303-a767-fc1464446ce1 | C | Faible à moyenne | Non | kg | Global | Aucune identifiée | Aucune identifiée | Proxy matière seulement | Copolymère intermédiaire identifié ; formulation hot-melt et chaîne vers le produit métier non établies | Composition/formulation réelle, fractions massiques si disponibles, consommation réelle par unité métier pertinente, densité/masse si nécessaire, paramètres d'application si nécessaires et disponibles | Données fournisseur nécessaires |
-| Colle contact (stratifié) | Non | Aucun dataset pertinent identifié avec les méthodes d'interrogation disponibles | Sans objet | E | Aucune | Non | Sans objet | Sans objet | Aucune identifiée | Aucune identifiée | Lacune majeure | Aucune brique chimique confirmée ; résultat polychloroprène antérieur non reconfirmé pendant le Lot 2F | Chimie réelle, teneur en solides, solvant, densité | Rechercher autre source |
+| Colle contact (stratifié) | Non | Aucun dataset pertinent identifié avec les méthodes d'interrogation disponibles | Sans objet | E | Aucune | Non | Sans objet | Sans objet | Aucune identifiée | Aucune identifiée | Lacune majeure | Aucune brique chimique confirmée ; résultat polychloroprène antérieur non reconfirmé pendant le Lot 2F | Composition/formulation réelle, teneur en solides si pertinente, présence et nature des solvants si applicable, densité si nécessaire, consommation réelle | Rechercher autre source |
 | Adhésif polyuréthane | Non | market for polyol + methylene diphenyldiisocyanate (briques chimiques amont potentielles, non combinées) | Voir flows polyol / MDI ci-dessus | D | Faible | Non | kg | Non vérifiée ce tour | Aucune identifiée | Aucune identifiée | Proxy matière seulement | Briques chimiques amont potentielles (polyol, MDI) identifiées séparément, sans chaîne démontrée vers l'adhésif métier ; produits PU finis rencontrés (mousses) fonctionnellement différents et écartés | Type et technologie réelle, composition/formulation fabricant, fractions massiques si disponibles, densité si nécessaire, consommation réelle | Données fournisseur nécessaires |
 
 ---
@@ -340,7 +340,7 @@ Type et technologie réelle du produit ; composition/formulation fabricant ; fra
 - **Correspondance** : faible.
 - **Lacune principale** : briques chimiques amont seulement, sans chaîne démontrée vers l'adhésif métier.
 - **Statut recommandé** : 🔴 Lacune majeure.
-- **Résumé** : usage occasionnel du métier, cohérent avec une lacune Ecoinvent tout aussi occasionnelle à documenter plutôt qu'à combler dans l'immédiat.
+- **Résumé** : usage occasionnel dans le métier ; priorité de caractérisation à déterminer selon sa contribution à l'inventaire.
 - **Recommandation** : données fournisseur nécessaires si l'usage bois-métal/bois-plastique devient significatif dans l'inventaire.
 
 ---

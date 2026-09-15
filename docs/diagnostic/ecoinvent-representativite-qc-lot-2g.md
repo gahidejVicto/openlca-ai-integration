@@ -36,9 +36,15 @@ Portée stricte : 10 objets (6 P1 + 4 P2). Aucun dataset modifié, aucun proxy c
 5-7. **Mix, structure, part réellement québécoise ?** Non déterminable sans isoler le dataset.
 8. **Données primaires québécoises ?** Non vérifiable.
 9. **Date/source ?** Non vérifiable.
-10. **Directement utilisable pour un atelier québécois ?** **Aucune conclusion possible** — ni positive ni négative. Ce n'est pas une lacune Ecoinvent démontrée (le dataset existe très probablement, comme le suggère le cas confirmé de l'Île-du-Prince-Édouard au Lot 1) mais une **limite de l'outil d'interrogation MCP disponible**, à documenter comme telle, pas comme absence de contenu dans Ecoinvent.
+10. **Directement utilisable pour un atelier québécois ?** **Aucune conclusion possible** — ni positive ni négative. Le résultat démontré est uniquement que l'instance CA-QC n'a pas pu être isolée avec les méthodes d'interrogation MCP disponibles ; ceci n'est ni une lacune Ecoinvent démontrée, ni une confirmation de l'existence du dataset, mais une **limite de l'outil d'interrogation MCP disponible**, à documenter comme telle, pas comme absence de contenu dans Ecoinvent.
 
-### Verdict : **données insuffisantes** (limite d'outil, pas lacune de contenu)
+### Verdict : **Non évalué — limitation d'accès MCP**
+
+### Statut référentiel proposé
+🟡 À valider
+
+### Action
+Obtenir un moyen d'accès permettant de filtrer/inspecter directement les processus par géographie avant de conclure.
 
 ### Lacune_Ecoinvent
 Aucune lacune de contenu démontrée — limite de l'outil de recherche MCP (recherche par nom uniquement, aucun filtre géographique, aucune extraction de masse possible pour ce dossier sans timeout).
@@ -71,19 +77,19 @@ Transport des matériaux/composants depuis les fournisseurs jusqu'à l'atelier.
 | Location | **Global** |
 
 ### 4. Ce que représente réellement le dataset
-Moyenne pondérée de plusieurs classes d'émission EURO (principalement EURO3 et EURO4, part moindre d'EURO5/6) — <cite>reflète un mix de flotte, sans distinction de classe de poids ni de région</cite> (fait déduit directement des parts observées dans les exchanges : EURO3 ≈ 32%+13%=45%, EURO4 ≈ 11%+28%=39%, EURO5 ≈ 10%+4%=14%, EURO6 ≈ 2%). Il existe aussi des datasets par classe de poids spécifique (3.5-7.5t, 7.5-16t, 16-32t) si une classe de véhicule précise doit être choisie plutôt que la moyenne "unspecified".
+Moyenne pondérée de plusieurs classes d'émission EURO (principalement EURO3 et EURO4, part moindre d'EURO5/6) — <cite>reflète un mix de flotte, sans distinction de classe de poids ni de région</cite> (fait déduit directement des parts observées dans les exchanges : EURO3 ≈ 32%+13%=45%, EURO4 ≈ 11%+28%=39%, EURO5 ≈ 10%+4%=14%, EURO6 ≈ 2%). Le dataset combine plusieurs classes d'émission EURO ; sa représentativité du parc routier québécois/nord-américain n'a pas été établie dans ce lot — la documentation inspectée ne précise pas explicitement une géographie de flotte. Il existe aussi des datasets par classe de poids spécifique (3.5-7.5t, 7.5-16t, 16-32t) si une classe de véhicule précise doit être choisie plutôt que la moyenne "unspecified".
 
 ### 5. Correspondance
 
 | Dimension | Niveau |
 |---|---|
 | Fonction | Forte (service de transport routier de marchandises) |
-| Technologie | Moyenne (moyenne de flotte européenne, classes EURO3-6 — pas nécessairement représentatif du parc nord-américain) |
+| Technologie | Moyenne (combine plusieurs classes d'émission EURO3-6 ; représentativité du parc nord-américain non établie dans ce lot) |
 | Unité | Forte (t·km, standard et directement utilisable) |
-| Géographie | Faible à moyenne (Global, mais fondé sur des facteurs d'émission de véhicules européens) |
+| Géographie | Faible à moyenne (Location Global ; représentativité géographique québécoise/nord-américaine non établie dans ce lot) |
 
 ### 6. Lacune Ecoinvent
-Le dataset "unspecified" est une moyenne de flotte européenne (classes EURO), pas un facteur nord-américain — **incertitude de correspondance technologique**, pas une absence de dataset.
+Le dataset "unspecified" combine plusieurs classes d'émission EURO ; sa représentativité technologique/géographique nord-américaine n'a pas été établie dans ce lot — **incertitude de correspondance technologique/géographique**, pas une absence de dataset.
 
 ### 7. Données entreprise manquantes
 Distance fournisseur → atelier (par fournisseur ou moyenne) ; masse transportée ; éventuellement classe de véhicule si connue (permettrait de choisir un dataset plus spécifique que "unspecified") ; taux de chargement/retour à vide (déjà incorporé dans la moyenne du marché, mais un choix plus spécifique nécessiterait cette donnée séparément).
@@ -91,10 +97,13 @@ Distance fournisseur → atelier (par fournisseur ou moyenne) ; masse transport�
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **utilisable avec paramétrage entreprise**
+### 9. Verdict : **utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité technologique/géographique**
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
-Conserver ce dataset comme service par défaut ; demander à l'entreprise les distances réelles par fournisseur principal.
+Conserver ce dataset comme candidat par défaut ; demander à l'entreprise les distances réelles par fournisseur principal ; valider la représentativité technologique/géographique avant adoption définitive.
 
 ---
 
@@ -116,7 +125,7 @@ Identique à l'Objet 2 — **aucune différence structurelle Ecoinvent entre tra
 Identique à l'Objet 2.
 
 ### 6. Lacune Ecoinvent
-Aucune lacune distincte de l'Objet 2. **Point d'attention méthodologique** : le mobilier fini a un rapport masse/volume potentiellement très différent des matériaux entrants (planches denses vs meuble volumineux et léger) — Ecoinvent modélise le transport en t·km (masse), donc un taux de remplissage du véhicule limité par le **volume** plutôt que la masse ne serait pas capturé par un simple choix de dataset, mais nécessiterait un ajustement du taux de chargement effectif dans le paramétrage.
+Aucune lacune distincte de l'Objet 2. **Point d'attention méthodologique** : le mobilier fini peut présenter des contraintes de chargement différentes des matériaux entrants (rapport masse/volume potentiellement différent — planches denses vs meuble volumineux et léger). L'incidence du volume et du taux de remplissage devra être évaluée lors du choix et du paramétrage du modèle de transport ; aucune méthode de correction n'est prescrite à ce stade.
 
 ### 7. Données entreprise manquantes
 Distance atelier → client/distributeur ; masse du/des meuble(s) transporté(s) ; **taux de chargement réel du véhicule si le volume est le facteur limitant plutôt que la masse** (donnée spécifique à ce sens de transport, distincte de l'Objet 2).
@@ -124,10 +133,13 @@ Distance atelier → client/distributeur ; masse du/des meuble(s) transporté(s)
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **utilisable avec paramétrage entreprise**
+### 9. Verdict : **utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité technologique/géographique**
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
-Ne pas réutiliser aveuglément le même taux de chargement que pour le transport entrant ; demander spécifiquement le mode de livraison (tournée propre, transporteur, taux de remplissage typique).
+Ne pas réutiliser aveuglément le même taux de chargement que pour le transport entrant ; demander spécifiquement le mode de livraison (tournée propre, transporteur, taux de remplissage typique) ; valider la représentativité technologique/géographique avant adoption définitive.
 
 ---
 
@@ -153,7 +165,7 @@ Chutes de bois massif générées en fabrication (délignures, retailles).
 | Traitements disponibles | Décharge sanitaire, décharge non sanitaire, incinération municipale avec/sans récupération d'énergie (déjà documentés au Lot 1) |
 
 ### 4. Ce que représente réellement le dataset
-Un flux de déchet de bois **non traité** (sans revêtement, colle, ni traitement chimique) — cohérent avec des chutes de bois massif brut d'ébénisterie.
+Le flow est explicitement nommé `waste wood, untreated`. Il constitue un candidat fonctionnellement pertinent pour des chutes de bois massif brut, mais la portée exacte de « untreated » (revêtement, colle, traitement chimique) ne doit pas être élargie au-delà de la documentation inspectée.
 
 ### 5. Correspondance
 
@@ -173,10 +185,13 @@ Répartition réelle entre décharge/incinération/valorisation (aucune réparti
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **utilisable avec paramétrage entreprise**
+### 9. Verdict : **utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité québécoise des traitements de fin de vie (décharge/incinération)**
+
+### Statut référentiel proposé
+🟡 À valider (la représentativité québécoise des traitements n'est pas établie)
 
 ### 10. Action recommandée
-Conserver ; demander à l'entreprise sa filière réelle de fin de vie pour les chutes de bois massif.
+Conserver comme candidat ; demander à l'entreprise sa filière réelle de fin de vie pour les chutes de bois massif ; valider la représentativité des traitements disponibles.
 
 ---
 
@@ -195,10 +210,10 @@ Chutes de panneaux (particules/MDF) générées en fabrication — contiennent r
 
 **Inspection du candidat "waste fibreboard" (par prudence, conformément au critère #15 — correspondance réelle au-delà du nom) :**
 
-UUID `73059859-50e6-4bfb-b729-c9da6ed34f9d` ; traitement associé `treatment of waste fibreboard, collection for final disposal` (UUID `7fa28bdc-7551-3157-a504-209c9e24fb70`, location Rest-of-World). **Fait Ecoinvent** : <cite>"The waste contains 0.925kg untreated wood ... and 0.075kg polyurethane"</cite>. **Interprétation (la nôtre)** : cette composition (bois + polyuréthane, pas de résine urée/mélamine-formaldéhyde) ne correspond pas à un panneau MDF/particules de mobilier tel que caractérisé aux Lots 2B/2C (liants UF/MF) — il s'agit vraisemblablement d'un produit fibreboard différent (isolation, composite automobile, ou porte alvéolaire). **Ce candidat est rejeté comme correspondance de composition, malgré la correspondance de nom.**
+UUID `73059859-50e6-4bfb-b729-c9da6ed34f9d` ; traitement associé `treatment of waste fibreboard, collection for final disposal` (UUID `7fa28bdc-7551-3157-a504-209c9e24fb70`, location Rest-of-World). **Fait Ecoinvent** : <cite>"The waste contains 0.925kg untreated wood ... and 0.075kg polyurethane"</cite>. Le candidat « waste fibreboard » inspecté présente une composition (bois + polyuréthane, pas de résine urée/mélamine-formaldéhyde) qui ne correspond pas aux panneaux métier caractérisés dans les Lots précédents (liants UF/MF observés aux Lots 2B/2C). Il n'est donc pas retenu comme correspondance directe, malgré la correspondance de nom.
 
 ### 3. Meilleur candidat
-Aucun flow de déchet spécifique aux panneaux de mobilier. Seule option restante : le générique `waste wood, untreated` déjà utilisé pour l'Objet 4 — **mais celui-ci ne reflète pas la composition réelle d'un panneau (résines UF/MF, éventuel revêtement de surface) puisqu'il est explicitement "untreated".**
+Aucun flow de déchet spécifique aux panneaux de mobilier identifié. `waste wood, untreated` (déjà utilisé pour l'Objet 4) pourrait constituer un proxy candidat à évaluer, mais sa pertinence est limitée car il ne représente pas explicitement la composition résineuse (UF/MF) ni un éventuel revêtement de surface des panneaux métier.
 
 ### 4. Ce que représente réellement le dataset
 Le seul flow nommé de façon proche ("waste fibreboard") représente un produit à composition différente (bois + PU) du panneau de mobilier réel. Aucun autre candidat n'a été trouvé.
@@ -213,7 +228,7 @@ Le seul flow nommé de façon proche ("waste fibreboard") représente un produit
 | Géographie | Faible |
 
 ### 6. Lacune Ecoinvent
-**Lacune de contenu réelle** (pas seulement une donnée entreprise manquante) : Ecoinvent ne distingue pas, dans ses flux de déchets, un panneau de bois composite lié par résine urée/mélamine-formaldéhyde (particules, MDF) d'un bois massif non traité — le seul candidat nominal ("waste fibreboard") s'est révélé, après inspection, être un produit différent.
+Aucun flow de déchet suffisamment représentatif des panneaux de mobilier étudiés n'a été identifié avec les méthodes d'interrogation disponibles dans le Lot 2G — le seul candidat nominal (`waste fibreboard`) s'est révélé, après inspection, présenter une composition différente de celle des panneaux métier.
 
 ### 7. Données entreprise manquantes
 Quantité de chutes de panneaux ; répartition entre destinations de fin de vie (comme pour l'Objet 4, non supposée).
@@ -221,10 +236,13 @@ Quantité de chutes de panneaux ; répartition entre destinations de fin de vie 
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **proxy à adapter** (utilisation du générique `waste wood, untreated` comme proxy documenté, avec réserve explicite sur la composition résineuse non reflétée)
+### 9. Verdict : **Proxy candidat à évaluer** (`waste wood, untreated` pourrait servir de proxy, mais n'a pas été construit ni validé dans ce lot ; sa pertinence est limitée car il ne reflète pas la composition résineuse des panneaux)
+
+### Statut référentiel proposé
+🟠 À adapter
 
 ### 10. Action recommandée
-Utiliser `waste wood, untreated` comme proxy en documentant explicitement cette limite (résines/colles internes du panneau non reflétées dans un flux "untreated").
+Évaluer `waste wood, untreated` comme proxy candidat pour les panneaux, en documentant explicitement la limite (résines/colles internes du panneau non reflétées dans un flux "untreated") ; le proxy n'a pas été construit dans ce lot.
 
 ---
 
@@ -251,7 +269,7 @@ Sciures et poussières de sciage/ponçage/usinage.
 | Unité | kg |
 
 ### 4. Ce que représente réellement le dataset
-**Fait déterminant** : la sciure est modélisée dans Ecoinvent comme un **co-produit commercialisable** (utilisé comme intrant dans la production de particleboard/MDF et comme combustible de séchoir, observé aux Lots 2A-2C), **jamais comme un flux de "déchet" distinct**. Aucun flow "waste sawdust" n'existe.
+**Fait déterminant** : les flows `saw dust` identifiés dans ce lot sont de type **PRODUCT_FLOW** (co-produit commercialisable, utilisé comme intrant dans la production de particleboard/MDF et comme combustible de séchoir, observé aux Lots 2A-2C). Les recherches effectuées dans le Lot 2G ont identifié des flows "saw dust" de type PRODUCT_FLOW, mais aucun flow de déchet de sciure suffisamment pertinent n'a été identifié avec les termes recherchés.
 
 ### 5. Correspondance
 
@@ -263,7 +281,7 @@ Sciures et poussières de sciage/ponçage/usinage.
 | Géographie | Sans objet (flow générique, pas de production geo-spécifique au niveau du flow lui-même) |
 
 ### 6. Lacune Ecoinvent
-Aucun flow "déchet de sciure" distinct n'existe — si l'atelier ne valorise pas sa sciure, il faudrait se rabattre sur le générique `waste wood, untreated` (Objet 4), avec la même réserve que pour les chutes de panneaux si la sciure provient en partie de panneaux.
+Aucun flow de déchet de sciure suffisamment pertinent n'a été identifié avec les recherches effectuées dans le Lot 2G — si l'atelier ne valorise pas sa sciure, un recours au générique `waste wood, untreated` (Objet 4) pourrait être envisagé comme proxy candidat, avec la même réserve que pour les chutes de panneaux si la sciure provient en partie de panneaux.
 
 ### 7. Données entreprise manquantes
 **Distinction essentielle, conformément à la mise en garde du mandat** : la quantité de poussière **captée par aspiration** n'est pas automatiquement une émission atmosphérique — il faut savoir : (a) la quantité totale générée, (b) la part captée vs émise directement à l'air, (c) la destination de la part captée (vente/valorisation énergétique interne vs mise en décharge), (d) si un mélange sciure de bois massif / poussière de panneaux est collecté ensemble ou séparément (pertinent étant donné la lacune de l'Objet 5).
@@ -271,7 +289,10 @@ Aucun flow "déchet de sciure" distinct n'existe — si l'atelier ne valorise pa
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **utilisable avec paramétrage entreprise** (si valorisée) / **proxy à adapter** (si mise en décharge, via le générique bois)
+### 9. Verdict : **utilisable avec paramétrage entreprise** (si valorisée) / **proxy candidat à évaluer** (si mise en décharge, via le générique bois)
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
 Clarifier avec l'entreprise si la sciure/poussière captée est vendue, valorisée énergétiquement sur place, ou mise en décharge — le choix de brique Ecoinvent en dépend entièrement.
@@ -319,10 +340,13 @@ Gaz naturel consommé pour le chauffage/procédé, si l'atelier en utilise.
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **à valider** (existence d'une variante géographique plus pertinente non vérifiée exhaustivement)
+### 9. Verdict : **À valider — recherche géographique incomplète** (dataset européen présenté comme candidat inspecté, non retenu de façon définitive ; 28 des 38 résultats non inspectés)
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
-D'abord confirmer l'usage réel de gaz naturel par l'entreprise ; si confirmé, compléter la recherche géographique parmi les 38 résultats avant de choisir un dataset définitif.
+D'abord confirmer l'usage réel de gaz naturel par l'entreprise ; si confirmé, compléter ultérieurement l'inspection des variantes géographiques parmi les 38 résultats avec openLCA/MCP avant de choisir un dataset définitif.
 
 ---
 
@@ -335,7 +359,7 @@ Eau utilisée pour le nettoyage/procédé en atelier.
 
 | Terme | Type | Résultat | Pertinence |
 |---|---|---|---|
-| market for tap water | search_processes | **4 résultats au total — les 4 inspectés à 3/4** | Ensemble restreint, vérifiable presque intégralement |
+| market for tap water | search_processes | **4 résultats au total — 3 des 4 inspectés** | Ensemble restreint, presque intégralement inspecté |
 
 **Géographies confirmées par inspection directe** : Suisse (`3e419265…`), Europe sans Suisse (`24690c75…`), Rest-of-World (`882c7e14…`). Le 4ᵉ (`3ab1597e…`) n'a pas été inspecté individuellement ce tour, probablement un marché global agrégé étant donné le nombre total de 4 correspondant au schéma habituel (CH / Europe sans CH / RoW / Global).
 
@@ -345,13 +369,13 @@ Eau utilisée pour le nettoyage/procédé en atelier.
 
 | Champ | Valeur |
 |---|---|
-| Dataset | `market for tap water`, variante Rest-of-World (la plus généralement applicable hors Europe) |
+| Dataset | `market for tap water`, variante Rest-of-World (candidat inspecté) |
 | UUID | `882c7e14-18f8-3eb4-8638-b41826090117` |
 | Unité | kg |
 | Location | Rest-of-World |
 
 ### 4. Ce que représente réellement le dataset
-**Fait Ecoinvent, explicite** : <cite>"Since tap water is mainly produced and distributed at a regional level, regional markets should be prefered, when relevant."</cite> — Ecoinvent lui-même signale qu'un marché régional serait préférable ; faute d'un marché canadien/québécois identifié parmi les 4 variantes existantes, le RoW reste la meilleure option disponible mais **explicitement sous-optimale selon Ecoinvent lui-même**.
+**Fait Ecoinvent, explicite** : <cite>"Since tap water is mainly produced and distributed at a regional level, regional markets should be prefered, when relevant."</cite> — Ecoinvent lui-même signale qu'un marché régional serait préférable. Aucune variante nord-américaine n'a été identifiée parmi les 3 variantes inspectées (Suisse, Europe sans Suisse, Rest-of-World) ; une quatrième variante reste non inspectée. Le RoW constitue un **candidat inspecté**, mais **explicitement sous-optimal selon Ecoinvent lui-même** au regard de la préférence pour un marché régional.
 
 ### 5. Correspondance
 
@@ -360,10 +384,10 @@ Eau utilisée pour le nettoyage/procédé en atelier.
 | Fonction | Forte |
 | Technologie | Moyenne (mix de traitement RoW incluant du dessalement d'eau de mer — non pertinent pour le Québec, dilué dans une moyenne mondiale) |
 | Unité | Forte (kg) |
-| Géographie | **Faible, confirmée** (seulement 4 variantes existent et aucune n'est nord-américaine) |
+| Géographie | **Faible parmi les variantes inspectées** (3 des 4 variantes existantes inspectées ; aucune nord-américaine parmi celles-ci ; 1 variante non inspectée) |
 
 ### 6. Lacune Ecoinvent
-Absence confirmée (parmi un ensemble restreint et presque intégralement vérifié) de marché d'eau potable nord-américain ou québécois — contrairement à l'électricité, ce n'est pas une limite d'outil mais une **lacune de contenu vérifiée** sur un ensemble suffisamment petit pour être quasi exhaustivement contrôlé.
+Aucune variante nord-américaine n'a été identifiée parmi les 3 variantes inspectées (Suisse, Europe sans Suisse, Rest-of-World) ; une quatrième variante (`3ab1597e…`) reste non inspectée. Il ne s'agit donc pas d'une absence confirmée de marché nord-américain, mais d'un résultat obtenu sur une recherche géographique incomplète.
 
 ### 7. Données entreprise manquantes
 Consommation d'eau réelle (m³ ou kg) pour le procédé/nettoyage.
@@ -371,10 +395,13 @@ Consommation d'eau réelle (m³ ou kg) pour le procédé/nettoyage.
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **proxy à adapter**
+### 9. Verdict : **À valider — recherche géographique incomplète** (candidat inspecté : `market for tap water`, Rest-of-World ; 1 des 4 variantes existantes non inspectée)
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
-Utiliser la variante RoW en documentant explicitement l'absence de marché nord-américain comme limite connue.
+Retenir la variante RoW comme candidat inspecté ; compléter ultérieurement l'inspection de la 4ᵉ variante avant de choisir le dataset définitif. Aucune recherche supplémentaire n'a été effectuée dans ce lot.
 
 ---
 
@@ -420,10 +447,13 @@ Aucune variante nord-américaine identifiée parmi les résultats inspectés —
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **à valider**
+### 9. Verdict : **À valider — recherche géographique/fonctionnelle partielle** (candidat inspecté : `market for wastewater, average`, Rest-of-World ; 1 des 3 variantes existantes inspectée)
+
+### Statut référentiel proposé
+🟡 À valider
 
 ### 10. Action recommandée
-Clarifier si l'atelier rejette au réseau municipal (dataset "average" pertinent) ou traite lui-même des eaux contaminées (voir Objet 10) ; compléter l'inspection géographique des 2 variantes non vérifiées.
+Clarifier si l'atelier rejette au réseau municipal (dataset "average" pertinent) ou traite lui-même des eaux contaminées (voir Objet 10) ; compléter l'inspection géographique des 2 variantes non vérifiées. Aucune recherche supplémentaire n'a été effectuée dans ce lot.
 
 ---
 
@@ -463,7 +493,7 @@ Résidus solides/liquides contaminés par colles, finitions, solvants, chiffons.
 | Géographie | Faible (Suisse) |
 
 ### 6. Lacune Ecoinvent
-Aucun flow dédié aux résidus de **colle** ou de **solvant** seuls, ni aux **chiffons/absorbants contaminés** — seule la catégorie "peinture" dispose d'un flow spécifique. Pour les autres types de résidus contaminés, seuls les flux génériques `hazardous waste, for incineration` / `hazardous waste, for underground deposit` restent disponibles, sans composition spécifique documentée.
+Aucun flow suffisamment spécifique aux colles, solvants ou chiffons contaminés n'a été identifié avec les recherches effectuées dans le Lot 2G — seule la catégorie "peinture" dispose d'un flow spécifique identifié. Pour les autres types de résidus contaminés, seuls les flux génériques `hazardous waste, for incineration` / `hazardous waste, for underground deposit` ont été identifiés, sans composition spécifique documentée.
 
 ### 7. Données entreprise manquantes
 Nature exacte des résidus (peinture/vernis vs solvant vs colle vs chiffons) — **déterminante pour le choix du flow**, puisque seule la catégorie peinture est bien représentée ; quantité générée ; filière de collecte réelle (incinération dangereuse confirmée ou autre).
@@ -471,7 +501,10 @@ Nature exacte des résidus (peinture/vernis vs solvant vs colle vs chiffons) —
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **utilisable avec paramétrage entreprise** pour les résidus de peinture/finition ; **proxy à adapter** (flux génériques) pour colles/solvants/chiffons
+### 9. Verdict : **utilisable avec paramétrage entreprise** pour les résidus de peinture/finition (candidat spécifique identifié) ; **proxy à adapter** (flux génériques) pour colles/solvants/chiffons (correspondance non établie)
+
+### Statut référentiel proposé
+🟠 À adapter — en distinguant explicitement peinture/finition (candidat spécifique identifié) des autres résidus (correspondance non établie)
 
 ### 10. Action recommandée
 Distinguer, dans la collecte de données entreprise, peinture/finition (bien couverte) des autres résidus contaminés (colles, solvants, chiffons — couverture générique seulement).
@@ -482,16 +515,16 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 | Objet_metier | Priorite | Dataset_Ecoinvent | UUID | Unite | Location | Correspondance | Geographie_QC | Donnees_primaires_QC | Verdict | Lacune_Ecoinvent | Donnee_entreprise_manquante | Action_recommandee |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Électricité d'atelier | P1 | market for electricity, medium voltage (non isolé pour CA-QC) | Non déterminé | kWh/MJ | CA-QC visé, non confirmé | Inconnue | Non déterminée | Aucune identifiée | Données insuffisantes | Aucune démontrée — limite d'outil MCP | Consommation kWh réelle | Rechercher accès géographique direct hors MCP |
-| Transport entrant | P1 | market for transport, freight, lorry, unspecified | 49eb6ae0-86d7-3674-89b9-566267648ba9 | t·km | Global | Moyenne à forte | Faible | Aucune identifiée | Utilisable avec paramétrage entreprise | Moyenne de flotte européenne, pas nord-américaine | Distance fournisseur→atelier, masse | Conserver, demander distances réelles |
-| Transport sortant | P1 | market for transport, freight, lorry, unspecified (même dataset, paramétrage distinct) | 49eb6ae0-86d7-3674-89b9-566267648ba9 | t·km | Global | Moyenne à forte | Faible | Aucune identifiée | Utilisable avec paramétrage entreprise | Idem transport entrant | Distance atelier→client, taux de chargement réel (volume vs masse) | Conserver, ne pas réutiliser le taux de chargement de l'entrant |
-| Chutes de bois massif | P1 | waste wood, untreated + traitements (landfill/incinération) | 6f2eb438-cde2-4d07-a770-d023a988a9c4 | kg | Europe/RoW selon variante | Moyenne | Faible | Aucune identifiée | Utilisable avec paramétrage entreprise | Paramètres européens de décharge/incinération | Répartition réelle des destinations | Conserver, demander la répartition réelle |
-| Chutes de panneaux | P1 | Aucun flow dédié — waste wood, untreated comme proxy (composition résineuse non reflétée) | 6f2eb438-cde2-4d07-a770-d023a988a9c4 (proxy) | kg | Europe/RoW | Faible | Faible | Aucune identifiée | Proxy à adapter | Aucun flow reflétant la composition résineuse (UF/MF) d'un panneau | Quantité, répartition des destinations | Utiliser le proxy en documentant la limite |
-| Sciures/poussières | P1 | saw dust, wet/loose, measured as dry mass (co-produit, pas déchet) | a514c9f2-0d4d-4ce2-809b-de4c29e74709 / dfaef357-a79e-4846-aabc-848b1ab59fbb | kg | Générique | Moyenne | Sans objet | Aucune identifiée | Utilisable (si valorisée) / Proxy à adapter (si mise en décharge) | Aucun flow "déchet de sciure" dédié | Part captée/valorisée vs mise en décharge | Clarifier la destination réelle avec l'entreprise |
-| Gaz naturel/chaleur | P2 | market for heat, central or small-scale, natural gas | b4a33a9d-da08-3d5b-a883-e22acd9e7415 | MJ | Europe without Switzerland | Moyenne | Non déterminée (28/38 résultats non inspectés) | Aucune identifiée | À valider | Correspondance géographique non exhaustivement vérifiée | Confirmer l'usage réel de gaz + consommation mesurée | Confirmer usage réel avant de choisir un dataset définitif |
-| Eau de procédé | P2 | market for tap water | 882c7e14-18f8-3eb4-8638-b41826090117 | kg | Rest-of-World | Moyenne | Faible (confirmée, ensemble restreint vérifié) | Aucune identifiée | Proxy à adapter | Absence confirmée de marché nord-américain (4 variantes, aucune CA/QC) | Consommation d'eau réelle | Utiliser RoW en documentant la limite |
-| Eaux usées | P2 | market for wastewater, average | 7a2be1f9-6dca-35f5-a39f-1d64c9e22eae | m³ | Rest-of-World | Moyenne | Faible (partiellement vérifiée) | Aucune identifiée | À valider | Composition détaillée non documentée dans les champs consultés | Nature du rejet (municipal vs contaminé) | Clarifier le mode de rejet réel |
-| Résidus contaminés | P2 | treatment of waste paint, hazardous waste incineration | d39c3e17-6987-3ca0-80c1-5121f4806469 | kg | Suisse | Forte (peinture) / Inconnue (colles, solvants) | Faible | Aucune identifiée | Utilisable avec paramétrage (peinture) / Proxy à adapter (autres) | Aucun flow dédié colle/solvant/chiffon | Nature exacte du résidu, quantité, filière | Distinguer peinture des autres résidus dans la collecte |
+| Électricité d'atelier | P1 | market for electricity, medium voltage (non isolé pour CA-QC) | Non déterminé | Non déterminée pour l'instance CA-QC | CA-QC visé, non isolé | Inconnue | Non déterminée | Aucune identifiée | Non évalué — limitation d'accès MCP | Aucune démontrée — limite d'outil MCP | Consommation kWh réelle | Rechercher accès géographique direct hors MCP |
+| Transport entrant | P1 | market for transport, freight, lorry, unspecified (candidat inspecté) | 49eb6ae0-86d7-3674-89b9-566267648ba9 | t·km | Global | Moyenne à forte | Faible (non établie) | Aucune identifiée | Utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité technologique/géographique | Dataset combine plusieurs classes EURO3-6 ; représentativité nord-américaine non établie dans ce lot | Distance fournisseur→atelier, masse | Conserver comme candidat, demander distances réelles, valider la représentativité |
+| Transport sortant | P1 | market for transport, freight, lorry, unspecified (même dataset candidat, paramétrage distinct) | 49eb6ae0-86d7-3674-89b9-566267648ba9 | t·km | Global | Moyenne à forte | Faible (non établie) | Aucune identifiée | Utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité technologique/géographique | Idem transport entrant ; incidence du volume/taux de remplissage à évaluer lors du paramétrage | Distance atelier→client, masse, informations de chargement si disponibles | Conserver comme candidat, ne pas réutiliser le taux de chargement de l'entrant, valider la représentativité |
+| Chutes de bois massif | P1 | waste wood, untreated + traitements (landfill/incinération) | 6f2eb438-cde2-4d07-a770-d023a988a9c4 | kg | Europe/RoW selon variante | Moyenne | Faible (traitements non validés pour le Québec) | Aucune identifiée | Utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité québécoise des traitements | Paramètres européens de décharge/incinération, représentativité québécoise non établie | Répartition réelle des destinations | Conserver comme candidat, demander la répartition réelle, valider la représentativité des traitements |
+| Chutes de panneaux | P1 | Aucun flow suffisamment représentatif identifié — waste wood, untreated envisagé comme proxy candidat | 6f2eb438-cde2-4d07-a770-d023a988a9c4 (proxy candidat, non construit) | kg | Europe/RoW | Faible | Faible | Aucune identifiée | Proxy candidat à évaluer | Aucun flow suffisamment représentatif de la composition résineuse (UF/MF) d'un panneau identifié avec les recherches du Lot 2G | Quantité, répartition des destinations | Évaluer le proxy candidat en documentant la limite ; proxy non construit dans ce lot |
+| Sciures/poussières | P1 | saw dust, wet/loose, measured as dry mass (PRODUCT_FLOW, co-produit) | a514c9f2-0d4d-4ce2-809b-de4c29e74709 / dfaef357-a79e-4846-aabc-848b1ab59fbb | kg | Générique | Moyenne | Sans objet | Aucune identifiée | Utilisable (si valorisée) / Proxy candidat à évaluer (si mise en décharge) | Aucun flow de déchet de sciure suffisamment pertinent identifié avec les recherches du Lot 2G | Part captée/valorisée vs mise en décharge | Clarifier la destination réelle avec l'entreprise |
+| Gaz naturel/chaleur | P2 | market for heat, central or small-scale, natural gas (candidat inspecté) | b4a33a9d-da08-3d5b-a883-e22acd9e7415 | MJ | Europe without Switzerland | Moyenne | Non déterminée (28/38 résultats non inspectés) | Aucune identifiée | À valider — recherche géographique incomplète | Correspondance géographique non exhaustivement vérifiée (28/38 résultats non inspectés) | Confirmer l'usage réel de gaz + consommation mesurée | Compléter la recherche géographique avant de choisir un dataset définitif |
+| Eau de procédé | P2 | market for tap water (candidat inspecté) | 882c7e14-18f8-3eb4-8638-b41826090117 | kg | Rest-of-World | Moyenne | Faible parmi les variantes inspectées (3/4 inspectées, aucune nord-américaine) | Aucune identifiée | À valider — recherche géographique incomplète | Aucune variante nord-américaine identifiée parmi les 3 variantes inspectées ; 1 variante non inspectée | Consommation d'eau réelle | Retenir RoW comme candidat inspecté, compléter l'inspection de la 4ᵉ variante |
+| Eaux usées | P2 | market for wastewater, average (candidat inspecté) | 7a2be1f9-6dca-35f5-a39f-1d64c9e22eae | m³ | Rest-of-World | Moyenne | Faible (1/3 variantes inspectée) | Aucune identifiée | À valider — recherche géographique/fonctionnelle partielle | Composition détaillée non documentée dans les champs consultés ; 2/3 variantes non inspectées | Nature du rejet (municipal vs contaminé) | Clarifier le mode de rejet réel, compléter l'inspection des variantes restantes |
+| Résidus contaminés | P2 | treatment of waste paint, hazardous waste incineration (peinture) ; flux génériques hazardous waste (autres, non spécifiques) | d39c3e17-6987-3ca0-80c1-5121f4806469 | kg | Suisse | Forte (peinture) / Inconnue (colles, solvants) | Faible | Aucune identifiée | Utilisable avec paramétrage (peinture) / Proxy à adapter (autres) | Aucun flow suffisamment spécifique aux colles/solvants/chiffons identifié avec les recherches du Lot 2G | Nature exacte du résidu, quantité, filière | Distinguer peinture des autres résidus dans la collecte |
 
 ---
 
@@ -514,24 +547,28 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 ## QU'EST-CE QUI EST DÉJÀ RÉSOLU PAR ECOINVENT ?
 
-### A. Ecoinvent semble suffisant, seules les données entreprise sont nécessaires
+**Aucune catégorie ci-dessous n'affirme une représentativité québécoise/nord-américaine établie ; toutes reflètent le niveau de validation atteint dans ce lot, pas une conclusion définitive sur le contenu d'Ecoinvent.**
+
+### A. Dataset fonctionnel identifié, représentativité à valider
 - Transport entrant
 - Transport sortant
 - Chutes de bois massif
 
-### B. Ecoinvent fournit une base mais une adaptation/validation est nécessaire
-- Eau de procédé (géographie confirmée non idéale, mais dataset fonctionnellement adapté)
-- Résidus contaminés — volet peinture/finition
-- Gaz naturel/chaleur (à valider géographiquement avant usage)
-- Eaux usées (à valider selon nature du rejet)
+### B. Recherche complémentaire nécessaire avant choix définitif
+- Gaz naturel/chaleur (28/38 résultats non inspectés)
+- Eau de procédé (3/4 variantes inspectées)
+- Eaux usées (1/3 variantes inspectée)
 
-### C. Reconstruction/proxy à partir de plusieurs éléments nécessaire
-- Chutes de panneaux (proxy générique bois, composition non reflétée)
-- Sciures/poussières (bascule entre co-produit et proxy déchet selon destination réelle)
+### C. Proxy/adaptation/reconstruction potentielle
+- Chutes de panneaux (proxy candidat générique bois, composition non reflétée)
+- Sciures/poussières (bascule entre co-produit et proxy candidat déchet selon destination réelle)
 - Résidus contaminés — volet colles/solvants/chiffons (flux génériques seulement)
 
-### D. Lacune Ecoinvent importante / aucune représentation exploitable identifiée
-- Électricité d'atelier CA-QC — **non pas une lacune de contenu démontrée, mais une impossibilité d'isolation avec les outils actuels**, ce qui produit le même blocage pratique qu'une lacune de contenu tant qu'une méthode alternative n'est pas trouvée.
+### D. Candidat spécifique identifié pour une partie du besoin
+- Résidus contaminés — volet peinture/finition
+
+### E. Non évalué — limitation d'accès
+- Électricité d'atelier CA-QC — le blocage est pratique (limite de l'outil d'interrogation MCP, recherche par nom sans filtre géographique), mais **aucune lacune de contenu Ecoinvent n'est démontrée**. Ceci n'est pas compté parmi les véritables lacunes de contenu Ecoinvent.
 
 ---
 
@@ -541,25 +578,25 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 **2. Est-il suffisamment représentatif d'un atelier québécois ?** Sans objet — ne peut pas être évalué tant qu'il n'est pas isolé.
 
-**3. Quels datasets de transport utiliser pour entrant et sortant ?** Le même dataset générique (`market for transport, freight, lorry, unspecified`) pour les deux, avec des paramètres entreprise distincts (distance, taux de chargement).
+**3. Quels datasets de transport utiliser pour entrant et sortant ?** Le même dataset générique (`market for transport, freight, lorry, unspecified`) constitue actuellement un candidat pour les deux flux, sous réserve de validation de sa représentativité technologique/géographique et d'un paramétrage entreprise distinct (distance, masse, taux de chargement).
 
 **4. Quelles données entreprise sont nécessaires pour paramétrer le transport ?** Distances réelles (par sens), masse transportée, et pour le sortant spécifiquement, le taux de chargement réel si le volume (pas la masse) est le facteur limitant.
 
-**5. Ecoinvent permet-il de traiter séparément bois massif / panneaux / sciures ?** Partiellement seulement. Le bois massif dispose d'un flow dédié adapté (`waste wood, untreated`). Les panneaux n'ont aucun flow dédié valide (le candidat trouvé a été rejeté après inspection). Les sciures existent comme co-produit, jamais comme déchet.
+**5. Ecoinvent permet-il de traiter séparément bois massif / panneaux / sciures ?** Partiellement seulement, dans les limites des recherches effectuées dans ce lot. Le bois massif dispose d'un flow candidat identifié (`waste wood, untreated`), sous réserve de validation des traitements. Aucun flow suffisamment représentatif des panneaux étudiés n'a été identifié dans les recherches du Lot 2G (le candidat trouvé a été rejeté après inspection de sa composition). Des flows de sciure de type PRODUCT_FLOW ont été identifiés ; aucun flow de déchet suffisamment pertinent n'a été identifié avec les recherches effectuées.
 
 **6. Quels scénarios de traitement des déchets sont réellement disponibles ?** Décharge sanitaire, décharge non sanitaire, incinération municipale avec/sans récupération d'énergie — tous déjà confirmés aux Lots 1/2C pour le bois ; incinération de déchets dangereux spécifiquement documentée pour la peinture.
 
 **7. Peut-on représenter un scénario mixte de fin de vie sans créer de nouveau dataset ?** Oui conceptuellement — en pondérant les scénarios existants selon la répartition réelle fournie par l'entreprise (non construit dans ce lot, conformément au mandat).
 
-**8. Quel dataset utiliser pour le gaz/chaleur si l'entreprise en consomme ?** `market for heat, central or small-scale, natural gas`, sous réserve de vérifier plus avant si une variante géographique plus pertinente existe parmi les 28 résultats non inspectés.
+**8. Quel dataset utiliser pour le gaz/chaleur si l'entreprise en consomme ?** `market for heat, central or small-scale, natural gas` constitue un **candidat inspecté**, non retenu de façon définitive — une recherche géographique complémentaire parmi les 28 résultats non inspectés est nécessaire avant de choisir un dataset.
 
-**9. Quel dataset utiliser pour l'eau ?** `market for tap water`, variante Rest-of-World — la moins mauvaise option confirmée parmi un ensemble restreint et presque intégralement vérifié.
+**9. Quel dataset utiliser pour l'eau ?** `market for tap water`, variante Rest-of-World, constitue un **candidat inspecté** ; 3 des 4 variantes existantes ont été inspectées et aucune n'est nord-américaine, mais la 4ᵉ variante reste à vérifier avant un choix définitif.
 
-**10. Quel traitement utiliser pour les eaux usées ?** `market for wastewater, average`, variante Rest-of-World, sous réserve de valider si la nature du rejet (contaminé ou non) justifie un traitement différent.
+**10. Quel traitement utiliser pour les eaux usées ?** `market for wastewater, average`, variante Rest-of-World, constitue un **candidat inspecté** (1 des 3 variantes existantes inspectée) — sous réserve de compléter la recherche géographique et de valider si la nature du rejet (contaminé ou non) justifie un traitement différent.
 
 **11. Comment représenter les résidus contaminés ?** Distinguer peinture/finition (flow spécifique bien documenté) des colles/solvants/chiffons (flux génériques `hazardous waste` seulement, sans composition spécifique).
 
-**12. Lesquels nécessitent réellement de nouvelles données ACV et lesquels nécessitent simplement des données d'activité de l'entreprise ?** Nécessitent des données d'activité seulement (transport entrant/sortant, chutes de bois massif, eau, résidus peinture) — le dataset ACV existe déjà. Nécessitent une réflexion de modélisation en plus des données d'activité (chutes de panneaux, sciures, résidus colles/solvants) — parce que le dataset disponible est un proxy imparfait, pas un manque de paramètre.
+**12. Lesquels nécessitent réellement de nouvelles données ACV et lesquels nécessitent simplement des données d'activité de l'entreprise ?** Nécessitent principalement des données d'activité entreprise, sur la base d'un candidat déjà identifié (transport entrant/sortant, chutes de bois massif, résidus peinture) — sous réserve de validation de la représentativité du dataset. Nécessitent une recherche géographique complémentaire avant tout choix définitif (gaz naturel/chaleur, eau de procédé, eaux usées) — ni l'eau, ni le gaz, ni les eaux usées ne sont classés comme définitivement résolus par Ecoinvent. Nécessitent une réflexion de modélisation en plus des données d'activité (chutes de panneaux, sciures selon destination, résidus colles/solvants) — parce qu'aucun dataset suffisamment représentatif n'a été identifié, pas un simple manque de paramètre.
 
 **13. Quelles sont les cinq données terrain les plus importantes à collecter ?**
 1. Consommation électrique réelle (kWh) — bloquant même une fois le dataset isolé.
@@ -574,18 +611,20 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 **Rappel : ce fichier n'est PAS modifié.**
 
+**Ces statuts reflètent le niveau de validation actuel, pas une conclusion définitive sur le contenu d'Ecoinvent.**
+
 | Objet | Ecoinvent | Correspondance | Lacune principale | Statut recommandé | Données entreprise nécessaires | Recommandation |
 |---|---|---|---|---|---|---|
-| Électricité d'atelier | Non isolé (CA-QC) | Inconnue | Limite d'outil MCP, pas de contenu | 🟡 À valider | Consommation kWh | Rechercher un accès géographique direct hors MCP |
-| Transport entrant | market for transport, freight, lorry, unspecified | Moyenne à forte | Flotte européenne, pas nord-américaine | 🟢 Utilisable | Distance, masse | Conserver |
-| Transport sortant | Idem | Moyenne à forte | Idem + taux de chargement volume/masse | 🟢 Utilisable | Distance, taux de chargement réel | Conserver, ne pas copier le paramétrage entrant |
-| Chutes de bois massif | waste wood, untreated + traitements | Moyenne | Paramètres européens | 🟢 Utilisable | Répartition des destinations | Conserver |
-| Chutes de panneaux | Proxy (waste wood, untreated) | Faible | Composition résineuse non reflétée | 🟠 À adapter | Quantité, répartition | Documenter la limite explicitement |
-| Sciures/poussières | saw dust (co-produit) | Moyenne | Aucun flow "déchet" dédié | 🟡 À valider | Part captée/valorisée vs décharge | Clarifier la destination réelle |
-| Gaz naturel/chaleur | market for heat, central or small-scale, natural gas | Moyenne | Géographie non exhaustivement vérifiée | 🟡 À valider | Confirmer usage + consommation | Compléter la recherche géographique |
-| Eau de procédé | market for tap water (RoW) | Moyenne | Absence confirmée de marché nord-américain | 🟠 À adapter | Consommation d'eau | Utiliser en documentant la limite |
-| Eaux usées | market for wastewater, average (RoW) | Moyenne | Composition/nature du rejet non tranchée | 🟡 À valider | Nature du rejet | Clarifier le mode de rejet |
-| Résidus contaminés | treatment of waste paint (peinture) / flux génériques (autres) | Forte (peinture) / Inconnue (autres) | Aucun flow dédié colle/solvant/chiffon | 🟠 À adapter | Nature exacte, quantités | Distinguer les catégories dans la collecte |
+| Électricité d'atelier | Non isolé (CA-QC) | Inconnue | Limite d'outil MCP — non évalué, pas une lacune de contenu | 🟡 À valider | Consommation kWh | Rechercher un accès géographique direct hors MCP |
+| Transport entrant | market for transport, freight, lorry, unspecified (candidat inspecté) | Moyenne à forte | Représentativité nord-américaine non établie dans ce lot | 🟡 À valider | Distance, masse | Conserver comme candidat, valider la représentativité |
+| Transport sortant | Idem (candidat inspecté) | Moyenne à forte | Idem + incidence du volume/taux de remplissage à évaluer | 🟡 À valider | Distance, taux de chargement réel | Conserver comme candidat, ne pas copier le paramétrage entrant, valider la représentativité |
+| Chutes de bois massif | waste wood, untreated + traitements (candidat inspecté) | Moyenne | Représentativité québécoise des traitements non établie | 🟡 À valider | Répartition des destinations | Conserver comme candidat, valider la représentativité des traitements |
+| Chutes de panneaux | Aucun flow suffisamment représentatif identifié ; waste wood, untreated envisagé comme proxy candidat (non construit) | Faible | Composition résineuse non reflétée | 🟠 À adapter | Quantité, répartition | Évaluer le proxy candidat en documentant la limite ; proxy non construit |
+| Sciures/poussières | saw dust (PRODUCT_FLOW, co-produit) | Moyenne | Aucun flow de déchet suffisamment pertinent identifié avec les recherches effectuées | 🟡 À valider | Part captée/valorisée vs décharge | Clarifier la destination réelle |
+| Gaz naturel/chaleur | market for heat, central or small-scale, natural gas (candidat inspecté) | Moyenne | Géographie non exhaustivement vérifiée (28/38 non inspectés) | 🟡 À valider | Confirmer usage + consommation | Compléter la recherche géographique |
+| Eau de procédé | market for tap water, RoW (candidat inspecté) | Moyenne | Aucune variante nord-américaine identifiée parmi 3/4 variantes inspectées ; recherche incomplète | 🟡 À valider | Consommation d'eau | Retenir comme candidat inspecté ; compléter l'inspection de la 4ᵉ variante |
+| Eaux usées | market for wastewater, average, RoW (candidat inspecté) | Moyenne | Composition/nature du rejet non tranchée ; recherche géographique partielle (1/3 inspectée) | 🟡 À valider | Nature du rejet | Clarifier le mode de rejet, compléter l'inspection des variantes restantes |
+| Résidus contaminés | treatment of waste paint (peinture, candidat spécifique) / flux génériques (autres, non spécifiques) | Forte (peinture) / Inconnue (autres) | Aucun flow suffisamment spécifique colle/solvant/chiffon identifié avec les recherches effectuées | 🟠 À adapter | Nature exacte, quantités | Distinguer les catégories dans la collecte |
 
 ---
 
@@ -606,13 +645,15 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 ### Synthèse finale
 
-**Objets directement utilisables (données entreprise seulement)** : transport entrant, transport sortant, chutes de bois massif.
+**Objets avec dataset candidat identifié, représentativité à valider** : transport entrant, transport sortant, chutes de bois massif.
 
-**Objets utilisables avec adaptation/validation** : eau de procédé, eaux usées, gaz naturel/chaleur, résidus contaminés (volet peinture).
+**Objets nécessitant une recherche géographique complémentaire avant choix définitif** : eau de procédé (3/4 variantes inspectées), eaux usées (1/3 variante inspectée), gaz naturel/chaleur (28/38 résultats non inspectés).
+
+**Candidat spécifique identifié pour une partie du besoin** : résidus contaminés — volet peinture/finition.
 
 **Objets nécessitant une reconstruction/proxy documenté** : chutes de panneaux, sciures/poussières (selon destination), résidus contaminés (volet colles/solvants/chiffons).
 
-**Véritable lacune bloquante** : l'électricité d'atelier CA-QC reste impossible à isoler avec les outils MCP disponibles — ce n'est pas classé comme une lacune de contenu Ecoinvent (le dataset existe très probablement) mais comme une limite d'accès qui bloque néanmoins toute utilisation pratique tant qu'elle persiste.
+**Non évalué — limitation d'accès** : l'électricité d'atelier CA-QC n'a pas pu être isolée avec les méthodes d'interrogation MCP disponibles. Ce blocage est pratique et ne constitue pas une lacune de contenu Ecoinvent démontrée ; l'existence du dataset n'est ni confirmée ni infirmée par ce lot.
 
 **Cinq données terrain prioritaires** : (1) consommation électrique kWh, (2) distances de transport entrant/sortant, (3) répartition des destinations de fin de vie bois massif et panneaux, (4) destination réelle des sciures/poussières captées, (5) nature exacte et quantités des résidus contaminés par catégorie.
 

@@ -5,6 +5,8 @@ Projet ACV mobilier québécois — Base Ecoinvent 3.11, système Cutoff, via op
 
 Portée stricte : 10 objets (6 P1 + 4 P2). Aucun dataset modifié, aucun proxy construit, `docs/materiaux-ebenisterie.md` non modifié, aucune modification Git.
 
+**Mise à jour (Lot 2G-bis)** : les recherches Gaz naturel/chaleur, Eau de procédé et Eaux usées, laissées incomplètes au Lot 2G, ont été complétées séparément (Lot 2G-bis, via openLCA/MCP) puis intégrées ci-dessous (objets 7, 8, 9). Cette intégration n'a effectué aucune nouvelle recherche openLCA/MCP ni Web ; elle reporte exclusivement les résultats déjà obtenus au Lot 2G-bis.
+
 ---
 
 ## OBJET 1 — ÉLECTRICITÉ D'ATELIER (P1) — réinspection prioritaire
@@ -299,7 +301,7 @@ Clarifier avec l'entreprise si la sciure/poussière captée est vendue, valoris�
 
 ---
 
-## OBJET 7 — GAZ NATUREL / CHALEUR (P2)
+## OBJET 7 — GAZ NATUREL / CHALEUR (P2) — recherche complétée au Lot 2G-bis
 
 ### 1. Objet métier
 Gaz naturel consommé pour le chauffage/procédé, si l'atelier en utilise.
@@ -308,49 +310,63 @@ Gaz naturel consommé pour le chauffage/procédé, si l'atelier en utilise.
 
 | Terme | Type | Résultat | Pertinence |
 |---|---|---|---|
-| heat, central or small-scale, natural gas | search_processes | 38 résultats au total (10 montrés) — famille riche incluant chaudières <100kW, cogénération, et marchés | Candidat de marché retenu |
+| heat, central or small-scale, natural gas | search_processes | 38 résultats au total — les 3 variantes génériques du marché ont désormais été inspectées individuellement (`process_details`), ainsi que les 2 market groups et plusieurs instances technologiques sous-jacentes (chaudières, cogénération) | Recherche géographique de cette famille désormais complète |
+| market for natural gas, high pressure | search_processes | Famille distincte (gaz brut livré, en m³) explorée pour la question méthodologique « service de chaleur » vs « gaz + combustion » ; une variante Québec y a été identifiée | Brique amont, non substituable directement au service de chaleur |
+| market for natural gas, low pressure | search_processes | 2 variantes inspectées : Rest-of-World et Switzerland | Confirme l'absence de variante québécoise identifiée à ce niveau de la chaîne |
+
+**Les 3 variantes génériques de `market for heat, central or small-scale, natural gas` (hors variantes spécifiques au site Jakobsberg) :**
+
+| Dataset | UUID | Location | Unité |
+|---|---|---|---|
+| market for heat, central or small-scale, natural gas | `b4a33a9d-da08-3d5b-a883-e22acd9e7415` | Europe without Switzerland | MJ |
+| market for heat, central or small-scale, natural gas | `67f5174a-cdd2-306e-9b4e-1e69d511ed4e` | Switzerland | MJ |
+| market for heat, central or small-scale, natural gas | `45ee995d-b001-3cf9-b36f-225c8efd320b` | Rest-of-World | MJ |
+
+Aucune variante CA-QC/CA/RNA identifiée parmi les variantes de cette famille inspectées. Le candidat retenu au Lot 2G (Europe without Switzerland) est remplacé par le candidat Rest-of-World, géographiquement moins inapproprié pour un contexte hors Europe/Suisse qu'une variante explicitement européenne.
 
 ### 3. Meilleur candidat
 
 | Champ | Valeur |
 |---|---|
 | Dataset | `market for heat, central or small-scale, natural gas` |
-| UUID | `b4a33a9d-da08-3d5b-a883-e22acd9e7415` |
+| UUID | `45ee995d-b001-3cf9-b36f-225c8efd320b` |
 | Unité | MJ (chaleur livrée) |
-| Location | **Europe without Switzerland** |
+| Location | **Rest-of-World** |
 
 ### 4. Ce que représente réellement le dataset
-**Fait Ecoinvent** : <cite>"The shares of heat supplying activities with combined heat and power (CHP) plants and pure heat power plants have been estimated ... The shares are assumed to amount to 25% heat from CHP plants and 75% heat from heat plants."</cite> — mix de chaudières <100kW (échelle pertinente pour un atelier) et de petites installations de cogénération, **mais explicitement européen**. **Cette recherche n'a pas permis de confirmer l'existence ou l'absence d'une variante nord-américaine/canadienne** parmi les 38 résultats totaux (seuls 10 ont été inspectés par nom) — à approfondir si ce flux est réellement utilisé par l'entreprise.
+Service de chaleur agrégé issu d'un mix de chaudières <100kW (échelle pertinente pour un atelier) et de petites installations de cogénération au gaz naturel, modélisé pour la variante Rest-of-World (les marchés Europe without Switzerland et Switzerland disposent de leurs propres variantes dédiées). Fonctionnellement pertinent, mais sans spécificité nord-américaine ou québécoise établie pour ce produit agrégé.
+
+Le Lot 2G-bis a par ailleurs identifié un marché de gaz naturel haute pression spécifique au Québec (`market for natural gas, high pressure`, UUID `3261abf1-b57c-314d-bb54-5a0a60b54bb2`, m³) — une **brique amont québécoise pertinente identifiée, mais non directement substituable au service de chaleur**. Les datasets de combustion en chaudière inspectés utilisent du gaz *basse pression*, et les seules variantes de `market for natural gas, low pressure` identifiées sont Rest-of-World et Switzerland (aucune variante Québec identifiée). Aucune chaîne québécoise directement prête à l'emploi reliant le gaz haute pression Québec à la combustion en chaudière n'a été établie ; la construire demanderait une adaptation/reconstruction hors périmètre de ce lot. Aucun modèle n'a été construit, aucun exchange proposé, aucun dataset modifié.
 
 ### 5. Correspondance
 
 | Dimension | Niveau |
 |---|---|
 | Fonction | Forte (chaleur de chaudière à petite échelle, cohérent avec un atelier) |
-| Technologie | Moyenne (mix chaudière/cogénération européen) |
+| Technologie | Moyenne (mix chaudière/cogénération mondial) |
 | Unité | Forte (MJ, standard) |
-| Géographie | Faible pour la variante identifiée (Europe sans Suisse) ; **non déterminé** si une variante nord-américaine existe parmi les résultats non inspectés |
+| Géographie | Moyenne — service de chaleur fonctionnellement pertinent, mais géographie générique Rest-of-World et absence de spécificité québécoise/nord-américaine établie |
 
 ### 6. Lacune Ecoinvent
-**Incertitude de correspondance géographique non résolue à ce stade** (pas une absence confirmée) — 28 des 38 résultats n'ont pas été inspectés individuellement par manque de temps dans ce lot.
+Aucun service de chaleur au gaz naturel spécifique Québec/Canada/Amérique du Nord n'a été identifié parmi les variantes de cette famille inspectées. Un marché de gaz naturel haute pression spécifique Québec a toutefois été identifié, sans chaîne québécoise complète vers la combustion en chaudière établie dans ce lot.
 
 ### 7. Données entreprise manquantes
-**Préalable à toute action** : confirmer si l'atelier utilise réellement du gaz naturel (le mandat précise explicitement de ne pas le supposer). Si oui : consommation mesurée (m³ ou kWh/GJ de gaz, ou chaleur livrée si connue directement).
+Consommation réelle annuelle de gaz naturel ou de chaleur de l'atelier, selon la donnée d'activité disponible.
 
 ### 8. Données primaires QC
-Aucune identifiée.
+Un marché de gaz naturel haute pression Québec existe (UUID `3261abf1-b57c-314d-bb54-5a0a60b54bb2`), présenté ici uniquement comme brique amont, non comme substitut direct du service de chaleur.
 
-### 9. Verdict : **À valider — recherche géographique incomplète** (dataset européen présenté comme candidat inspecté, non retenu de façon définitive ; 28 des 38 résultats non inspectés)
+### 9. Verdict : **Utilisable comme candidat générique, représentativité géographique à valider.**
 
 ### Statut référentiel proposé
 🟡 À valider
 
 ### 10. Action recommandée
-D'abord confirmer l'usage réel de gaz naturel par l'entreprise ; si confirmé, compléter ultérieurement l'inspection des variantes géographiques parmi les 38 résultats avec openLCA/MCP avant de choisir un dataset définitif.
+Conserver le candidat Rest-of-World comme service de chaleur générique ; noter la brique amont Québec identifiée comme piste pour une reconstruction éventuelle ultérieure (hors périmètre de ce lot) ; confirmer l'usage réel de gaz naturel par l'entreprise et la donnée d'activité disponible.
 
 ---
 
-## OBJET 8 — EAU DE PROCÉDÉ / NETTOYAGE (P2)
+## OBJET 8 — EAU DE PROCÉDÉ / NETTOYAGE (P2) — recherche complétée au Lot 2G-bis
 
 ### 1. Objet métier
 Eau utilisée pour le nettoyage/procédé en atelier.
@@ -359,53 +375,60 @@ Eau utilisée pour le nettoyage/procédé en atelier.
 
 | Terme | Type | Résultat | Pertinence |
 |---|---|---|---|
-| market for tap water | search_processes | **4 résultats au total — 3 des 4 inspectés** | Ensemble restreint, presque intégralement inspecté |
+| market for tap water | search_processes | 4 résultats au total — les 4 variantes désormais inspectées individuellement (`process_details`) | Recherche géographique complète |
 
-**Géographies confirmées par inspection directe** : Suisse (`3e419265…`), Europe sans Suisse (`24690c75…`), Rest-of-World (`882c7e14…`). Le 4ᵉ (`3ab1597e…`) n'a pas été inspecté individuellement ce tour, probablement un marché global agrégé étant donné le nombre total de 4 correspondant au schéma habituel (CH / Europe sans CH / RoW / Global).
+**Les 4 variantes de `market for tap water` :**
 
-**Aucune des trois géographies inspectées n'est le Canada ou le Québec.**
+| Dataset | UUID | Location | Unité |
+|---|---|---|---|
+| market for tap water | `3e419265-3284-3b12-87d9-92b0ae1742fd` | Switzerland | kg |
+| market for tap water | `24690c75-20db-35df-9dcb-1111521ae796` | Europe without Switzerland | kg |
+| market for tap water | `882c7e14-18f8-3eb4-8638-b41826090117` | Rest-of-World | kg |
+| **market for tap water** | **`3ab1597e-4b32-3e85-aec7-310678be9f64`** | **Québec** | **kg** |
+
+La 4ᵉ variante qui n'avait pas été inspectée au Lot 2G était précisément le dataset **Québec**. Le candidat Rest-of-World retenu au Lot 2G est remplacé par ce candidat Québec.
 
 ### 3. Meilleur candidat
 
 | Champ | Valeur |
 |---|---|
-| Dataset | `market for tap water`, variante Rest-of-World (candidat inspecté) |
-| UUID | `882c7e14-18f8-3eb4-8638-b41826090117` |
+| Dataset | `market for tap water` |
+| UUID | `3ab1597e-4b32-3e85-aec7-310678be9f64` |
 | Unité | kg |
-| Location | Rest-of-World |
+| Location | **Québec** |
 
 ### 4. Ce que représente réellement le dataset
-**Fait Ecoinvent, explicite** : <cite>"Since tap water is mainly produced and distributed at a regional level, regional markets should be prefered, when relevant."</cite> — Ecoinvent lui-même signale qu'un marché régional serait préférable. Aucune variante nord-américaine n'a été identifiée parmi les 3 variantes inspectées (Suisse, Europe sans Suisse, Rest-of-World) ; une quatrième variante reste non inspectée. Le RoW constitue un **candidat inspecté**, mais **explicitement sous-optimal selon Ecoinvent lui-même** au regard de la préférence pour un marché régional.
+La documentation inspectée indique que le dataset représente de l'eau distribuée au consommateur après traitement et distribution (et non un prélèvement environnemental brut) — fonctionnellement pertinent pour représenter l'eau consommée par un atelier. Un dataset régional dédié au Québec étant désormais identifié, il devient directement le candidat retenu.
 
 ### 5. Correspondance
 
 | Dimension | Niveau |
 |---|---|
 | Fonction | Forte |
-| Technologie | Moyenne (mix de traitement RoW incluant du dessalement d'eau de mer — non pertinent pour le Québec, dilué dans une moyenne mondiale) |
-| Unité | Forte (kg) |
-| Géographie | **Faible parmi les variantes inspectées** (3 des 4 variantes existantes inspectées ; aucune nord-américaine parmi celles-ci ; 1 variante non inspectée) |
+| Technologie | Forte (dataset régional Québec) |
+| Unité | Forte (kg — unité native Ecoinvent conservée ; aucune conversion kg↔L appliquée dans ce référentiel) |
+| Géographie | **Forte** |
 
 ### 6. Lacune Ecoinvent
-Aucune variante nord-américaine n'a été identifiée parmi les 3 variantes inspectées (Suisse, Europe sans Suisse, Rest-of-World) ; une quatrième variante (`3ab1597e…`) reste non inspectée. Il ne s'agit donc pas d'une absence confirmée de marché nord-américain, mais d'un résultat obtenu sur une recherche géographique incomplète.
+Aucune lacune majeure identifiée à ce stade pour l'approvisionnement en eau distribuée : un dataset régional Québec a été identifié.
 
 ### 7. Données entreprise manquantes
-Consommation d'eau réelle (m³ ou kg) pour le procédé/nettoyage.
+Quantité réelle d'eau de procédé/nettoyage consommée par l'atelier.
 
 ### 8. Données primaires QC
-Aucune identifiée.
+Dataset régional Québec identifié (`3ab1597e-4b32-3e85-aec7-310678be9f64`).
 
-### 9. Verdict : **À valider — recherche géographique incomplète** (candidat inspecté : `market for tap water`, Rest-of-World ; 1 des 4 variantes existantes non inspectée)
+### 9. Verdict : **Directement utilisable pour représenter l'approvisionnement en eau distribuée d'un atelier québécois.**
 
 ### Statut référentiel proposé
-🟡 À valider
+🟢 Utilisable
 
 ### 10. Action recommandée
-Retenir la variante RoW comme candidat inspecté ; compléter ultérieurement l'inspection de la 4ᵉ variante avant de choisir le dataset définitif. Aucune recherche supplémentaire n'a été effectuée dans ce lot.
+Adopter ce dataset comme candidat retenu ; demander à l'entreprise la quantité réelle d'eau de procédé/nettoyage consommée. La conversion éventuelle d'unité sera traitée lors de la modélisation si nécessaire — l'unité native Ecoinvent (kg) est conservée dans ce référentiel.
 
 ---
 
-## OBJET 9 — EAUX USÉES (P2)
+## OBJET 9 — EAUX USÉES (P2) — recherche complétée au Lot 2G-bis
 
 ### 1. Objet métier
 Eaux usées générées par l'atelier (nettoyage, procédé).
@@ -414,8 +437,17 @@ Eaux usées générées par l'atelier (nettoyage, procédé).
 
 | Terme | Type | Résultat | Pertinence |
 |---|---|---|---|
-| market for wastewater, average | search_processes | 3 résultats (1 inspecté : Rest-of-World) | Ensemble restreint |
-| treatment of wastewater, average | search_processes | 12 résultats (plusieurs capacités de station, non toutes inspectées) | Confirme une famille technique riche mais sans indice géographique nord-américain repéré |
+| market for wastewater, average | search_processes | 3 résultats au total — les 3 variantes désormais inspectées individuellement (`process_details`) | Recherche géographique complète |
+
+**Les 3 variantes de `market for wastewater, average` :**
+
+| Dataset | UUID | Location | Unité |
+|---|---|---|---|
+| market for wastewater, average | `7e0fd30a-868d-3be9-a0c1-5d5c7e2aabab` | Switzerland | m³ |
+| market for wastewater, average | `77c39554-0d59-3671-a0ee-3074a76b23cc` | Europe without Switzerland | m³ |
+| market for wastewater, average | `7a2be1f9-6dca-35f5-a39f-1d64c9e22eae` | Rest-of-World | m³ |
+
+Aucune variante Québec/Canada/Amérique du Nord n'a été identifiée parmi les trois variantes de `market for wastewater, average` inspectées. Le candidat Rest-of-World retenu au Lot 2G est conservé.
 
 ### 3. Meilleur candidat
 
@@ -427,33 +459,33 @@ Eaux usées générées par l'atelier (nettoyage, procédé).
 | Location | Rest-of-World |
 
 ### 4. Ce que représente réellement le dataset
-Traitement municipal moyen, composition non spécifiée au-delà de la mention "average" — mix de stations de différentes capacités (1,6E8 à 4,7E10 litres/an).
+Traitement municipal moyen, mix de stations de différentes capacités (1,6E8 à 4,7E10 litres/an). La documentation inspectée ne permet pas d'établir l'adéquation de ce dataset à des eaux contenant des charges spécifiques liées aux colles, solvants ou produits de finition. La pertinence du dataset dépend donc de la nature réelle du rejet de l'atelier.
 
 ### 5. Correspondance
 
 | Dimension | Niveau |
 |---|---|
 | Fonction | Forte (traitement municipal, pertinent si l'atelier rejette au réseau municipal) |
-| Technologie | Moyenne (capacités de station européennes) |
+| Technologie | Moyenne |
 | Unité | Forte (m³) |
-| Géographie | Faible (seule la variante RoW a été inspectée ; les 2 autres non vérifiées individuellement ce tour, mais aucune ne porte d'indice nominal nord-américain) |
+| Géographie | Moyenne — seule option disponible parmi les 3 variantes inspectées, aucune spécificité nord-américaine établie |
 
 ### 6. Lacune Ecoinvent
-Aucune variante nord-américaine identifiée parmi les résultats inspectés — à confirmer en vérifiant les 2 variantes non inspectées, mais convergent avec le constat de l'Objet 8 (eau potable).
+Aucune variante Québec/Canada/Amérique du Nord n'a été identifiée parmi les trois variantes de `market for wastewater, average` inspectées.
 
 ### 7. Données entreprise manquantes
-**Question centrale posée par le mandat** : la présence éventuelle de produits de finition/colles dans les eaux usées change-t-elle le choix du dataset ? **Réponse fondée sur l'observation** : le dataset "average" ne documente pas de composition détaillée accessible dans les champs consultés — Ecoinvent semble demander un **volume/masse** plutôt qu'une composition chimique détaillée pour ce type de traitement générique. Si les eaux usées de l'atelier sont significativement contaminées (résidus de colle/finition), un traitement de type industriel spécifique (plutôt que municipal "average") pourrait être plus approprié — **à valider**, cette distinction n'a pas pu être testée plus finement dans le temps disponible.
+Volume annuel rejeté et nature réelle du rejet, notamment distinction entre eaux sanitaires/nettoyage ordinaire et rejets associés aux procédés de finition ou d'adhésifs. Aucune contamination réelle n'est supposée.
 
 ### 8. Données primaires QC
 Aucune identifiée.
 
-### 9. Verdict : **À valider — recherche géographique/fonctionnelle partielle** (candidat inspecté : `market for wastewater, average`, Rest-of-World ; 1 des 3 variantes existantes inspectée)
+### 9. Verdict : **Candidat générique conservé ; représentativité géographique et adéquation au rejet réel à valider.**
 
 ### Statut référentiel proposé
 🟡 À valider
 
 ### 10. Action recommandée
-Clarifier si l'atelier rejette au réseau municipal (dataset "average" pertinent) ou traite lui-même des eaux contaminées (voir Objet 10) ; compléter l'inspection géographique des 2 variantes non vérifiées. Aucune recherche supplémentaire n'a été effectuée dans ce lot.
+Conserver le candidat Rest-of-World ; demander à l'entreprise le volume rejeté et la nature réelle du rejet (municipal standard vs charges liées aux colles/solvants/produits de finition) afin de valider l'adéquation du dataset.
 
 ---
 
@@ -521,9 +553,9 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 | Chutes de bois massif | P1 | waste wood, untreated + traitements (landfill/incinération) | 6f2eb438-cde2-4d07-a770-d023a988a9c4 | kg | Europe/RoW selon variante | Moyenne | Faible (traitements non validés pour le Québec) | Aucune identifiée | Utilisable avec paramétrage entreprise, sous réserve de validation de la représentativité québécoise des traitements | Paramètres européens de décharge/incinération, représentativité québécoise non établie | Répartition réelle des destinations | Conserver comme candidat, demander la répartition réelle, valider la représentativité des traitements |
 | Chutes de panneaux | P1 | Aucun flow suffisamment représentatif identifié — waste wood, untreated envisagé comme proxy candidat | 6f2eb438-cde2-4d07-a770-d023a988a9c4 (proxy candidat, non construit) | kg | Europe/RoW | Faible | Faible | Aucune identifiée | Proxy candidat à évaluer | Aucun flow suffisamment représentatif de la composition résineuse (UF/MF) d'un panneau identifié avec les recherches du Lot 2G | Quantité, répartition des destinations | Évaluer le proxy candidat en documentant la limite ; proxy non construit dans ce lot |
 | Sciures/poussières | P1 | saw dust, wet/loose, measured as dry mass (PRODUCT_FLOW, co-produit) | a514c9f2-0d4d-4ce2-809b-de4c29e74709 / dfaef357-a79e-4846-aabc-848b1ab59fbb | kg | Générique | Moyenne | Sans objet | Aucune identifiée | Utilisable (si valorisée) / Proxy candidat à évaluer (si mise en décharge) | Aucun flow de déchet de sciure suffisamment pertinent identifié avec les recherches du Lot 2G | Part captée/valorisée vs mise en décharge | Clarifier la destination réelle avec l'entreprise |
-| Gaz naturel/chaleur | P2 | market for heat, central or small-scale, natural gas (candidat inspecté) | b4a33a9d-da08-3d5b-a883-e22acd9e7415 | MJ | Europe without Switzerland | Moyenne | Non déterminée (28/38 résultats non inspectés) | Aucune identifiée | À valider — recherche géographique incomplète | Correspondance géographique non exhaustivement vérifiée (28/38 résultats non inspectés) | Confirmer l'usage réel de gaz + consommation mesurée | Compléter la recherche géographique avant de choisir un dataset définitif |
-| Eau de procédé | P2 | market for tap water (candidat inspecté) | 882c7e14-18f8-3eb4-8638-b41826090117 | kg | Rest-of-World | Moyenne | Faible parmi les variantes inspectées (3/4 inspectées, aucune nord-américaine) | Aucune identifiée | À valider — recherche géographique incomplète | Aucune variante nord-américaine identifiée parmi les 3 variantes inspectées ; 1 variante non inspectée | Consommation d'eau réelle | Retenir RoW comme candidat inspecté, compléter l'inspection de la 4ᵉ variante |
-| Eaux usées | P2 | market for wastewater, average (candidat inspecté) | 7a2be1f9-6dca-35f5-a39f-1d64c9e22eae | m³ | Rest-of-World | Moyenne | Faible (1/3 variantes inspectée) | Aucune identifiée | À valider — recherche géographique/fonctionnelle partielle | Composition détaillée non documentée dans les champs consultés ; 2/3 variantes non inspectées | Nature du rejet (municipal vs contaminé) | Clarifier le mode de rejet réel, compléter l'inspection des variantes restantes |
+| Gaz naturel/chaleur | P2 | market for heat, central or small-scale, natural gas | 45ee995d-b001-3cf9-b36f-225c8efd320b | MJ | Rest-of-World | Moyenne | Aucune variante CA-QC/CA/RNA identifiée parmi les variantes inspectées ; brique amont gaz haute pression Québec identifiée (3261abf1-b57c-314d-bb54-5a0a60b54bb2), non substituable directement | Brique amont Québec identifiée (gaz haute pression), non substituable au service de chaleur | Candidat générique utilisable, représentativité géographique à valider | Aucun service de chaleur spécifique Québec/Canada/Amérique du Nord identifié parmi les variantes inspectées ; chaîne québécoise vers la combustion non établie dans ce lot | Consommation réelle de gaz naturel ou de chaleur, selon la donnée d'activité disponible | Conserver le candidat RoW ; noter la brique amont Québec pour une reconstruction éventuelle hors périmètre |
+| Eau de procédé | P2 | market for tap water | 3ab1597e-4b32-3e85-aec7-310678be9f64 | kg | Québec | Forte | Forte (dataset régional Québec identifié) | Dataset régional Québec identifié | Directement utilisable | Aucune lacune majeure identifiée à ce stade | Quantité réelle d'eau de procédé/nettoyage consommée | Adopter ce dataset comme candidat retenu |
+| Eaux usées | P2 | market for wastewater, average | 7a2be1f9-6dca-35f5-a39f-1d64c9e22eae | m³ | Rest-of-World | Moyenne | Aucune variante CA-QC/CA/RNA identifiée parmi les 3 variantes inspectées | Aucune identifiée | Candidat générique conservé, adéquation au rejet réel à valider | Aucune variante Québec/Canada/Amérique du Nord identifiée parmi les trois variantes inspectées | Volume rejeté et nature réelle du rejet (municipal standard vs charges colles/solvants/finition) | Conserver le candidat RoW ; clarifier la nature du rejet |
 | Résidus contaminés | P2 | treatment of waste paint, hazardous waste incineration (peinture) ; flux génériques hazardous waste (autres, non spécifiques) | d39c3e17-6987-3ca0-80c1-5121f4806469 | kg | Suisse | Forte (peinture) / Inconnue (colles, solvants) | Faible | Aucune identifiée | Utilisable avec paramétrage (peinture) / Proxy à adapter (autres) | Aucun flow suffisamment spécifique aux colles/solvants/chiffons identifié avec les recherches du Lot 2G | Nature exacte du résidu, quantité, filière | Distinguer peinture des autres résidus dans la collecte |
 
 ---
@@ -538,9 +570,9 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 | Chutes de bois massif | Répartition entre décharge/incinération/valorisation | % ou kg par filière | Déterminant pour choisir entre 3-4 scénarios très différents en impact | **Haute** |
 | Chutes de panneaux | Quantité générée + répartition des destinations | kg, % | Même besoin que le bois massif, avec en plus une composition non reflétée par Ecoinvent | Moyenne |
 | Sciures/poussières | Part captée par aspiration vs émise ; destination de la part captée (vente, valorisation interne, décharge) | kg, % | Déterminant pour éviter de confondre un co-produit valorisé avec une émission atmosphérique | **Haute** |
-| Gaz naturel | Confirmation d'usage réel + consommation si applicable | m³ ou GJ | Le mandat interdit de présumer l'usage ; sans confirmation, l'objet entier est sans objet | Moyenne |
-| Eau de procédé | Consommation d'eau (procédé + nettoyage) | m³ ou kg | Aucune estimation par défaut acceptable | Moyenne |
-| Eaux usées | Mode de rejet (municipal standard vs contaminé nécessitant un traitement spécifique) | qualitatif | Change potentiellement le type de dataset à utiliser | Moyenne |
+| Gaz naturel | Confirmation d'usage réel + consommation (gaz ou chaleur, selon la donnée d'activité disponible) | selon donnée disponible | Le mandat interdit de présumer l'usage ; sans confirmation, l'objet entier est sans objet | Moyenne |
+| Eau de procédé | Consommation d'eau de procédé/nettoyage | kg (unité native Ecoinvent conservée) | Dataset régional Québec disponible ; aucune conversion automatique kg↔L appliquée | Moyenne |
+| Eaux usées | Volume rejeté + nature réelle du rejet (municipal standard vs charges colles/solvants/finition) | m³, qualitatif | Détermine l'adéquation du dataset générique retenu | Moyenne |
 | Résidus contaminés | Nature exacte (peinture/solvant/colle/chiffons) + quantités par catégorie | kg, catégorie | Seule la catégorie "peinture" est bien représentée ; les autres nécessitent une décision au cas par cas | **Haute** |
 
 ---
@@ -549,15 +581,16 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 **Aucune catégorie ci-dessous n'affirme une représentativité québécoise/nord-américaine établie ; toutes reflètent le niveau de validation atteint dans ce lot, pas une conclusion définitive sur le contenu d'Ecoinvent.**
 
-### A. Dataset fonctionnel identifié, représentativité à valider
+### A. Dataset fonctionnel identifié, représentativité à valider ou confirmée
 - Transport entrant
 - Transport sortant
 - Chutes de bois massif
+- Eau de procédé — **dataset régional Québec directement utilisable, forte correspondance** (recherche complétée au Lot 2G-bis ; ne relève plus de la catégorie B)
+- Gaz naturel/chaleur — candidat générique identifié après inspection de la famille (Suisse / Europe without Switzerland / Rest-of-World), avec représentativité géographique à valider (recherche complétée au Lot 2G-bis ; ne relève plus de la catégorie B)
+- Eaux usées — candidat générique identifié après inspection des trois variantes (Suisse / Europe without Switzerland / Rest-of-World), avec adéquation au rejet réel à valider (recherche complétée au Lot 2G-bis ; ne relève plus de la catégorie B)
 
 ### B. Recherche complémentaire nécessaire avant choix définitif
-- Gaz naturel/chaleur (28/38 résultats non inspectés)
-- Eau de procédé (3/4 variantes inspectées)
-- Eaux usées (1/3 variantes inspectée)
+*Aucun objet dans cette catégorie à ce stade. Gaz naturel/chaleur, Eau de procédé et Eaux usées y figuraient au Lot 2G (recherche géographique incomplète) ; leur inspection a été complétée au Lot 2G-bis — voir catégorie A.*
 
 ### C. Proxy/adaptation/reconstruction potentielle
 - Chutes de panneaux (proxy candidat générique bois, composition non reflétée)
@@ -588,15 +621,15 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 **7. Peut-on représenter un scénario mixte de fin de vie sans créer de nouveau dataset ?** Oui conceptuellement — en pondérant les scénarios existants selon la répartition réelle fournie par l'entreprise (non construit dans ce lot, conformément au mandat).
 
-**8. Quel dataset utiliser pour le gaz/chaleur si l'entreprise en consomme ?** `market for heat, central or small-scale, natural gas` constitue un **candidat inspecté**, non retenu de façon définitive — une recherche géographique complémentaire parmi les 28 résultats non inspectés est nécessaire avant de choisir un dataset.
+**8. Quel dataset utiliser pour le gaz/chaleur si l'entreprise en consomme ?** Les variantes génériques inspectées du service de chaleur sont Suisse, Europe without Switzerland et Rest-of-World. Le candidat RoW est retenu comme option générique à valider pour le Québec. Un marché de gaz naturel haute pression spécifique Québec a également été identifié, mais aucune chaîne québécoise complète vers la combustion en chaudière n'a été établie dans ce lot.
 
-**9. Quel dataset utiliser pour l'eau ?** `market for tap water`, variante Rest-of-World, constitue un **candidat inspecté** ; 3 des 4 variantes existantes ont été inspectées et aucune n'est nord-américaine, mais la 4ᵉ variante reste à vérifier avant un choix définitif.
+**9. Quel dataset utiliser pour l'eau ?** Un dataset `market for tap water` spécifique Québec a été identifié (UUID `3ab1597e-4b32-3e85-aec7-310678be9f64`). Il devient le candidat retenu pour l'approvisionnement en eau distribuée.
 
-**10. Quel traitement utiliser pour les eaux usées ?** `market for wastewater, average`, variante Rest-of-World, constitue un **candidat inspecté** (1 des 3 variantes existantes inspectée) — sous réserve de compléter la recherche géographique et de valider si la nature du rejet (contaminé ou non) justifie un traitement différent.
+**10. Quel traitement utiliser pour les eaux usées ?** Les trois variantes de `market for wastewater, average` ont été inspectées. Le candidat Rest-of-World est conservé. Aucune variante plus spécifique au Québec/Canada/Amérique du Nord n'a été identifiée parmi ces trois variantes. Son adéquation dépend de la nature réelle du rejet de l'atelier.
 
 **11. Comment représenter les résidus contaminés ?** Distinguer peinture/finition (flow spécifique bien documenté) des colles/solvants/chiffons (flux génériques `hazardous waste` seulement, sans composition spécifique).
 
-**12. Lesquels nécessitent réellement de nouvelles données ACV et lesquels nécessitent simplement des données d'activité de l'entreprise ?** Nécessitent principalement des données d'activité entreprise, sur la base d'un candidat déjà identifié (transport entrant/sortant, chutes de bois massif, résidus peinture) — sous réserve de validation de la représentativité du dataset. Nécessitent une recherche géographique complémentaire avant tout choix définitif (gaz naturel/chaleur, eau de procédé, eaux usées) — ni l'eau, ni le gaz, ni les eaux usées ne sont classés comme définitivement résolus par Ecoinvent. Nécessitent une réflexion de modélisation en plus des données d'activité (chutes de panneaux, sciures selon destination, résidus colles/solvants) — parce qu'aucun dataset suffisamment représentatif n'a été identifié, pas un simple manque de paramètre.
+**12. Lesquels nécessitent réellement de nouvelles données ACV et lesquels nécessitent simplement des données d'activité de l'entreprise ?** Nécessitent principalement des données d'activité entreprise, sur la base d'un candidat déjà identifié (transport entrant/sortant, chutes de bois massif, eau de procédé, résidus peinture) — sous réserve de validation de la représentativité du dataset pour transport et chutes de bois massif ; l'eau de procédé dispose désormais d'un dataset régional Québec directement utilisable (recherche complétée au Lot 2G-bis). Le gaz naturel/chaleur et les eaux usées disposent désormais d'un candidat générique identifié après inspection complète de leur famille respective (recherche complétée au Lot 2G-bis), avec représentativité géographique/adéquation au rejet à valider. Nécessitent une réflexion de modélisation en plus des données d'activité (chutes de panneaux, sciures selon destination, résidus colles/solvants) — parce qu'aucun dataset suffisamment représentatif n'a été identifié, pas un simple manque de paramètre.
 
 **13. Quelles sont les cinq données terrain les plus importantes à collecter ?**
 1. Consommation électrique réelle (kWh) — bloquant même une fois le dataset isolé.
@@ -621,9 +654,9 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 | Chutes de bois massif | waste wood, untreated + traitements (candidat inspecté) | Moyenne | Représentativité québécoise des traitements non établie | 🟡 À valider | Répartition des destinations | Conserver comme candidat, valider la représentativité des traitements |
 | Chutes de panneaux | Aucun flow suffisamment représentatif identifié ; waste wood, untreated envisagé comme proxy candidat (non construit) | Faible | Composition résineuse non reflétée | 🟠 À adapter | Quantité, répartition | Évaluer le proxy candidat en documentant la limite ; proxy non construit |
 | Sciures/poussières | saw dust (PRODUCT_FLOW, co-produit) | Moyenne | Aucun flow de déchet suffisamment pertinent identifié avec les recherches effectuées | 🟡 À valider | Part captée/valorisée vs décharge | Clarifier la destination réelle |
-| Gaz naturel/chaleur | market for heat, central or small-scale, natural gas (candidat inspecté) | Moyenne | Géographie non exhaustivement vérifiée (28/38 non inspectés) | 🟡 À valider | Confirmer usage + consommation | Compléter la recherche géographique |
-| Eau de procédé | market for tap water, RoW (candidat inspecté) | Moyenne | Aucune variante nord-américaine identifiée parmi 3/4 variantes inspectées ; recherche incomplète | 🟡 À valider | Consommation d'eau | Retenir comme candidat inspecté ; compléter l'inspection de la 4ᵉ variante |
-| Eaux usées | market for wastewater, average, RoW (candidat inspecté) | Moyenne | Composition/nature du rejet non tranchée ; recherche géographique partielle (1/3 inspectée) | 🟡 À valider | Nature du rejet | Clarifier le mode de rejet, compléter l'inspection des variantes restantes |
+| Gaz naturel/chaleur | market for heat, central or small-scale, natural gas — RoW (UUID `45ee995d-b001-3cf9-b36f-225c8efd320b`) ; brique amont identifiée : market for natural gas, high pressure — Québec (UUID `3261abf1-b57c-314d-bb54-5a0a60b54bb2`), non substituable directement | Moyenne | Aucun service de chaleur spécifique Québec/Canada/Amérique du Nord identifié parmi les variantes inspectées | 🟡 À valider | Consommation réelle de gaz naturel ou de chaleur, selon la donnée d'activité disponible | Conserver le candidat RoW ; noter la brique amont Québec pour une reconstruction éventuelle hors périmètre |
+| Eau de procédé | market for tap water — Québec (UUID `3ab1597e-4b32-3e85-aec7-310678be9f64`) | Forte | Aucune lacune majeure identifiée à ce stade | 🟢 Utilisable | Quantité réelle d'eau de procédé/nettoyage consommée | Adopter ce dataset comme candidat retenu |
+| Eaux usées | market for wastewater, average — RoW (UUID `7a2be1f9-6dca-35f5-a39f-1d64c9e22eae`) | Moyenne | Aucune variante Québec/Canada/Amérique du Nord identifiée parmi les trois variantes inspectées | 🟡 À valider | Volume rejeté et nature réelle du rejet | Conserver le candidat RoW ; clarifier la nature du rejet avec l'entreprise |
 | Résidus contaminés | treatment of waste paint (peinture, candidat spécifique) / flux génériques (autres, non spécifiques) | Forte (peinture) / Inconnue (autres) | Aucun flow suffisamment spécifique colle/solvant/chiffon identifié avec les recherches effectuées | 🟠 À adapter | Nature exacte, quantités | Distinguer les catégories dans la collecte |
 
 ---
@@ -645,9 +678,7 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 
 ### Synthèse finale
 
-**Objets avec dataset candidat identifié, représentativité à valider** : transport entrant, transport sortant, chutes de bois massif.
-
-**Objets nécessitant une recherche géographique complémentaire avant choix définitif** : eau de procédé (3/4 variantes inspectées), eaux usées (1/3 variante inspectée), gaz naturel/chaleur (28/38 résultats non inspectés).
+**Objets avec dataset candidat identifié, représentativité à valider ou confirmée** : transport entrant, transport sortant, chutes de bois massif, eau de procédé (dataset régional Québec directement utilisable — recherche complétée au Lot 2G-bis), gaz naturel/chaleur (candidat générique RoW, recherche géographique complétée au Lot 2G-bis), eaux usées (candidat générique RoW, recherche géographique complétée au Lot 2G-bis).
 
 **Candidat spécifique identifié pour une partie du besoin** : résidus contaminés — volet peinture/finition.
 
@@ -660,3 +691,5 @@ Distinguer, dans la collecte de données entreprise, peinture/finition (bien cou
 ---
 
 *Fin du rapport Lot 2G. Aucun dataset openLCA modifié. Aucun proxy construit. `docs/materiaux-ebenisterie.md` non modifié. Seuls les 10 objets demandés ont été traités.*
+
+*Compléments Gaz naturel/chaleur, Eau de procédé et Eaux usées intégrés depuis le Lot 2G-bis (recherche openLCA/MCP séparée). Cette intégration n'a effectué aucune nouvelle recherche MCP/openLCA/Web ; elle reporte exclusivement les résultats déjà obtenus au Lot 2G-bis.*

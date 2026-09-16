@@ -1,8 +1,8 @@
 # Tableau transversal des lacunes Ecoinvent — RECQ36
 
-Livrable demandé par Nicolas en réunion de validation métier du **2026-09-15**. Ce tableau rassemble, en une vue unique, l'état du diagnostic de représentativité Ecoinvent pour **tous les produits métier déjà couverts par les Lots 2A à 2G**, les objets ajoutés le 2026-09-15, et leur réconciliation avec l'interrogation OpenLCA réelle du **2026-09-16** ([rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md)). Une ligne = un produit métier.
+Livrable demandé par Nicolas en réunion de validation métier du **2026-09-15**. Ce tableau rassemble, en une vue unique, l'état du diagnostic de représentativité Ecoinvent pour **tous les produits métier déjà couverts par les Lots 2A à 2G**, les objets ajoutés le 2026-09-15, et leur réconciliation avec l'interrogation OpenLCA vérifiée sur Ecoinvent 3.11 du **2026-09-16** ([rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md)). Une ligne = un produit métier.
 
-**Mise à jour 2026-09-16 :** ce tableau intègre désormais les résultats vérifiés d'une interrogation directe du connecteur MCP OpenLCA, réconciliés avec les conclusions antérieures. Les objets non encore diagnostiqués restent marqués `NON RÉALISÉE` ; les objets reconfirmés indépendamment portent la mention `RÉALISÉE (2× )` en note. Une anomalie de configuration (`database_family: "flcac"`) reste `À VÉRIFIER` — voir le [référentiel](../materiaux-ebenisterie.md#anomalie-observée--database_family-flcac) pour le détail ; plusieurs UUID cités ci-dessous diffèrent entre les deux sessions pour un même nom de produit, sans que cela soit résolu.
+**Correction (2026-09-16, passe corrective) :** une première réconciliation avait été intégrée par erreur (commit `aaabecd`) alors que la mauvaise base OpenLCA (`cups`) était ouverte après un changement de poste de travail — tous ses résultats sont invalidés. Ce tableau est désormais aligné sur une nouvelle interrogation complète, réalisée depuis zéro sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` (`database_family` forcé et confirmé à `ecoinvent`, 25 412 processus / 14 051 flux / 0 méthode). L'anomalie `database_family: "flcac"` est **résolue** (cause : mauvaise base ouverte, pas une anomalie Ecoinvent) — voir le [référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac). Les objets non encore diagnostiqués restent marqués `NON RÉALISÉE` ; les objets reconfirmés indépendamment (Lot antérieur + Ecoinvent 3.11) portent la mention `RÉALISÉE (2× )` en note.
 
 **Stade du projet — rappel méthodologique important :** nous sommes au stade **diagnostic**. Ce tableau identifie et qualifie des écarts ; il ne les convertit **ni** en score carbone, **ni** en métrique quantitative agrégée. Un écart identifié (`ÉCART`) est déjà, en soi, une information valide à ce stade — il n'appelle pas nécessairement une correction immédiate.
 
@@ -54,7 +54,7 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Panneau de particules brut | P1 | OK | ÉCART | À VÉRIFIER | ÉCART | ÉCART | OUI | NON | NON | OUI | RÉALISÉE (2B) | 🟠 |
 | MDF brut | P1 | OK | ÉCART | À VÉRIFIER | ÉCART | ÉCART | OUI | NON | NON | OUI | RÉALISÉE (2B) | 🟠 |
-| Contreplaqué merisier / yellow birch / Baltic plywood *(ex-« bouleau russe »)* | P1 | OK *(proxy `plywood, for indoor use` vérifié)* | ÉCART *(hêtre/hardwood ≠ bouleau)* | À VÉRIFIER | ÉCART | ÉCART | À VÉRIFIER | OUI | NON | OUI *(si précision requise)* | RÉALISÉE (2026-09-16 ; Lot 2A non reconfirmé) | 🟠 |
+| Contreplaqué merisier / yellow birch / Baltic plywood *(ex-« bouleau russe »)* | P1 | OK *(proxy `plywood production`, Canada-Quebec, `5538194d-…`, reconfirmé)* | ÉCART *(hardwood générique ≠ bouleau)* | ÉCART *(colle urée-formaldéhyde générique)* | ÉCART *(copie administrative de l'échantillon allemand)* | ÉCART | NON *(copie administrative)* | OUI | NON | OUI *(si précision requise)* | RÉALISÉE 2× (Lot 2A + Ecoinvent 3.11, 2026-09-16) | 🟠 |
 | Panneau de particules mélaminé / TFL | P1 | ÉCART | OK *(service)* | À VÉRIFIER | ÉCART | ÉCART | OUI | NON | OUI | OUI | RÉALISÉE (2B) | 🟣 |
 | MDF mélaminé / TFL | P1 | ÉCART | À VÉRIFIER | À VÉRIFIER | ÉCART | ÉCART | OUI | NON | OUI | OUI | RÉALISÉE (2B) | 🟣 |
 | MDF plaqué bois acheté fini | P1 | ÉCART | ÉCART *(substrat seul)* | ÉCART | ÉCART | ÉCART | À VÉRIFIER | À VÉRIFIER | OUI | OUI | RÉALISÉE (2E) | 🔴 |
@@ -70,7 +70,7 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Stratifié HPL | P1 | ÉCART | ÉCART | ÉCART | N/A | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (2E) | 🔴 |
 | Placage de bois naturel | P1 | ÉCART | ÉCART | ÉCART | ÉCART | ÉCART | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (2E) | 🔴 |
-| Papier mélaminé appliqué en atelier *(nouvel objet, Nicolas 2026-09-15)* | P1/P2 | OK *(papier + marché + service vérifiés)* | OK *(302 g/m² documenté)* | À VÉRIFIER *(échelle atelier vs industriel)* | ÉCART *(RoW/Global)* | ÉCART | NON | NON | NON | À VÉRIFIER *(grammage réel atelier)* | RÉALISÉE (2026-09-16) | 🟢 |
+| Papier mélaminé appliqué en atelier *(nouvel objet, Nicolas 2026-09-15)* | P1/P2 | OK *(papier + marché + service reconfirmés sur Ecoinvent 3.11)* | OK *(302 g/m² documenté)* | À VÉRIFIER *(simple vs double face ; échelle atelier vs industriel)* | ÉCART *(RoW/Europe/Global)* | ÉCART | NON | NON | NON | À VÉRIFIER *(grammage réel atelier)* | RÉALISÉE 2× (Lot 2B + Ecoinvent 3.11, 2026-09-16) | 🟡 |
 
 ## 3. Bandes de chant
 
@@ -79,8 +79,8 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 | Bande de chant bois véritable préencollée | P1 | ÉCART | N/A | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (2D) | 🔴 |
 | Bande de chant bois véritable non encollée | P1 | ÉCART | N/A | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (2D) | 🔴 |
 | Bande de chant ABS | P1 | ÉCART | OK *(matière)* | ÉCART | À VÉRIFIER | ÉCART | À VÉRIFIER | OUI | OUI | OUI | RÉALISÉE (2D) | 🟣 |
-| Bande de chant PVC *(place relative à revalider, Nicolas 2026-09-15)* | P1 | ÉCART | OK *(matière)* | À VÉRIFIER *(indice partiel)* | À VÉRIFIER | ÉCART | À VÉRIFIER | OUI | OUI | OUI | RÉALISÉE (2D) | 🟣 |
-| Bande de chant PE / polyéthylène *(nouvel objet, Nicolas 2026-09-15)* | P1 | ÉCART *(0 résultat confirmé)* | OK *(matière PE générique)* | ÉCART *(aucun procédé de profilé)* | N/A *(Global)* | ÉCART | À VÉRIFIER | OUI | OUI | OUI | RÉALISÉE (2026-09-16) | 🟣 |
+| Bande de chant PVC *(place relative à revalider, Nicolas 2026-09-15)* | P1 | ÉCART | OK *(matière, suspension polymerised reconfirmée)* | À VÉRIFIER *(indice partiel)* | À VÉRIFIER | ÉCART | À VÉRIFIER | OUI | OUI | OUI | RÉALISÉE 2× (Lot 2D + Ecoinvent 3.11, 2026-09-16) | 🟣 |
+| Bande de chant PE / polyéthylène *(nouvel objet, Nicolas 2026-09-15)* | P1 | ÉCART *(0 résultat confirmé sur Ecoinvent 3.11)* | OK *(matière PE générique)* | ÉCART *(aucun procédé de profilé plat)* | N/A *(Global)* | ÉCART | À VÉRIFIER | OUI | OUI | OUI | RÉALISÉE (Ecoinvent 3.11, 2026-09-16) | 🟣 |
 
 ## 4. Bois massif
 
@@ -99,10 +99,10 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 
 | Produit métier | Prio | Produit/fonction | Composition | Techno/procédé | Géographie | Données QC | Adapt. géo | Proxy | Reconstr. | Info fourn. | Analyse | Statut |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Colle PVAc / PVA blanche | P1 | ÉCART *(monomère seul, reconfirmé)* | ÉCART | ÉCART | N/A *(Global)* | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE 2× (2F + 2026-09-16) | 🔴 |
-| Adhésif thermofusible EVA hot-melt | P1 | ÉCART *(résine seule)* | ÉCART | À VÉRIFIER | N/A *(Global)* | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE (2F) | 🟣 |
-| Colle contact *(formulations à base d'eau pertinentes aujourd'hui, Nicolas 2026-09-15)* | P1 | ÉCART *(aucune brique, reconfirmé même pour base eau)* | ÉCART | ÉCART | N/A | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE 2× (2F + 2026-09-16) | 🔴 |
-| Colle polyuréthane / PUR | P2 | ÉCART *(précurseurs seuls)* | ÉCART | ÉCART | À VÉRIFIER | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (2F) | 🔴 |
+| Colle PVAc / PVA blanche | P1 | ÉCART *(monomère seul, reconfirmé sur Ecoinvent 3.11)* | ÉCART | ÉCART | À VÉRIFIER | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE 2× (Lot 2F + Ecoinvent 3.11, 2026-09-16) | 🔴 |
+| Adhésif thermofusible EVA hot-melt | P1 | ÉCART *(résine seule, reconfirmé)* | ÉCART | À VÉRIFIER | À VÉRIFIER | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE 2× (Lot 2F + Ecoinvent 3.11, 2026-09-16) | 🟣 |
+| Colle contact *(formulations à base d'eau pertinentes aujourd'hui, Nicolas 2026-09-15)* | P1 | ÉCART *(aucune brique, reconfirmé même pour base eau)* | ÉCART | ÉCART | N/A | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE 2× (Lot 2F + Ecoinvent 3.11, 2026-09-16) | 🔴 |
+| Colle polyuréthane / PUR | P2 | ÉCART *(précurseurs seuls ; produit formulé trouvé pour CLT, non équivalent)* | ÉCART | ÉCART | OK *(Global, pour le produit CLT)* | ÉCART | N/A | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE 2× (Lot 2F + Ecoinvent 3.11, 2026-09-16) | 🔴 |
 
 ## 6. Finitions
 
@@ -123,19 +123,19 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Vis d'assemblage #6 *(modèle simplifié probablement suffisant, Nicolas)* | P1 | ÉCART | À VÉRIFIER | ÉCART | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE (2D) | 🟣 |
 | Vis d'assemblage #8 *(idem)* | P1 | ÉCART | À VÉRIFIER | ÉCART | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE (2D) | 🟣 |
-| Charnière invisible de meuble *(priorisé, Nicolas)* | P1 | ÉCART *(reconfirmé 2×)* | ÉCART *(nomenclature absente ; briques acier/inox vérifiées 2026-09-16)* | À VÉRIFIER *(mise en forme/revêtement disponibles)* | N/A | ÉCART | N/A | OUI *(bottom-up)* | À VÉRIFIER | OUI *(bloquant)* | RÉALISÉE 2× (2D + 2026-09-16) | 🔴 |
-| Coulisse de tiroir *(priorisé + modèle fournisseur de référence à choisir, Nicolas)* | P1 | ÉCART *(reconfirmé 2×)* | ÉCART *(nomenclature absente ; mêmes briques)* | À VÉRIFIER | N/A | ÉCART | N/A | OUI *(bottom-up)* | À VÉRIFIER | OUI *(bloquant)* | RÉALISÉE 2× (2D + 2026-09-16) | 🔴 |
-| Poignée de meuble métallique *(priorisé, Nicolas)* | P1 | ÉCART *(statut 2026-09-16 incohérent dans le rapport source)* | À VÉRIFIER *(alu conditionnel)* | À VÉRIFIER | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | PARTIELLE *(rapport source incohérent, à revérifier)* | 🟣 |
-| Pied niveleur / niveleur *(priorisé, Nicolas)* | P1 | ÉCART | À VÉRIFIER *(PP conditionnel)* | À VÉRIFIER | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE (2D) | 🟣 |
-| Ferrure métallique de suspension (French cleat) *(priorisé, Nicolas)* | P1/P2 | À VÉRIFIER | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | NON RÉALISÉE | 🟡 |
+| Charnière invisible de meuble *(priorisé, Nicolas)* | P1 | ÉCART (reconfirmé 2 fois, dont Ecoinvent 3.11) | ÉCART (nomenclature absente ; services génériques identifiés sans UUID) | À VÉRIFIER (mise en forme/revêtement disponibles, sans UUID) | N/A | ÉCART | N/A | OUI (bottom-up) | À VÉRIFIER | OUI (bloquant) | RÉALISÉE 2 fois (Lot 2D + Ecoinvent 3.11, 2026-09-16) | 🔴 |
+| Coulisse de tiroir *(priorisé + modèle fournisseur de référence à choisir, Nicolas)* | P1 | ÉCART *(reconfirmé 2×, dont Ecoinvent 3.11)* | ÉCART *(nomenclature absente ; mêmes services génériques)* | À VÉRIFIER | N/A | ÉCART | N/A | OUI *(bottom-up)* | À VÉRIFIER | OUI *(bloquant)* | RÉALISÉE 2× (Lot 2D + Ecoinvent 3.11, 2026-09-16) | 🔴 |
+| Poignée de meuble métallique *(priorisé, Nicolas)* | P1 | ÉCART *(absence reconfirmée sans ambiguïté sur Ecoinvent 3.11 ; incohérence de la passe `cups` sans objet)* | À VÉRIFIER *(alu conditionnel)* | À VÉRIFIER | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE 2× (Lot 2D + Ecoinvent 3.11, 2026-09-16) | 🟣 |
+| Pied niveleur / niveleur *(priorisé, Nicolas)* | P1 | ÉCART *(reconfirmé sur Ecoinvent 3.11)* | À VÉRIFIER *(PP conditionnel)* | À VÉRIFIER | N/A | ÉCART | N/A | À VÉRIFIER | OUI | OUI | RÉALISÉE 2× (Lot 2D + Ecoinvent 3.11, 2026-09-16) | 🟣 |
+| Ferrure métallique de suspension (French cleat) *(priorisé, Nicolas)* | P1/P2 | ÉCART *(désormais couvert et confirmé absent, Ecoinvent 3.11)* | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | OUI | OUI | RÉALISÉE (Ecoinvent 3.11, 2026-09-16) | 🟣 |
 
 ## 8. Emballage
 
 | Produit métier | Prio | Produit/fonction | Composition | Techno/procédé | Géographie | Données QC | Adapt. géo | Proxy | Reconstr. | Info fourn. | Analyse | Statut |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Carton d'emballage / carton ondulé | P1 | OK *(2A)* / À VÉRIFIER *(variante QC non reconfirmée 2026-09-16)* | À VÉRIFIER *(linerboard)* | OK *(2A)* | OK *(2A, fort QC)* / ÉCART *(variante Global seule trouvée 2026-09-16)* | À VÉRIFIER *(2008 ; existence variante QC à revérifier)* | À VÉRIFIER | NON | NON | À VÉRIFIER | RÉALISÉE *(discordante entre sessions — voir vigilance)* | 🟡 |
-| Film à bulles / papier bulle | P1 | ÉCART *(0 résultat confirmé)* | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE *(synonymes restants à tester)* | 🔴 |
-| Matériau d'emballage blanc fin en rouleau *(identification à confirmer, nouvel objet Nicolas 2026-09-15)* | P1/P2 | N/A *(identification non confirmée ; candidat LDPE non confirmé relevé)* | N/A | N/A | N/A | N/A | N/A | N/A *(candidat exploratoire seulement)* | N/A | OUI *(bloquant)* | PARTIELLE *(candidat exploratoire non confirmé)* | 🟡 |
+| Carton d'emballage / carton ondulé | P1 | OK *(Lot 2A, reconfirmé indépendamment sur Ecoinvent 3.11, même UUID)* | À VÉRIFIER *(linerboard)* | OK | OK *(marché explicitement régional, documenté par Ecoinvent lui-même)* | À VÉRIFIER *(données de fabrication datées de 2008)* | NON | NON | NON | À VÉRIFIER *(linerboard, électricité)* | RÉALISÉE 2× (Lot 2A + Ecoinvent 3.11, 2026-09-16) | 🟢 |
+| Film à bulles / papier bulle | P1 | ÉCART *(0 résultat confirmé sur plusieurs synonymes, Ecoinvent 3.11)* | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (Ecoinvent 3.11, synonymes usuels testés) | 🔴 |
+| Matériau d'emballage blanc fin en rouleau *(identification à confirmer, nouvel objet Nicolas 2026-09-15)* | P1/P2 | N/A *(identification non confirmée ; deux candidats non confirmés de natures opposées — film LDPE plat vs mousse rigide EPS hors sujet)* | N/A | N/A | N/A | N/A | N/A | N/A *(candidats exploratoires seulement)* | N/A | OUI *(bloquant)* | PARTIELLE *(candidats exploratoires non confirmés)* | 🟡 |
 
 ## 9. Données transversales
 
@@ -163,16 +163,16 @@ Sur les **53 produits métier** recensés dans ce tableau :
 | Statut référentiel | Nombre de produits |
 |---|---|
 | 🟢 Utilisable | 2 |
-| 🟡 À valider | 19 |
+| 🟡 À valider | 18 |
 | 🟠 À adapter | 8 |
-| 🟣 À reconstruire | 10 |
+| 🟣 À reconstruire | 11 |
 | 🔴 Lacune majeure | 14 |
 
 | État de l'analyse Ecoinvent | Nombre de produits |
 |---|---|
-| RÉALISÉE | 40 |
-| PARTIELLE | 4 |
-| NON RÉALISÉE | 9 |
+| RÉALISÉE | 42 |
+| PARTIELLE | 3 |
+| NON RÉALISÉE | 8 |
 
 **Lecture de ce décompte :** ces chiffres ne mesurent qu'une chose — combien de produits métier portent chaque étiquette de statut ou d'avancement dans les diagnostics déjà sourcés. Ils ne pondèrent pas par masse, par fréquence d'usage réelle en atelier, ni par contribution probable à l'impact du meuble fini ; ils ne doivent donc pas être lus comme une priorisation implicite. La priorisation reste celle établie par Nicolas (sections 7, 8 et par produit ci-dessus) et par les priorités P1/P2 du référentiel.
 
@@ -180,14 +180,16 @@ Sur les **53 produits métier** recensés dans ce tableau :
 
 ## Points de vigilance transversaux
 
-1. **Les adhésifs et les surfaces de panneaux restent les deux familles les plus systématiquement en `ÉCART`** sur le produit/fonction : Ecoinvent ne propose généralement que des précurseurs chimiques ou des substrats bruts, jamais le produit fini métier — confirmé une seconde fois pour la PVA et la colle contact le 2026-09-16.
-2. **Le statut 🟢 Utilisable apparaît désormais deux fois** — l'eau de procédé/nettoyage (Lot 2G-bis, dataset régional Québec) et, depuis le 2026-09-16, le **papier mélaminé appliqué en atelier** (meilleure correspondance obtenue à ce jour dans l'ensemble du diagnostic RECQ36, sous réserve d'échelle atelier vs industriel).
-3. **Anomalie transversale non résolue — UUID différents pour un même nom de produit entre sessions.** Constaté pour `plywood`, `particleboard, uncoated`, `coating service, melamine impregnated paper`, `adhesive, for metal`, `acrylonitrile-butadiene-styrene copolymer`, `polyvinylchloride`, `wire drawing, steel`, `zinc coating, pieces`, et pour la géographie du `market for corrugated board box` (Canada/Québec au Lot 2A, Global seulement le 2026-09-16). Ce schéma est cohérent avec — sans le démontrer — l'anomalie `database_family: "flcac"` retournée par `database_info` le 2026-09-16 (nomenclature Ecoinvent 3 Cutoff, mais famille de base déclarée différente). **`À VÉRIFIER`** avant toute intégration ultérieure plus poussée — voir la [note dédiée dans le référentiel](../materiaux-ebenisterie.md#anomalie-observée--database_family-flcac) et la [liste structurée pour la prochaine passe OpenLCA](prochaine-passe-openlca.md).
-4. **Le renommage du contreplaqué (merisier/yellow birch/Baltic plywood)** a été réconcilié le 2026-09-16 : un proxy générique (`plywood, for indoor use`, Rest-of-World) est vérifié, avec un écart d'essence désormais documenté explicitement (hêtre/hardwood non spécifié, jamais bouleau). Le candidat du Lot 2A (produit de référence différent) n'a pas été reconfirmé — voir le point 3 ci-dessus.
-5. **La poignée de meuble métallique et le carton d'emballage/ondulé portent chacun une discordance interne ou entre sessions** non résolue par ce tableau : le rapport source du 2026-09-16 se contredit lui-même sur le statut de recherche de la poignée, et ne retrouve qu'une variante Global (pas Québec) du carton ondulé. Ces deux cas restent `À VÉRIFIER` plutôt que tranchés.
-6. **Cinq objets ajoutés le 2026-09-15 restent sans recherche Ecoinvent** après la passe du 2026-09-16 (pieds réglables/French cleat, ferrure de suspension) ou n'ont été que partiellement traités (matériau d'emballage mystère — identification toujours requise). Voir la [liste structurée pour la prochaine passe OpenLCA](prochaine-passe-openlca.md).
-7. **Dix objets (Données transversales) restent en phase ultérieure** par décision de Nicolas, malgré un diagnostic déjà réalisé (Lot 2G/2G-bis) : ce tableau les conserve pour la traçabilité, mais ils ne doivent pas orienter les priorités de travail immédiates. Ils n'ont pas été touchés par la réconciliation du 2026-09-16.
+1. **Les adhésifs et les surfaces de panneaux restent les deux familles les plus systématiquement en `ÉCART`** sur le produit/fonction : Ecoinvent ne propose généralement que des précurseurs chimiques ou des substrats bruts, jamais le produit fini métier — confirmé une seconde fois pour la PVA et la colle contact sur Ecoinvent 3.11 (2026-09-16).
+2. **Le statut 🟢 Utilisable regroupe désormais l'eau de procédé/nettoyage** (Lot 2G-bis, dataset régional Québec) **et le carton d'emballage/ondulé** (Lot 2A, reconfirmé indépendamment sur Ecoinvent 3.11, même UUID `2424352b-…`). Le papier mélaminé appliqué en atelier, correspondance partielle forte plutôt que directe, est classé `🟡 À valider` — sa représentativité simple-face/double-face et son échelle atelier vs industrielle restent à trancher.
+3. **Anomalie `database_family: "flcac"` résolue.** Une première réconciliation (commit `aaabecd`) avait interrogé la mauvaise base OpenLCA (`cups`) après un changement de poste de travail, et non Ecoinvent — tous ses résultats sont invalidés. Une nouvelle interrogation complète sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` (`database_family` forcé et confirmé à `ecoinvent`, 25 412 processus / 14 051 flux / 0 méthode) remplace ces résultats dans ce tableau. Voir la [note dédiée dans le référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac) et le [diagnostic corrigé](RECQ36_diagnostic_ecoinvent_openLCA.md).
+4. **Point distinct, encore ouvert :** même entre deux sessions authentiquement Ecoinvent (Lot 2F pre-`cups` vs Ecoinvent 3.11 2026-09-16), certains produits génériques (`vinyl acetate`, `ethylene vinyl acetate copolymer`, `adhesive, for metal`) reviennent sous des UUID différents — sans lien avec l'anomalie `flcac` désormais résolue, et sans qu'on puisse établir la cause. `À VÉRIFIER`, à ne pas présumer être une erreur.
+5. **Le renommage du contreplaqué (merisier/yellow birch/Baltic plywood)** a été réconcilié sur Ecoinvent 3.11 (2026-09-16) : le candidat `plywood production`, Canada-Quebec (`5538194d-…`) — déjà identifié au Lot 2A — est **reconfirmé indépendamment**, avec un écart d'essence documenté explicitement (hardwood générique, jamais bouleau) et une géographie CA-QC qui est une copie administrative du dataset européen, pas une donnée régionale réelle.
+6. **Le contreplaqué CA-QC et le carton CA-QC illustrent une distinction méthodologique importante :** deux datasets peuvent tous deux porter l'étiquette `Canada, Quebec`/`Canada, Québec` sans avoir le même niveau de représentativité réelle. Le contreplaqué est une copie administrative de l'échantillon européen (aucune donnée réelle québécoise) ; le carton ondulé a une base méthodologique documentée par Ecoinvent lui-même qui justifie sa représentativité régionale. Localisation ≠ représentativité, mais ce n'est pas non plus vrai que *tous* les datasets CA-QC sont des copies administratives.
+7. **La poignée de meuble métallique** portait une discordance interne dans le rapport `cups`, désormais sans objet : la nouvelle interrogation sur Ecoinvent 3.11 confirme sans ambiguïté l'absence de produit fonctionnel.
+8. **Recherches encore ouvertes après la passe du 2026-09-16 sur Ecoinvent 3.11** (désormais peu nombreuses — la plupart des objets ajoutés le 2026-09-15 sont maintenant couverts) : procédé générique de polymérisation en émulsion pour une éventuelle reconstruction PVAc ; mousse PE/PP souple sous d'autres terminologies, et non-tissé, uniquement si utile après identification du matériau d'emballage mystère ; approfondissement des procédés de formage métallique après obtention de données fabricant. Voir la [liste structurée pour la prochaine passe OpenLCA](prochaine-passe-openlca.md).
+9. **Dix objets (Données transversales) restent en phase ultérieure** par décision de Nicolas, malgré un diagnostic déjà réalisé (Lot 2G/2G-bis) : ce tableau les conserve pour la traçabilité, mais ils ne doivent pas orienter les priorités de travail immédiates. Ils n'ont pas été touchés par la réconciliation du 2026-09-16.
 
 ---
 
-*Ce tableau consolide des analyses déjà sourcées dans le dépôt (`docs/diagnostic/ecoinvent-representativite-qc-lot-2{a..g}.md`, `docs/materiaux-ebenisterie.md`) et le [diagnostic OpenLCA vérifié du 2026-09-16](RECQ36_diagnostic_ecoinvent_openLCA.md), réconciliés le 2026-09-16. Voir la version tabulaire complète : [`tableau-transversal-lacunes-ecoinvent.csv`](tableau-transversal-lacunes-ecoinvent.csv).*
+*Ce tableau consolide des analyses déjà sourcées dans le dépôt (`docs/diagnostic/ecoinvent-representativite-qc-lot-2{a..g}.md`, `docs/materiaux-ebenisterie.md`) et le [diagnostic OpenLCA vérifié et corrigé du 2026-09-16](RECQ36_diagnostic_ecoinvent_openLCA.md) (base `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31`), réconciliés le 2026-09-16. Une première réconciliation faite sur la mauvaise base OpenLCA (`cups`) est invalidée en totalité. Voir la version tabulaire complète : [`tableau-transversal-lacunes-ecoinvent.csv`](tableau-transversal-lacunes-ecoinvent.csv).*

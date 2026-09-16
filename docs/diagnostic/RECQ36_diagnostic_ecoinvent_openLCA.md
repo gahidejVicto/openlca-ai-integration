@@ -1,233 +1,212 @@
 # RECQ36 — Diagnostic des écarts Ecoinvent / OpenLCA
 **Matériaux et composants en ébénisterie québécoise**
 
-Rapport produit par interrogation réelle de la base via le connecteur MCP OpenLCA. Aucune modification n'a été apportée au dépôt Git (pas d'accès à ce dépôt dans cette session). Ce document est destiné à être transmis à une instance Claude Code pour intégration au référentiel.
+Rapport de réconciliation fondé sur une interrogation réelle et complète de la base via le connecteur MCP OpenLCA. **Cette version remplace intégralement la précédente (intégrée par erreur dans le commit `aaabecd`), dont la totalité des résultats est invalidée** : cette session-là avait été produite alors que la mauvaise base OpenLCA (`cups`) était ouverte dans le logiciel après un changement de poste de travail, et non Ecoinvent. Aucun UUID, géographie, résultat nul ou conclusion de cette ancienne session n'est réutilisé ici, sauf reconfirmation indépendante dans la présente interrogation ou dans un diagnostic antérieur correctement sourcé (Lots 2A–2G).
 
-## Note préalable — identification de la base
+Les deux comptes rendus bruts de la session courante sont conservés pour traçabilité :
+- [`mcp-ecoinvent-3.11-partie-1.md`](mcp-ecoinvent-3.11-partie-1.md) — PRIORITÉS 1 à 3, début de la PRIORITÉ 4.
+- [`mcp-ecoinvent-3.11-partie-2.md`](mcp-ecoinvent-3.11-partie-2.md) — fin de la PRIORITÉ 4, PRIORITÉS 5 et 6, tableau transversal, HANDOFF.
 
-`database_info` retourne `database_family: "flcac"` et non `ecoinvent`. Cependant, la nomenclature de tous les process interrogés (suffixe `Cutoff, U`, arborescence de catégories NACE à 4 niveaux, vocabulaire des descriptions) correspond à **Ecoinvent 3, système modèle Cutoff**. Cette contradiction n'a pas été résolue dans cette session — à vérifier côté configuration du connecteur avant intégration. Les résultats ci-dessous sont présentés tels qu'obtenus, sans supposer laquelle des deux étiquettes est correcte.
+## Résolution de l'anomalie `database_family`
 
-Statistiques de la base : 14 912 process, 23 142 flows, 45 méthodes d'impact, 8 systèmes de produits.
+La session invalidée avait retourné `database_family: "flcac"`, avec 14 912 process / 23 142 flows / 45 méthodes d'impact / 8 systèmes de produits. **Cause identifiée :** après un changement de poste de travail, c'est la base OpenLCA `cups` qui était restée ouverte dans le logiciel, pas Ecoinvent — `flcac` n'est pas une anomalie intrinsèque d'Ecoinvent, seulement le nom de la mauvaise base chargée à ce moment-là. Ce statut « à vérifier » est désormais obsolète et ne doit plus être présenté comme une anomalie ouverte.
+
+Après ouverture manuelle de **ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31** et forçage explicite de `database_family` à `ecoinvent`, `database_info` retourne : **25 412 processus, 14 051 flux, 0 méthode d'impact chargée**. C'est la base effectivement interrogée pour l'ensemble des résultats ci-dessous.
 
 ---
 
 ## PRIORITÉ 1 — Contreplaqué merisier / Baltic birch plywood
 
-### Produit métier
-Contreplaqué de bouleau (merisier / yellow birch / Baltic birch plywood) utilisé en ébénisterie.
-
 ### Requêtes effectuées
-`plywood`, `birch plywood`, `birch`, `veneer`, `laminated veneer`, `Baltic`, `veneer sheet` (implicite via `veneer`).
+`plywood`, `birch`, `yellow birch`, `veneer`, `veneer sheet`, `laminated wood`, `Baltic`, `laminated`, plus exploration complète de la catégorie ISIC 1621 (136 process).
 
 ### Candidats Ecoinvent trouvés
 
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
+| Dataset | Produit de référence | Géographie | Unité | UUID | Commentaire |
 |---|---|---|---|---|---|
-| market for plywood, for indoor use | plywood, for indoor use | Rest-of-World | m³ | a263faad-eca2-3956-a706-7e9a7b30364f | Générique, usage intérieur |
-| plywood production, for indoor use | plywood, for indoor use | Europe | m³ | 365758ba-1bb5-32e9-836b-0d45247fa93d | Intrant bois rond = **hêtre (beech)**, résine urée-formaldéhyde, données site suisse 1996 jugées représentatives de l'Europe |
-| plywood production, for indoor use | plywood, for indoor use | Rest-of-World | m³ | a37de0e5-9ea2-3c17-b652-be171d206f5c | Même structure, sourcé via marché générique « sawlog and veneer log, hardwood » (mélange d'essences non spécifié), dataset hérité d'ecoinvent v2 |
-| market for plywood, for outdoor use | plywood, for outdoor use | Rest-of-World | m³ | b37a4e46-b1f2-3e0c-a961-90411e492df8 | Usage extérieur, hors périmètre probable |
-| hardwood forestry, birch, sustainable forest management (plusieurs flux : sawlog/veneer log, pulpwood, wood chips…) | bois rond de bouleau | (géographies multiples, non détaillées) | m³ / kg | ex. f04b0987-f44e-3f49-871f-253a8c4df77f | Matière première brute (bouleau en forêt) — **existe**, mais n'est PAS reliée à un process de contreplaqué dans la base ; c'est une bûche, pas un panneau |
-| — | — | — | — | — | Aucun dataset « birch plywood », « Baltic birch plywood » ou « veneer sheet » spécifique trouvé (0 résultat) |
+| `market for plywood` | plywood | Europe | m³ | `e0fc51ba-b92d-3f5a-909a-6143109d0356` | Générique, non spécifique à l'essence |
+| `market for plywood` | plywood | Rest of World | m³ | `b21f0829-ca70-3f94-864b-5fe4c57923f6` | Idem |
+| `plywood production` | plywood | Europe | m³ | `0f52041a-b664-357b-ab50-e48613bff63d` | Basé sur un échantillon **allemand**, bois de sciage/déroulage « hardwood » non spécifié, colle urée-formaldéhyde |
+| `plywood production` | plywood | Rest of World | m³ | `0b187a5a-6067-3f0f-8fa8-39f3d6ac6721` | **Copie du dataset RER** (« created as copy of the corresponding local dataset for Europe ») |
+| `plywood production` | plywood | **Canada, Quebec** | m³ | `5538194d-92b2-3020-bb3e-fbc59cb71248` | **Copie du dataset RER**, même échantillon allemand — la description du dataset le dit explicitement |
+| `three and five layered board` (production + marché) | three and five layered board | Rest of World | m³ | `b878e1de-ef8c-300b-ae44-bcfd95de07ee` | **Rejeté** : lamelles de bois massif sciées, aboutées et collées PVAc — un panneau structurel massif, pas du contreplaqué de placages. Faux-ami explicite, à ne jamais confondre avec du contreplaqué dans le référentiel |
+| `hardwood forestry, birch` (sawlog and veneer log) | sawlog and veneer log, hardwood | Sweden | m³ | `885df1ec-96c0-32a2-a869-70779dc48420` | Bois rond en forêt, pas un produit fini |
+
+**Aucun** dataset « veneer sheet », « Baltic », « yellow birch » ou spécifique au bouleau/merisier appliqué au contreplaqué n'existe dans cette base, avec ces requêtes.
+
+> **Cohérence avec un diagnostic antérieur (Lot 2A) :** le dataset `plywood production | Canada, Quebec` (`5538194d-…`) et son comparatif Europe (`0f52041a-…`) avaient déjà été identifiés au Lot 2A, avant la contamination `cups`. Ils sont ici **reconfirmés indépendamment** par cette nouvelle interrogation Ecoinvent 3.11 — ce ne sont pas de nouveaux résultats, mais une confirmation croisée du même constat.
 
 ### Meilleure correspondance actuelle
-`market for plywood, for indoor use` (RoW, UUID a263faad-…), qui s'approvisionne lui-même auprès des deux process de production ci-dessus.
+`plywood production | plywood | Cutoff, U` — Canada, Quebec (`5538194d-…`) reste le meilleur candidat *disponible*, mais **ce n'est pas une correspondance représentative** : c'est une copie administrative du dataset européen.
 
 ### Niveau de correspondance
-**Proxy** (aucune correspondance directe ni partielle spécifique à l'espèce).
+**Proxy / ÉCART** — essence non spécifiée (« hardwood » générique), technologie européenne copiée-collée sur l'étiquette géographique CA-QC.
 
 ### Lacunes
-- **Matière/composition** : l'hypothèse documentée dans le dataset européen est le **hêtre**, pas le bouleau. Le dataset RoW utilise un marché « hardwood » non spécifié à l'espèce. C'est un écart de composition explicite, pas une supposition de notre part.
-- **Technologie** : type de contreplaqué (nombre de plis, épaisseur, type de collage) non spécifié dans la description.
-- **Géographie/représentativité Québec** : données européennes (Suisse 1996 pour la version « Europe ») ; aucune donnée nord-américaine ou québécoise.
-- **Données fournisseur** : nécessaires pour documenter l'écart réel entre du contreplaqué de bouleau balte importé et ce proxy générique hêtre/hardwood.
+- **Représentativité Québec :** le dataset « Canada, Quebec » est une copie administrative du dataset européen — aucune donnée réelle québécoise (essence, procédé, mix électrique) n'y est intégrée. **La localisation CA-QC ne signifie pas représentativité québécoise.**
+- **Composition :** essence « hardwood » générique, pas de bouleau jaune/merisier ni de contreplaqué « Baltic birch » (nombreux plis minces, résine phénolique typique).
+- **Technologie :** colle urée-formaldéhyde générique, potentiellement différente des colles typiques du Baltic birch (phénol-formaldéhyde).
 
 ### Action recommandée
-Conserver le proxy générique existant (déjà identifié précédemment) en documentant explicitement l'écart d'essence (hêtre/hardwood non spécifié vs bouleau). Ne pas chercher davantage dans Ecoinvent : la base ne contient rien de plus spécifique. Prioriser l'obtention de données fabricant si la précision devient nécessaire pour la quantification.
+Rechercher des données fabricant (fournisseurs de Baltic birch plywood). Envisager une reconstruction à partir de `sawlog and veneer log, hardwood` + procédé de contreplaqué générique en ajustant les paramètres si besoin. Ne pas chercher davantage dans Ecoinvent : la base ne contient rien de plus spécifique.
 
 ---
 
 ## PRIORITÉ 2 — Papier mélaminé appliqué en atelier
 
-### Produit métier
-Papier décoratif/mélaminé appliqué sur panneau en atelier.
+### Candidats trouvés
 
-### Requêtes effectuées
-`melamine`.
-
-### Candidats Ecoinvent trouvés
-
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
+| Dataset | Produit de référence | Géographie | Unité | UUID | Commentaire |
 |---|---|---|---|---|---|
-| melamine impregnated paper production | paper, melamine impregnated | Rest-of-World | kg | b2e9c4ee-c34a-3ad7-9662-0ef0b050cda8 | **Le papier imprégné lui-même** : 0,344 kg kraft brut + 0,377 kg résine mélamine-formaldéhyde + 0,218 kg résine urée-formaldéhyde + 0,388 kg formaldéhyde pour 1 kg de papier fini. Grammage documenté : 302 g/m² (dont 104 g/m² de papier support) |
-| market for paper, melamine impregnated | paper, melamine impregnated | Global | kg | 55d422f8-6b1d-358e-9691-8de4be164462 | Marché mondial du papier ci-dessus |
-| coating service, melamine impregnated paper, double-sided | coating, with melamine impregnated paper | Rest-of-World | m² | 57d226d1-43bb-37cc-81a2-0b4cda274608 (doublon 6c179811-5e5b-3527-bc52-9b5d679bb29a) | **Le procédé d'application** : consomme 0,604 kg de papier mélaminé (marché) par m² de panneau enrobé double face. **Exclut explicitement le panneau support.** Correspond bien au produit métier « application en atelier » |
-| particle board production/market, uncoated, average glue mix | particleboard, uncoated | (RoW/marché) | m³ | 87141283-b718-30d4-84b0-39c6c71cc8cf / ff40ec39-1d3e-3168-bebc-e5ac10e28ad2 | Panneau support **non enrobé** — confirme qu'Ecoinvent modélise ce cas de façon découplée (substrat nu + service de placage), pas comme un panneau déjà fini |
+| `market for paper, melamine impregnated` | paper, melamine impregnated | Rest of World | kg | `0a2370fe-1a4c-3401-abae-9143beb78198` | Le papier imprégné lui-même |
+| `melamine impregnated paper production` | paper, melamine impregnated | Europe | kg | `8d5fa368-3900-3ebb-9760-9b6d5939bcc7` | Composition détaillée : 0,344 kg kraft paper + 0,377 kg résine mélamine-formaldéhyde + 0,218 kg résine urée-formaldéhyde pour 1 kg de papier fini ; grammage 302 g/m² (dont 104 g/m² de papier de base) |
+| `market for coating, with melamine impregnated paper` | coating, with melamine impregnated paper | Global | m² | `24ceb336-520a-3e11-bcd1-9c13efd69c6f` | **Service d'application** — exclut explicitement le panneau support (« input of wood-based board is excluded and should be added manually ») |
+| `coating service, melamine impregnated paper, double-sided` | coating, with melamine impregnated paper | Europe | m² | `4bce9bba-0bf8-3f27-aaaf-ed89e3fd2a78` | Application **double face** industrielle (0,604 kg papier/m²) |
+
+> **Cohérence avec un diagnostic antérieur (Lot 2B) :** le service `coating service, melamine impregnated paper, double-sided` (`4bce9bba-…`) avait déjà été documenté au Lot 2B, avant la contamination `cups`. Il est ici **reconfirmé indépendamment** par cette interrogation Ecoinvent 3.11.
 
 ### Meilleure correspondance actuelle
-Combinaison `coating service, melamine impregnated paper, double-sided` (procédé d'application, m²) + `market for paper, melamine impregnated` (matière, kg) déjà imbriqués l'un dans l'autre dans la base.
+Le couple `paper, melamine impregnated` (matière) + `coating, with melamine impregnated paper` (procédé d'application) — matière + application + panneau support restant séparés, conformément à la structure attendue. Le service d'application **exclut explicitement le panneau support**.
 
 ### Niveau de correspondance
-**Partielle à directe** — c'est le meilleur résultat de tout ce diagnostic : Ecoinvent distingue bel et bien le papier, la résine et le service d'application, et ne confond pas cela avec un panneau déjà mélaminé acheté fini (aucun tel dataset n'existe, ce qui évite le risque de double comptage signalé dans la consigne).
+**Partielle forte / À vérifier** — Ecoinvent distingue bien matière et procédé, et exclut le panneau, ce qui correspond structurellement au besoin métier (application en atelier sur panneau). Ce n'est toutefois pas une correspondance directe : le service documenté est calibré pour une ligne industrielle double face, dont la représentativité pour une application simple face en atelier de PME reste à trancher.
 
 ### Lacunes
-- **Représentativité Québec** : données européennes multi-usines, aucune donnée nord-américaine.
-- **Technologie** : le procédé documenté est une presse industrielle continue, pas nécessairement représentatif d'une application en atelier d'ébénisterie à plus petite échelle.
-- **Géographie** : RoW/Global, pas de résolution CA-QC.
+- Le service d'application est calibré pour une **ligne industrielle double face**, pas pour une application artisanale/atelier (probablement simple face, échelle différente) — **à vérifier avant intégration**.
+- Géographie Europe pour le procédé de fabrication du papier — aucune variante CA-QC identifiée.
+- Aucun produit « panneau déjà mélaminé fini » n'existe comme dataset unique — ce qui évite la confusion signalée dans le mandat (pas de risque de double comptage panneau + application).
 
 ### Action recommandée
-Utiliser ce couple paper + coating service comme correspondance documentée « partielle à directe ». Vérifier que le grammage (302 g/m²) correspond à ce qui est réellement utilisé en atelier avant de l'intégrer tel quel.
+Vérifier si une application simple face est modélisable en ne prenant qu'une partie du flux « coating » (p. ex. la moitié du flux double-face, sous réserve de validation méthodologique). Chercher des données fournisseur pour la quantité réelle de papier utilisée en atelier québécois avant d'intégrer ce couple sans réserve.
 
 ---
 
 ## PRIORITÉ 3 — Bande de chant PE
 
-### Produit métier
-Bande de chant en polyéthylène utilisée en ébénisterie.
+### Résultat
+**Aucune correspondance** — aucun dataset « edge band », « edge banding », « edging » n'existe dans la base, avec ces requêtes.
 
-### Requêtes effectuées
-`edge band`, `edge banding` (process ET flows — 0 résultat dans les deux cas), puis recherche des matières génériques : `polyethylene, low density`, `polypropylene, granulate`, `acrylonitrile-butadiene-styrene copolymer`, `polyvinylchloride`, `extrusion, plastic`.
+### Matières génériques disponibles comme briques potentielles
 
-### Candidats Ecoinvent trouvés
+| Matière | Dataset | Géographie | UUID |
+|---|---|---|---|
+| PE-LD | `market for polyethylene, low density, granulate` | Global | `08d7cf9a-4301-321f-947c-06849afd126c` |
+| PP | `market for polypropylene, granulate` | à vérifier | `881eed86-35c6-3cc2-a352-263e9c4c34ee` |
+| ABS | `market for acrylonitrile-butadiene-styrene copolymer` | à vérifier | `ca074112-8461-32ac-b814-2d7749b7b862` |
+| PVC | `market for polyvinyl chloride, suspension polymerised` | à vérifier | `fa6532b7-7f96-3bbb-8f42-c300d800d5ff` / `68a7d84c-01f2-3731-9d49-67a4054f6c90` |
 
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
-|---|---|---|---|---|---|
-| — | bande de chant (produit fonctionnel) | — | — | — | **0 résultat, confirmé sur process ET sur flows** |
-| market for polyethylene, low density, granulate | polyethylene, low density, granulate | Global | kg | f73b01f9-8ddb-30d0-9f82-2a30a6f689a0 | Matière première seule, aucune forme de profilé/bande |
-| market for polypropylene, granulate | polypropylene, granulate | Global | kg | 9c11da4a-05b2-3f03-878d-34c133548b5c | Idem, PP |
-| market for acrylonitrile-butadiene-styrene copolymer | acrylonitrile-butadiene-styrene copolymer | Global | kg | 1367e2a2-b284-3325-a907-6183bf2d126e | Idem, ABS |
-| market for polyvinylchloride, bulk polymerised | polyvinylchloride, bulk polymerised | Global | kg | 17671bec-6cbf-361f-9318-081db8c739ac | Idem, PVC (polymérisation en masse — il existe possiblement une variante « suspension polymerised » non vérifiée ici) |
-| market/production for extrusion, plastic film | extrusion, plastic film | (marché : non vérifié individuellement, production existe) | kg | 06fcff5d-7113-327d-ab1b-8ceae6c2b17e (marché) | Procédé de transformation générique — pourrait approximer la mise en forme d'une bande extrudée, mais conçu pour du film, pas un profilé de chant |
+> **Cohérence avec un diagnostic antérieur (Lot 2D) :** les UUID ABS (`ca074112-…`) et PVC suspension polymérisée (`fa6532b7-…`) avaient déjà été documentés au Lot 2D, avant la contamination `cups`. Ils sont ici **reconfirmés indépendamment**. La variante « bulk polymerised » trouvée par la session invalidée (`17671bec-…`) n'est pas reconfirmée par cette interrogation ; seule la variante « suspension polymerised » l'est.
 
-### Meilleure correspondance actuelle
-Aucune. Les quatre polymères existent comme matière première générique ; aucun procédé de mise en forme spécifique à une bande de chant n'existe.
+Procédés de transformation disponibles : `extrusion, plastic pipes` (profil rond) et `extrusion, plastic film` (film mince) — **aucun ne correspond** à une extrusion de profilé plat de type bande de chant. PE-LD, PP, ABS et PVC sont uniquement des briques matière potentielles ; aucun procédé d'extrusion trouvé ne correspond directement à une bande de chant plate.
 
 ### Niveau de correspondance
-**Aucune correspondance satisfaisante.**
+**Absent / Reconstruction** — produit fonctionnel absent ; briques matière disponibles mais non validées fonctionnellement.
 
 ### Lacunes
-- **Fonction** : produit fonctionnel totalement absent.
-- **Technologie** : aucun procédé d'extrusion de profilé mince/bande n'a été trouvé (seulement film et tuyau).
-- **Données fournisseur nécessaires** : masse linéique (g/m), épaisseur, largeur, et composition exacte (PE pur ou compound avec charges/pigments) pour bâtir un proxy par la masse.
+Fonction (produit fini absent), technologie (procédé d'extrusion de profilé plat absent), représentativité Québec (non testée), données fabricant nécessaires pour trancher entre PE/PP/ABS/PVC selon le vrai produit utilisé en ébénisterie.
 
 ### Action recommandée
-Ne pas conclure qu'un des quatre polymères est LE bon proxy sans données fabricant. Documenter comme lacune ouverte nécessitant reconstruction bottom-up (masse de matière + procédé de transformation le plus proche disponible, à défaut d'un procédé de profilé dédié).
+Ne pas conclure qu'un des quatre polymères est LE bon proxy sans données fabricant (masse linéique, épaisseur, largeur, composition exacte).
 
 ---
 
 ## PRIORITÉ 4 — Adhésifs
 
-### PVAc/PVA (colle blanche à bois)
-
 ### Requêtes effectuées
-`polyvinylacetate` (0 résultat), `vinyl acetate`, `adhesive`, `dispersion`.
+`polyvinylacetate`, `polyvinyl acetate`, `vinyl acetate`, `wood glue`, `dispersion adhesive`, `contact adhesive`, `emulsion` (101 résultats — tous liés aux peintures/déchets, aucun adhésif bois), `adhesive` (recherche exhaustive, 19 résultats).
 
 ### Candidats Ecoinvent trouvés
 
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
+| Dataset | Produit de référence | Géographie | Unité | UUID | Commentaire |
 |---|---|---|---|---|---|
-| — | colle PVAc / colle à bois (produit fonctionnel) | — | — | — | **0 résultat** |
-| market for adhesive, for metal | adhesive, for metal | Global (non revérifié) | kg | e1e8f512-fa21-320c-92f8-e3f345cda6b8 | Hors sujet fonctionnel (colle métal) |
-| bitumen adhesive compound production, hot/cold | bitumen adhesive compound | — | kg | fa09b096-…, 1aed51f6-… | Hors sujet (bitume, construction) |
-| adhesive mortar production | adhesive mortar | — | kg | 3f5bd6a3-cd8c-3161-b48e-9b193858e30d | Hors sujet (mortier-colle, construction) |
-| market for ethylene vinyl acetate copolymer | ethylene vinyl acetate copolymer | Global | kg | fe0fb6f7-fd33-3303-a767-fc1464446ce1 | Polymère apparenté (EVA) mais chimiquement distinct du PVAc homopolymère utilisé en colle blanche |
-| market for acrylic dispersion, without water, in 65% solution state | acrylic dispersion | Global | kg | 44da54f3-7ab8-308d-9c33-6efa0f247130 | Famille chimique différente (acrylique, pas acétate de vinyle) — utilisé plutôt en peinture/revêtement |
-| market for vinyl acetate | vinyl acetate | Global | kg | 9381f4dc-deda-3e02-9cf8-4ef4321b137e | **Monomère**, pas le polymère PVAc ni une formulation de colle. La description précise que ce produit est « généralement utilisé sur le site de production même » (pas vraiment un bien de marché transportable) |
+| `market for vinyl acetate` | vinyl acetate | — | kg | `a4bd8120-5784-3dd9-bee6-a8473d385b7f` | **Monomère précurseur**, pas le polymère PVAc |
+| `market for ethylene vinyl acetate copolymer` | ethylene vinyl acetate copolymer | — | kg | `c773d766-c8ff-3493-88ea-09492fbc0048` | Copolymère EVA — chimie différente (hot-melt/mousses), pas la colle blanche PVAc classique |
+| `market for polyurethane adhesive` | polyurethane adhesive | Global | kg | `ad1da3c6-5cb8-364d-8fb5-e96e9dca9e93` | Colle PUR **formulée**, mais destinée au bois lamellé structural (CLT) — isocyanate, sans formaldéhyde. Chimie et usage distincts d'une colle blanche PVAc ou d'une colle multimatériaux d'atelier |
+| `market for melamine urea formaldehyde adhesive` | melamine urea formaldehyde adhesive | Global | kg | `e7001c37-5a60-335b-bf15-ad7395226509` | Colle MUF pour bois lamellé-collé (glulam) — chimie et usage industriel distincts ; les adhésifs UF/MUF ne sont pas utilisés directement en atelier (intrants industriels de panneaux) |
+| `adhesive, for metal` | adhesive, for metal | — | kg | `4a5da11b-2019-326b-990e-254d96e9acb3` | Hors sujet (colle métal) |
+| `adhesive mortar` / `bitumen adhesive compound` | — | — | — | — | Hors sujet (construction/étanchéité) |
 
-### Colle contact à base d'eau
-
-### Requêtes effectuées
-Mêmes recherches (`adhesive`, `dispersion`) — aucun terme supplémentaire n'a fait apparaître de résultat distinct.
-
-### Candidats Ecoinvent trouvés
-Aucun candidat spécifique trouvé au-delà de la liste ci-dessus.
+**Ne jamais présenter comme équivalents directs d'une colle blanche PVAc ou d'une colle contact d'atelier :** vinyl acetate (monomère, pas le polymère), EVA (copolymère différent), PUR (`ad1da3c6-…`, formulé mais pour CLT structural), MUF (`e7001c37-…`, formulé mais pour glulam industriel), adhesive for metal. Ils ont une chimie et/ou une fonction différentes.
 
 ### Meilleure correspondance actuelle
-Aucune.
+**Aucune.** Ni le polymère PVAc, ni une formulation de colle blanche/colle contact à l'eau ne sont présents dans la base.
 
 ### Niveau de correspondance
-**Aucune correspondance satisfaisante** — ni pour le PVAc, ni pour la colle contact à base d'eau.
+**Absent** — pour la colle PVAc/PVA comme pour la colle contact à base d'eau.
 
 ### Lacunes
-- **Fonction** : aucun produit fonctionnel « colle à bois » ou « colle contact » dans la base.
-- **Matière/composition** : les candidats disponibles (EVA, dispersion acrylique, acétate de vinyle monomère) appartiennent à des familles chimiques différentes de celle du PVAc réel ; aucun n'est un proxy défendable sans le documenter comme approximatif.
-- **Procédé** : aucun procédé de formulation d'adhésif en émulsion/dispersion aqueuse n'existe.
-- **Données fournisseur nécessaires** : teneur en solides, nature exacte du polymère, additifs.
+- **Fonction :** aucun produit fonctionnel « colle blanche bois » ni « colle contact à l'eau ».
+- **Matière/composition :** le polymère PVAc lui-même est absent (seul son monomère, l'acétate de vinyle, existe).
+- Les colles bois formulées disponibles (PUR, MUF) sont chimiquement et fonctionnellement non substituables à une colle PVAc en émulsion aqueuse ou à une colle contact — proxy jugé non pertinent sans hypothèse forte, à documenter uniquement comme dernier recours si nécessaire.
 
 ### Action recommandée
-Documenter comme lacune ouverte. Si un proxy doit être construit malgré tout pour avancer la quantification, le signaler explicitement comme approximation de dernier recours (ex. dispersion acrylique 65 % comme ordre de grandeur pour une colle en émulsion aqueuse), jamais comme une correspondance.
+Reconstruction envisageable à partir du monomère vinyl acetate + un procédé générique de polymérisation en émulsion (existence non vérifiée ailleurs dans la base, hors périmètre de cette recherche — reste une piste ouverte). Sinon, recours à des données fabricant/fiche technique (EPD fournisseur) pour la colle PVAc et la colle contact réellement utilisées en atelier.
 
 ---
 
 ## PRIORITÉ 5 — Quincaillerie
 
-### Produits métier et résultat par famille
+### Requêtes effectuées
+`hinge`, `drawer slide`, `furniture handle`, `levelling foot`, `French cleat`, `wood screw`, `screw`, `furniture fitting`, `metal fastener`, plus exploration de la catégorie ISIC 259 (Manufacture of other fabricated metal products — 473 process, échantillon de 30 examiné).
 
-| Famille | Produit fonctionnel dans Ecoinvent ? | Procédé proche ? | Matériaux génériques disponibles pour reconstruction |
+### Résultat par famille
+
+| Famille | Produit fonctionnel ? | Procédé proche ? | Matériaux/procédés génériques disponibles pour reconstruction |
 |---|---|---|---|
-| Charnière (hinge/furniture hinge/cabinet hinge) | **Non — 0 résultat sur process ET flows** | Non | Voir ci-dessous |
-| Coulisse de tiroir (drawer slide/runner/rail) | **Non — 0 résultat** | Non | Voir ci-dessous |
-| Poignée (furniture handle) | **Non — 0 résultat** | Non | Voir ci-dessous |
-| Pied réglable / French cleat | Non recherché explicitement cette session (à faire) | — | — |
-| Vis à bois (screw) | **Non** — seuls des « air compressor, screw-type » apparaissent (hors sujet) | Non | — (conforme à la consigne : ne pas insister) |
+| Charnière (hinge/cabinet hinge) | **Absent** | Non | Acier/laiton + services d'emboutissage (`deep drawing, steel`), usinage (`turning`, `milling`), revêtement (`zinc coating, pieces`) |
+| Coulisse de tiroir (drawer slide/runner) | **Absent** | Non | Acier (tôle/profilé) + services de formage à froid, extrusion d'aluminium (`impact extrusion of aluminium`) |
+| Poignée (furniture handle) | **Absent** | Non | Zinc/laiton/acier + moulage/usinage |
+| Patin de nivellement (levelling foot) | **Absent** | Non | Plastique (PP/POM non trouvé spécifiquement) + acier fileté |
+| Taquet français / suspension fitting | **Absent** | Non | Acier plié/percé |
+| Vis à bois (wood screw) | **Absent** | Non | Non exploré en détail — conforme à la consigne de ne pas surinvestir |
 
-### Matériaux génériques trouvés (briques pour reconstruction bottom-up, charnières/coulisses)
-
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
-|---|---|---|---|---|---|
-| market for steel, low-alloyed, hot rolled | steel, low-alloyed, hot rolled | — | kg | eba0e6ba-5f96-3ac9-a0c0-2f0d4fc74b8a | Acier standard, matière de base plausible pour charnière/coulisse d'entrée de gamme |
-| market for steel, chromium steel 18/8, hot rolled | steel, chromium steel 18/8, hot rolled | — | kg | 288bd21b-b97b-32b7-8383-cc0d2126fe72 | Acier inoxydable — pertinent pour quincaillerie de qualité supérieure |
-| sheet rolling, steel (market) | sheet rolling, steel | — | kg | 72416073-2dc0-3d01-a3e4-91c7b0f0dfe3 | Procédé de mise en forme (laminage) |
-| wire drawing, steel (market) | wire drawing, steel | — | kg | 641bc156-ed49-3cfa-a712-c27b40902d93 | Pertinent pour ressorts/tiges de coulisses |
-| zinc coating, pieces (market) | zinc coat, pieces | — | m² (par µm) | ada0a646-2258-3a16-8223-a31f812325aa | Revêtement anticorrosion typique des charnières/coulisses |
-| market for metal working, average for steel/chromium steel/aluminium product manufacturing | metal working, average for … product manufacturing | — | kg | b76ed063-3770-3e6a-b065-c09d9d1891ee (acier) / 00dd895a-1607-35dc-8226-2ba0f5cd9f64 (acier chromé) / e41d54f1-64cf-3ba3-87c9-1d481bc79d76 (aluminium) | Service générique de mise en forme/usinage, unité de reconstruction la plus utile pour approximer la fabrication d'une pièce quincaillerie par sa masse |
-
-### Meilleure correspondance actuelle
-Aucun produit fonctionnel. Les matériaux et procédés génériques ci-dessus permettent une reconstruction bottom-up par masse (acier ou acier chromé + mise en forme + revêtement zinc), mais ce n'est pas une correspondance — c'est un chemin de reconstruction.
+### Constat transversal
+La catégorie ISIC 259 ne contient **que des services de transformation métallique génériques** (fraisage, tournage, perçage, emboutissage, extrusion à froid, revêtement zinc, traitement thermique) et des matières premières (acier, laiton, aluminium, fonte) — **aucun produit fini de quincaillerie meuble** (charnière, coulisse, poignée, patin, taquet, vis) n'existe comme dataset autonome dans Ecoinvent. Aucun UUID de brique n'a été relevé nommément dans cette session pour ces services génériques (noms de process seulement) ; ne pas leur substituer les UUID de briques génériques cités dans d'autres lots (Lot 2D, vis) sans nouvelle vérification.
 
 ### Niveau de correspondance
-**Absent** (produit fonctionnel) — reconstruction possible pour charnières/coulisses, non prioritaire pour les vis.
+**Absent** pour toutes les familles, sans exception.
 
 ### Lacunes
-- Fonction complètement absente pour toutes les familles de quincaillerie recherchées.
-- Données fournisseur nécessaires : masse par pièce, matériau exact (acier zingué, inox, laiton, nylon pour certaines coulisses), procédé de fabrication (moulage, estampage, extrusion d'aluminium).
+Fonction (produit fini totalement absent) pour toutes les familles. Une reconstruction complète (masse de métal + suite d'opérations d'usinage/formage) serait nécessaire pour chaque famille, avec un effort disproportionné par rapport à la précision atteignable sans données fabricant réelles (masses, alliages, procédés exacts).
 
 ### Action recommandée
-Pour charnières et coulisses : engager une reconstruction bottom-up (masse + matière + mise en forme + revêtement) dès que les données fabricant (fiches techniques, masses) seront disponibles — approfondissement jugé justifié compte tenu de leur masse/complexité potentiellement significative. Pour les vis : lacune confirmée rapidement, ne pas investir davantage de temps de recherche dans Ecoinvent, conformément à la consigne. Poignées, pieds réglables et French cleat : recherche à compléter dans une prochaine session (non couverte ici pour les pieds/French cleat).
+Pour les charnières et coulisses (masse/complexité plus importantes, à prioriser) : obtenir des fiches techniques fabricant (masse par pièce, matière — acier zingué le plus souvent) et construire un proxy manuel : masse d'acier (`market for steel, low-alloyed`) + revêtement zinc + une combinaison raisonnable d'opérations de formage (emboutissage + perçage). Pour poignées/patins/taquets/vis : proxy simplifié matière seule (acier ou zinc selon le produit), sans tenter de reconstruire le procédé complet — ne pas surinvestir sur les petites vis.
 
 ---
 
 ## PRIORITÉ 6 — Emballages
 
-### Produit métier
-Matériaux d'emballage/protection pour meubles, incluant un matériau non identifié (fin, blanc, en gros rouleau, utilisé pour envelopper/protéger les meubles).
-
 ### Requêtes effectuées
-`corrugated board`, `bubble film` (0 résultat), `polystyrene foam slab`, `polyethylene foam` (0 résultat), `foam` (recherche large), `packaging film`, `shrink film` (0 résultat).
+`corrugated board` (8 résultats), `bubble wrap` (0), `polyethylene foam` (0), `expanded polystyrene` (16, tous déchets/traitement), `polystyrene foam` (14, tous isolation périmétrique rigide), `stretch film` (0), `packaging film` (3), `foam sheet` (0).
 
 ### Candidats Ecoinvent trouvés
 
-| Dataset/process | Produit de référence | Géographie | Unité | UUID | Commentaire |
+| Dataset | Produit de référence | Géographie | Unité | UUID | Commentaire |
 |---|---|---|---|---|---|
-| market for corrugated board box | corrugated board box | Global | kg | b8c827da-42b1-3a3a-a6b5-c5d2f1792e33 | Produit fonctionnel existant, **mais c'est une boîte formée**, pas une plaque plate de carton ondulé — à vérifier si c'est bien ce qui est utilisé |
-| market for packaging film, low density polyethylene | packaging film, low density polyethylene | Global | kg | 0c925f5b-401c-330c-9247-04bd41395645 | Film PE mince — facteur de forme (rouleau, fin) cohérent avec la description du matériau mystère, mais aucune confirmation qu'il s'agit bien de ce matériau (pas de fonction de protection/calage documentée) |
-| market for polystyrene foam slab | polystyrene foam slab | — (non revérifié pour le marché) | kg / m³ selon flux | 8b420467-04f4-3461-b3aa-0b9570560486 | Mousse rigide EPS — **mauvais facteur de forme** pour un matériau en « gros rouleau », plutôt destiné à l'isolation en panneaux rigides |
-| market for polyethylene, low density, granulate | polyethylene, low density, granulate | Global | kg | f73b01f9-8ddb-30d0-9f82-2a30a6f689a0 | Matière première seule, si le matériau réel s'avère être une mousse ou un film PE non catalogué tel quel |
-| — | mousse PE (« polyethylene foam »), papier bulle | — | — | — | **0 résultat** — absents de la base |
+| `market for corrugated board box` | corrugated board box | **Canada, Québec** | kg | `2424352b-3df3-3415-9fbf-a6b1eff0ce60` | **Marché explicitement régional** — la documentation Ecoinvent précise elle-même que ce type de produit se négocie localement, pas globalement. **Contrairement au contreplaqué CA-QC (copie du dataset RER), ce dataset a une base méthodologique qui justifie sa représentativité québécoise.** |
+| `corrugated board box production` | corrugated board box | plusieurs géographies | kg | `17317a18-28b4-335a-a96d-68789b9bfb70` et autres | Production sous-jacente |
+| `market for packaging film, low density polyethylene` | packaging film, low density polyethylene | Global | kg | `1b3c1341-0769-32dc-92d7-00fb8891e3d5` | Film LDPE plat générique (usages variés : alimentaire, construction, électroménager). Pas de mousse, pas de bulles |
+| `polystyrene foam slab` (for perimeter insulation) | polystyrene foam slab for perimeter insulation | — | m²/kg | `5be8986d-89e3-387f-ba00-fa6e12b6fc7f` et variantes | **Hors sujet** : mousse rigide XPS destinée à l'isolation de fondation, pas un matériau d'emballage souple |
 
-### Meilleure correspondance actuelle
-- Carton : `market for corrugated board box` — correspondance partielle (boîte, pas plaque).
-- Matériau mystère : **aucune décision prise**, deux candidats présentés (film PE mince vs mousse rigide EPS), les deux avec des réserves importantes.
+> **Cohérence avec un diagnostic antérieur (Lot 2A) :** le dataset `market for corrugated board box` CA-QC (`2424352b-…`) avait déjà été documenté au Lot 2A, avant la contamination `cups`. Il est ici **reconfirmé indépendamment** par cette interrogation Ecoinvent 3.11 — contrairement au contreplaqué CA-QC, ce dataset résiste à la vérification.
+
+### Sur le matériau non identifié (« matériau blanc très fin, en gros rouleau, pour envelopper les meubles »)
+Deux familles de candidats existent dans la base, avec des natures très différentes, et aucune n'est retenue comme identification :
+1. **Film LDPE plat** (`packaging film, low density polyethylene`) — mince, souple, mais **non alvéolé/non mousseux**. Correspondrait à un usage de type film étirable ou pellicule de protection simple.
+2. **Mousse de polystyrène rigide** (`polystyrene foam slab`) — épaisse, rigide, destinée au bâtiment. **Ne correspond pas** à la description (pas souple, pas en rouleau fin, pas destinée à l'emballage meuble).
+
+Aucun candidat ne représente une **mousse PE/PP fine et souple en rouleau** ni du bubble wrap. Pour identifier le bon candidat (ou confirmer l'absence), il faudrait savoir si le matériau réel est :
+- un film plastique plat non alvéolé (→ `packaging film, LDPE` proxy potentiel) ;
+- une mousse PE ou PP alvéolée (→ **aucun candidat Ecoinvent**, proxy à construire à partir de résine PE/PP + un procédé de moussage, non trouvé dans cette recherche) ;
+- un non-tissé synthétique (→ non recherché dans cette session, piste à explorer si les deux hypothèses précédentes sont écartées).
 
 ### Niveau de correspondance
-Carton : **partielle**. Matériau mystère : **aucune correspondance satisfaisante** — identification physique requise avant tout choix.
-
-### Lacunes
-- Carton : représentativité de la forme (boîte vs plaque plate) à vérifier selon l'usage réel en atelier.
-- Matériau mystère : aucune caractéristique physique confirmée (épaisseur, densité, présence de bulles/mousse, composition). Ni le film PE ni la mousse EPS ne sont validés comme la bonne réponse.
+- Carton ondulé : **OK** (correspondance directe et représentativité Québec crédible et documentée).
+- Film LDPE : **Proxy potentiel** seulement, si le matériau réel s'avère être un film plat.
+- Mousse de protection meuble : **Absent** — aucune correspondance satisfaisante, décision à prendre après identification physique du produit réel.
 
 ### Action recommandée
-Ne pas trancher arbitrairement pour le matériau mystère. Obtenir une fiche technique ou un échantillon pour déterminer s'il s'agit d'un film plein (candidat : packaging film LDPE), d'un non-tissé, ou d'une mousse mince (aucun candidat trouvé dans Ecoinvent pour ce dernier cas — nécessiterait des données fabricant). Pour le carton, confirmer si le produit réel est une boîte assemblée ou une plaque, et ajuster le choix de dataset en conséquence.
+Obtenir un échantillon ou une fiche technique du matériau réel (grammage, composition — PE vs PP vs non-tissé, alvéolé ou non) avant de choisir entre proxy film LDPE ou reconstruction mousse. Ne pas trancher arbitrairement.
 
 ---
 
@@ -235,58 +214,64 @@ Ne pas trancher arbitrairement pour le matériau mystère. Obtenir une fiche tec
 
 | Produit métier | Dataset candidat | Géographie | Correspondance | Composition | Technologie | Représentativité QC | Proxy/reconstruction | Données fabricant nécessaires | Statut |
 |---|---|---|---|---|---|---|---|---|---|
-| Contreplaqué bouleau/Baltic | market for plywood, for indoor use (a263faad-…) | RoW | Proxy | Hêtre/hardwood non spécifié (≠ bouleau) | Non spécifiée | Aucune | Oui | Oui, si précision requise | ÉCART |
-| Papier mélaminé appliqué en atelier | coating service, melamine impregnated paper, double-sided (57d226d1-…) + market paper (55d422f8-…) | RoW / Global | Partielle à directe | Kraft + résine mélamine-formaldéhyde + urée-formaldéhyde, 302 g/m² | Presse industrielle continue (échelle ≠ atelier) | Aucune | Non (utilisable tel quel) | Non, sauf vérification grammage | OK (avec réserve d'échelle) |
-| Bande de chant PE | Aucun | — | Aucune | — | — | — | Oui, à partir de granulé PE | Oui (masse linéique, composition) | ABSENT |
-| Colle PVAc/PVA | Aucun | — | Aucune | Candidats chimiquement distincts (EVA, acrylique) | — | — | Oui, en dernier recours | Oui (formulation, % solides) | ABSENT |
-| Colle contact à base d'eau | Aucun | — | Aucune | — | — | — | Oui, en dernier recours | Oui | ABSENT |
-| Charnière | Aucun (matériaux génériques acier/inox + mise en forme + zinc disponibles) | — | Aucune | — | — | — | Oui, bottom-up par masse | Oui (masse, matériau exact) | À VÉRIFIER |
-| Coulisse de tiroir | Idem charnière | — | Aucune | — | — | — | Oui, bottom-up par masse | Oui | À VÉRIFIER |
-| Poignée | Non recherché en détail | — | — | — | — | — | — | — | À VÉRIFIER |
-| Vis à bois | Aucun | — | Aucune | — | — | — | Non prioritaire | Non prioritaire | ABSENT |
-| Carton ondulé (emballage) | market for corrugated board box (b8c827da-…) | Global | Partielle | — | — | Aucune | Non | À confirmer forme (boîte vs plaque) | À VÉRIFIER |
-| Matériau mystère (film/enveloppe meubles) | packaging film, LDPE (0c925f5b-…) — candidat non confirmé | Global | Aucune (identification physique requise) | PE | Film mince | Aucune | Possible | Oui (identification du matériau réel) | À VÉRIFIER |
+| Contreplaqué merisier/Baltic | `plywood production` (`5538194d-…`) | Canada, Quebec | Proxy | Hardwood générique, non spécifié | Copie du procédé RER (échantillon allemand) | **Non** — copie administrative, pas de donnée réelle QC | Oui | Oui | ÉCART |
+| Papier mélaminé — matière | `paper, melamine impregnated` (`0a2370fe-…`) | RoW | Partielle | Kraft + résine mélamine-formaldéhyde + urée-formaldéhyde | Conforme | Non testée | Non nécessairement | Souhaitable (grammage réel) | À VÉRIFIER |
+| Papier mélaminé — application | `coating, with melamine impregnated paper` (`24ceb336-…`) | Global | Partielle | — | Application double face industrielle, panneau exclu | N/A | Ajustement simple/double face | Oui (grammage réel, mode d'application) | À VÉRIFIER |
+| Bande de chant PE | Aucun | — | Absent | — | — | N/A | Oui (PE/PP/ABS/PVC générique, à trancher) | Oui (matière exacte + procédé) | ABSENT |
+| Colle PVAc/PVA | Aucun | — | Absent | Seul le monomère (vinyl acetate) existe | — | N/A | Oui (reconstruction chimique incertaine) | Oui | ABSENT |
+| Colle contact à l'eau | Aucun | — | Absent | — | — | N/A | Oui | Oui | ABSENT |
+| Charnière | Aucun | — | Absent | — | Services d'usinage/formage génériques disponibles (sans UUID retenu) | N/A | Oui (acier/laiton + procédés) | Oui (masse, alliage) | ABSENT |
+| Coulisse de tiroir | Aucun | — | Absent | — | Idem | N/A | Oui | Oui | ABSENT |
+| Poignée de meuble | Aucun | — | Absent | — | Idem | N/A | Oui (simplifié) | Oui | ABSENT |
+| Patin de nivellement | Aucun | — | Absent | — | Idem | N/A | Oui (simplifié) | Oui | ABSENT |
+| Taquet français | Aucun | — | Absent | — | Idem | N/A | Oui (simplifié) | Oui | ABSENT |
+| Vis à bois | Aucun | — | Absent (non approfondi, conforme consigne) | — | — | N/A | Oui (simplifié) | Non prioritaire | ABSENT |
+| Carton ondulé (boîte) | `market for corrugated board box` (`2424352b-…`) | **Canada, Québec** | **OK** | Kraftliner/testliner + fluting medium | Conforme, marché régional documenté | **Oui** — représentativité justifiée par la méthodologie même du dataset | Non | Non | OK |
+| Film/mousse d'emballage meuble | `packaging film, LDPE` (`1b3c1341-…`) *ou* aucun | Global / — | Proxy incertain / Absent | LDPE plat, non alvéolé | — | Non testée | Oui, selon nature réelle du matériau | Oui (composition réelle : film plat vs mousse) | À VÉRIFIER |
 
-Statuts utilisés : OK, ÉCART, À VÉRIFIER, ABSENT, N/A — conformément à la légende demandée.
+Statuts utilisés : OK, ÉCART, À VÉRIFIER, ABSENT, RECONSTRUCTION, N/A — conformément à la légende demandée. Ces statuts ne sont ni un score carbone ni une métrique quantitative.
 
 ---
 
 # HANDOFF CLAUDE CODE
 
 ## 1. Corrections factuelles à apporter
-- Le dataset de contreplaqué « for indoor use » (Europe, UUID 365758ba-…) repose explicitement sur du **hêtre (beech)**, pas sur un mélange incluant le bouleau — si le référentiel actuel décrit ce proxy comme « générique hardwood » sans préciser cette hypothèse de hêtre, corriger la documentation.
-- Confirmer que le référentiel ne présente pas le procédé `coating service, melamine impregnated paper, double-sided` comme incluant le panneau support — il ne l'inclut pas (vérifié dans les exchanges : le panneau n'apparaît pas comme intrant).
+- Le dataset `plywood production | plywood | Cutoff, U` localisé **Canada, Quebec** (UUID `5538194d-92b2-3020-bb3e-fbc59cb71248`) est une copie administrative du dataset Europe (même échantillon de données allemand, même colle urée-formaldéhyde, même essence « hardwood » générique). **Toute mention traitant ce dataset comme « représentatif du Québec » doit être corrigée.**
+- À l'inverse, le dataset `corrugated board box` localisé **Canada, Québec** (UUID `2424352b-3df3-3415-9fbf-a6b1eff0ce60`) a une représentativité régionale **crédible et documentée par Ecoinvent lui-même** (marché local, pas d'échange global pour ce type de produit) — distinction importante à conserver dans le référentiel entre les deux cas « CA-QC » : localisation ≠ représentativité, mais ce n'est pas vrai de façon uniforme pour tous les datasets CA-QC.
+- L'anomalie `database_family: "flcac"` de la session précédente est résolue : cause = mauvaise base (`cups`) restée ouverte après changement de poste. Ne plus la présenter comme une anomalie Ecoinvent ouverte.
 
 ## 2. Nouveaux datasets identifiés
-- `melamine impregnated paper production` (b2e9c4ee-c34a-3ad7-9662-0ef0b050cda8) — papier seul, kg, RoW.
-- `market for paper, melamine impregnated` (55d422f8-6b1d-358e-9691-8de4be164462) — kg, Global.
-- `coating service, melamine impregnated paper, double-sided` (57d226d1-43bb-37cc-81a2-0b4cda274608, doublon 6c179811-5e5b-3527-bc52-9b5d679bb29a) — m², RoW, exclut le panneau.
-- `particleboard, uncoated` (production 87141283-b718-30d4-84b0-39c6c71cc8cf ; marché ff40ec39-1d3e-3168-bebc-e5ac10e28ad2) — substrat nu, utile pour modéliser un panneau mélaminé en atelier par composition (substrat + service de placage).
-- Matériaux/procédés génériques pour reconstruction quincaillerie : `steel, low-alloyed, hot rolled` (marché eba0e6ba-5f96-3ac9-a0c0-2f0d4fc74b8a), `steel, chromium steel 18/8, hot rolled` (marché 288bd21b-b97b-32b7-8383-cc0d2126fe72), `wire drawing, steel` (marché 641bc156-ed49-3cfa-a712-c27b40902d93), `zinc coating, pieces` (ada0a646-2258-3a16-8223-a31f812325aa), `metal working, average for steel/chromium steel/aluminium product manufacturing` (b76ed063-…, 00dd895a-…, e41d54f1-…).
-- `market for packaging film, low density polyethylene` (0c925f5b-401c-330c-9247-04bd41395645) — candidat non confirmé pour le matériau d'enveloppe mystère.
+- `paper, melamine impregnated` (matière, kg, `0a2370fe-…`) + `coating, with melamine impregnated paper` (service d'application, m², panneau exclu, `24ceb336-…`) — structure en deux datasets bien adaptée pour représenter séparément matière et procédé d'application en atelier ; `coating service, melamine impregnated paper, double-sided` (`4bce9bba-…`, Europe) reconfirme le Lot 2B.
+- `three and five layered board` (`b878e1de-…`) — identifié et **explicitement écarté** comme faux-ami pour le contreplaqué (bois massif aboutis-collé, pas du placage).
+- Datasets de matières génériques utilisables comme briques de proxy pour la bande de chant : PE-LD (`08d7cf9a-…`), PP (`881eed86-…`), ABS (`ca074112-…`, reconfirme Lot 2D), PVC suspension polymérisée (`fa6532b7-…` / `68a7d84c-…`, reconfirme Lot 2D).
+- Adhésifs formulés existants mais non équivalents : `market for polyurethane adhesive` (`ad1da3c6-…`, CLT) et `market for melamine urea formaldehyde adhesive` (`e7001c37-…`, glulam) — chimie et usage industriels distincts d'une colle blanche PVAc ou d'une colle contact d'atelier.
+- Services de métallurgie génériques (emboutissage, extrusion d'aluminium, revêtement zinc, tournage, fraisage) disponibles en ISIC 259 pour une future reconstruction quincaillerie — noms de process identifiés, aucun UUID de brique retenu cette session.
 
 ## 3. UUID et géographies vérifiés
-Tous les UUID cités dans le tableau transversal ci-dessus ont été obtenus par requête directe (`search_processes` puis `process_details`) et non reconstruits de mémoire. Géographies confirmées via le champ `location` retourné par `process_details` (voir tableau).
+Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_processes`/`search_flows` puis `process_details`) dans la base `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` confirmée (`database_family: ecoinvent`, 25 412 processus / 14 051 flux / 0 méthode). Aucun n'est reconstruit de mémoire.
 
 ## 4. Anciennes hypothèses invalidées
-- Si une hypothèse antérieure supposait qu'un dataset « contreplaqué de bouleau russe » plus spécifique existait dans Ecoinvent au-delà du proxy générique déjà connu : **invalidée**, confirmation qu'aucun dataset plus spécifique n'existe (recherche exhaustive sur bouleau, Baltic, veneer, laminated veneer — tous à 0 ou hors sujet).
-- Si une hypothèse antérieure supposait qu'un panneau « déjà mélaminé fini » existait et risquait d'être confondu avec le papier appliqué en atelier : **confirmée comme non-risque** — un tel panneau fini n'existe pas dans la base ; seul le substrat nu + service de placage existent, ce qui structure correctement la distinction demandée.
+- L'hypothèse qu'un contreplaqué CA-QC serait plus représentatif qu'un dataset RER est **invalidée** — c'est la même donnée sous une étiquette géographique différente.
+- Tous les résultats de la session `cups` (UUID, géographies, résultats nuls, conclusions, anomalie `database_family: "flcac"`) sont **invalidés en tant que preuves Ecoinvent** ; seuls les éléments reconfirmés ci-dessus ou déjà sourcés dans les Lots 2A–2G restent valides.
 
 ## 5. Correspondances toujours non résolues
-- Bande de chant PE (aucun produit fonctionnel).
-- Colle PVAc/PVA et colle contact à base d'eau (aucun produit fonctionnel, candidats chimiques non satisfaisants).
-- Charnières, coulisses, poignées, vis (aucun produit fonctionnel — reconstruction bottom-up envisageable pour charnières/coulisses uniquement).
-- Matériau d'enveloppe mystère en emballage (identification physique du produit réel requise avant tout choix de dataset).
-- Pied réglable/French cleat : non couvert dans cette session.
+- Contreplaqué merisier/Baltic birch : aucune correspondance directe, proxy générique seulement.
+- Papier mélaminé : application simple face vs double face non tranchée ; échelle atelier vs industrielle non confirmée.
+- Bande de chant PE : matière proxy non tranchée (PE/PP/ABS/PVC), aucun procédé d'extrusion de profilé plat trouvé.
+- Colle PVAc et colle contact à l'eau : absence totale, reconstruction incertaine.
+- Toute la quincaillerie (charnières, coulisses, poignées, patins, taquets, vis) : absence totale, reconstruction à construire au cas par cas après données fabricant.
+- Matériau d'emballage meuble (film fin blanc en rouleau) : nature physique du matériau réel inconnue, deux hypothèses non départagées (film plat LDPE vs mousse alvéolée absente de la base) ; non-tissé non exploré.
 
-## 6. Données fabricant nécessaires
-- Contreplaqué : composition exacte en essence si une précision au-delà du proxy hêtre/hardwood est requise.
-- Bande de chant PE : masse linéique, épaisseur, composition exacte du polymère.
-- Colles : nature exacte du polymère, teneur en solides, formulation.
-- Quincaillerie (charnières/coulisses) : masse par pièce, matériau exact, procédé de fabrication.
-- Emballage : identification physique du matériau mystère (échantillon ou fiche technique fournisseur).
+## 6. Données fabricant désormais nécessaires
+- Contreplaqué : essence réelle, type de colle, origine géographique réelle du bois.
+- Papier mélaminé : grammage réel, application simple/double face.
+- Bande de chant : matière exacte (PE/PP/ABS/PVC), procédé (extrusion profilée).
+- Colles : formulation exacte (teneur en eau, % PVAc, additifs) pour colle blanche et colle contact.
+- Quincaillerie : masse par pièce et alliage pour charnières et coulisses en priorité ; ne pas surinvestir sur les vis.
+- Emballage meuble : composition et structure (film plat vs mousse vs non-tissé) du matériau en rouleau.
 
-## 7. Recherches supplémentaires éventuellement nécessaires
-- Poignées, pieds réglables/French cleat (Priorité 5) : recherche non complétée dans cette session.
-- Vérifier la variante « polyvinylchloride, suspension polymerised » (en plus de « bulk polymerised ») pour la Priorité 3, non explorée.
-- Clarifier la contradiction `database_family: "flcac"` vs nomenclature Ecoinvent 3 Cutoff observée dans `database_info`, avant toute intégration au référentiel Git.
+## 7. Recherches supplémentaires encore ouvertes
+- Vérifier l'existence d'un procédé générique de polymérisation en émulsion (pour une éventuelle reconstruction PVAc) ailleurs dans la base — non cherché explicitement dans cette session.
+- Vérifier l'existence de mousses PE/PP souples alvéolées sous d'autres termes non testés (ex. « foil », « wrap », « interleaving »), et d'un non-tissé, uniquement si utile après identification physique du matériau réel d'emballage.
+- Approfondir les procédés de formage métallique disponibles (emboutissage, extrusion d'aluminium) pour construire un proxy chiffré charnière/coulisse — **seulement après obtention des données fabricant**, pas avant.
+- Éviter de multiplier les recherches Ecoinvent supplémentaires : pour la plupart des lacunes ouvertes ci-dessus, le véritable blocage est désormais une donnée fabricant, pas une recherche Ecoinvent restante.

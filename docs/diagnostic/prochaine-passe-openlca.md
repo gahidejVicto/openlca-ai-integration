@@ -1,6 +1,6 @@
 # Liste structurée — prochaine passe OpenLCA
 
-Préparée le **2026-09-15**, mise à jour le **2026-09-16** après réconciliation avec le [diagnostic OpenLCA vérifié du 2026-09-16](RECQ36_diagnostic_ecoinvent_openLCA.md) (interrogation réelle du connecteur MCP OpenLCA). **Les recherches réellement terminées par cette interrogation ont été retirées de la liste active** (section 1) ; seules les questions encore ouvertes restent structurées en détail (section 2).
+Préparée le **2026-09-15**, mise à jour le **2026-09-16** après une interrogation complète et vérifiée du connecteur MCP OpenLCA sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` ([rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md)). **Une première mise à jour, faite le même jour alors que la mauvaise base OpenLCA (`cups`) était ouverte après un changement de poste de travail, est invalidée en totalité** — voir le [diagnostic corrigé](RECQ36_diagnostic_ecoinvent_openLCA.md) et la note sur l'anomalie `database_family` résolue dans le [référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac). Cette nouvelle interrogation a couvert l'intégralité des six priorités du diagnostic RECQ36, y compris plusieurs objets auparavant non couverts (pied réglable, French cleat, poignée). **Les recherches désormais terminées ont été retirées de cette liste** ; ne restent que les points encore réellement ouverts.
 
 **Consignes pour l'instance qui exécutera les recherches encore ouvertes** (rappel des règles déjà appliquées) :
 - Utiliser `search_processes` et `search_flows` avec les termes ci-dessous, en documentant le nombre de résultats pour chaque terme (y compris zéro).
@@ -8,114 +8,79 @@ Préparée le **2026-09-15**, mise à jour le **2026-09-16** après réconciliat
 - Ne jamais déduire une géographie du seul nom d'un process.
 - Si aucun résultat n'est trouvé, écrire *« Aucun candidat pertinent identifié avec les méthodes d'interrogation disponibles »*, pas *« Ecoinvent ne contient pas X »*.
 - Documenter les UUID réellement retournés par l'outil ; n'en inventer aucun.
-- **Documenter explicitement `database_info` (nom, famille, version)** avant toute recherche — voir la priorité 0 ci-dessous.
+- **Confirmer `database_info` (nom, famille, version) avant toute recherche** et vérifier manuellement dans l'interface openLCA elle-même que la base ouverte est bien celle attendue — l'anomalie `database_family: "flcac"` résolue en 2026-09-16 provenait d'une mauvaise base laissée ouverte après un changement de poste, pas d'un bug du connecteur.
 - Reporter les résultats dans le référentiel (`docs/materiaux-ebenisterie.md`) et le [tableau transversal des lacunes](tableau-transversal-lacunes-ecoinvent.md).
+- **Éviter de multiplier les recherches Ecoinvent** lorsque le véritable blocage est désormais une donnée fabricant (formulation, masse par pièce, composition d'un matériau) plutôt qu'une recherche Ecoinvent restante — c'est le cas pour la majorité des lacunes ouvertes ci-dessous.
 
 ---
 
 ## 1. Recherches désormais terminées (retirées de cette liste)
 
-Ces recherches ont été effectuées par interrogation OpenLCA directe le 2026-09-16 et ne nécessitent pas d'être relancées, sauf si l'anomalie `database_family` (priorité 0) s'avère indiquer une base réellement différente :
+Ces recherches ont été effectuées par interrogation vérifiée du connecteur MCP OpenLCA sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` le 2026-09-16, et ne nécessitent pas d'être relancées :
 
 | Objet | Résultat obtenu | Voir |
 |---|---|---|
-| Contreplaqué merisier / yellow birch / Baltic plywood | Aucun dataset spécifique trouvé ; proxy `plywood, for indoor use` (RoW) retenu, écart d'essence documenté (hêtre/hardwood) | [Référentiel](../materiaux-ebenisterie.md), [rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md) |
-| Papier mélaminé appliqué en atelier | Papier, marché et service d'application vérifiés ; meilleure correspondance du diagnostic à ce jour | idem |
-| Bande de chant PE | Absence de produit fonctionnel confirmée (0 résultat) ; matières génériques identifiées comme briques de reconstruction seulement | idem |
-| Colle PVAc/PVA (au-delà du monomère) | Absence reconfirmée indépendamment (2F + 2026-09-16) | idem |
-| Colle contact à base d'eau | Absence reconfirmée indépendamment, y compris pour les formulations aqueuses explicitement recherchées | idem |
-| Charnière invisible / coulisse de tiroir (produit fonctionnel) | Absence reconfirmée indépendamment ; briques génériques de reconstruction bottom-up (acier/inox, mise en forme, revêtement zinc) désormais inventoriées | idem |
-| Film à bulles / papier bulle | Terme `bubble film` : 0 résultat (synonymes restants listés en section 2 par prudence) | idem |
+| Contreplaqué merisier / yellow birch / Baltic plywood | Aucun dataset spécifique trouvé ; le candidat `plywood production`, Canada-Quebec (`5538194d-…`, déjà identifié au Lot 2A) est reconfirmé indépendamment — copie administrative, écart d'essence documenté | [Référentiel](../materiaux-ebenisterie.md), [rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md) |
+| Papier mélaminé appliqué en atelier | Papier, marché et service d'application reconfirmés (dont le service déjà documenté au Lot 2B, même UUID) ; correspondance partielle forte, pas directe (simple/double face et échelle atelier à trancher) | idem |
+| Bande de chant PE | Absence de produit fonctionnel confirmée (0 résultat) ; matières génériques (PE, PP, ABS, PVC) identifiées comme briques de reconstruction seulement, ABS et PVC reconfirmant le Lot 2D | idem |
+| Colle PVAc/PVA (au-delà du monomère) | Absence reconfirmée indépendamment (Lot 2F + Ecoinvent 3.11) ; deux nouveaux hors-sujets écartés (adhésif mortier, bitume) | idem |
+| Colle contact à base d'eau | Absence reconfirmée indépendamment, y compris pour les formulations aqueuses explicitement recherchées (recherche `adhesive` exhaustive, 19 résultats, tous hors sujet) | idem |
+| Colle polyuréthane / PUR | Un adhésif PUR **formulé** existe (`market for polyurethane adhesive`, CLT) mais chimie/usage distincts d'une colle multimatériaux d'atelier ; une colle MUF formulée pour glulam également trouvée, même réserve | idem |
+| Charnière, coulisse, poignée, pied réglable, French cleat, vis à bois | Absence de produit fonctionnel confirmée pour toutes les familles (0 résultat process + flows), plus exploration de la catégorie ISIC 259 (473 process, échantillon de 30) : uniquement des services génériques de transformation métallique et des matières premières | idem |
+| Carton d'emballage / carton ondulé — variante Québec | **Reconfirmée** : même UUID qu'au Lot 2A (`2424352b-…`), toujours Canada-Québec, avec justification renforcée (marché explicitement régional documenté par Ecoinvent) | idem |
+| Variante PVC `suspension polymerised` | **Reconfirmée** : même UUID qu'au Lot 2D (`fa6532b7-…`), avec un second UUID pour le même produit relevé cette session (`68a7d84c-…`, à vérifier s'il s'agit d'un doublon) | idem |
+| Film à bulles / papier bulle | Absence confirmée sur plusieurs synonymes (`bubble wrap`, `stretch film`, `foam sheet` — 0 résultat ; `expanded polystyrene`, `polystyrene foam` — résultats hors sujet) | idem |
+| Anomalie `database_family: "flcac"` | **Résolue** : cause = mauvaise base OpenLCA (`cups`) restée ouverte après changement de poste, pas une anomalie Ecoinvent | [Référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac) |
 
 ---
 
 ## 2. Recherches encore ouvertes
 
-### Priorité 0 — Anomalie `database_family: "flcac"` (bloquante pour l'interprétation des résultats)
+### Priorité 1 — Procédé générique de polymérisation en émulsion (reconstruction PVAc)
 
 | Champ | Contenu |
 |---|---|
-| Ce qu'on cherche à déterminer | `database_info` du connecteur MCP retourne `database_family: "flcac"`, alors que la nomenclature de tous les process interrogés correspond à Ecoinvent 3, système Cutoff. Ce point n'a pu être résolu ni le 2026-09-16, ni par vérification locale du dépôt (aucune trace de `flcac` en dehors du rapport ; le connecteur MCP n'est pas implémenté dans ce dépôt). |
-| Données déjà connues | Statistiques rapportées : 14 912 process, 23 142 flows, 45 méthodes d'impact, 8 systèmes de produits. Plusieurs UUID cités par le 2026-09-16 diffèrent de ceux des Lots 2A–2G pour des produits au nom identique (`plywood`, `particleboard, uncoated`, `coating service, melamine impregnated paper`, `adhesive, for metal`, ABS, PVC, `wire drawing, steel`, `zinc coating, pieces`) ; la variante `Canada, Québec` du carton ondulé (Lot 2A) n'a pas été retrouvée le 2026-09-16 (voir priorité 2 ci-dessous). |
-| Question exacte à résoudre | Dans l'interface openLCA elle-même (pas seulement via MCP) : quel est le nom exact et la version de la base actuellement chargée ? `flcac` correspond-il à un identifiant de connecteur, un nom de base réel, ou une erreur de détection ? Si une autre base qu'Ecoinvent 3.11 Cutoff est chargée, laquelle, et les UUID cités dans les Lots 2A–2G restent-ils valides dans cette base ? |
+| Ce qu'on cherche à déterminer | La colle PVAc/PVA n'existe dans la base qu'au stade du monomère (`vinyl acetate`). Un procédé générique de polymérisation en émulsion, s'il existe ailleurs dans la base, permettrait d'amorcer une reconstruction plus étayée que le monomère seul. Non cherché explicitement dans la session du 2026-09-16 (hors périmètre de cette recherche). |
+| Données déjà connues | `market for vinyl acetate` (monomère, UUID `a4bd8120-5784-3dd9-bee6-a8473d385b7f`) est la seule brique confirmée ; aucun lien vers une émulsion ou un polymère formulé n'a été trouvé. |
+| Question exacte à résoudre | Un process de type « emulsion polymerisation » ou équivalent existe-t-il dans Ecoinvent 3.11, sous un nom générique ou associé à un autre polymère ? Si oui, sa structure est-elle transposable à la PVAc ? |
 
-### Priorité 1 — Pied réglable / niveleur (composant complet)
-
-| Champ | Contenu |
-|---|---|
-| Termes FR | pied de nivellement ; niveleur ; pied réglable |
-| Termes EN | leveling foot ; adjustable foot ; furniture leg leveler |
-| Ce qu'on cherche à déterminer | Confirmer si `polypropylene + injection moulding` (Lot 2D) couvre le corps plastique ; identifier une brique pour un éventuel insert métallique. Non couvert par l'interrogation du 2026-09-16 (confirmé explicitement dans son rapport). |
-| Données déjà connues | Lot 2D : aucun produit fonctionnel (les résultats `foot` étaient des faux positifs) ; piste PP + moulage par injection non confirmée pour la composition complète. |
-| Question exacte à résoudre | Un process/flow "leveling foot"/"adjustable foot" existe-t-il ? Une brique pour un insert métallique fileté est-elle disponible en complément du corps plastique ? |
-
-### Priorité 2 — Ferrure métallique de suspension (French cleat)
+### Priorité 2 — Mousse PE/PP souple ou non-tissé pour le matériau d'emballage mystère
 
 | Champ | Contenu |
 |---|---|
-| Termes FR | ferrure de suspension ; clé française ; système d'accrochage mural |
-| Termes EN | French cleat ; wall mounting hardware ; hanging bracket ; suspension hardware |
-| Ce qu'on cherche à déterminer | Aucune recherche menée à ce jour (ni Lot 2D, ni 2026-09-16, qui le confirme explicitement). Rechercher d'abord un produit fonctionnel, puis des briques matière/procédé plausibles (acier, aluminium, découpe/pliage). |
-| Données déjà connues | Aucune — objet non encore diagnostiqué. |
-| Question exacte à résoudre | Un process/flow "wall bracket"/"hanging hardware"/"French cleat" existe-t-il ? À défaut, quelles briques matière/procédé génériques (acier plié, aluminium) sont disponibles ? |
+| Ce qu'on cherche à déterminer | **Action préalable non-Ecoinvent toujours requise en premier** : identifier physiquement le matériau (fiche technique ou échantillon du rouleau utilisé en atelier). Ce n'est qu'une fois cette identification faite que cette recherche devient utile. |
+| Termes EN restants à tester, si utile après identification | `foil`, `wrap`, `interleaving` (mousse PE/PP alvéolée) ; termes à définir pour un non-tissé synthétique (non recherché à ce jour). |
+| Données déjà connues | Aucun candidat mousse alvéolée trouvé avec les requêtes déjà testées (`polyethylene foam`, `expanded polystyrene`, `polystyrene foam`) ; `packaging film, LDPE` (`1b3c1341-…`) reste un proxy potentiel uniquement si le matériau réel est un film plat non alvéolé. |
+| Question exacte à résoudre | Une fois le matériau réel identifié : correspond-il à un film plat (→ `packaging film, LDPE`), une mousse alvéolée (→ tester les termes ci-dessus), ou un non-tissé (→ recherche à construire) ? |
 
-### Priorité 3 — Poignée de meuble métallique (statut de recherche incohérent, à clarifier)
-
-| Champ | Contenu |
-|---|---|
-| Termes FR | poignée de meuble ; poignée métallique |
-| Termes EN | cabinet handle ; furniture handle ; pull handle ; aluminium handle |
-| Ce qu'on cherche à déterminer | Le rapport du 2026-09-16 est auto-contradictoire : une de ses sections indique « 0 résultat » pour `furniture handle`, une autre indique « non recherché en détail ». **Refaire la recherche explicitement** pour lever cette ambiguïté, plutôt que de présumer laquelle des deux affirmations est correcte. |
-| Données déjà connues | Lot 2D : aucun produit fonctionnel ; brique `section bar extrusion, aluminium` potentiellement pertinente mais conditionnelle (matériau réel non confirmé). |
-| Question exacte à résoudre | Un process/flow "handle"/"cabinet hardware, handle" existe-t-il (confirmer par une recherche non ambiguë, avec le compte de résultats explicitement noté) ? À défaut, la brique `section bar extrusion, aluminium` est-elle applicable, sous réserve de confirmation fournisseur du matériau ? |
-
-### Priorité 4 — Variante PVC `suspension polymerised` (bande de chant)
+### Priorité 3 — Approfondissement des procédés de formage métallique (quincaillerie), après données fabricant uniquement
 
 | Champ | Contenu |
 |---|---|
-| Ce qu'on cherche à déterminer | Le Lot 2D avait documenté `market for polyvinyl chloride, suspension polymerised` (UUID `fa6532b7-7f96-3bbb-8f42-c300d800d5ff`). Le 2026-09-16 n'a retrouvé qu'une variante `polyvinylchloride, bulk polymerised` (UUID `17671bec-6cbf-361f-9318-081db8c739ac`), sans reconfirmer la variante « suspension ». |
-| Données déjà connues | Deux variantes de polymérisation PVC potentiellement distinctes, chacune vérifiée dans une seule des deux sessions. |
-| Question exacte à résoudre | Les deux variantes (`suspension polymerised` et `bulk polymerised`) coexistent-elles dans la base actuellement interrogée, ou une seule est-elle réellement disponible ? Laquelle est la plus représentative d'une bande de chant PVC (procédé de calandrage déjà documenté au Lot 2D) ? |
+| Ce qu'on cherche à déterminer | Pour charnières et coulisses, une fois la nomenclature fabricant obtenue (masse par pièce, matière, revêtement), approfondir les procédés de formage identifiés (`deep drawing, steel`, `impact extrusion of aluminium`, `turning`, `milling`, `zinc coating, pieces`) pour construire un proxy chiffré. |
+| Données déjà connues | Ces noms de process ont été identifiés par exploration de la catégorie ISIC 259 (2026-09-16), sans UUID retenu pour l'instant. |
+| Question exacte à résoudre | **Ne pas entreprendre cette recherche avant l'obtention des données fabricant** (masse par pièce, matériau exact, revêtement) — le blocage actuel n'est pas une recherche Ecoinvent, c'est une donnée fabricant manquante. Une fois ces données obtenues, identifier les UUID précis des process ci-dessus et vérifier leur applicabilité par masse. |
 
-### Priorité 5 — Carton d'emballage / carton ondulé : reconfirmer la variante Québec
-
-| Champ | Contenu |
-|---|---|
-| Ce qu'on cherche à déterminer | Le Lot 2A avait documenté `market for corrugated board box` localisé **Canada, Québec** (UUID `2424352b-3df3-3415-9fbf-a6b1eff0ce60`), avec des briques amont québécoises réelles (production, fluting medium). Le 2026-09-16 n'a retrouvé qu'une variante **Global** (UUID `b8c827da-42b1-3a3a-a6b5-c5d2f1792e33`, boîte formée plutôt que plaque) — sans chercher spécifiquement la variante québécoise. |
-| Données déjà connues | Voir le [référentiel](../materiaux-ebenisterie.md), fiche « Carton d'emballage / carton ondulé », pour le détail des deux candidats. |
-| Question exacte à résoudre | La variante `Canada, Québec` de `market for corrugated board box` (et ses briques amont `corrugated board box production`, `containerboard production, fluting medium, semichemical, 40% recycled content`) existe-t-elle toujours dans la base actuellement interrogée ? Le produit réellement utilisé en atelier est-il une plaque découpée ou une boîte préformée ? |
-
-### Priorité 6 — Matériau d'emballage blanc fin en rouleau (identification physique requise avant toute recherche)
+### Priorité 4 — Écarts d'UUID résiduels entre sessions authentiquement Ecoinvent (sans lien avec l'anomalie `flcac`)
 
 | Champ | Contenu |
 |---|---|
-| Termes FR | *(à ne pas deviner)* |
-| Termes EN | *(à ne pas deviner)* |
-| Ce qu'on cherche à déterminer | **Action préalable non-Ecoinvent toujours requise** : `Identifier précisément le matériau d'emballage avant recherche Ecoinvent`. Obtenir la fiche produit / l'étiquette du rouleau auprès de l'atelier ou du fournisseur (nom commercial, composition — papier, non-tissé, film plastique). |
-| Données déjà connues | Matériau blanc, très fin, vendu en gros rouleau, utilisé pour envelopper/protéger les meubles (description métier Nicolas, 2026-09-15). Le 2026-09-16 a relevé un candidat **non confirmé** (`market for packaging film, low density polyethylene`, UUID `0c925f5b-401c-330c-9247-04bd41395645`, Global) par simple cohérence de facteur de forme — **ne pas retenir comme identification**. |
-| Question exacte à résoudre | *Reste sans objet tant que l'identification physique n'est pas faite.* Une fois l'identification obtenue, vérifier si `packaging film, LDPE` correspond réellement, ou reformuler la recherche avec les termes appropriés. |
-
-### Priorité 7 — Film à bulles / papier bulle : synonymes restants
-
-| Champ | Contenu |
-|---|---|
-| Ce qu'on cherche à déterminer | Le 2026-09-16 n'a testé que le terme `bubble film` (0 résultat). Par prudence méthodologique, tester les synonymes anglais usuels avant de considérer l'absence comme définitivement établie dans cette base. |
-| Termes EN restants à tester | `air cushion film` ; `plastic bubble packaging` ; `protective packaging film` |
-| Données déjà connues | `bubble film` : 0 résultat (process et flows). Absents également : mousse PE (« polyethylene foam »). |
-| Question exacte à résoudre | Un des synonymes restants retourne-t-il un résultat pertinent ? |
+| Ce qu'on cherche à déterminer | Même entre le Lot 2F (MCP, avant la contamination `cups`) et la nouvelle interrogation Ecoinvent 3.11 (2026-09-16), certains produits génériques reviennent sous des UUID différents : `vinyl acetate` (Lot 2F : `9381f4dc-…` vs 2026-09-16 : `a4bd8120-…`), `ethylene vinyl acetate copolymer` (Lot 2F : `fe0fb6f7-…` vs 2026-09-16 : `c773d766-…`), `adhesive, for metal` (Lot 2F : `3bd4e097-…` vs 2026-09-16 : `4a5da11b-…`). |
+| Données déjà connues | Ces trois écarts sont **distincts** de l'anomalie `database_family: "flcac"` (résolue — cause : mauvaise base `cups`) : les deux sessions comparées ici ont toutes deux interrogé une base authentiquement Ecoinvent. |
+| Question exacte à résoudre | S'agit-il d'un changement de version mineure d'Ecoinvent entre les deux sessions, d'un échantillonnage différent parmi des datasets dupliqués, ou d'une autre cause ? Vérifier dans l'interface openLCA si plusieurs datasets portent ce nom de produit exact. Ne pas présumer qu'un des deux UUID est erroné. |
 
 ---
 
 ## 3. Données fabricant nécessaires (non-Ecoinvent, mais bloquantes pour les reconstructions identifiées)
 
-Ces éléments ne sont **pas** des recherches OpenLCA — ils sont listés ici parce qu'ils conditionnent l'usage des briques de reconstruction déjà identifiées (Lot 2D, 2026-09-16) :
-
+- **Contreplaqué merisier/Baltic :** essence réelle, type de colle, origine géographique réelle du bois.
+- **Papier mélaminé en atelier :** grammage réellement utilisé (à comparer aux 302 g/m² documentés), confirmation simple face vs double face, paramètres de presse d'atelier.
 - **Bande de chant PE/ABS/PVC :** masse linéique (g/m), épaisseur, largeur, composition exacte (compound, charges/pigments).
-- **Charnière invisible, coulisse de tiroir :** nomenclature complète (masse totale, matériaux constitutifs et leurs parts, revêtement, nombre de pièces) — **bloquante**, aucune reconstruction bottom-up n'est possible sans elle malgré les briques génériques (acier/inox, mise en forme, zinc) désormais disponibles.
+- **Charnière invisible, coulisse de tiroir :** nomenclature complète (masse totale, matériaux constitutifs et leurs parts, revêtement, nombre de pièces) — **bloquante**, aucune reconstruction bottom-up n'est possible sans elle.
 - **Coulisse de tiroir :** choix d'un **modèle fournisseur de référence unique** (documentation la plus détaillée disponible), conformément à la consigne de ne pas subdiviser par technologie/dimension.
+- **Poignée, pied réglable, French cleat :** matériau réel, masse, dimensions, procédé de fabrication.
 - **Colle contact, PVAc/PVA, EVA hot-melt, PUR :** formulation/composition réelle, teneur en solides, densité, consommation réelle.
-- **Papier mélaminé en atelier :** grammage réellement utilisé (à comparer aux 302 g/m² documentés) et paramètres de presse d'atelier, pour confirmer la représentativité d'échelle.
-- **Matériau d'emballage blanc en rouleau :** voir priorité 6 ci-dessus — identification physique, pas une donnée de reconstruction.
+- **Matériau d'emballage blanc en rouleau :** identification physique (nom commercial, composition) — bloquante, prioritaire sur toute nouvelle recherche Ecoinvent pour cet objet.
 
 ---
 
@@ -131,4 +96,4 @@ Si une future passe OpenLCA dispose de temps additionnel, ces objets restent des
 
 ---
 
-*Liste préparée le 2026-09-15 sans accès OpenLCA, mise à jour le 2026-09-16 par réconciliation avec le [diagnostic OpenLCA vérifié](RECQ36_diagnostic_ecoinvent_openLCA.md). Aucun UUID n'est inventé ; tous les UUID cités proviennent des diagnostics déjà sourcés (Lots 2A, 2D, 2F, et l'interrogation du 2026-09-16). La priorité 0 (anomalie `database_family`) doit être résolue avant que les autres résultats de ce document soient considérés comme définitivement fiables.*
+*Liste préparée le 2026-09-15 sans accès OpenLCA, mise à jour le 2026-09-16 par une réconciliation corrective avec le [diagnostic OpenLCA vérifié](RECQ36_diagnostic_ecoinvent_openLCA.md) sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31`. Une première mise à jour du même jour, faite sur la mauvaise base OpenLCA (`cups`), est invalidée en totalité. Aucun UUID n'est inventé ; tous les UUID cités proviennent des diagnostics déjà sourcés (Lots 2A, 2D, 2F, et l'interrogation vérifiée du 2026-09-16).*

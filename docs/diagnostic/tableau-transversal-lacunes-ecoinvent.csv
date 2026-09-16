@@ -1,7 +1,7 @@
 Famille,Produit_metier,Priorite,Produit_fonction,Composition_matiere,Technologie_procede,Geographie,Donnees_primaires_QC,Adaptation_geo_necessaire,Proxy_necessaire,Reconstruction_necessaire,Info_fournisseur_necessaire,Analyse_Ecoinvent,Statut_referentiel,Source
 Panneaux,Panneau de particules brut,P1,OK,ECART,A VERIFIER,ECART,ECART,OUI,NON,NON,OUI,REALISEE,A adapter,Lot 2B
 Panneaux,MDF brut,P1,OK,ECART,A VERIFIER,ECART,ECART,OUI,NON,NON,OUI,REALISEE,A adapter,Lot 2B
-Panneaux,Contreplaque merisier / yellow birch / Baltic plywood (ex- bouleau russe),P1,A VERIFIER,ECART,ECART,ECART,ECART,A VERIFIER,A VERIFIER,A VERIFIER,OUI,PARTIELLE (ancienne appellation seulement),Lacune majeure,Lot 2A + decision Nicolas 2026-09-15
+Panneaux,Contreplaque merisier / yellow birch / Baltic plywood (ex- bouleau russe),P1,OK (proxy generique verifie),ECART (hetre/hardwood non specifie),A VERIFIER (plis/epaisseur non documentes),ECART (Europe/RoW),ECART,A VERIFIER,OUI,NON,OUI (si precision requise),REALISEE,A adapter,Lot 2A (candidat non reconfirme) + Diagnostic OpenLCA verifie 2026-09-16
 Panneaux,Panneau de particules melamine / TFL,P1,ECART,OK (service documente),A VERIFIER,ECART,ECART,OUI,NON,OUI,OUI,REALISEE,A reconstruire,Lot 2B
 Panneaux,MDF melamine / TFL,P1,ECART,A VERIFIER,A VERIFIER,ECART,ECART,OUI,NON,OUI,OUI,REALISEE,A reconstruire,Lot 2B
 Panneaux,MDF plaque bois achete fini,P1,ECART,ECART (substrat seul),ECART,ECART,ECART,A VERIFIER,A VERIFIER,OUI,OUI,REALISEE,Lacune majeure,Lot 2E
@@ -12,21 +12,21 @@ Panneaux,Autre contreplaque,P2,OK,ECART,ECART,ECART,ECART,OUI,NON,NON,OUI,REALIS
 Panneaux,Panneau plaque en atelier,P2,ECART (depend du placage),ECART,ECART,ECART,ECART,A VERIFIER,A VERIFIER,OUI,OUI,PARTIELLE (herite 2B/2E/2F),A valider,Lot 2E + Lot 2F + confirmation metier Nicolas 2026-09-15
 Surfaces,Stratifie HPL,P1,ECART,ECART,ECART,N/A,ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2E
 Surfaces,Placage de bois naturel,P1,ECART,ECART,ECART,ECART,ECART,A VERIFIER,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2E
-Surfaces,Papier melamine applique en atelier,P1/P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Nouvel objet decision Nicolas 2026-09-15 ; service industriel apparente documente Lot 2B
+Surfaces,Papier melamine applique en atelier,P1/P2,OK (papier + marche + service verifies),OK (grammage documente 302 g/m2),A VERIFIER (echelle atelier vs industriel),ECART (RoW/Global),ECART,NON,NON,NON,A VERIFIER (grammage reel atelier),REALISEE,Utilisable (avec reserve),Diagnostic OpenLCA verifie 2026-09-16 ; service documente Lot 2B (UUID distinct)
 Bandes de chant,Bande de chant bois veritable preencollee,P1,ECART,N/A,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2D
 Bandes de chant,Bande de chant bois veritable non encollee,P1,ECART,N/A,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2D
 Bandes de chant,Bande de chant ABS,P1,ECART,OK (matiere),ECART,A VERIFIER,ECART,A VERIFIER,OUI,OUI,OUI,REALISEE,A reconstruire,Lot 2D
 Bandes de chant,Bande de chant PVC,P1,ECART,OK (matiere),A VERIFIER (indice partiel),A VERIFIER,ECART,A VERIFIER,OUI,OUI,OUI,REALISEE,A reconstruire ; place relative a revalider,Lot 2D + decision Nicolas 2026-09-15
-Bandes de chant,Bande de chant PE / polyethylene,P1,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Nouvel objet decision Nicolas 2026-09-15
+Bandes de chant,Bande de chant PE / polyethylene,P1,ECART (0 resultat confirme),OK (matiere PE generique),ECART (aucun procede de profile),N/A (Global),ECART,A VERIFIER,OUI,OUI,OUI,REALISEE,A reconstruire,Diagnostic OpenLCA verifie 2026-09-16
 Bois massif,Erable massif brut seche,P1,OK,ECART (essence absente),A VERIFIER,ECART,ECART,OUI,NON,NON,OUI,REALISEE,Lacune majeure,Lot 2C
 Bois massif,Frene massif brut seche,P1,OK,ECART (essence absente),A VERIFIER,ECART,ECART,OUI,NON,NON,OUI,REALISEE,Lacune majeure,Lot 2C
 Bois massif,Merisier / bouleau jaune massif brut seche,P1,A VERIFIER (nom vernaculaire birch),A VERIFIER,A VERIFIER,ECART (Suede),ECART,OUI,NON,NON,OUI,REALISEE,A adapter,Lot 2C
 Bois massif,Chene rouge massif brut seche,P1,A VERIFIER (nom vernaculaire oak),A VERIFIER,A VERIFIER,ECART (Allemagne),ECART,OUI,NON,NON,OUI,REALISEE,A adapter,Lot 2C
 Bois massif,Tilleul massif brut seche,P1/P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
 Bois massif,Bois feuillu exotique brut seche,P1/P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
-Adhesifs,Colle PVAc / PVA blanche,P1,ECART (monomere seul),ECART,ECART,N/A (Global),ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2F
+Adhesifs,Colle PVAc / PVA blanche,P1,ECART (monomere seul ; reconfirme),ECART,ECART,N/A (Global),ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE (2x independantes),Lacune majeure,Lot 2F + Diagnostic OpenLCA verifie 2026-09-16
 Adhesifs,Adhesif thermofusible EVA hot-melt,P1,ECART (resine seule),ECART,A VERIFIER,N/A (Global),ECART,N/A,A VERIFIER,OUI,OUI,REALISEE,A reconstruire,Lot 2F
-Adhesifs,Colle contact,P1,ECART (aucune brique),ECART,ECART,N/A,ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2F
+Adhesifs,Colle contact,P1,ECART (aucune brique ; reconfirme meme pour base eau),ECART,ECART,N/A,ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE (2x independantes),Lacune majeure,Lot 2F + Diagnostic OpenLCA verifie 2026-09-16
 Adhesifs,Colle polyurethane / PUR,P2,ECART (precurseurs seuls),ECART,ECART,A VERIFIER,ECART,N/A,A VERIFIER,A VERIFIER,OUI,REALISEE,Lacune majeure,Lot 2F
 Finitions,Vernis / laque,P1,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
 Finitions,Scellant,P1,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
@@ -34,14 +34,14 @@ Finitions,Teinture,P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIE
 Finitions,Solvants / diluants auxiliaires,P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
 Quincaillerie,Vis d assemblage #6,P1,ECART,A VERIFIER (briques plausibles),ECART,N/A,ECART,N/A,A VERIFIER,OUI,OUI,REALISEE,A reconstruire ; modele simplifie masse+matiere probablement suffisant (Nicolas),Lot 2D + decision Nicolas 2026-09-15
 Quincaillerie,Vis d assemblage #8,P1,ECART,A VERIFIER (briques plausibles),ECART,N/A,ECART,N/A,A VERIFIER,OUI,OUI,REALISEE,A reconstruire ; modele simplifie masse+matiere probablement suffisant (Nicolas),Lot 2D + decision Nicolas 2026-09-15
-Quincaillerie,Charniere invisible de meuble,P1,ECART,ECART (nomenclature absente),N/A,N/A,ECART,N/A,A VERIFIER,A VERIFIER,OUI (bloquant),REALISEE,Lacune majeure ; priorise (Nicolas),Lot 2D + decision Nicolas 2026-09-15
-Quincaillerie,Coulisse de tiroir,P1,ECART,ECART (nomenclature absente),N/A,N/A,ECART,N/A,A VERIFIER,A VERIFIER,OUI (bloquant),REALISEE,Lacune majeure ; priorise + modele fournisseur de reference a choisir (Nicolas),Lot 2D + decision Nicolas 2026-09-15
-Quincaillerie,Poignee de meuble metallique,P1,ECART,A VERIFIER (conditionnelle alu),A VERIFIER,N/A,ECART,N/A,A VERIFIER,OUI,OUI,REALISEE,A reconstruire ; priorise (Nicolas),Lot 2D + decision Nicolas 2026-09-15
+Quincaillerie,Charniere invisible de meuble,P1,ECART (reconfirme 2x),ECART (nomenclature absente ; briques generiques acier/inox verifiees),A VERIFIER (briques mise en forme/revetement disponibles),N/A,ECART,N/A,A VERIFIER,OUI (bottom-up),OUI (bloquant),REALISEE (2x independantes),Lacune majeure ; priorise (Nicolas),Lot 2D + Diagnostic OpenLCA verifie 2026-09-16 + decision Nicolas 2026-09-15
+Quincaillerie,Coulisse de tiroir,P1,ECART (reconfirme 2x),ECART (nomenclature absente ; memes briques generiques),A VERIFIER,N/A,ECART,N/A,A VERIFIER,OUI (bottom-up),OUI (bloquant),REALISEE (2x independantes),Lacune majeure ; priorise + modele fournisseur de reference a choisir (Nicolas),Lot 2D + Diagnostic OpenLCA verifie 2026-09-16 + decision Nicolas 2026-09-15
+Quincaillerie,Poignee de meuble metallique,P1,ECART (statut 2026-09-16 incoherent dans le rapport source ; A VERIFIER),A VERIFIER (conditionnelle alu),A VERIFIER,N/A,ECART,N/A,A VERIFIER,OUI,OUI,PARTIELLE (rapport source incoherent),A reconstruire ; priorise (Nicolas),Lot 2D + decision Nicolas 2026-09-15
 Quincaillerie,Pied niveleur / niveleur,P1,ECART,A VERIFIER (conditionnelle PP),A VERIFIER,N/A,ECART,N/A,A VERIFIER,OUI,OUI,REALISEE,A reconstruire ; priorise (Nicolas),Lot 2D + decision Nicolas 2026-09-15
 Quincaillerie,Ferrure metallique de suspension (French cleat),P1/P2,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider ; priorise (Nicolas),Aucun lot + decision Nicolas 2026-09-15
-Emballage,Carton d emballage / carton ondulé,P1,OK,A VERIFIER (linerboard non verifie),OK,OK (fort QC),A VERIFIER (partiellement ancien 2008),NON,NON,NON,A VERIFIER,REALISEE,A valider,Lot 2A
-Emballage,Film a bulles / papier bulle,P1,A VERIFIER,N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,NON REALISEE,A valider,Aucun lot
-Emballage,Materiau d emballage blanc fin en rouleau (identification a confirmer),P1/P2,N/A (identification non confirmee),N/A,N/A,N/A,N/A,N/A,N/A,N/A,OUI (bloquant),NON REALISEE,A valider,Nouvel objet decision Nicolas 2026-09-15
+Emballage,Carton d emballage / carton ondulé,P1,OK (Lot 2A) / A VERIFIER (variante QC non reconfirmee 2026-09-16),A VERIFIER (linerboard non verifie),OK (Lot 2A),OK (Lot 2A fort QC) / ECART (variante Global 2026-09-16 seulement),A VERIFIER (partiellement ancien 2008 ; existence variante QC a reverifier),A VERIFIER,NON,NON,A VERIFIER,REALISEE (partiellement discordante entre sessions),A valider,Lot 2A + Diagnostic OpenLCA verifie 2026-09-16 (discrepance UUID/geographie)
+Emballage,Film a bulles / papier bulle,P1,ECART (0 resultat confirme pour bubble film),N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,OUI,REALISEE (synonymes restants a tester),Lacune majeure,Diagnostic OpenLCA verifie 2026-09-16
+Emballage,Materiau d emballage blanc fin en rouleau (identification a confirmer),P1/P2,N/A (identification non confirmee) ; candidat non confirme LDPE releve,N/A,N/A,N/A,N/A,N/A,N/A (candidat non confirme seulement),N/A,OUI (bloquant),PARTIELLE (candidat exploratoire non confirme),A valider,Diagnostic OpenLCA verifie 2026-09-16 + decision Nicolas 2026-09-15
 Donnees transversales,Electricite d atelier,P1,A VERIFIER (non isole),N/A,N/A,N/A,N/A,A VERIFIER,A VERIFIER,A VERIFIER,A VERIFIER,PARTIELLE (limite outil MCP),A valider ; phase ulterieure (Nicolas),Lot 2A/2G
 Donnees transversales,Transport entrant,P1,OK (candidat generique),N/A,A VERIFIER (mix EURO non nord-americain),ECART (Global generique),ECART,A VERIFIER,NON,NON,OUI,REALISEE,A valider ; phase ulterieure (Nicolas),Lot 2G
 Donnees transversales,Transport sortant,P1,OK (candidat generique),N/A,A VERIFIER (mix EURO non nord-americain),ECART (Global generique),ECART,A VERIFIER,NON,NON,OUI,REALISEE,A valider ; phase ulterieure (Nicolas),Lot 2G

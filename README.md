@@ -44,6 +44,9 @@ Ne sont pas encore implémentés :
 
 - [Roadmap](docs/roadmap.md)
 - [Référentiel métier des matériaux d'ébénisterie](docs/materiaux-ebenisterie.md)
+- [Tableau transversal des lacunes Ecoinvent](docs/diagnostic/tableau-transversal-lacunes-ecoinvent.md)
+- [Synthèse des spécificités québécoises](docs/specificites-quebecoises.md)
+- [Liste structurée pour la prochaine passe OpenLCA](docs/diagnostic/prochaine-passe-openlca.md)
 - [Fiches d'inventaire détaillé des datasets candidats](docs/inventaire/README.md)
 - [Méthode et template de régionalisation](research/README.md)
 - [Traçabilité des sources](docs/sources/README.md)

@@ -11,10 +11,18 @@ Une fiche correspond normalement à :
 
 Le [template réutilisable](../../research/templates/dataset-analysis.md) sert de point de départ. La première fiche pilote porte sur le [contreplaqué CA-QC](panneaux/plywood-ca-qc.md).
 
+## Passes de collecte documentaire
+
+- [Collecte de données fabricants — RECQ36 (2026-09-22)](donnees-fabricants-recq36-2026-09-22.md) — coulisses, adhésifs, bande de chant, film mousse PE.
+
 ## Répertoires de fiches fabricant
 
 - [Panneaux à base de bois et stratifiés](panneaux/README.md)
 - [Bois massif](bois/README.md)
+- [Adhésifs](adhesifs/README.md)
+- [Plastiques](plastiques/README.md)
+- [Quincaillerie de meuble](quincaillerie/README.md)
+- [Emballages](emballages/README.md)
 
 ## Catégories d'évaluation
 

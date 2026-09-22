@@ -7,6 +7,8 @@ Les deux comptes rendus bruts de la session courante sont conservés pour traça
 - [`mcp-ecoinvent-3.11-partie-1.md`](mcp-ecoinvent-3.11-partie-1.md) — PRIORITÉS 1 à 3, début de la PRIORITÉ 4.
 - [`mcp-ecoinvent-3.11-partie-2.md`](mcp-ecoinvent-3.11-partie-2.md) — fin de la PRIORITÉ 4, PRIORITÉS 5 et 6, tableau transversal, HANDOFF.
 
+**Mise à jour (2026-09-22) :** une passe complémentaire (base reconfirmée, `database_family: ecoinvent`, 25 412 processus / 14 051 flux, mêmes ordres de grandeur qu'au 2026-09-16) a traité une hypothèse d'identification pour le matériau d'emballage blanc en rouleau (film mousse de polyéthylène) et fermé deux pistes laissées ouvertes le 2026-09-16 (polymérisation en émulsion générique pour la PVAc ; mousses PE/PP sous synonymes non testés). Voir la section [PASSE COMPLÉMENTAIRE — 2026-09-22](#passe-complémentaire--2026-09-22) ci-dessous.
+
 ## Résolution de l'anomalie `database_family`
 
 La session invalidée avait retourné `database_family: "flcac"`, avec 14 912 process / 23 142 flows / 45 méthodes d'impact / 8 systèmes de produits. **Cause identifiée :** après un changement de poste de travail, c'est la base OpenLCA `cups` qui était restée ouverte dans le logiciel, pas Ecoinvent — `flcac` n'est pas une anomalie intrinsèque d'Ecoinvent, seulement le nom de la mauvaise base chargée à ce moment-là. Ce statut « à vérifier » est désormais obsolète et ne doit plus être présenté comme une anomalie ouverte.
@@ -210,6 +212,50 @@ Obtenir un échantillon ou une fiche technique du matériau réel (grammage, com
 
 ---
 
+## PASSE COMPLÉMENTAIRE — 2026-09-22
+
+Base rouverte et reconfirmée avant toute requête : `database_info` retourne à nouveau **25 412 processus / 14 051 flux**, `database_family: ecoinvent` confirmé explicitement par `set_database_family("ecoinvent")` — mêmes ordres de grandeur que le 2026-09-16, donc bien `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` et non `cups`.
+
+### A. Matériau d'emballage blanc en rouleau — hypothèse d'identification posée, puis recherche ciblée
+
+**Hypothèse (métier, pas Ecoinvent) :** le matériau décrit par Nicolas correspond, par rapprochement avec un produit commercial de référence externe ([sedemballage.com](https://sedemballage.com/produit/rouleau-de-film-mousse/)), à un **film mousse de polyéthylène (PE) en rouleau** : blanc, souple, léger, calage/protection, épaisseurs 1–8 mm. **Ce n'est pas une preuve pour le produit réellement utilisé par les entreprises québécoises concernées** — seulement une piste forte à confirmer par fiche technique/échantillon.
+
+**Requêtes effectuées (en plus des 8 termes déjà testés le 2026-09-16) :** `PE foam`, `packaging foam`, `foam packaging`, `expanded polyethylene`, `EPE`, `LDPE foam`, `polyethylene foam film`, `foil`, `wrap`, `interleaving`, `nonwoven`, `polyolefin foam`, `cushioning`, `expanded plastic`, `cross-linked polyethylene`, plus le terme générique `foam` seul (recherche exhaustive : 55 process / 15 flux, tous inspectés).
+
+**Résultat : 0 correspondance pertinente.**
+- `PE foam`, `packaging foam`, `foam packaging`, `expanded polyethylene`, `LDPE foam`, `polyethylene foam film`, `interleaving`, `polyolefin foam`, `cushioning`, `expanded plastic`, `cross-linked polyethylene` : 0 résultat process et flow.
+- `EPE` : 4 process / 1 flow, tous un faux positif de sous-chaîne sur « di**e**thylenetriamine**pe**ntaacetic acid » (DTPA, un chélatant) — sans rapport, écarté.
+- `foil` : 11 résultats, tous hors sujet (feuille collectrice de batterie Li-ion, film EVA, service de laminage à liant acrylique).
+- `wrap` : 2 résultats, tous hors sujet (papier d'emballage alimentaire à usage unique).
+- `nonwoven` : 6 résultats, tous hors sujet (textiles non-tissés polyester/polypropylène, filière textile industrielle, pas emballage).
+- `foam` seul (exhaustif, 55 process/15 flow) : univers complet = mousse polyuréthane (flexible/rigide, plusieurs variantes), mousse polystyrène rigide (`polystyrene foam slab`, isolation périmétrique — déjà écartée le 2026-09-16), mousse urée-formaldéhyde rigide (isolation), verre mousse (construction), agent moussant générique, matelas en mousse PU, et un procédé générique `polymer foaming` (voir ci-dessous). **Aucune mousse de polyéthylène, sous aucun terme testé.**
+
+**Brique matière disponible :** `market for polyethylene, low density, granulate`, Global, kg, UUID `08d7cf9a-4301-321f-947c-06849afd126c` — résine PE-LD vierge, documentée par Ecoinvent pour des usages « films… packaging material ». Cohérente comme matière de départ, mais c'est une résine solide, pas une mousse.
+
+**Procédé de moussage générique trouvé, mais rejeté comme proxy sans réserve majeure :** `polymer foaming`, trois variantes géographiques — Europe (`2b9297ce-726d-3fde-baf2-ac699f718ef4`), Rest of World (`04468313-af80-3e93-a7e7-e41a7ea78081`), **Canada, Quebec** (`df7d95f6-8231-3af4-b949-d383f79909fa`). `process_details` sur les trois confirme : description Ecoinvent explicite — *« 1 kg of this process equals 1 kg of expanded plastics (usually polystyrene) »* — avec **Pentane** comme agent gonflant (0,015 kg par kg de mousse), l'agent gonflant typique du moussage par perles de polystyrène expansible (EPS), pas de la mousse PE (généralement extrudée, agents gonflants et/ou réticulation différents). Les trois variantes ont des intrants matière identiques (même recette, même dosage de pentane) ; seule l'électricité/chaleur diffère par marché régional — **la variante Canada-Quebec ne contient aucune donnée primaire québécoise**, même schéma administratif que le contreplaqué CA-QC (Lot 2A).
+
+**Faux-ami inspecté et écarté :** `market for plastic profiles` (`f5cfa5ea-decb-3a75-a21d-2a89361b042c`) et son procédé `plastic converting | plastic profiles` (`408028e6-8caf-3d18-aef1-a28cc537e2d8`), Europe, catégorie « Materials recovery » (déchets). `process_details` confirme : conversion d'un **mélange de plastiques recyclés post-consommation** (PE/PP/LDPE/PA, ménages et industrie) en profilés — filière et composition incompatibles avec une mousse PE vierge en rouleau. Écarté explicitement, à ne jamais réutiliser pour cet objet.
+
+**Niveau de correspondance : ABSENT** (produit fonctionnel), avec une brique matière plausible mais aucun procédé de moussage adapté au PE disponible dans cette base.
+
+**Action recommandée :** confirmer l'hypothèse « film mousse PE » auprès des entreprises québécoises concernées (fiche technique ou échantillon) avant toute décision de modélisation. Ne pas utiliser `polymer foaming` sans avertissement explicite de son calibrage polystyrène documenté par Ecoinvent lui-même.
+
+### B. Procédé générique de polymérisation en émulsion (reconstruction PVAc) — clôture de la Priorité 1 de `prochaine-passe-openlca.md`
+
+**Requêtes effectuées :** `emulsion polymerisation`, `emulsion polymerization`, `polymerisation`.
+
+**Résultat :** un procédé nommé « emulsion polymerisation » existe dans la base, mais **exclusivement pour le PVC** (`polyvinyl chloride production, emulsion polymerisation`, deux variantes géographiques, UUID `1900a736-e747-358d-8b9c-bc1b4afbc98d` et `49299e8d-0335-34a2-9a76-43cf401ac350`). La recherche exhaustive `polymerisation` (8 résultats) confirme que tous les procédés de polymérisation nommés dans cette base concernent le PVC (émulsion, suspension, moyenne non spécifiée) — **aucun procédé générique de polymérisation en émulsion, transposable à la PVAc, n'existe dans Ecoinvent 3.11.**
+
+**Conclusion :** cette piste, laissée ouverte le 2026-09-16, est **fermée par une réponse négative documentée** : la colle PVAc/PVA reste caractérisée uniquement par son monomère (`vinyl acetate`), sans procédé de polymérisation générique disponible pour amorcer une reconstruction. Le blocage pour cet objet reste entièrement une donnée fabricant (formulation, EPD fournisseur), pas une recherche Ecoinvent restante — ne pas rouvrir cette piste sans nouvelle raison de le faire.
+
+### C. Bande de chant PE/ABS/PVC — vérification d'un procédé de profilé plat
+
+**Requêtes effectuées :** `plastic profile`, `extrusion, profile`.
+
+**Résultat :** `plastic profile` retourne les mêmes 3 résultats que la section A ci-dessus (`market for plastic profiles`, `plastic converting`, et une variante alimentant un cadre de fenêtre PVC) — **tous décrits pour du plastique mixte recyclé post-consommation**, pas pour une extrusion de profilé plat en matière vierge (ABS/PVC/PE). `extrusion, profile` : 0 résultat. **Aucun nouveau procédé d'extrusion de profilé plat en matière vierge trouvé** ; la conclusion du 2026-09-16 (aucun procédé ne reproduit la géométrie d'une bande de chant) est confirmée, avec ce faux-ami supplémentaire désormais documenté et écarté.
+
+---
+
 ## TABLEAU TRANSVERSAL FINAL
 
 | Produit métier | Dataset candidat | Géographie | Correspondance | Composition | Technologie | Représentativité QC | Proxy/reconstruction | Données fabricant nécessaires | Statut |
@@ -227,7 +273,7 @@ Obtenir un échantillon ou une fiche technique du matériau réel (grammage, com
 | Taquet français | Aucun | — | Absent | — | Idem | N/A | Oui (simplifié) | Oui | ABSENT |
 | Vis à bois | Aucun | — | Absent (non approfondi, conforme consigne) | — | — | N/A | Oui (simplifié) | Non prioritaire | ABSENT |
 | Carton ondulé (boîte) | `market for corrugated board box` (`2424352b-…`) | **Canada, Québec** | **OK** | Kraftliner/testliner + fluting medium | Conforme, marché régional documenté | **Oui** — représentativité justifiée par la méthodologie même du dataset | Non | Non | OK |
-| Film/mousse d'emballage meuble | `packaging film, LDPE` (`1b3c1341-…`) *ou* aucun | Global / — | Proxy incertain / Absent | LDPE plat, non alvéolé | — | Non testée | Oui, selon nature réelle du matériau | Oui (composition réelle : film plat vs mousse) | À VÉRIFIER |
+| Film/mousse d'emballage meuble (hypothèse : film mousse PE) | `polyethylene, low density, granulate` (`08d7cf9a-…`) matière + aucun procédé de moussage adapté | Global (matière) | Absent (mousse PE elle-même) | PE-LD vierge existe, pas la mousse | `polymer foaming` calibré polystyrène (pentane), pas PE | Non testée | Oui — confirmation fournisseur de l'hypothèse | Oui (matière + procédé, sous réserve) | ABSENT (2026-09-22, recherche exhaustive `foam`) |
 
 Statuts utilisés : OK, ÉCART, À VÉRIFIER, ABSENT, RECONSTRUCTION, N/A — conformément à la légende demandée. Ces statuts ne sont ni un score carbone ni une métrique quantitative.
 
@@ -246,9 +292,12 @@ Statuts utilisés : OK, ÉCART, À VÉRIFIER, ABSENT, RECONSTRUCTION, N/A — co
 - Datasets de matières génériques utilisables comme briques de proxy pour la bande de chant : PE-LD (`08d7cf9a-…`), PP (`881eed86-…`), ABS (`ca074112-…`, reconfirme Lot 2D), PVC suspension polymérisée (`fa6532b7-…` / `68a7d84c-…`, reconfirme Lot 2D).
 - Adhésifs formulés existants mais non équivalents : `market for polyurethane adhesive` (`ad1da3c6-…`, CLT) et `market for melamine urea formaldehyde adhesive` (`e7001c37-…`, glulam) — chimie et usage industriels distincts d'une colle blanche PVAc ou d'une colle contact d'atelier.
 - Services de métallurgie génériques (emboutissage, extrusion d'aluminium, revêtement zinc, tournage, fraisage) disponibles en ISIC 259 pour une future reconstruction quincaillerie — noms de process identifiés, aucun UUID de brique retenu cette session.
+- **(2026-09-22)** `polymer foaming` (Europe `2b9297ce-…`, Rest of World `04468313-…`, Canada-Quebec `df7d95f6-…`) — procédé générique de moussage plastique, **documenté par Ecoinvent lui-même comme calibré pour le polystyrène** (« usually polystyrene », agent gonflant Pentane) ; identifié comme piste pour la mousse PE d'emballage mais rejeté comme proxy sans réserve majeure pour cette raison.
+- **(2026-09-22)** `polyvinyl chloride production, emulsion polymerisation` (`1900a736-…` / `49299e8d-…`) — seul procédé de polymérisation en émulsion nommé dans la base, exclusivement pour le PVC ; ferme la piste « procédé générique de polymérisation en émulsion pour PVAc » par une réponse négative.
+- **(2026-09-22)** `market for plastic profiles` (`f5cfa5ea-…`) / `plastic converting, plastic profiles` (`408028e6-…`) — identifiés et **explicitement écartés** comme faux-ami pour toute reconstruction de mousse/bande de chant : conversion de plastique mixte recyclé post-consommation, filière et composition incompatibles.
 
 ## 3. UUID et géographies vérifiés
-Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_processes`/`search_flows` puis `process_details`) dans la base `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` confirmée (`database_family: ecoinvent`, 25 412 processus / 14 051 flux / 0 méthode). Aucun n'est reconstruit de mémoire.
+Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_processes`/`search_flows` puis `process_details`) dans la base `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` confirmée (`database_family: ecoinvent`, 25 412 processus / 14 051 flux). Aucun n'est reconstruit de mémoire. La repasse du 2026-09-22 a reconfirmé `database_info` (25 412 / 14 051, `database_family: ecoinvent`) avant toute requête.
 
 ## 4. Anciennes hypothèses invalidées
 - L'hypothèse qu'un contreplaqué CA-QC serait plus représentatif qu'un dataset RER est **invalidée** — c'est la même donnée sous une étiquette géographique différente.
@@ -257,10 +306,10 @@ Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_p
 ## 5. Correspondances toujours non résolues
 - Contreplaqué merisier/Baltic birch : aucune correspondance directe, proxy générique seulement.
 - Papier mélaminé : application simple face vs double face non tranchée ; échelle atelier vs industrielle non confirmée.
-- Bande de chant PE : matière proxy non tranchée (PE/PP/ABS/PVC), aucun procédé d'extrusion de profilé plat trouvé.
-- Colle PVAc et colle contact à l'eau : absence totale, reconstruction incertaine.
+- Bande de chant PE : matière proxy non tranchée (PE/PP/ABS/PVC), aucun procédé d'extrusion de profilé plat trouvé — **confirmé une seconde fois le 2026-09-22** (`plastic profile`, `extrusion, profile` : rien de nouveau, faux-ami « plastic profiles » écarté).
+- Colle PVAc et colle contact à l'eau : absence totale, reconstruction incertaine — **piste de la polymérisation en émulsion générique fermée le 2026-09-22** (n'existe que pour le PVC).
 - Toute la quincaillerie (charnières, coulisses, poignées, patins, taquets, vis) : absence totale, reconstruction à construire au cas par cas après données fabricant.
-- Matériau d'emballage meuble (film fin blanc en rouleau) : nature physique du matériau réel inconnue, deux hypothèses non départagées (film plat LDPE vs mousse alvéolée absente de la base) ; non-tissé non exploré.
+- Matériau d'emballage meuble (film fin blanc en rouleau) : **hypothèse d'identification posée le 2026-09-22 — film mousse de polyéthylène (PE)**, par rapprochement avec un produit commercial de référence externe, non confirmée pour les entreprises québécoises concernées. Absence de mousse PE reconfirmée de façon exhaustive sur Ecoinvent 3.11 (terme `foam` seul + 14 variantes lexicales) ; seule une résine PE-LD vierge existe comme brique matière, et le seul procédé de moussage générique (`polymer foaming`) est documenté par Ecoinvent comme calibré pour le polystyrène, pas le PE.
 
 ## 6. Données fabricant désormais nécessaires
 - Contreplaqué : essence réelle, type de colle, origine géographique réelle du bois.
@@ -268,10 +317,10 @@ Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_p
 - Bande de chant : matière exacte (PE/PP/ABS/PVC), procédé (extrusion profilée).
 - Colles : formulation exacte (teneur en eau, % PVAc, additifs) pour colle blanche et colle contact.
 - Quincaillerie : masse par pièce et alliage pour charnières et coulisses en priorité ; ne pas surinvestir sur les vis.
-- Emballage meuble : composition et structure (film plat vs mousse vs non-tissé) du matériau en rouleau.
+- Emballage meuble : **confirmation ou infirmation de l'hypothèse « film mousse PE »** (fiche technique ou échantillon du rouleau réellement utilisé) auprès des entreprises québécoises concernées — priorité désormais posée avant toute recherche Ecoinvent supplémentaire pour cet objet ; si confirmée, grammage/épaisseur et procédé de fabrication réel (extrusion, réticulation) pour juger de l'adéquation du procédé `polymer foaming`.
 
 ## 7. Recherches supplémentaires encore ouvertes
-- Vérifier l'existence d'un procédé générique de polymérisation en émulsion (pour une éventuelle reconstruction PVAc) ailleurs dans la base — non cherché explicitement dans cette session.
-- Vérifier l'existence de mousses PE/PP souples alvéolées sous d'autres termes non testés (ex. « foil », « wrap », « interleaving »), et d'un non-tissé, uniquement si utile après identification physique du matériau réel d'emballage.
-- Approfondir les procédés de formage métallique disponibles (emboutissage, extrusion d'aluminium) pour construire un proxy chiffré charnière/coulisse — **seulement après obtention des données fabricant**, pas avant.
-- Éviter de multiplier les recherches Ecoinvent supplémentaires : pour la plupart des lacunes ouvertes ci-dessus, le véritable blocage est désormais une donnée fabricant, pas une recherche Ecoinvent restante.
+- ~~Vérifier l'existence d'un procédé générique de polymérisation en émulsion (pour une éventuelle reconstruction PVAc) ailleurs dans la base~~ — **fermé le 2026-09-22** : n'existe que pour le PVC ; réponse négative documentée.
+- ~~Vérifier l'existence de mousses PE/PP souples alvéolées sous d'autres termes non testés (« foil », « wrap », « interleaving »), et d'un non-tissé~~ — **fermé le 2026-09-22** : ces termes et une recherche exhaustive sur `foam` seul (55 process/15 flow) ne retournent aucune mousse PE/PP ; le blocage restant est désormais uniquement une donnée fournisseur (confirmation de l'hypothèse « film mousse PE »).
+- Approfondir les procédés de formage métallique disponibles (emboutissage, extrusion d'aluminium) pour construire un proxy chiffré charnière/coulisse — **seulement après obtention des données fabricant**, pas avant. Toujours ouvert, non traité le 2026-09-22 conformément à la consigne de ne pas surinvestir sur la quincaillerie avant données fournisseur.
+- Éviter de multiplier les recherches Ecoinvent supplémentaires : pour la totalité des lacunes ouvertes ci-dessus, le véritable blocage est désormais une donnée fabricant/fournisseur, pas une recherche Ecoinvent restante.

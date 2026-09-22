@@ -1,6 +1,6 @@
 # Liste structurée — prochaine passe OpenLCA
 
-Préparée le **2026-09-15**, mise à jour le **2026-09-16** après une interrogation complète et vérifiée du connecteur MCP OpenLCA sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` ([rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md)). **Une première mise à jour, faite le même jour alors que la mauvaise base OpenLCA (`cups`) était ouverte après un changement de poste de travail, est invalidée en totalité** — voir le [diagnostic corrigé](RECQ36_diagnostic_ecoinvent_openLCA.md) et la note sur l'anomalie `database_family` résolue dans le [référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac). Cette nouvelle interrogation a couvert l'intégralité des six priorités du diagnostic RECQ36, y compris plusieurs objets auparavant non couverts (pied réglable, French cleat, poignée). **Les recherches désormais terminées ont été retirées de cette liste** ; ne restent que les points encore réellement ouverts.
+Préparée le **2026-09-15**, mise à jour le **2026-09-16** après une interrogation complète et vérifiée du connecteur MCP OpenLCA sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31` ([rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md)), puis mise à jour de nouveau le **2026-09-22** après une passe complémentaire ciblée (voir [section dédiée du rapport source](RECQ36_diagnostic_ecoinvent_openLCA.md#passe-complémentaire--2026-09-22)). **Une première mise à jour du 2026-09-16, faite le même jour alors que la mauvaise base OpenLCA (`cups`) était ouverte après un changement de poste de travail, est invalidée en totalité** — voir le [diagnostic corrigé](RECQ36_diagnostic_ecoinvent_openLCA.md) et la note sur l'anomalie `database_family` résolue dans le [référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac). L'interrogation du 2026-09-16 a couvert l'intégralité des six priorités du diagnostic RECQ36, y compris plusieurs objets auparavant non couverts (pied réglable, French cleat, poignée). La passe du 2026-09-22 a posé une hypothèse d'identification pour le matériau d'emballage blanc en rouleau (film mousse PE) et fermé deux pistes Ecoinvent laissées ouvertes le 2026-09-16 (polymérisation en émulsion générique ; mousses PE/PP sous synonymes non testés). **Les recherches désormais terminées ont été retirées de cette liste** ; ne restent que les points encore réellement ouverts.
 
 **Consignes pour l'instance qui exécutera les recherches encore ouvertes** (rappel des règles déjà appliquées) :
 - Utiliser `search_processes` et `search_flows` avec les termes ci-dessous, en documentant le nombre de résultats pour chaque terme (y compris zéro).
@@ -31,29 +31,14 @@ Ces recherches ont été effectuées par interrogation vérifiée du connecteur 
 | Variante PVC `suspension polymerised` | **Reconfirmée** : même UUID qu'au Lot 2D (`fa6532b7-…`), avec un second UUID pour le même produit relevé cette session (`68a7d84c-…`, à vérifier s'il s'agit d'un doublon) | idem |
 | Film à bulles / papier bulle | Absence confirmée sur plusieurs synonymes (`bubble wrap`, `stretch film`, `foam sheet` — 0 résultat ; `expanded polystyrene`, `polystyrene foam` — résultats hors sujet) | idem |
 | Anomalie `database_family: "flcac"` | **Résolue** : cause = mauvaise base OpenLCA (`cups`) restée ouverte après changement de poste, pas une anomalie Ecoinvent | [Référentiel](../materiaux-ebenisterie.md#anomalie-résolue--database_family-flcac) |
+| **(2026-09-22)** Procédé générique de polymérisation en émulsion (reconstruction PVAc) | **Fermée par réponse négative** : un procédé « emulsion polymerisation » existe, mais exclusivement pour le PVC (`1900a736-…` / `49299e8d-…`) ; recherche exhaustive `polymerisation` (8 résultats, tous PVC) confirme qu'aucun procédé générique transposable à la PVAc n'existe dans cette base | [Rapport source, section 2026-09-22](RECQ36_diagnostic_ecoinvent_openLCA.md) |
+| **(2026-09-22)** Mousse PE/PP souple pour le matériau d'emballage mystère, sous synonymes non testés le 2026-09-16 (`foil`, `wrap`, `interleaving`, `nonwoven`, etc.) | **Absence reconfirmée de façon exhaustive** : 14 variantes lexicales testées + le terme générique `foam` seul (55 process/15 flux, tous inspectés) — aucune mousse PE/PP dans la base. Une hypothèse d'identification (film mousse PE, par rapprochement avec un produit commercial de référence externe) a été posée, non confirmée pour le Québec ; seule une résine PE-LD vierge (`08d7cf9a-…`) et un procédé de moussage générique calibré polystyrène (`polymer foaming`, pentane) existent comme briques, insuffisantes pour un proxy validé | idem |
 
 ---
 
 ## 2. Recherches encore ouvertes
 
-### Priorité 1 — Procédé générique de polymérisation en émulsion (reconstruction PVAc)
-
-| Champ | Contenu |
-|---|---|
-| Ce qu'on cherche à déterminer | La colle PVAc/PVA n'existe dans la base qu'au stade du monomère (`vinyl acetate`). Un procédé générique de polymérisation en émulsion, s'il existe ailleurs dans la base, permettrait d'amorcer une reconstruction plus étayée que le monomère seul. Non cherché explicitement dans la session du 2026-09-16 (hors périmètre de cette recherche). |
-| Données déjà connues | `market for vinyl acetate` (monomère, UUID `a4bd8120-5784-3dd9-bee6-a8473d385b7f`) est la seule brique confirmée ; aucun lien vers une émulsion ou un polymère formulé n'a été trouvé. |
-| Question exacte à résoudre | Un process de type « emulsion polymerisation » ou équivalent existe-t-il dans Ecoinvent 3.11, sous un nom générique ou associé à un autre polymère ? Si oui, sa structure est-elle transposable à la PVAc ? |
-
-### Priorité 2 — Mousse PE/PP souple ou non-tissé pour le matériau d'emballage mystère
-
-| Champ | Contenu |
-|---|---|
-| Ce qu'on cherche à déterminer | **Action préalable non-Ecoinvent toujours requise en premier** : identifier physiquement le matériau (fiche technique ou échantillon du rouleau utilisé en atelier). Ce n'est qu'une fois cette identification faite que cette recherche devient utile. |
-| Termes EN restants à tester, si utile après identification | `foil`, `wrap`, `interleaving` (mousse PE/PP alvéolée) ; termes à définir pour un non-tissé synthétique (non recherché à ce jour). |
-| Données déjà connues | Aucun candidat mousse alvéolée trouvé avec les requêtes déjà testées (`polyethylene foam`, `expanded polystyrene`, `polystyrene foam`) ; `packaging film, LDPE` (`1b3c1341-…`) reste un proxy potentiel uniquement si le matériau réel est un film plat non alvéolé. |
-| Question exacte à résoudre | Une fois le matériau réel identifié : correspond-il à un film plat (→ `packaging film, LDPE`), une mousse alvéolée (→ tester les termes ci-dessus), ou un non-tissé (→ recherche à construire) ? |
-
-### Priorité 3 — Approfondissement des procédés de formage métallique (quincaillerie), après données fabricant uniquement
+### Priorité 1 — Approfondissement des procédés de formage métallique (quincaillerie), après données fabricant uniquement
 
 | Champ | Contenu |
 |---|---|
@@ -61,7 +46,7 @@ Ces recherches ont été effectuées par interrogation vérifiée du connecteur 
 | Données déjà connues | Ces noms de process ont été identifiés par exploration de la catégorie ISIC 259 (2026-09-16), sans UUID retenu pour l'instant. |
 | Question exacte à résoudre | **Ne pas entreprendre cette recherche avant l'obtention des données fabricant** (masse par pièce, matériau exact, revêtement) — le blocage actuel n'est pas une recherche Ecoinvent, c'est une donnée fabricant manquante. Une fois ces données obtenues, identifier les UUID précis des process ci-dessus et vérifier leur applicabilité par masse. |
 
-### Priorité 4 — Écarts d'UUID résiduels entre sessions authentiquement Ecoinvent (sans lien avec l'anomalie `flcac`)
+### Priorité 2 — Écarts d'UUID résiduels entre sessions authentiquement Ecoinvent (sans lien avec l'anomalie `flcac`)
 
 | Champ | Contenu |
 |---|---|
@@ -80,7 +65,7 @@ Ces recherches ont été effectuées par interrogation vérifiée du connecteur 
 - **Coulisse de tiroir :** choix d'un **modèle fournisseur de référence unique** (documentation la plus détaillée disponible), conformément à la consigne de ne pas subdiviser par technologie/dimension.
 - **Poignée, pied réglable, French cleat :** matériau réel, masse, dimensions, procédé de fabrication.
 - **Colle contact, PVAc/PVA, EVA hot-melt, PUR :** formulation/composition réelle, teneur en solides, densité, consommation réelle.
-- **Matériau d'emballage blanc en rouleau :** identification physique (nom commercial, composition) — bloquante, prioritaire sur toute nouvelle recherche Ecoinvent pour cet objet.
+- **Matériau d'emballage blanc en rouleau :** confirmation ou infirmation, auprès des entreprises québécoises concernées, de l'hypothèse d'identification posée le 2026-09-22 (film mousse de polyéthylène) — bloquante, prioritaire sur toute nouvelle recherche Ecoinvent pour cet objet ; si confirmée, grammage/épaisseur et procédé de fabrication réel (extrusion, réticulation).
 
 ---
 
@@ -96,4 +81,4 @@ Si une future passe OpenLCA dispose de temps additionnel, ces objets restent des
 
 ---
 
-*Liste préparée le 2026-09-15 sans accès OpenLCA, mise à jour le 2026-09-16 par une réconciliation corrective avec le [diagnostic OpenLCA vérifié](RECQ36_diagnostic_ecoinvent_openLCA.md) sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31`. Une première mise à jour du même jour, faite sur la mauvaise base OpenLCA (`cups`), est invalidée en totalité. Aucun UUID n'est inventé ; tous les UUID cités proviennent des diagnostics déjà sourcés (Lots 2A, 2D, 2F, et l'interrogation vérifiée du 2026-09-16).*
+*Liste préparée le 2026-09-15 sans accès OpenLCA, mise à jour le 2026-09-16 par une réconciliation corrective avec le [diagnostic OpenLCA vérifié](RECQ36_diagnostic_ecoinvent_openLCA.md) sur `ecoinvent 3.11 Cutoff Unit-Processes 2025-01-31`, puis mise à jour de nouveau le 2026-09-22 par une passe complémentaire ciblée sur la même base (reconfirmée avant requête : `database_family: ecoinvent`, 25 412 processus / 14 051 flux). Une première mise à jour du 2026-09-16, faite sur la mauvaise base OpenLCA (`cups`), est invalidée en totalité. Aucun UUID n'est inventé ; tous les UUID cités proviennent des diagnostics déjà sourcés (Lots 2A, 2D, 2F, l'interrogation vérifiée du 2026-09-16, et la passe du 2026-09-22).*

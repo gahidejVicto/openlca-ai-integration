@@ -135,7 +135,7 @@ Reprend la légende du [référentiel métier](../materiaux-ebenisterie.md#lége
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Carton d'emballage / carton ondulé | P1 | OK *(Lot 2A, reconfirmé indépendamment sur Ecoinvent 3.11, même UUID)* | À VÉRIFIER *(linerboard)* | OK | OK *(marché explicitement régional, documenté par Ecoinvent lui-même)* | À VÉRIFIER *(données de fabrication datées de 2008)* | NON | NON | NON | À VÉRIFIER *(linerboard, électricité)* | RÉALISÉE 2× (Lot 2A + Ecoinvent 3.11, 2026-09-16) | 🟢 |
 | Film à bulles / papier bulle | P1 | ÉCART *(0 résultat confirmé sur plusieurs synonymes, Ecoinvent 3.11)* | N/A | N/A | N/A | N/A | À VÉRIFIER | À VÉRIFIER | À VÉRIFIER | OUI | RÉALISÉE (Ecoinvent 3.11, synonymes usuels testés) | 🔴 |
-| Matériau d'emballage blanc fin en rouleau *(identification à confirmer, nouvel objet Nicolas 2026-09-15)* | P1/P2 | N/A *(identification non confirmée ; deux candidats non confirmés de natures opposées — film LDPE plat vs mousse rigide EPS hors sujet)* | N/A | N/A | N/A | N/A | N/A | N/A *(candidats exploratoires seulement)* | N/A | OUI *(bloquant)* | PARTIELLE *(candidats exploratoires non confirmés)* | 🟡 |
+| Matériau d'emballage blanc fin en rouleau *(hypothèse d'identification posée le 2026-09-22 : film mousse PE, non confirmée pour le Québec)* | P1/P2 | ÉCART *(aucune mousse PE dans la base, confirmé par recherche exhaustive sur `foam` + 14 variantes lexicales, 2026-09-22)* | OK *(matière PE-LD vierge)* / ÉCART *(mousse elle-même)* | ÉCART *(seul procédé de moussage trouvé est documenté calibré polystyrène, pas PE)* | N/A | ÉCART | À VÉRIFIER | OUI *(sous réserve du calibrage polystyrène)* | OUI | OUI *(bloquant — confirmation fournisseur de l'hypothèse)* | RÉALISÉE (Ecoinvent 3.11, 2026-09-16 + 2026-09-22) | 🟡 |
 
 ## 9. Données transversales
 
@@ -170,8 +170,8 @@ Sur les **53 produits métier** recensés dans ce tableau :
 
 | État de l'analyse Ecoinvent | Nombre de produits |
 |---|---|
-| RÉALISÉE | 42 |
-| PARTIELLE | 3 |
+| RÉALISÉE | 43 |
+| PARTIELLE | 2 |
 | NON RÉALISÉE | 8 |
 
 **Lecture de ce décompte :** ces chiffres ne mesurent qu'une chose — combien de produits métier portent chaque étiquette de statut ou d'avancement dans les diagnostics déjà sourcés. Ils ne pondèrent pas par masse, par fréquence d'usage réelle en atelier, ni par contribution probable à l'impact du meuble fini ; ils ne doivent donc pas être lus comme une priorisation implicite. La priorisation reste celle établie par Nicolas (sections 7, 8 et par produit ci-dessus) et par les priorités P1/P2 du référentiel.
@@ -187,7 +187,7 @@ Sur les **53 produits métier** recensés dans ce tableau :
 5. **Le renommage du contreplaqué (merisier/yellow birch/Baltic plywood)** a été réconcilié sur Ecoinvent 3.11 (2026-09-16) : le candidat `plywood production`, Canada-Quebec (`5538194d-…`) — déjà identifié au Lot 2A — est **reconfirmé indépendamment**, avec un écart d'essence documenté explicitement (hardwood générique, jamais bouleau) et une géographie CA-QC qui est une copie administrative du dataset européen, pas une donnée régionale réelle.
 6. **Le contreplaqué CA-QC et le carton CA-QC illustrent une distinction méthodologique importante :** deux datasets peuvent tous deux porter l'étiquette `Canada, Quebec`/`Canada, Québec` sans avoir le même niveau de représentativité réelle. Le contreplaqué est une copie administrative de l'échantillon européen (aucune donnée réelle québécoise) ; le carton ondulé a une base méthodologique documentée par Ecoinvent lui-même qui justifie sa représentativité régionale. Localisation ≠ représentativité, mais ce n'est pas non plus vrai que *tous* les datasets CA-QC sont des copies administratives.
 7. **La poignée de meuble métallique** portait une discordance interne dans le rapport `cups`, désormais sans objet : la nouvelle interrogation sur Ecoinvent 3.11 confirme sans ambiguïté l'absence de produit fonctionnel.
-8. **Recherches encore ouvertes après la passe du 2026-09-16 sur Ecoinvent 3.11** (désormais peu nombreuses — la plupart des objets ajoutés le 2026-09-15 sont maintenant couverts) : procédé générique de polymérisation en émulsion pour une éventuelle reconstruction PVAc ; mousse PE/PP souple sous d'autres terminologies, et non-tissé, uniquement si utile après identification du matériau d'emballage mystère ; approfondissement des procédés de formage métallique après obtention de données fabricant. Voir la [liste structurée pour la prochaine passe OpenLCA](prochaine-passe-openlca.md).
+8. **Recherches encore ouvertes après la passe du 2026-09-16 sur Ecoinvent 3.11 :** procédé générique de polymérisation en émulsion pour une éventuelle reconstruction PVAc, et mousse PE/PP souple sous d'autres terminologies — **les deux fermées le 2026-09-22** par des réponses négatives documentées (la polymérisation en émulsion n'existe que pour le PVC ; aucune mousse PE/PP dans la base, recherche exhaustive sur `foam` seul). Une hypothèse d'identification du matériau d'emballage mystère (film mousse PE) a été posée le 2026-09-22, non confirmée pour le Québec. Reste ouvert : l'approfondissement des procédés de formage métallique, seulement après obtention de données fabricant. Voir la [liste structurée pour la prochaine passe OpenLCA](prochaine-passe-openlca.md).
 9. **Dix objets (Données transversales) restent en phase ultérieure** par décision de Nicolas, malgré un diagnostic déjà réalisé (Lot 2G/2G-bis) : ce tableau les conserve pour la traçabilité, mais ils ne doivent pas orienter les priorités de travail immédiates. Ils n'ont pas été touchés par la réconciliation du 2026-09-16.
 
 ---

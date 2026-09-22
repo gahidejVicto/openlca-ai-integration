@@ -5,8 +5,11 @@
 > référence explicites.** Voir désormais
 > [`../bandes-de-chant/README.md`](../bandes-de-chant/README.md) pour les
 > fiches définitives : Merisier blanc (Cedan/Richelieu), Érable Hardrock
-> #992 (polyester, Richelieu), Gris foncé #100 (PVC, Richelieu), et un
-> résultat négatif documenté pour le PE. **Cette page est conservée comme
+> #992 (polyester, Richelieu), Gris foncé #100 (PVC, Richelieu), et le cas
+> PE (existence commerciale confirmée depuis — Naber réf. `1112007` — mais
+> correspondance fonctionnelle avec l'usage métier RECQ36 encore à
+> clarifier ; voir la fiche dédiée, conclusion corrigée à la relecture du
+> 2026-09-22). **Cette page est conservée comme
 > contexte historique** — notamment son tableau de correspondance OEM
 > (Doellken, Rehau, OLON, Canplast, Edge Co) pour d'autres couleurs
 > Richelieu — mais ne doit plus être utilisée pour choisir un produit de

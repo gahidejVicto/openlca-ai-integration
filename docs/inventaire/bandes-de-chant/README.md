@@ -23,7 +23,7 @@ historique dans [`../plastiques/bande-de-chant-candidats.md`](../plastiques/band
 | [`merisier-blanc-cedan.md`](merisier-blanc-cedan.md) | Bois véritable | Richelieu/Cedan, SKU `MS03SM078VSA0`, 1 mm × 7/8 po. Clarifie que « Merisier blanc » = « White Birch » (bouleau), pas cerisier. |
 | [`erable-hardrock-992-polyester.md`](erable-hardrock-992-polyester.md) | Polyester | Richelieu, SKU `P992234250`, construction « 2 plis » confirmée mais non détaillée. |
 | [`gris-fonce-100-pvc.md`](gris-fonce-100-pvc.md) | PVC | Richelieu, SKU `T1001822`, 0,018 po × 7/8 po. |
-| [`pe-recherche-negative-2026-09-22.md`](pe-recherche-negative-2026-09-22.md) | PE (recherche négative) | Aucun produit commercial PE crédible trouvé ; question de clarification métier posée (PE vs PP) sans modifier la taxonomie. |
+| [`pe-recherche-negative-2026-09-22.md`](pe-recherche-negative-2026-09-22.md) | PE (résultat négatif **corrigé** à la relecture) | Un produit commercial « bande de chant PE » existe bien (Naber, réf. 1112007), mais sa fonction déclarée (espacement/insonorisation de plan de travail) diffère de la fonction décorative des trois autres références. Question métier reformulée pour Nicolas ; taxonomie non modifiée. |
 
 ## Discipline de sourçage renforcée (2026-09-22)
 

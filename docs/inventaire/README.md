@@ -21,6 +21,7 @@ Le [template réutilisable](../../research/templates/dataset-analysis.md) sert d
 - [Bois massif](bois/README.md)
 - [Adhésifs](adhesifs/README.md)
 - [Plastiques](plastiques/README.md)
+- [Bandes de chant (fonction métier, toutes matières)](bandes-de-chant/README.md)
 - [Quincaillerie de meuble](quincaillerie/README.md)
 - [Emballages](emballages/README.md)
 

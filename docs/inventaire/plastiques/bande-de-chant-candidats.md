@@ -1,4 +1,16 @@
-# Bande de chant pour panneaux de mélamine — candidats fournisseurs (exploratoire)
+# Bande de chant pour panneaux de mélamine — candidats fournisseurs (exploratoire, contexte historique)
+
+> [!CAUTION]
+> **SUPERSÉDÉE (2026-09-22, même jour) — Jérôme a choisi des produits de
+> référence explicites.** Voir désormais
+> [`../bandes-de-chant/README.md`](../bandes-de-chant/README.md) pour les
+> fiches définitives : Merisier blanc (Cedan/Richelieu), Érable Hardrock
+> #992 (polyester, Richelieu), Gris foncé #100 (PVC, Richelieu), et un
+> résultat négatif documenté pour le PE. **Cette page est conservée comme
+> contexte historique** — notamment son tableau de correspondance OEM
+> (Doellken, Rehau, OLON, Canplast, Edge Co) pour d'autres couleurs
+> Richelieu — mais ne doit plus être utilisée pour choisir un produit de
+> référence.
 
 > [!IMPORTANT]
 > **Statut de la fiche : recherche exploratoire, 2026-09-22 — AUCUN produit

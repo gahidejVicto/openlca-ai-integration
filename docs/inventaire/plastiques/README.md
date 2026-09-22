@@ -9,7 +9,7 @@ sourçage : voir le [README principal de l'inventaire](../README.md) et le
 
 | Fichier | Rôle |
 |---|---|
-| [`bande-de-chant-candidats.md`](bande-de-chant-candidats.md) | Recherche exploratoire de 4 candidats fournisseurs de bande de chant pour panneaux de mélamine (Doellken/Surteco, Rehau, Cedan/Richelieu, PCM) — **aucun produit de référence choisi**, décision en attente. |
+| [`bande-de-chant-candidats.md`](bande-de-chant-candidats.md) | **Superségée (2026-09-22)** — recherche exploratoire initiale de 4 candidats fournisseurs (Doellken/Surteco, Rehau, Cedan/Richelieu, PCM), conservée comme contexte historique. Les produits de référence choisis par Jérôme sont documentés dans [`../bandes-de-chant/`](../bandes-de-chant/README.md). |
 
 > [!IMPORTANT]
 > Une fiche fabricant/distributeur ne constitue pas une preuve de

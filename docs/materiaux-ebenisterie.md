@@ -1729,11 +1729,11 @@ Les emballages sont suivis séparément des matériaux constitutifs du meuble.
 |---|---|---|---|---|---|
 | P1 | Carton d'emballage / carton ondulé | Dataset QC (Lot 2A) **reconfirmé indépendamment sur Ecoinvent 3.11** (2026-09-16) | OK — correspondance directe, régionalité crédible | linerboard et électricité non vérifiés ; données de 2008 | 🟢 Utilisable |
 | P1 | Film à bulles / papier bulle | Absence confirmée sur Ecoinvent 3.11 (2026-09-16, plusieurs synonymes testés, 0 résultat) | Aucune | absent de cette base, avec ces requêtes | 🔴 Lacune majeure |
-| P1/P2 | Matériau d'emballage blanc fin en rouleau (film mousse PE — hypothèse forte, non confirmée pour le Québec) | Hypothèse d'identification posée (2026-09-22) ; recherche exhaustive sur Ecoinvent 3.11 (`foam` + 14 variantes lexicales) : aucune mousse PE trouvée | Aucune | identification fournisseur requise ; aucun procédé de moussage adapté au PE disponible | 🟡 À valider |
+| P1/P2 | Matériau d'emballage blanc fin en rouleau — film/mousse PE (**identification confirmée par validation métier**, 2026-09-22) | Recherche exhaustive sur Ecoinvent 3.11 (`foam` + 14 variantes lexicales) : aucune mousse PE trouvée | Aucune | caractéristiques physiques et fournisseur réel requis ; aucun procédé de moussage adapté au PE disponible | 🟣 À reconstruire |
 
 ### Lecture rapide
 
-Le carton ondulé est, d'après le Lot 2A, le cas le plus favorablement régionalisé identifié dans l'ensemble des diagnostics : le marché québécois s'appuyait sur un procédé de fabrication et sur un intrant majeur (le fluting medium) réellement documentés à partir d'une usine québécoise. **Mise à jour (interrogation OpenLCA vérifiée sur Ecoinvent 3.11, 2026-09-16) :** une première réconciliation, faite alors que la mauvaise base OpenLCA (`cups`) était ouverte, avait rapporté une variante Global seulement — ce résultat est invalidé. La nouvelle interrogation **reconfirme indépendamment la variante `Canada, Québec`** (même UUID qu'au Lot 2A), avec une justification méthodologique renforcée : Ecoinvent documente lui-même ce type de marché comme négocié localement, pas globalement — **contrairement au contreplaqué CA-QC, ce dataset résiste à la vérification.** Le film à bulles a été recherché de nouveau sur Ecoinvent 3.11 (`bubble wrap`, `stretch film`, `foam sheet`, `polyethylene foam`, `expanded polystyrene`, `polystyrene foam` — tous à 0 résultat pertinent ou hors sujet) : absence confirmée dans cette base, avec ces requêtes. **Mise à jour (2026-09-22) :** le matériau d'emballage blanc en rouleau (validation métier Nicolas, 2026-09-15) fait désormais l'objet d'une hypothèse d'identification précise — **film mousse de polyéthylène (PE) en rouleau**, par rapprochement avec un produit commercial de référence externe, non confirmée pour les entreprises québécoises concernées. Une recherche exhaustive sur Ecoinvent 3.11 (le terme `foam` seul, plus 14 variantes lexicales ciblées) confirme l'absence de toute mousse PE dans la base ; seule une résine PE-LD vierge existe comme brique matière, et le seul procédé de moussage générique disponible est documenté par Ecoinvent lui-même comme calibré pour le polystyrène — voir la fiche ci-dessous.
+Le carton ondulé est, d'après le Lot 2A, le cas le plus favorablement régionalisé identifié dans l'ensemble des diagnostics : le marché québécois s'appuyait sur un procédé de fabrication et sur un intrant majeur (le fluting medium) réellement documentés à partir d'une usine québécoise. **Mise à jour (interrogation OpenLCA vérifiée sur Ecoinvent 3.11, 2026-09-16) :** une première réconciliation, faite alors que la mauvaise base OpenLCA (`cups`) était ouverte, avait rapporté une variante Global seulement — ce résultat est invalidé. La nouvelle interrogation **reconfirme indépendamment la variante `Canada, Québec`** (même UUID qu'au Lot 2A), avec une justification méthodologique renforcée : Ecoinvent documente lui-même ce type de marché comme négocié localement, pas globalement — **contrairement au contreplaqué CA-QC, ce dataset résiste à la vérification.** Le film à bulles a été recherché de nouveau sur Ecoinvent 3.11 (`bubble wrap`, `stretch film`, `foam sheet`, `polyethylene foam`, `expanded polystyrene`, `polystyrene foam` — tous à 0 résultat pertinent ou hors sujet) : absence confirmée dans cette base, avec ces requêtes. **Mise à jour (2026-09-22, relecture) :** le matériau d'emballage blanc en rouleau (validation métier Nicolas, 2026-09-15) est désormais identifié avec certitude — **film/mousse de polyéthylène (PE) en rouleau**, confirmé par Nicolas le 2026-09-22 (VALIDATION MÉTIER, pas une donnée fabricant). L'hypothèse posée par rapprochement avec un produit commercial de référence externe est donc close ; la question ouverte porte maintenant sur les caractéristiques physiques et de production du produit réellement utilisé. Une recherche exhaustive sur Ecoinvent 3.11 (le terme `foam` seul, plus 14 variantes lexicales ciblées) confirme l'absence de toute mousse PE dans la base — cette conclusion Ecoinvent n'est pas affectée par la validation métier ; seule une résine PE-LD vierge existe comme brique matière, et le seul procédé de moussage générique disponible est documenté par Ecoinvent lui-même comme calibré pour le polystyrène — voir la fiche ci-dessous.
 
 ### Carton d'emballage / carton ondulé — P1
 
@@ -1813,17 +1813,30 @@ Composition exacte du film (à confirmer auprès du fournisseur).
 
 ---
 
-### Matériau d'emballage blanc fin en rouleau (film mousse PE — identification fortement plausible, non confirmée pour les entreprises québécoises) — P1/P2
+### Matériau d'emballage blanc fin en rouleau — film/mousse de polyéthylène (PE), identification confirmée — P1/P2
 
 > **Nouvel objet (validation métier Nicolas, 2026-09-15).** Matériau blanc, très fin, vendu en gros rouleau, utilisé pour envelopper/protéger les meubles à l'expédition. Ne pas confondre avec le film à bulles (ci-dessus), qui est un produit distinct déjà identifié dans la taxonomie.
 >
-> **Hypothèse d'identification (2026-09-22) — interprétation, pas un fait établi :** la description de Nicolas (matériau blanc, très léger et fin, vendu en gros rouleaux, utilisé pour envelopper/protéger des meubles) correspond au profil commercial d'un **film mousse de polyéthylène (PE) en rouleau**, tel que vendu par exemple par [sedemballage.com](https://sedemballage.com/produit/rouleau-de-film-mousse/) : mousse PE blanche, souple et légère, en rouleau, pour calage/séparation/protection, épaisseurs courantes 1 à 8 mm. **Ce rapprochement est fondé sur une référence externe générale, pas sur une fiche produit d'une entreprise québécoise cliente** — il reste une hypothèse forte, à confirmer par une fiche technique ou un échantillon du rouleau réellement utilisé en atelier avant toute utilisation dans un modèle. Mettre à jour cette fiche si la confirmation ou l'infirmation arrive.
+> **VALIDATION MÉTIER (2026-09-22) — Nicolas a confirmé que le matériau
+> blanc en rouleau observé pour l'emballage/protection du mobilier
+> correspond bien au film/mousse de polyéthylène (PE) identifié pendant le
+> diagnostic.** Ceci remplace l'hypothèse d'identification posée le même
+> jour à partir du rapprochement avec un produit commercial de référence
+> externe ([sedemballage.com](https://sedemballage.com/produit/rouleau-de-film-mousse/)) :
+> ce rapprochement demeure utile pour situer une plage physique plausible
+> (épaisseurs 1 à 8 mm), mais **l'identification elle-même n'est plus une
+> hypothèse à confirmer** — c'est une validation métier RECQ36, pas une
+> donnée fabricant ou fournisseur. La question ouverte n'est plus « quel
+> est ce matériau ? » mais « quelles sont les caractéristiques physiques et
+> de production du film/mousse PE réellement utilisé ? » (voir « Données
+> nécessaires » ci-dessous, et le détail complet dans
+> [`inventaire/emballages/film-mousse-pe.md`](inventaire/emballages/film-mousse-pe.md)).
 >
-> **Mise à jour (interrogation OpenLCA vérifiée sur Ecoinvent 3.11, 2026-09-22 — [rapport source](diagnostic/RECQ36_diagnostic_ecoinvent_openLCA.md)) :** recherche ciblée sur l'hypothèse « mousse PE en rouleau », en plus des termes déjà testés le 2026-09-16 (`corrugated board`, `bubble wrap`, `polyethylene foam`, `expanded polystyrene`, `polystyrene foam`, `stretch film`, `packaging film`, `foam sheet`). Nouveaux termes testés le 2026-09-22 : `PE foam`, `packaging foam`, `foam packaging`, `expanded polyethylene`, `EPE`, `LDPE foam`, `polyethylene foam film`, `foil`, `wrap`, `interleaving`, `nonwoven`, `polyolefin foam`, `cushioning`, `expanded plastic`, `cross-linked polyethylene`, plus une recherche exhaustive du terme générique `foam` seul (55 process / 15 flux, tous inspectés). **Aucun résultat pertinent** pour une mousse PE — voir détail ci-dessous.
+> **Mise à jour (interrogation OpenLCA vérifiée sur Ecoinvent 3.11, 2026-09-22 — [rapport source](diagnostic/RECQ36_diagnostic_ecoinvent_openLCA.md)) :** recherche ciblée sur l'hypothèse « mousse PE en rouleau », en plus des termes déjà testés le 2026-09-16 (`corrugated board`, `bubble wrap`, `polyethylene foam`, `expanded polystyrene`, `polystyrene foam`, `stretch film`, `packaging film`, `foam sheet`). Nouveaux termes testés le 2026-09-22 : `PE foam`, `packaging foam`, `foam packaging`, `expanded polyethylene`, `EPE`, `LDPE foam`, `polyethylene foam film`, `foil`, `wrap`, `interleaving`, `nonwoven`, `polyolefin foam`, `cushioning`, `expanded plastic`, `cross-linked polyethylene`, plus une recherche exhaustive du terme générique `foam` seul (55 process / 15 flux, tous inspectés). **Aucun résultat pertinent** pour une mousse PE — voir détail ci-dessous. **Cette conclusion Ecoinvent n'est pas affectée par la validation métier et n'a pas été réexaminée dans cette passe.**
 
 #### Produit métier
 
-Matériau d'emballage blanc fin, en gros rouleau, pour l'enveloppement/protection des meubles. **Interprétation (2026-09-22) :** très probablement un film mousse de polyéthylène (PE) en rouleau, sur la base du rapprochement avec un produit commercial de référence externe (voir hypothèse ci-dessus) — pas encore une identification confirmée pour les entreprises québécoises concernées.
+Matériau d'emballage blanc fin, en gros rouleau, pour l'enveloppement/protection des meubles. **Film/mousse de polyéthylène (PE) — identification confirmée par validation métier (Nicolas, 2026-09-22).**
 
 #### Équivalent Ecoinvent identifié
 
@@ -1841,7 +1854,7 @@ La recherche exhaustive du terme `foam` seul (55 correspondances process, 15 flu
 
 #### Correspondance
 
-- **Produit / fonction :** Aucune correspondance directe ni partielle, y compris pour l'hypothèse « mousse PE » désormais posée. **ABSENT.**
+- **Produit / fonction :** Aucune correspondance directe ni partielle pour le film/mousse PE désormais identifié par validation métier. **ABSENT.**
 - **Composition / matière :** Une brique matière PE-LD vierge existe et est plausible (`08d7cf9a-…`), mais elle représente une résine, pas une mousse.
 - **Technologie / procédé :** Le seul procédé de moussage générique disponible (`polymer foaming`) est documenté par Ecoinvent lui-même comme calibré pour le polystyrène (agent gonflant pentane) — l'appliquer à du PE ajouterait une hypothèse non documentée supplémentaire, plus faible que son usage déjà approximatif pour le polystyrène.
 - **Géographie :** La variante « Canada, Quebec » du procédé de moussage est, comme pour le contreplaqué, une reprise du même schéma d'intrants que les autres géographies — pas une donnée primaire québécoise.
@@ -1853,11 +1866,11 @@ La recherche exhaustive du terme `foam` seul (55 correspondances process, 15 flu
 
 #### Données nécessaires
 
-**Confirmation ou infirmation de l'hypothèse « film mousse PE »** auprès des entreprises québécoises concernées (fiche technique ou échantillon du rouleau réellement utilisé) — l'identification par comparaison à un fournisseur générique externe (sedemballage.com) n'est pas une preuve pour leur produit exact. Si confirmée : grammage, épaisseur (1 à 8 mm selon la référence externe), largeur de rouleau, procédé de fabrication réel (extrusion, réticulation) pour juger de la pertinence du procédé `polymer foaming` ou pour documenter son inadéquation plus précisément.
+**L'identification du matériau n'est plus la donnée manquante** (validation métier obtenue). Restent nécessaires les caractéristiques physiques et de production du film/mousse PE réellement utilisé : épaisseur précise (parmi la plage 1-8 mm observée commercialement), densité, masse surfacique ou masse par longueur, largeur, masse et longueur d'un rouleau, type de PE (PE-LD ou autre), structure cellulaire (fermée/ouverte), procédé de moussage, taux d'expansion, contenu recyclé éventuel, fabricant/fournisseur réel, et origine de fabrication. Voir [`inventaire/emballages/film-mousse-pe.md`](inventaire/emballages/film-mousse-pe.md) pour le détail complet et le niveau de preuve de chaque piste déjà explorée (S.E.D Emballage, Protac, Colorel).
 
 #### Recommandation
 
-**Traiter « film mousse PE » comme l'hypothèse de travail par défaut**, sans la présenter comme confirmée pour les entreprises québécoises. Ne pas utiliser `polymer foaming` comme proxy sans avertissement explicite de son calibrage polystyrène. Continuer à écarter `packaging film, LDPE` (film plat non alvéolé) et `polystyrene foam slab` (mousse rigide XPS) comme non pertinents pour une mousse PE souple. Obtenir en priorité une fiche technique ou un échantillon auprès de l'atelier/fournisseur avant toute intégration dans un modèle.
+**Le matériau est identifié (film/mousse PE) ; obtenir maintenant une fiche technique ou un échantillon du rouleau réellement utilisé** pour ses caractéristiques physiques et son fournisseur réel — aucun des fabricants/distributeurs déjà repérés (S.E.D Emballage, Protac, Colorel) n'est confirmé comme étant ce fournisseur. Ne pas utiliser `polymer foaming` comme proxy sans avertissement explicite de son calibrage polystyrène. Continuer à écarter `packaging film, LDPE` (film plat non alvéolé) et `polystyrene foam slab` (mousse rigide XPS) comme non pertinents pour une mousse PE souple.
 
 #### Source du diagnostic
 

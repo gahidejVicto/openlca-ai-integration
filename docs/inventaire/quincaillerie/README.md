@@ -11,8 +11,15 @@ et le [README du répertoire panneaux](../panneaux/README.md) (statuts
 
 | Fichier | Rôle |
 |---|---|
-| [`coulisse-langevin-forest.md`](coulisse-langevin-forest.md) | Coulisse de tiroir générique sans marque identifiable, distribuée par Langevin Forest (Montréal, QC). |
-| [`coulisse-blum-movento.md`](coulisse-blum-movento.md) | Coulisse invisible Blum MOVENTO (référence `760H4000S`, 40 kg), disponible via Richelieu Hardware. |
+| [`coulisse-accuride-3832ec.md`](coulisse-accuride-3832ec.md) | **Archétype A — référence ACV principale (coulisse latérale).** Accuride 3832EC 16 po (`3832-C16EC` / SKU Richelieu `3832EC2G16`), roulement à billes, pleine extension, fermeture amortie Easy-Close. Remplace la fiche Langevin Forest ci-dessous. |
+| [`coulisse-blum-movento.md`](coulisse-blum-movento.md) | **Archétype B.** Coulisse invisible Blum MOVENTO (référence `760H4000S`, 40 kg), disponible via Richelieu Hardware. |
+| [`coulisse-langevin-forest.md`](coulisse-langevin-forest.md) | **Cas exploratoire antérieur, remplacé.** Coulisse de tiroir générique sans marque identifiable, distribuée par Langevin Forest (Montréal, QC) — conservée pour traçabilité méthodologique, plus utilisée comme référence ACV active. |
+
+> [!NOTE]
+> Les archétypes A (Accuride, latérale) et B (Blum, invisible) sont deux
+> architectures fonctionnelles différentes, toutes deux réellement
+> commercialisées avec une documentation fabricant exploitable. Aucune
+> n'est présentée comme supérieure à l'autre.
 
 > [!IMPORTANT]
 > Une fiche fabricant/distributeur ne constitue pas une preuve de

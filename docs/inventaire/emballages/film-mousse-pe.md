@@ -1,13 +1,43 @@
-# Film mousse de polyéthylène en rouleau — matériau d'emballage blanc (hypothèse)
+# Film mousse de polyéthylène en rouleau — matériau d'emballage blanc
 
 > [!IMPORTANT]
-> **Statut de la fiche : recherche documentaire publique, 2026-09-22.**
-> Cette fiche complète l'hypothèse d'identification posée dans le
-> [diagnostic Ecoinvent](../../diagnostic/RECQ36_diagnostic_ecoinvent_openLCA.md#passe-complémentaire--2026-09-22) :
-> le matériau blanc en rouleau décrit par Nicolas est très probablement un
-> **film mousse de polyéthylène**. **Ceci reste une hypothèse non confirmée
-> pour les entreprises québécoises concernées** — aucun échantillon ni fiche
-> produit d'un client RECQ36 n'a été obtenu.
+> **VALIDATION MÉTIER — Nicolas a confirmé le 2026-09-22 que le matériau
+> blanc en rouleau observé pour l'emballage/protection du mobilier
+> correspond bien au film/mousse de polyéthylène (PE) identifié pendant le
+> diagnostic.** Ceci est une validation métier RECQ36, **pas une donnée
+> fabricant** — elle confirme la nature du matériau, pas l'identité d'un
+> fournisseur ni les caractéristiques physiques précises du produit
+> réellement utilisé. L'identification n'est plus présentée comme une
+> hypothèse : voir section 0 pour le nouveau statut et la question
+> désormais à résoudre.
+
+## 0. Statut mis à jour (relecture RECQ36, 2026-09-22)
+
+| Type | Affirmation |
+|---|---|
+| **VALIDATION MÉTIER** | Le matériau d'emballage blanc en rouleau du périmètre RECQ36 est bien un film/mousse de polyéthylène (PE) — confirmé par Nicolas le 2026-09-22. |
+| **FAIT SOURCÉ (Ecoinvent, inchangé)** | Aucun dataset fonctionnel satisfaisant représentant directement la mousse PE d'emballage n'a été identifié dans Ecoinvent 3.11 (voir [diagnostic Ecoinvent](../../diagnostic/RECQ36_diagnostic_ecoinvent_openLCA.md#passe-complémentaire--2026-09-22), conclusion **non rouverte** dans cette passe). |
+| **NON TROUVÉ** | Épaisseur, densité, masse surfacique/linéique, largeur, type de PE exact (LDPE/autre), structure cellulaire (fermée/ouverte), procédé de moussage, taux d'expansion, contenu recyclé, fabricant/fournisseur réel, origine de fabrication — **du produit réellement utilisé par les entreprises RECQ36**. |
+
+> [!CAUTION]
+> **La validation métier ne change pas la conclusion Ecoinvent.** Le
+> PE-LD vierge (`market for polyethylene, low density, granulate`) reste
+> une brique matière possible ; le procédé générique `polymer foaming`
+> examiné précédemment **ne doit pas devenir automatiquement le proxy de
+> production de cette mousse** — sa description Ecoinvent elle-même
+> l'oriente vers d'autres plastiques expansés, notamment le polystyrène
+> (agent gonflant pentane, typique du moussage de perles de polystyrène
+> expansible). Cette réserve est conservée telle quelle ; aucune recherche
+> Ecoinvent supplémentaire n'a été menée dans cette passe.
+
+**La question a changé.** Il ne s'agit plus de « Quel est ce matériau ? »
+(résolu par la validation métier) mais de :
+
+> **Quelles sont les caractéristiques physiques et de production du
+> film/mousse PE réellement utilisé par les entreprises RECQ36 ?**
+
+Voir la section 5 mise à jour pour la liste complète des données encore
+nécessaires.
 
 ## 1. Produit de comparaison fourni par la mission
 
@@ -30,11 +60,13 @@
 
 > [!CAUTION]
 > **Ce produit reste un produit de comparaison commercial, pas une preuve
-> que les ateliers RECQ36 utilisent ce produit ou un équivalent français.**
-> Son intérêt principal est de confirmer la plage physique plausible
-> (épaisseurs 1-8 mm, ce qui correspond exactement à la description de
-> Nicolas) — pas de fournir des données techniques exploitables (densité,
-> grammage et procédé absents de sa fiche produit).
+> qu'un atelier RECQ36 utilise ce produit français ou un équivalent
+> identique.** La nature du matériau (film/mousse PE) est désormais
+> confirmée par validation métier (section 0) — ce produit S.E.D Emballage
+> reste utile pour situer une plage physique plausible (épaisseurs 1-8 mm)
+> mais ne fournit toujours pas de données techniques exploitables
+> (densité, grammage et procédé absents de sa fiche produit) pour le
+> produit réellement utilisé.
 
 ## 2. Fabricants et distributeurs québécois/canadiens identifiés (recherche complémentaire)
 
@@ -102,11 +134,14 @@ confirmation**, mais utile comme ordre de grandeur documenté.
 > pour une mousse PE fermée en général**, pas comme la densité du produit
 > réellement utilisé en atelier RECQ36, dont la densité reste inconnue.
 
-## 3. Synthèse — le produit permet-il une caractérisation suffisante ?
+## 3. Synthèse — la nature du matériau est confirmée ; la caractérisation physique ne l'est pas
 
-**Non, pas à lui seul.** Le produit de comparaison (S.E.D Emballage, France)
-confirme la plausibilité de la plage dimensionnelle (épaisseurs 1-8 mm,
-couleur blanche, souplesse) mais ne fournit :
+**La question d'identification est résolue (VALIDATION MÉTIER, section 0).**
+Ce qui reste à établir n'est plus la nature du matériau mais ses
+caractéristiques physiques et de production réelles. Le produit de
+comparaison (S.E.D Emballage, France) confirme la plausibilité de la plage
+dimensionnelle (épaisseurs 1-8 mm, couleur blanche, souplesse) mais ne
+fournit :
 - ni densité,
 - ni grammage,
 - ni type de PE (LDPE/HDPE),
@@ -114,37 +149,63 @@ couleur blanche, souplesse) mais ne fournit :
 - ni agent gonflant,
 - ni fiche technique.
 
-La recherche complémentaire apporte des éléments utiles mais dispersés :
-un **fabricant québécois réel** existe pour ce type de produit (Protac),
-un **usage meuble à 1/8″ est documenté par un distributeur québécois**
-(Colorel), et un **ordre de grandeur de densité réel** existe pour une
-mousse PE canadienne comparable mais non identique (Jacobs & Thompson,
-28,8-35,2 kg/m³). **Aucune de ces sources ne confirme la fiche technique du
-produit précis utilisé par une entreprise RECQ36.**
+La recherche complémentaire apporte des éléments utiles mais dispersés, et
+**aucun de ces fabricants/distributeurs n'est confirmé comme fournissant le
+produit effectivement utilisé par les entreprises RECQ36** :
+- **Les Industries Protac inc.** (Saint-Célestin, QC) : fabricant québécois
+  réel de mousse PE (extrudée et réticulée), mais aucune fiche technique
+  d'un grade d'emballage précis obtenue — **candidat plausible, pas
+  confirmé**.
+- **Colorel** (Montréal, QC) : distributeur documentant explicitement un
+  usage meuble à 1/8″ (≈3,2 mm) — **usage cohérent, pas une preuve de
+  fournisseur**.
+- **Jacobs & Thompson Inc.** (Ontario) : fournit un ordre de grandeur de
+  densité réel pour une mousse PE fermée comparable (28,8-35,2 kg/m³) mais
+  pour un grade destiné à la toiture/au rembourrage, **pas à l'emballage —
+  non attribuable au produit RECQ36**.
 
 ## 4. Conclusion pour la reconstruction ACV
 
-**Données actuellement insuffisantes pour une reconstruction ACV fiable.**
-L'hypothèse d'identification (film mousse PE) est renforcée par cette
-recherche (plage dimensionnelle cohérente, usage meuble documenté chez un
-distributeur québécois, existence d'un fabricant québécois du même type de
-produit), mais aucune donnée quantitative (densité, grammage, type de PE)
-n'est confirmée pour le produit réellement utilisé. Rappel du constat
-Ecoinvent : même si l'hypothèse était confirmée, aucun procédé de moussage
-PE n'existe dans Ecoinvent 3.11 (le seul procédé générique disponible,
-`polymer foaming`, est documenté par Ecoinvent lui-même comme calibré pour
-le polystyrène).
+**Données actuellement insuffisantes pour une reconstruction ACV fiable —
+mais le blocage a changé de nature.** L'identification du matériau (film
+mousse PE) est désormais un fait métier établi, pas une hypothèse à
+vérifier. Le blocage restant est entièrement une question de **données
+physiques et de fournisseur** pour le produit réellement utilisé (aucune
+donnée quantitative — densité, grammage, type de PE exact — n'est confirmée
+pour ce produit précis). Rappel du constat Ecoinvent, **non affecté par la
+validation métier et non réexaminé dans cette passe** : aucun procédé de
+moussage PE n'existe dans Ecoinvent 3.11 ; le seul procédé générique
+disponible, `polymer foaming`, est documenté par Ecoinvent lui-même comme
+calibré pour le polystyrène et ne doit pas devenir automatiquement le
+proxy de production de cette mousse.
 
 ## 5. Données prioritaires à demander (aux entreprises RECQ36 concernées)
 
-1. Fiche technique ou échantillon du rouleau réellement utilisé (nom
-   commercial, fournisseur).
-2. Épaisseur et largeur réellement utilisées.
-3. Type de PE (LDPE/HDPE) et densité, si disponibles auprès du fournisseur
-   réel.
-4. Confirmation du fournisseur : s'agit-il de Protac, d'un distributeur
-   comme Colorel/Gilco/Boucard/Arteau revendant un produit tiers (p. ex.
-   Ivex), ou d'un autre fournisseur non identifié dans cette recherche ?
+**La question n'est plus l'identité du matériau, mais ses caractéristiques
+physiques et de production.** Données encore nécessaires pour une
+reconstruction :
+
+1. Épaisseur réellement utilisée (parmi la plage 1-8 mm observée
+   commercialement, ou une valeur précise si connue).
+2. Densité du film/mousse.
+3. Masse surfacique (g/m²) ou masse par longueur de rouleau.
+4. Largeur du rouleau réellement utilisée.
+5. Masse et longueur d'un rouleau, si disponibles auprès du fournisseur.
+6. Type de PE exact si connu (PE-LD, PE-HD, autre).
+7. Structure : mousse à cellules fermées ou ouvertes, si documentée.
+8. Procédé de moussage (extrusion, réticulation, autre) si documenté.
+9. Taux d'expansion, si documenté.
+10. Contenu recyclé éventuel.
+11. Fabricant/fournisseur réel du produit utilisé en atelier — **aucun des
+    fabricants/distributeurs déjà identifiés (S.E.D Emballage, Protac,
+    Colorel, Jacobs & Thompson) n'est confirmé comme étant ce fournisseur** ;
+    ils sont conservés uniquement avec leur niveau de preuve réel respectif
+    (comparaison commerciale, candidat plausible, usage documenté, ou ordre
+    de grandeur non attribuable).
+12. Origine de fabrication du produit réellement utilisé.
+
+Un échantillon ou une fiche technique du rouleau réellement utilisé en
+atelier reste la voie la plus directe pour obtenir ces données.
 
 ## 6. Sources documentaires
 
@@ -199,12 +260,15 @@ le polystyrène).
 | 2026-09-22 | Analyse du produit de comparaison fourni | Confirmé français (S.E.D Emballage), peu documenté techniquement |
 | 2026-09-22 | Recherche de fabricants/distributeurs québécois équivalents | Protac (fabricant QC) et plusieurs distributeurs (Colorel, Gilco) identifiés |
 | 2026-09-22 | Recherche d'une fiche technique de densité réelle | Fiche Jacobs & Thompson (Ontario) trouvée — ordre de grandeur, pas une preuve pour le produit RECQ36 |
+| 2026-09-22 (relecture) | Validation métier reçue de Nicolas | Identification « film/mousse PE » confirmée comme fait métier établi, plus une hypothèse ; question reformulée vers les caractéristiques physiques/production |
 
 ---
 
 ## Statut de la fiche
 
-**Recherche documentaire terminée.** Le produit de comparaison ne permet
-pas, à lui seul, une caractérisation suffisante pour une reconstruction ACV.
-Blocage principal inchangé depuis le diagnostic Ecoinvent : confirmation
-fournisseur nécessaire auprès des entreprises RECQ36 concernées.
+**Identification confirmée par validation métier (Nicolas, 2026-09-22).**
+Le blocage restant n'est plus l'identité du matériau mais ses
+caractéristiques physiques et son fournisseur réel — confirmation
+fournisseur et fiche technique/échantillon toujours nécessaires auprès des
+entreprises RECQ36 concernées. La conclusion Ecoinvent (aucun dataset
+fonctionnel, réserve sur `polymer foaming`) reste inchangée.

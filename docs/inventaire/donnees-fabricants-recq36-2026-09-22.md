@@ -39,12 +39,39 @@
 > **Aucune recherche OpenLCA/Ecoinvent n'a été relancée dans cette
 > relecture ; aucune reconstruction ACV quantitative n'a été entamée.**
 
+> [!CAUTION]
+> **Deuxième passe de relecture (même jour, 2026-09-22) — deux nouveaux
+> points :**
+> 1. **CAS 6 (emballage PE) — identification confirmée par VALIDATION
+>    MÉTIER.** Nicolas a confirmé que le matériau blanc en rouleau
+>    correspond bien au film/mousse PE identifié pendant le diagnostic.
+>    Ce n'est plus une hypothèse. La question ouverte porte désormais sur
+>    les caractéristiques physiques et de production du produit réellement
+>    utilisé. Voir [`emballages/film-mousse-pe.md`](../inventaire/emballages/film-mousse-pe.md).
+> 2. **CAS 1 (coulisse latérale) — remplacement de référence.** La coulisse
+>    Langevin Forest (sans marque identifiable) est remplacée comme
+>    référence ACV principale par l'**Accuride 3832EC 16 po**
+>    (`3832-C16EC` / SKU Richelieu `3832EC2G16`), nettement mieux
+>    documentée. Elle forme désormais l'**archétype A** (coulisse latérale
+>    à roulement à billes), aux côtés du Blum MOVENTO — **archétype B**
+>    (coulisse invisible). Voir
+>    [`quincaillerie/coulisse-accuride-3832ec.md`](../inventaire/quincaillerie/coulisse-accuride-3832ec.md).
+>
+> **Aucune recherche OpenLCA/Ecoinvent relancée ; aucune reconstruction ACV
+> quantitative entamée dans cette deuxième relecture.**
+
 ## Objectif et méthode
 
-Six cas ont été traités : deux coulisses de tiroir, deux adhésifs, une
-recherche exploratoire de bande de chant (2-4 candidats, sans choix imposé),
-et un complément de recherche sur le matériau d'emballage blanc en rouleau
-(hypothèse « film mousse PE » posée dans la passe Ecoinvent précédente).
+Six cas ont été traités initialement : deux coulisses de tiroir, deux
+adhésifs, une recherche exploratoire de bande de chant (2-4 candidats, sans
+choix imposé), et un complément de recherche sur le matériau d'emballage
+blanc en rouleau (hypothèse « film mousse PE » posée dans la passe
+Ecoinvent précédente). **Deux passes de relecture ultérieures (même jour)
+ont depuis fait évoluer plusieurs de ces cas** — voir les encadrés en tête
+de document : la bande de chant PE existe bien commercialement, la chimie
+du Royale 404 est confirmée, l'identification de l'emballage PE est
+validée par Nicolas, et la coulisse Langevin Forest est remplacée par
+l'Accuride 3832EC.
 
 **Règles de preuve appliquées** (voir aussi
 [`docs/sources/README.md`](../sources/README.md)) :
@@ -62,8 +89,9 @@ et un complément de recherche sur le matériau d'emballage blanc en rouleau
 
 | Cas | Produit | Fiche |
 |---|---|---|
-| 1 | Coulisse latérale standard — Langevin Forest (sans marque) | [`quincaillerie/coulisse-langevin-forest.md`](../inventaire/quincaillerie/coulisse-langevin-forest.md) |
-| 2 | Coulisse invisible — Blum MOVENTO (`760H4000S`) | [`quincaillerie/coulisse-blum-movento.md`](../inventaire/quincaillerie/coulisse-blum-movento.md) |
+| 1 | Coulisse latérale — **Accuride 3832EC 16 po** (`3832-C16EC`), archétype A — remplace Langevin Forest | [`quincaillerie/coulisse-accuride-3832ec.md`](../inventaire/quincaillerie/coulisse-accuride-3832ec.md) |
+| 2 | Coulisse invisible — Blum MOVENTO (`760H4000S`), archétype B | [`quincaillerie/coulisse-blum-movento.md`](../inventaire/quincaillerie/coulisse-blum-movento.md) |
+| *(historique)* | Coulisse latérale standard — Langevin Forest (sans marque), cas exploratoire remplacé | [`quincaillerie/coulisse-langevin-forest.md`](../inventaire/quincaillerie/coulisse-langevin-forest.md) |
 | 3 | Colle contact à l'eau — 3M Fastbond 30-NF | [`adhesifs/3m-fastbond-30nf.md`](../inventaire/adhesifs/3m-fastbond-30nf.md) |
 | 4 | Colle blanche à bois — Royale 404 (Abradhésif) — **chimie PVAc confirmée à la relecture** | [`adhesifs/royale-404-abradhesif.md`](../inventaire/adhesifs/royale-404-abradhesif.md) |
 | 5a | Bande de chant bois véritable — Merisier blanc (Cedan/Richelieu) | [`bandes-de-chant/merisier-blanc-cedan.md`](../inventaire/bandes-de-chant/merisier-blanc-cedan.md) |
@@ -71,13 +99,13 @@ et un complément de recherche sur le matériau d'emballage blanc en rouleau
 | 5c | Bande de chant PVC — Gris foncé #100 (Richelieu) | [`bandes-de-chant/gris-fonce-100-pvc.md`](../inventaire/bandes-de-chant/gris-fonce-100-pvc.md) |
 | 5d | Bande de chant PE — un produit commercial existe (Naber), fonction non confirmée pour RECQ36 | [`bandes-de-chant/pe-recherche-negative-2026-09-22.md`](../inventaire/bandes-de-chant/pe-recherche-negative-2026-09-22.md) |
 | *(historique)* | Recherche exploratoire initiale (4 candidats OEM, supersédée) | [`plastiques/bande-de-chant-candidats.md`](../inventaire/plastiques/bande-de-chant-candidats.md) |
-| 6 | Film mousse PE d'emballage (hypothèse) | [`emballages/film-mousse-pe.md`](../inventaire/emballages/film-mousse-pe.md) |
+| 6 | Film mousse PE d'emballage — **identification confirmée par validation métier Nicolas** | [`emballages/film-mousse-pe.md`](../inventaire/emballages/film-mousse-pe.md) |
 
 ## Tableau de synthèse
 
 | Famille | Produit | Référence | Source principale | Masse | Matière/composition | Données de fabrication | Données manquantes | Qualité documentaire |
 |---|---|---|---|---|---|---|---|---|
-| Quincaillerie | Coulisse latérale std. | `706-2605400` (16″) | Langevin Forest (distributeur) | ❓ Non trouvée | ❓ Non précisée (fabricant/OEM non identifié) | Capacité 75 lb @18″ ; mécanisme soft-close breveté non détaillé | Masse, matériaux, revêtement, pays de fabrication, fabricant réel | ❌ Faible |
+| Quincaillerie | Coulisse latérale — Accuride 3832EC (archétype A, remplace Langevin Forest) | `3832-C16EC` (fabricant) / `3832EC2G16` (SKU Richelieu) | Accuride International Inc. — brochure technique officielle lue intégralement | ⚠️ **1361 g**, distributeur (IR Cabinet Supply) — inclut probablement visserie + emballage ; aucune masse officielle Accuride publiée | ✅ Rails et retenues de billes : acier laminé à froid ; roulements : acier cémenté/acétal ; fini zinc/« clear electroplate » | ✅ Longueur 15,75″/400 mm, capacité 100 lb/45 kg par paire (méthode d'essai précisée), RoHS confirmé, brevet US 5 980 007 | Masse fiable des rails seuls, pays/usine de fabrication précis, EPD | ✅ Élevée (nettement supérieure à Langevin Forest) |
 | Quincaillerie | Coulisse invisible Blum MOVENTO | `760H4000S` (400 mm, 40 kg) — **écart de numérotation avec `760H4001S` non résolu** | Blum (2 documents officiels distincts) / Richelieu Hardware | ✅ **2,08045 kg/paire** (FAIT SOURCÉ + CALCUL) ; ≈1,04 kg/coulisse (INFÉRENCE) | ✅ Acier zingué ; rouleaux synthétiques (nature exacte non précisée) | Longueur, classe de charge, finition confirmées ; mécanisme BLUMOTION confirmé, composition interne non détaillée | Résolution de l'écart de numérotation ; confirmation « Set = paire » ; usine de fabrication ; EPD | ✅ Élevée (masse trouvée), ⚠️ écart de référence à clarifier |
 | Adhésifs | Colle contact à l'eau — 3M Fastbond 30-NF | Produit unique, plusieurs formats | 3M Canada — FDS canadienne (fabricant) | Non applicable (produit liquide) | ✅ Néoprène (20-40 %) + eau (40-60 %) + résines (5-10 % chacune) + fractions mineures partiellement secrètes | ✅ Densité 1,1 g/cm³ ; solides ≈50 % ; COV ≤80 g/L ; rendement 3,0-3,5 g/pi²/surface | Fractions exactes de 3 composants (secret commercial), site de fabrication précis, EPD | ✅ Élevée |
 | Adhésifs | Colle blanche — Royale 404 | Royale 404 | Abradhésif inc. — **FDS + fiche technique papier fournies par Jérôme (2026-09-22)** | Non applicable (produit liquide) ; densité **1,06 (FDS) / 1,1 kg/L (fiche technique)**, non fusionnées | ✅ **PVAc confirmé** (« acétate polyvinylique en émulsion » / « acétate de polyvinyle ») ; taux de solides 51 %±1 % ; formulation détaillée confidentielle | ✅ pH 4,75±0,25 ; COV 1,4 g/L ; viscosité 5500±500 (unité non précisée) ; bilan massique calculé (≈0,51 kg solides/kg, ≈0,561 kg solides/L) | Composition détaillée de la fraction solide, additifs, répartition exacte eau/non-solide, procédé de fabrication | ✅ Élevée (documents primaires obtenus) |
@@ -85,14 +113,29 @@ et un complément de recherche sur le matériau d'emballage blanc en rouleau
 | Bande de chant | Polyester — Érable Hardrock #992 | Richelieu, SKU `P992234250` | Richelieu (fabricant réel non nommé) | ❓ Non trouvée | ⚠️ « Polyester », construction « 2 plis » confirmée mais nature exacte de chaque pli non détaillée | Largeur, fini, support (préencollé), format d'emballage confirmés ; **épaisseur absente de la fiche technique elle-même** | Épaisseur, masse, construction exacte des 2 plis, fabricant réel | ❌ Faible (le moins documenté des 3 candidats plastiques/composites) |
 | Bande de chant | PVC — Gris foncé #100 | Richelieu, SKU `T1001822` | Richelieu (fabricant réel/OEM non nommé) | ❓ Non trouvée | ✅ PVC confirmé ; plastifiants/additifs non documentés | Épaisseur (0,018 po), largeur, longueur de rouleau (1200 pi) confirmées — le mieux documenté des 3 pour les dimensions de base | Fabricant réel, masse, densité, plastifiants | ⚠️ Moyenne (dimensions confirmées, composition/masse absentes) |
 | Bande de chant | PE — **existence commerciale confirmée, fonction non confirmée pour RECQ36** | Naber, réf. `1112007` (fabricant réel déclaré : Stauffer Schallschutz + Akustik) | Naber (page produit + fiche PDF officielle) | Non publiée (densité volumique 33 kg/m³ publiée) | ✅ Mousse de polyéthylène à cellules fermées, 33 kg/m³ | Dimensions (4×50 mm, rouleau 20 m), autocollante, fonction déclarée : espacement/insonorisation de plan de travail — **pas une fonction décorative de panneau** | Correspondance fonctionnelle avec l'usage métier RECQ36 (clarification Nicolas nécessaire) | ✅ Élevée pour le produit Naber lui-même ; ⚠️ correspondance métier non établie |
-| Emballage | Film mousse PE (hypothèse) | Comparaison : rouleau S.E.D Emballage (France) | S.E.D Emballage (distributeur français, hors QC/Canada) | ❓ Non publiée | ❓ Type de PE non précisé ; densité non publiée | Épaisseurs 1-8 mm, largeurs/longueurs confirmées ; procédé non documenté | Type de PE, densité, grammage, procédé, fournisseur réel des entreprises RECQ36 | ❌ Faible (produit de comparaison) ; ⚠️ moyenne pour les pistes québécoises complémentaires (Protac, Colorel) |
+| Emballage | Film mousse PE — **identification confirmée par validation métier** | Comparaison : rouleau S.E.D Emballage (France) | VALIDATION MÉTIER (Nicolas, 2026-09-22) pour l'identification ; S.E.D Emballage (distributeur français, hors QC/Canada) pour la plage physique | ❓ Non publiée | ✅ Film/mousse PE — nature confirmée métier ; type de PE exact non précisé ; densité non publiée | Épaisseurs 1-8 mm, largeurs/longueurs confirmées (produit de comparaison) ; procédé non documenté | Caractéristiques physiques (épaisseur, densité, masse surfacique), type de PE, procédé, fournisseur réel des entreprises RECQ36 | ✅ Élevée pour l'identification (validation métier) ; ❌ Faible pour les caractéristiques physiques |
 
 ## 1. Résultats par cas
 
-### CAS 1 — Coulisse latérale standard (Langevin Forest)
-Produit **sans marque identifiable**. Aucune donnée physique (masse,
-matériaux, revêtement) trouvée publiquement. Blocage complet : identité du
-fabricant/OEM inconnue.
+### CAS 1 — Coulisse latérale (mis à jour, 2e relecture 2026-09-22) : Accuride 3832EC remplace Langevin Forest
+La coulisse Langevin Forest (sans marque identifiable, blocage complet sur
+l'identité du fabricant/OEM) **n'est plus la référence ACV principale**.
+Elle est remplacée par l'**Accuride 3832EC 16 po**, coulisse latérale à
+roulement à billes, pleine extension, fermeture amortie (Easy-Close).
+**Correspondance établie :** SKU Richelieu `3832EC2G16` ↔ référence
+fabricant `3832-C16EC` (confirmée dans le tableau d'ordonnancement officiel
+Accuride, par concordance technique — aucune table de correspondance
+publiée SKU-à-SKU trouvée). Matériaux bien documentés (rails et retenues
+de billes en acier laminé à froid, roulements en acier cémenté avec cage
+acétal), finition confirmée (zinc/« clear electroplate »), géométrie
+complète, RoHS confirmé. **Masse :** aucun document officiel Accuride ne
+publie de masse ; une valeur distributeur (1361 g, IR Cabinet Supply)
+existe mais inclut probablement la visserie et l'emballage — présentée
+comme telle, pas comme la masse des rails seuls. Voir
+[`quincaillerie/coulisse-accuride-3832ec.md`](../inventaire/quincaillerie/coulisse-accuride-3832ec.md)
+pour le détail complet ; la fiche Langevin Forest est conservée pour
+traçabilité méthodologique dans
+[`quincaillerie/coulisse-langevin-forest.md`](../inventaire/quincaillerie/coulisse-langevin-forest.md).
 
 ### CAS 2 — Coulisse invisible (Blum MOVENTO) — mis à jour, passe corrective
 Référence `760H4000S` retenue (400 mm, 40 kg), disponible directement chez
@@ -168,16 +211,29 @@ est **remplacée** par quatre produits Richelieu explicitement choisis :
 Voir [`bandes-de-chant/README.md`](../inventaire/bandes-de-chant/README.md)
 pour le détail complet des quatre fiches.
 
-### CAS 6 — Film mousse PE d'emballage (complément)
-Le produit de comparaison fourni (S.E.D Emballage) s'est révélé être une
-entreprise **française**, peu documentée techniquement (pas de densité, pas
-de type de PE précisé, pas de fiche technique). Une recherche complémentaire
-a identifié un **fabricant québécois réel de mousse PE** (Les Industries
-Protac inc., Saint-Célestin, QC) et un usage meuble documenté par un
-distributeur québécois (Colorel, épaisseur 1/8″ pour meubles). Une fiche
-technique réelle d'une mousse PE canadienne (Jacobs & Thompson, Ontario)
-donne un ordre de grandeur de densité (28,8-35,2 kg/m³) — **non attribuable
-au produit RECQ36 sans confirmation**.
+### CAS 6 — Film mousse PE d'emballage — mis à jour, 2e relecture 2026-09-22 : identification confirmée
+**VALIDATION MÉTIER — Nicolas a confirmé le 2026-09-22 que le matériau
+blanc en rouleau observé pour l'emballage/protection du mobilier
+correspond bien au film/mousse PE identifié pendant le diagnostic.** Ce
+n'est plus une hypothèse à vérifier. La conclusion Ecoinvent est
+inchangée et n'a pas été réexaminée : aucun dataset fonctionnel
+satisfaisant n'existe dans Ecoinvent 3.11, le PE-LD vierge reste une
+brique matière possible, et le procédé générique `polymer foaming` ne doit
+pas devenir automatiquement le proxy de production (calibrage polystyrène
+documenté par Ecoinvent lui-même). Le produit de comparaison fourni (S.E.D
+Emballage) reste une entreprise **française**, peu documentée
+techniquement (pas de densité, pas de type de PE précisé, pas de fiche
+technique) — utile uniquement pour situer une plage physique plausible
+(1-8 mm). Les pistes complémentaires (Les Industries Protac inc.,
+Saint-Célestin QC ; Colorel, usage meuble à 1/8″ ; Jacobs & Thompson,
+Ontario, ordre de grandeur de densité 28,8-35,2 kg/m³) restent des
+candidats non confirmés — **aucun n'est établi comme le fournisseur réel
+des entreprises RECQ36**. La question a changé de nature : il ne s'agit
+plus d'identifier le matériau mais d'obtenir ses caractéristiques
+physiques et de production réelles (épaisseur, densité, masse surfacique,
+type de PE, structure cellulaire, procédé, fournisseur). Voir
+[`emballages/film-mousse-pe.md`](../inventaire/emballages/film-mousse-pe.md)
+pour le détail complet.
 
 ## 2. Sources utilisées (vue d'ensemble)
 
@@ -205,7 +261,7 @@ complet (URL, organisme, date de consultation 2026-09-22, page le cas
 
 | Cas | Donnée manquante bloquante |
 |---|---|
-| 1 | Identité du fabricant/OEM ; masse ; matériaux |
+| 1 | ~~Identité du fabricant/OEM (Langevin Forest)~~ **résolue par remplacement de référence (Accuride, relecture)** ; reste pour Accuride : masse fiable des rails seuls, pays/usine de fabrication précis |
 | 2 | ~~Masse par référence~~ **trouvée (passe corrective)** ; reste : résolution de l'écart `760H4000S`/`760H4001S` ; confirmation « Set = paire » |
 | 3 | Fractions exactes de 3 composants à secret commercial (mineur, non bloquant) |
 | 4 | ~~FDS/fiche technique dédiée au Royale 404~~ **obtenues (relecture, documents papier)** ; reste : composition détaillée de la fraction solide, additifs, procédé de fabrication |
@@ -213,7 +269,7 @@ complet (URL, organisme, date de consultation 2026-09-22, page le cas
 | 5b | Épaisseur, masse, construction exacte des 2 plis, fabricant réel de l'Érable Hardrock #992 |
 | 5c | Fabricant réel, masse, densité, plastifiants du Gris foncé #100 |
 | 5d | ~~Existence commerciale d'une bande PE~~ **confirmée (Naber 1112007, relecture)** ; reste : correspondance fonctionnelle avec l'usage métier RECQ36 — clarification Nicolas nécessaire |
-| 6 | Fournisseur réel des entreprises RECQ36 concernées ; densité et type de PE du produit réellement utilisé |
+| 6 | ~~Identité du matériau~~ **confirmée (validation métier Nicolas, relecture)** ; reste : épaisseur, densité, masse surfacique, type de PE exact, structure cellulaire, procédé, fournisseur réel des entreprises RECQ36 |
 
 ## 4. Produits de référence choisis pour la bande de chant (CAS 5, passe corrective)
 
@@ -227,6 +283,22 @@ relecture du 2026-09-22). Détail complet dans
 La recherche exploratoire initiale à 4 candidats OEM reste disponible comme
 contexte historique dans
 [`plastiques/bande-de-chant-candidats.md`](../inventaire/plastiques/bande-de-chant-candidats.md).
+
+## 4bis. Remplacement de référence pour la coulisse latérale (CAS 1, 2e relecture)
+
+La coulisse Langevin Forest (sans marque identifiable) est remplacée comme
+référence ACV principale par l'**Accuride 3832EC 16 po**. Deux archétypes
+de coulisse sont désormais retenus, sans hiérarchie entre eux :
+
+- **Archétype A — Accuride 3832EC 16 po** (coulisse latérale à roulement à
+  billes, pleine extension, fermeture amortie).
+- **Archétype B — Blum MOVENTO `760H4000S`** (coulisse invisible, système
+  BLUMOTION).
+
+Détail complet dans
+[`quincaillerie/coulisse-accuride-3832ec.md`](../inventaire/quincaillerie/coulisse-accuride-3832ec.md).
+La fiche Langevin Forest reste disponible comme cas exploratoire historique
+dans [`quincaillerie/coulisse-langevin-forest.md`](../inventaire/quincaillerie/coulisse-langevin-forest.md).
 
 ## 5. Produits pour lesquels les données sont désormais suffisantes pour envisager une reconstruction ACV
 
@@ -243,12 +315,22 @@ contexte historique dans
   primaires fabricant. Inconnues restantes : composition détaillée de la
   fraction solide, additifs, répartition exacte eau/non-solide, procédé de
   fabrication (voir la fiche pour le détail).
+- **CAS 1 — Accuride 3832EC** *(nouveau, 2e relecture)* : fabricant,
+  matériaux (acier laminé à froid, roulements acier cémenté/acétal),
+  finition, géométrie complète et RoHS confirmés par une brochure officielle
+  lue intégralement — nettement plus mûr que le cas Langevin Forest écarté.
+  Réserve : la seule masse disponible (distributeur) inclut probablement
+  visserie et emballage, pas la masse des rails seuls.
 
 ## 6. Produits pour lesquels un contact fabricant (ou une clarification métier) est nécessaire
 
-- **CAS 1 — Coulisse Langevin Forest** : blocage total, identité du
-  fabricant inconnue — contact avec le distributeur ou pesée physique
-  recommandés en priorité.
+- **CAS 1 — Accuride 3832EC** *(mis à jour, 2e relecture)* : demander à
+  Accuride ou à un distributeur la masse d'une paire de rails seuls (sans
+  visserie ni emballage), la confirmation de la référence fabricant exacte
+  correspondant au SKU Richelieu, et le pays/l'usine de fabrication précis.
+  *(La fiche Langevin Forest, remplacée, reste disponible pour mémoire si
+  ce produit redevenait pertinent — contact distributeur ou pesée physique
+  seraient alors nécessaires.)*
 - **CAS 2 — Blum MOVENTO** : contact Blum/Richelieu pour résoudre l'écart
   de numérotation et confirmer l'interprétation « Set = paire ».
 - **CAS 4 — Royale 404** *(réduit, relecture)* : chimie et propriétés
@@ -265,9 +347,12 @@ contexte historique dans
   utilisée en atelier (correspond-elle à un produit d'espacement/
   insonorisation type Naber, ou à un revêtement décoratif de chant ?) — pas
   une question d'existence commerciale, désormais tranchée.
-- **CAS 6 — Film mousse PE** : contact avec les entreprises RECQ36
-  concernées pour confirmer le fournisseur réel et obtenir une fiche
-  technique ou un échantillon.
+- **CAS 6 — Film mousse PE** *(identification désormais confirmée, 2e
+  relecture)* : la question n'est plus l'identité du matériau (validation
+  métier obtenue) mais ses caractéristiques physiques — contact avec les
+  entreprises RECQ36 concernées pour confirmer le fournisseur réel et
+  obtenir une fiche technique ou un échantillon (épaisseur, densité, masse
+  surfacique, type de PE, structure cellulaire, procédé).
 
 ## Journal de travail
 
@@ -279,11 +364,13 @@ contexte historique dans
 | 2026-09-22 (relecture) | Vérification de la référence Naber (bande de chant PE) fournie par Jérôme | Existence commerciale confirmée ; conclusion négative du CAS 5d corrigée ; fonction du produit identifiée comme distincte de l'usage décoratif de panneau |
 | 2026-09-22 (relecture) | Intégration de la FDS et de la fiche technique papier du Royale 404 fournies par Jérôme | Chimie PVAc confirmée ; propriétés physiques complètes obtenues ; écart de densité entre les deux documents documenté ; bilan massique calculé |
 | 2026-09-22 (relecture) | Retrait de Wikipédia comme élément de preuve | Appliqué dans la fiche PE ; note ajoutée dans cette synthèse |
+| 2026-09-22 (2e relecture) | Intégration de la validation métier de Nicolas pour l'emballage PE | Identification confirmée, question reformulée vers les caractéristiques physiques/production |
+| 2026-09-22 (2e relecture) | Recherche documentaire complète sur l'Accuride 3832EC 16 po et remplacement de la référence Langevin Forest | Fabricant, matériaux, finition, géométrie confirmés par brochure officielle ; masse trouvée chez un distributeur avec réserve (visserie/emballage probablement inclus) |
 
 ---
 
 ## Statut du document
 
-**Collecte initiale, passe corrective et relecture terminées.** Prêt pour
-revue. Aucune reconstruction ACV quantitative n'a été entamée dans cette
-relecture.
+**Collecte initiale, passe corrective, relecture et 2e relecture
+terminées.** Prêt pour revue. Aucune reconstruction ACV quantitative n'a
+été entamée.

@@ -14,6 +14,15 @@
 > preuve renforcée demandée pour cette passe (FAIT SOURCÉ / CALCUL / INFÉRENCE
 > / NON TROUVÉ).
 
+> [!NOTE]
+> **Positionnement (relecture 2026-09-22) :** ce produit constitue
+> l'**archétype B** (coulisse invisible, système premium BLUMOTION) d'un
+> couple de deux cas de coulisse retenus pour RECQ36, aux côtés de
+> l'**archétype A** — [Accuride 3832EC 16 po](coulisse-accuride-3832ec.md)
+> (coulisse latérale à roulement à billes) — qui remplace la coulisse
+> Langevin Forest précédemment explorée. Les deux architectures sont
+> complémentaires ; aucune n'est présentée comme supérieure à l'autre.
+
 ## 1. Identification
 
 | Champ | Information | Niveau | Statut | Source |

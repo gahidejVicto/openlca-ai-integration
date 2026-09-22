@@ -1,5 +1,18 @@
 # Coulisse de tiroir — Langevin Forest (marque non identifiée)
 
+> [!CAUTION]
+> **Cas exploratoire antérieur — remplacé comme référence ACV principale
+> par Accuride 3832EC 16 po en raison d'une meilleure traçabilité
+> fabricant (relecture RECQ36, 2026-09-22).** La recherche documentaire
+> menée sur ce produit n'a pas permis d'identifier l'OEM, la masse, la
+> composition ni une documentation fabricant exploitable (voir section 4
+> ci-dessous, conservée telle quelle). Voir
+> [`coulisse-accuride-3832ec.md`](coulisse-accuride-3832ec.md) pour la
+> nouvelle référence principale (archétype A — coulisse latérale à
+> roulement à billes), utilisée aux côtés du Blum MOVENTO `760H4000S`
+> (archétype B — coulisse invisible). **Cette fiche est conservée pour sa
+> valeur de traçabilité méthodologique**, pas comme cas de référence actif.
+
 > [!IMPORTANT]
 > **Statut de la fiche : recherche documentaire publique, 2026-09-22.**
 > Produit **sans marque identifiable** ("SansMarque / NoBrand" sur la fiche
@@ -103,6 +116,9 @@ sourcée tant que :
 
 ## Statut de la fiche
 
-**Recherche documentaire initiale terminée.** Blocage principal : absence
-d'identité fabricant/OEM publique. Contact direct avec le distributeur ou
-pesée physique recommandés avant toute reconstruction ACV.
+**Recherche documentaire initiale terminée. Cas exploratoire remplacé
+comme référence ACV principale (relecture 2026-09-22) par l'Accuride 3832EC
+16 po** — voir [`coulisse-accuride-3832ec.md`](coulisse-accuride-3832ec.md).
+Blocage principal inchangé pour ce produit précis : absence d'identité
+fabricant/OEM publique. Contact direct avec le distributeur ou pesée
+physique resteraient nécessaires si ce produit redevenait pertinent.

@@ -61,11 +61,12 @@ Ces recherches ont été effectuées par interrogation vérifiée du connecteur 
 - **Contreplaqué merisier/Baltic :** essence réelle, type de colle, origine géographique réelle du bois.
 - **Papier mélaminé en atelier :** grammage réellement utilisé (à comparer aux 302 g/m² documentés), confirmation simple face vs double face, paramètres de presse d'atelier.
 - **Bande de chant PE/ABS/PVC :** masse linéique (g/m), épaisseur, largeur, composition exacte (compound, charges/pigments).
-- **Charnière invisible, coulisse de tiroir :** nomenclature complète (masse totale, matériaux constitutifs et leurs parts, revêtement, nombre de pièces) — **bloquante**, aucune reconstruction bottom-up n'est possible sans elle.
-- **Coulisse de tiroir :** choix d'un **modèle fournisseur de référence unique** (documentation la plus détaillée disponible), conformément à la consigne de ne pas subdiviser par technologie/dimension.
+- **Charnière invisible :** nomenclature complète (masse totale, matériaux constitutifs et leurs parts, revêtement, nombre de pièces) — **bloquante**, aucune reconstruction bottom-up n'est possible sans elle.
+- **Coulisse de tiroir :** *(largement résolue, relecture 2026-09-22, voir ci-dessus)* — matériaux, finition et géométrie disponibles pour les deux archétypes retenus ; reste à préciser la masse fiable des rails seuls pour l'Accuride 3832EC et l'écart de numérotation `760H4000S`/`760H4001S` pour le Blum MOVENTO.
+- **Coulisse de tiroir :** ~~choix d'un modèle fournisseur de référence unique~~ — **résolu (relecture 2026-09-22)** : deux archétypes fonctionnels retenus, Accuride 3832EC 16 po (coulisse latérale, remplace la coulisse Langevin Forest précédemment explorée) et Blum MOVENTO `760H4000S` (coulisse invisible) — voir `docs/inventaire/quincaillerie/`.
 - **Poignée, pied réglable, French cleat :** matériau réel, masse, dimensions, procédé de fabrication.
-- **Colle contact, PVAc/PVA, EVA hot-melt, PUR :** formulation/composition réelle, teneur en solides, densité, consommation réelle.
-- **Matériau d'emballage blanc en rouleau :** confirmation ou infirmation, auprès des entreprises québécoises concernées, de l'hypothèse d'identification posée le 2026-09-22 (film mousse de polyéthylène) — bloquante, prioritaire sur toute nouvelle recherche Ecoinvent pour cet objet ; si confirmée, grammage/épaisseur et procédé de fabrication réel (extrusion, réticulation).
+- **Colle contact, PVAc/PVA, EVA hot-melt, PUR :** formulation/composition réelle, teneur en solides, densité, consommation réelle ; **PVAc désormais confirmé pour la Royale 404** (relecture 2026-09-22, voir `docs/inventaire/adhesifs/royale-404-abradhesif.md`) — reste ouvert pour la colle contact et les autres colles de cette liste.
+- **Matériau d'emballage blanc en rouleau :** l'identification (film mousse de polyéthylène) est **confirmée par validation métier de Nicolas (2026-09-22)** — reste bloquant : grammage/épaisseur, densité et procédé de fabrication réel (extrusion, réticulation) du produit effectivement utilisé, auprès des entreprises québécoises concernées.
 
 ---
 

@@ -238,7 +238,7 @@ Base rouverte et reconfirmée avant toute requête : `database_info` retourne à
 
 **Niveau de correspondance : ABSENT** (produit fonctionnel), avec une brique matière plausible mais aucun procédé de moussage adapté au PE disponible dans cette base.
 
-**Action recommandée :** confirmer l'hypothèse « film mousse PE » auprès des entreprises québécoises concernées (fiche technique ou échantillon) avant toute décision de modélisation. Ne pas utiliser `polymer foaming` sans avertissement explicite de son calibrage polystyrène documenté par Ecoinvent lui-même.
+**Action recommandée :** l'identification « film mousse PE » a été confirmée par validation métier de Nicolas le 2026-09-22 (voir [`inventaire/emballages/film-mousse-pe.md`](../inventaire/emballages/film-mousse-pe.md)) — reste à obtenir une fiche technique ou un échantillon du produit réellement utilisé avant toute décision de modélisation. Ne pas utiliser `polymer foaming` sans avertissement explicite de son calibrage polystyrène documenté par Ecoinvent lui-même.
 
 ### B. Procédé générique de polymérisation en émulsion (reconstruction PVAc) — clôture de la Priorité 1 de `prochaine-passe-openlca.md`
 
@@ -273,7 +273,7 @@ Base rouverte et reconfirmée avant toute requête : `database_info` retourne à
 | Taquet français | Aucun | — | Absent | — | Idem | N/A | Oui (simplifié) | Oui | ABSENT |
 | Vis à bois | Aucun | — | Absent (non approfondi, conforme consigne) | — | — | N/A | Oui (simplifié) | Non prioritaire | ABSENT |
 | Carton ondulé (boîte) | `market for corrugated board box` (`2424352b-…`) | **Canada, Québec** | **OK** | Kraftliner/testliner + fluting medium | Conforme, marché régional documenté | **Oui** — représentativité justifiée par la méthodologie même du dataset | Non | Non | OK |
-| Film/mousse d'emballage meuble (hypothèse : film mousse PE) | `polyethylene, low density, granulate` (`08d7cf9a-…`) matière + aucun procédé de moussage adapté | Global (matière) | Absent (mousse PE elle-même) | PE-LD vierge existe, pas la mousse | `polymer foaming` calibré polystyrène (pentane), pas PE | Non testée | Oui — confirmation fournisseur de l'hypothèse | Oui (matière + procédé, sous réserve) | ABSENT (2026-09-22, recherche exhaustive `foam`) |
+| Film/mousse d'emballage meuble (film mousse PE — identification confirmée par validation métier, 2026-09-22) | `polyethylene, low density, granulate` (`08d7cf9a-…`) matière + aucun procédé de moussage adapté | Global (matière) | Absent (mousse PE elle-même) | PE-LD vierge existe, pas la mousse | `polymer foaming` calibré polystyrène (pentane), pas PE | Non testée | Oui — caractéristiques physiques et fournisseur réel du produit | Oui (matière + procédé, sous réserve) | ABSENT (2026-09-22, recherche exhaustive `foam`) |
 
 Statuts utilisés : OK, ÉCART, À VÉRIFIER, ABSENT, RECONSTRUCTION, N/A — conformément à la légende demandée. Ces statuts ne sont ni un score carbone ni une métrique quantitative.
 
@@ -317,10 +317,10 @@ Tous les UUID cités ci-dessus ont été obtenus par requête directe (`search_p
 - Bande de chant : matière exacte (PE/PP/ABS/PVC), procédé (extrusion profilée).
 - Colles : formulation exacte (teneur en eau, % PVAc, additifs) pour colle blanche et colle contact.
 - Quincaillerie : masse par pièce et alliage pour charnières et coulisses en priorité ; ne pas surinvestir sur les vis.
-- Emballage meuble : **confirmation ou infirmation de l'hypothèse « film mousse PE »** (fiche technique ou échantillon du rouleau réellement utilisé) auprès des entreprises québécoises concernées — priorité désormais posée avant toute recherche Ecoinvent supplémentaire pour cet objet ; si confirmée, grammage/épaisseur et procédé de fabrication réel (extrusion, réticulation) pour juger de l'adéquation du procédé `polymer foaming`.
+- Emballage meuble : l'identification « film mousse PE » est **confirmée par validation métier de Nicolas (2026-09-22)** ; reste à obtenir une fiche technique ou un échantillon du rouleau réellement utilisé auprès des entreprises québécoises concernées — grammage/épaisseur et procédé de fabrication réel (extrusion, réticulation) pour juger de l'adéquation du procédé `polymer foaming`.
 
 ## 7. Recherches supplémentaires encore ouvertes
 - ~~Vérifier l'existence d'un procédé générique de polymérisation en émulsion (pour une éventuelle reconstruction PVAc) ailleurs dans la base~~ — **fermé le 2026-09-22** : n'existe que pour le PVC ; réponse négative documentée.
-- ~~Vérifier l'existence de mousses PE/PP souples alvéolées sous d'autres termes non testés (« foil », « wrap », « interleaving »), et d'un non-tissé~~ — **fermé le 2026-09-22** : ces termes et une recherche exhaustive sur `foam` seul (55 process/15 flow) ne retournent aucune mousse PE/PP ; le blocage restant est désormais uniquement une donnée fournisseur (confirmation de l'hypothèse « film mousse PE »).
+- ~~Vérifier l'existence de mousses PE/PP souples alvéolées sous d'autres termes non testés (« foil », « wrap », « interleaving »), et d'un non-tissé~~ — **fermé le 2026-09-22** : ces termes et une recherche exhaustive sur `foam` seul (55 process/15 flow) ne retournent aucune mousse PE/PP ; l'identification du matériau (film mousse PE) est désormais confirmée par validation métier de Nicolas — le blocage restant est une donnée fournisseur (caractéristiques physiques et fournisseur réel du produit).
 - Approfondir les procédés de formage métallique disponibles (emboutissage, extrusion d'aluminium) pour construire un proxy chiffré charnière/coulisse — **seulement après obtention des données fabricant**, pas avant. Toujours ouvert, non traité le 2026-09-22 conformément à la consigne de ne pas surinvestir sur la quincaillerie avant données fournisseur.
 - Éviter de multiplier les recherches Ecoinvent supplémentaires : pour la totalité des lacunes ouvertes ci-dessus, le véritable blocage est désormais une donnée fabricant/fournisseur, pas une recherche Ecoinvent restante.

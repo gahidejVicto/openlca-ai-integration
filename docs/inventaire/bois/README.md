@@ -13,7 +13,7 @@ Ce répertoire regroupe les fiches fabricant du bois massif du diagnostic RECQ36
 
 | Fichier | Périmètre |
 |---|---|
-| [`candidats-fournisseurs-bois-massif.md`](candidats-fournisseurs-bois-massif.md) | Liste **non figée** des candidats bois massif : C.A. Spencer, Scierie Leclerc et Tremblay, Ressources Lumber (feuille de route V0) et pistes proposées par Nicolas le 2026-09-28 (Bois Malo, BFRANC, Bois Poulin, « AMB » à identifier). Aucun candidat n'est validé : validation métier attendue avec Vincent. Statuts tenus dans le [registre transversal](../registre-fabricants-fournisseurs.md). |
+| [`candidats-fournisseurs-bois-massif.md`](candidats-fournisseurs-bois-massif.md) | Pistes de la réunion Nicolas du 2026-09-28 (Bois Malo, BFRANC, « AMB » : identités non résolues ; Bois Poulin normalisé en « Les Bois Poulin inc. »). La liste complète bois massif — y compris les entreprises citées par Vincent le 2026-09-30 et les candidats externes QWEB — est tenue dans le [registre transversal](../registre-fabricants-fournisseurs.md). Aucun candidat n'est validé métier. |
 
 > [!IMPORTANT]
 > **Correspondance Ecoinvent non établie à ce stade.** Une validation humaine est requise avant toute sélection de dataset ou de proxy.

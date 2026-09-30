@@ -20,7 +20,9 @@ Conventions de statut et de sourçage : voir le
 > et livrent réellement des meubles sur leur approvisionnement en matériaux
 > d'emballage, puis documenter les fournisseurs ainsi identifiés. Les
 > entreprises citées par la feuille de route V0 (ACorr, OnduCorr, Groupe
-> Induspac, Mitchel Lincoln) sont tenues comme **candidats non établis**
+> Induspac, Mitchel Lincoln Packaging) et par Vincent le 2026-09-30
+> (Corrupal, Les Cartons Corruguard, Emballages Cartier, Mitchel Lincoln
+> Packaging) sont tenues comme **candidats non établis**
 > dans le [registre transversal](../registre-fabricants-fournisseurs.md). Détail :
 > [`film-mousse-pe.md`, section 5.1](film-mousse-pe.md#51-méthode-didentification-du-fournisseur-réel-réunion-nicolas-2026-09-28).
 

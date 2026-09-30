@@ -234,8 +234,10 @@ Les fabricants/distributeurs de la section 2 (Protac, Colorel, Gilco,
 Jacobs & Thompson) restent des pistes de recherche documentaire ; ils ne
 deviennent pas fournisseurs réels sans confirmation par cette démarche.
 Il en va de même pour Groupe Induspac (mousse PE/PU/PSE), cité par la
-feuille de route V0 du 2026-09-22 et tenu comme candidat non établi dans le
-[registre des fabricants et fournisseurs](../registre-fabricants-fournisseurs.md).
+feuille de route V0 du 2026-09-22, et pour les fabricants d'emballage cités
+par Vincent le 2026-09-30 (Corrupal, Les Cartons Corruguard, Emballages
+Cartier, Mitchel Lincoln Packaging), tous tenus comme candidats non établis
+dans le [registre des fabricants et fournisseurs](../registre-fabricants-fournisseurs.md).
 
 ## 6. Sources documentaires
 

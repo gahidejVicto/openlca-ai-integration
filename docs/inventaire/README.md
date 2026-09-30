@@ -13,12 +13,12 @@ Le [template réutilisable](../../research/templates/dataset-analysis.md) sert d
 
 ## Registre des fabricants et fournisseurs
 
-Le [registre transversal des fabricants et fournisseurs](registre-fabricants-fournisseurs.md) est la **source canonique** des entreprises citées dans la feuille de route de collecte étudiant(e) : statuts normalisés (rôle, statut documentaire, validation métier), provenance de chaque information et lien vers les fiches ci-dessous. Aucune entreprise n'y est validée métier ; la validation de la liste est attendue avec Vincent.
+Le [registre transversal des fabricants et fournisseurs](registre-fabricants-fournisseurs.md) est la **source canonique** des entreprises citées dans la feuille de route de collecte étudiant(e) : statuts normalisés (rôle, statut documentaire, statut métier), provenance de chaque information et lien vers les fiches ci-dessous. Il intègre la rencontre avec Vincent du 2026-09-30 (entreprises « citées par Vincent ») et le contrôle du répertoire QWEB (« candidats externes ») ; aucune entreprise n'y est « validée métier ».
 
 ## Passes de collecte documentaire
 
 - [Collecte de données fabricants — RECQ36 (2026-09-22)](donnees-fabricants-recq36-2026-09-22.md) — coulisses, adhésifs, bande de chant, film mousse PE.
-- [Candidats bois massif (réunion Nicolas 2026-09-28)](bois/candidats-fournisseurs-bois-massif.md) — pistes de Nicolas et TODO « AMB » ; statuts tenus dans le registre transversal.
+- [Candidats bois massif (réunion Nicolas 2026-09-28)](bois/candidats-fournisseurs-bois-massif.md) — pistes de Nicolas (identités non résolues, TODO « AMB ») ; liste et statuts tenus dans le registre transversal.
 
 ## Répertoires de fiches fabricant
 

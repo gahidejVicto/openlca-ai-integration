@@ -207,6 +207,33 @@ reconstruction :
 Un échantillon ou une fiche technique du rouleau réellement utilisé en
 atelier reste la voie la plus directe pour obtenir ces données.
 
+### 5.1 Méthode d'identification du fournisseur réel (réunion Nicolas, 2026-09-28)
+
+Recommandation de Nicolas : **ne pas chercher arbitrairement des fabricants
+d'emballage sur Internet**, mais remonter la chaîne d'approvisionnement
+réelle :
+
+1. Contacter 2 à 3 entreprises québécoises qui fabriquent, emballent et
+   livrent réellement des meubles.
+2. Leur demander où elles s'approvisionnent en matériaux d'emballage
+   (fournisseur, distributeur, référence produit si possible).
+3. Utiliser ces réponses pour identifier les fournisseurs réellement
+   présents dans la chaîne d'approvisionnement québécoise.
+4. Seulement ensuite, documenter les fabricants/fournisseurs correspondants
+   (fiche technique, FDS, EPD) selon la hiérarchie de preuve du projet.
+
+Entreprises utilisatrices évoquées en réunion (à interroger, **pas des
+fabricants d'emballage**) :
+
+| Entreprise | Statut |
+|---|---|
+| Oldwood | Entreprise utilisatrice potentielle à interroger — évoquée par Nicolas ; identité et rôle non vérifiés. |
+| Client de Saint-Jérôme | Nom mal retranscrit dans la réunion — **identité inconnue, à confirmer auprès de Nicolas**. |
+
+Les fabricants/distributeurs de la section 2 (Protac, Colorel, Gilco,
+Jacobs & Thompson) restent des pistes de recherche documentaire ; ils ne
+deviennent pas fournisseurs réels sans confirmation par cette démarche.
+
 ## 6. Sources documentaires
 
 ### S1 — S.E.D Emballage — Rouleau de film mousse
@@ -261,6 +288,7 @@ atelier reste la voie la plus directe pour obtenir ces données.
 | 2026-09-22 | Recherche de fabricants/distributeurs québécois équivalents | Protac (fabricant QC) et plusieurs distributeurs (Colorel, Gilco) identifiés |
 | 2026-09-22 | Recherche d'une fiche technique de densité réelle | Fiche Jacobs & Thompson (Ontario) trouvée — ordre de grandeur, pas une preuve pour le produit RECQ36 |
 | 2026-09-22 (relecture) | Validation métier reçue de Nicolas | Identification « film/mousse PE » confirmée comme fait métier établi, plus une hypothèse ; question reformulée vers les caractéristiques physiques/production |
+| 2026-09-28 | Réunion de suivi avec Nicolas | Méthode d'identification du fournisseur réel ajoutée (section 5.1) : interroger 2-3 entreprises utilisatrices québécoises avant toute documentation de fabricant |
 
 ---
 

@@ -14,6 +14,7 @@ Le [template réutilisable](../../research/templates/dataset-analysis.md) sert d
 ## Passes de collecte documentaire
 
 - [Collecte de données fabricants — RECQ36 (2026-09-22)](donnees-fabricants-recq36-2026-09-22.md) — coulisses, adhésifs, bande de chant, film mousse PE.
+- [Registre des candidats bois massif (réunion Nicolas 2026-09-28)](bois/candidats-fournisseurs-bois-massif.md) — liste non figée, validation métier attendue avec Vincent.
 
 ## Répertoires de fiches fabricant
 

@@ -11,10 +11,14 @@ Une fiche correspond normalement à :
 
 Le [template réutilisable](../../research/templates/dataset-analysis.md) sert de point de départ. La première fiche pilote porte sur le [contreplaqué CA-QC](panneaux/plywood-ca-qc.md).
 
+## Registre des fabricants et fournisseurs
+
+Le [registre transversal des fabricants et fournisseurs](registre-fabricants-fournisseurs.md) est la **source canonique** des entreprises citées dans la feuille de route de collecte étudiant(e) : statuts normalisés (rôle, statut documentaire, validation métier), provenance de chaque information et lien vers les fiches ci-dessous. Aucune entreprise n'y est validée métier ; la validation de la liste est attendue avec Vincent.
+
 ## Passes de collecte documentaire
 
 - [Collecte de données fabricants — RECQ36 (2026-09-22)](donnees-fabricants-recq36-2026-09-22.md) — coulisses, adhésifs, bande de chant, film mousse PE.
-- [Registre des candidats bois massif (réunion Nicolas 2026-09-28)](bois/candidats-fournisseurs-bois-massif.md) — liste non figée, validation métier attendue avec Vincent.
+- [Candidats bois massif (réunion Nicolas 2026-09-28)](bois/candidats-fournisseurs-bois-massif.md) — pistes de Nicolas et TODO « AMB » ; statuts tenus dans le registre transversal.
 
 ## Répertoires de fiches fabricant
 
